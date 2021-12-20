@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 const NextSitemapConfig = {
-  siteUrl: "https://daggy.tech",
+  siteUrl: "https://buddywhitman.vercel.app/",
   generateRobotsTxt: true,
 };
 
