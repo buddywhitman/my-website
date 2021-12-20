@@ -1,5 +1,4 @@
-# Daggy's Website
+# Pulkit's Website
 
 Made with [Template](https://github.com/sozonome/nextarter-chakra)
-
-idk
+and some help from [Daggy1234](https://github.com/Daggy1234/)
