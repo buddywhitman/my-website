@@ -65,7 +65,7 @@ const SomeText = () => {
         />
         <IconWrap
           router={router}
-          url="https://linkedin.com/desihippe"
+          url="https://www.linkedin.com/in/desihippe/"
           color="#0e76a8"
           icon={BsLinkedin}
         />
