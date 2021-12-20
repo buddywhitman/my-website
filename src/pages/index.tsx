@@ -270,6 +270,9 @@ const Home = () => {
                     <IconWrapper icon={FaPython} text="Python" />
                     <IconWrapper icon={SiJavascript} text="Javascript" />
                     <IconWrapper icon={SiTypescript} text="Typescript" />
+                    <IconWrapper icon={SiRust} text="Rust" />
+                    <IconWrapper icon={SiDeno} text="Deno" />
+                    <IconWrapper icon={SiSolidity} text="Solidity" />
                     <IconWrapper icon={SiGnubash} text="Bash" />
                   </Flex>
                 </Td>
@@ -280,6 +283,7 @@ const Home = () => {
                 <Td>
                   <Flex>
                     <IconWrapper icon={SiPostgresql} text="Postgresql" />
+                    <IconWrapper icon={SiRedis} text="Redis" />
                     <IconWrapper icon={SiMongodb} text="MongoDB" />
                     <IconWrapper icon={SiFirebase} text="Firebase DB" />
                   </Flex>
@@ -293,6 +297,7 @@ const Home = () => {
                     <IconWrapper icon={SiDocker} text="Docker" />
                     <IconWrapper icon={SiKubernetes} text="Kubernetes" />
                     <IconWrapper icon={SiGithubactions} text="Github Actions" />
+                    <IconWrapper icon={SiTravisci} text="Travis CI" />
                     <IconWrapper icon={SiLinux} text="Linux" />
                     <IconWrapper icon={SiGit} text="Git" />
                   </Flex>
@@ -304,6 +309,8 @@ const Home = () => {
                   <Flex>
                     <IconWrapper icon={SiStripe} text="Stripe" />
                     <IconWrapper icon={SiPaypal} text="Paypal" />
+                    <IconWrapper icon={SiGrafana} text="Grafana" />
+                    <IconWrapper icon={SiPrometheus} text="Prometheus" />
                     <IconWrapper icon={SiDatadog} text="Datadog" />
                   </Flex>
                 </Td>
@@ -317,6 +324,7 @@ const Home = () => {
                     <IconWrapper icon={SiVercel} text="Vercel" />
                     <IconWrapper icon={SiGooglecloud} text="Google Cloud" />
                     <IconWrapper icon={SiCloudflare} text="Cloudflare" />
+                    <IconWrapper icon={SiIbmwatson} text="IBM watson" />
                   </Flex>
                 </Td>
               </Tr>
@@ -352,7 +360,7 @@ const Home = () => {
               Contact Me
             </Text>
             <Text mt={3} fontSize={{ base: "sm", md: "md" }}>
-              View every way to reach out!
+              View all contact options
             </Text>
           </Heading>
         </Flex>
