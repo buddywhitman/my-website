@@ -51,33 +51,33 @@ const SomeText = () => {
       experimental_spaceY={3}
     >
       <Heading fontWeight="800" as="h2" fontSize={{ base: "5xl", md: "6xl" }}>
-        Arnav Jindal
+        Pulkit Kumar
       </Heading>
       <Heading opacity="0.7" as="h3" fontSize={{ base: "xl", md: "3xl" }}>
-        Student & Full-Stack Developer
+        Freelance Developer & Designer
       </Heading>
       <Flex marginX={{ base: "10%", sm: "30%", md: 0 }}>
         <IconWrap
           router={router}
-          url="https://twitter.com/evrybodyajr"
+          url="https://twitter.com/desihippe"
           color="#1DA1F2"
           icon={BsTwitter}
         />
         <IconWrap
           router={router}
-          url="https://linkedin.com"
+          url="https://linkedin.com/desihippe"
           color="#0e76a8"
           icon={BsLinkedin}
         />
         <IconWrap
           router={router}
-          url="https://reddit.com/u/daggy1234"
+          url="https://reddit.com/u/buddywhitman"
           color="#FF5700"
           icon={BsReddit}
         />
         <IconWrap
           router={router}
-          url="https://github.com/daggy1234"
+          url="https://github.com/buddywhitman"
           color={useColorModeValue("black", "white")}
           icon={BsGithub}
         />
