@@ -97,25 +97,25 @@ const Contact = () => {
             text="Discord"
             icon={SiDiscord}
             color="#5865F2"
-            url="https://server.daggy.tech"
+            url="https://discord.gg/MZM9Ctkrcb"
           />
           <IconWrap
             text="Keybase"
             icon={FaKeybase}
             color="#ff6f21"
-            url="https://keybase.io/daggy1234"
+            url="https://keybase.io/buddywhitman"
           />
           <IconWrap
             text="Twitter"
             icon={SiTwitter}
             color="#1DA1F2"
-            url="https://twitter.com/evrybodyajr/"
+            url="https://twitter.com/desihippe/"
           />
           <IconWrap
             text="Mail"
             icon={MdEmail}
             color={useColorModeValue("#000", "#fff")}
-            url="mailto:daggy@daggy.tech"
+            url="mailto:pulkit.talks@gmail.com"
           />
         </Flex>
         <Flex
