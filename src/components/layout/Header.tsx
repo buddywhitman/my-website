@@ -67,7 +67,7 @@ const Header = ({ onOpen }: HeaderProps) => {
             zIndex: -1,
           }}
         >
-          <Link href="/">Daggy1234</Link>
+          <Link href="/">buddywhitman</Link>
         </Text>
       </Heading>
       <Box marginLeft="auto">
