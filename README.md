@@ -1,4 +1,4 @@
 # Pulkit's Website
 
-Made with [Template](https://github.com/sozonome/nextarter-chakra)
-and some help from [Daggy1234](https://github.com/Daggy1234/)
+Made with [Chakra UI](https://github.com/sozonome/nextarter-chakra) 🖤
+and starter code from [Daggy1234](https://github.com/Daggy1234/)
