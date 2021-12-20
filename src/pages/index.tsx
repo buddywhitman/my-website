@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import {
   Box,
   Heading,
@@ -126,19 +127,19 @@ const Home = () => {
             </Text>
           </Heading>
           <Text marginTop={{ base: 3, md: 5 }} fontSize="xl">
-            Hi I&apos;m Pulkit!
+            Hi I&apos;m Pulkit! 
           </Text>
           <Text marginTop={{ base: 3, md: 5 }} fontSize="xl">
             I build webapps, design campaigns & narrate stories (digitally).
           </Text>
           <Text marginTop={{ base: 1, md: 3 }} fontSize="xl">
             Jumping straight into the tech scene in eigth grade, I started with web development,
-            progressing to embedded systems and dabbled with linux & some cybersec, finally 
-            coming full circle by engaging with the internet at a whole new level this year.
+            progressing to embedded systems, dabbling with linux and some cybersec, finally coming full circle
+            by engaging with the internet at a whole new level this year.
           </Text>
           <Text marginTop={{ base: 1, md: 3 }} fontSize="xl">
-            On the tech side, I&apos;m passionate about Embedded Systems, Neurological Interfaces, 
-            Web Development and adding meaning to my users&apos; lives (:
+            On the tech side, I&apos;m passionate about Embedded Systems, Neurological Interfaces, Web Development and
+            adding meaning to my users&apos; lives (:
           </Text>
           <Text marginTop={{ base: 1, md: 3 }} fontSize="xl">
             btw that --is just the beginning. I am also into hip hop production, socio-poitical activism,
@@ -216,7 +217,7 @@ const Home = () => {
               lineHeight="shorter"
               mb={{ base: 6, md: 3 }}
             >
-              <Text display="block">Wanna see more?</Text>
+              <Text display="block">Want to see more?</Text>
             </Box>{" "}
             <Link href="/projects" passHref>
               <ThemedButton
