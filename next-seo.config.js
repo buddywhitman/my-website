@@ -1,8 +1,8 @@
 /** @type {import('next-seo').DefaultSeoProps} */
 const defaultSEOConfig = {
-  title: "buddywhitman",
+  title: "buddywhitman's Portfolio",
   titleTemplate: "%s | buddywhitman",
-  defaultTitle: "buddywhitman's Portfolio",
+  defaultTitle: "buddywhitman",
   description: "Personal website that showcases my best work, tells you about me and has some fun eastern eggs",
   canonical: "https://buddywhitman.vercel.app",
   openGraph: {
