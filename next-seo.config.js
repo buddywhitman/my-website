@@ -1,13 +1,13 @@
 /** @type {import('next-seo').DefaultSeoProps} */
 const defaultSEOConfig = {
-  title: "Daggy1234's Portfolio",
-  titleTemplate: "%s | Daggy1234",
-  defaultTitle: "Daggy1234's Portfolio",
+  title: "buddywhitman",
+  titleTemplate: "%s | buddywhitman",
+  defaultTitle: "buddywhitman's Portfolio",
   description: "Personal website that showcases my best work, tells you about me and has some fun eastern eggs",
-  canonical: "https://daggy.tech",
+  canonical: "https://buddywhitman.vercel.app",
   openGraph: {
-    url: "https://daggy.tech",
-    title: "Daggy1234's Portfolio",
+    url: "https://buddywhitman.vercel.app",
+    title: "buddywhitman's Portfolio",
     description: "Personal website that showcases my best work, tells you about me and has some fun eastern eggs",
     images: [
       {
@@ -17,10 +17,10 @@ const defaultSEOConfig = {
         alt: "png",
       },
     ],
-    site_name: "Daggy1234's Portfolio",
+    site_name: "buddywhtitman's Portfolio",
   },
   twitter: {
-    handle: "@evrybodyajr",
+    handle: "@desihippe",
     cardType: "summary_large_image",
   },
 };
