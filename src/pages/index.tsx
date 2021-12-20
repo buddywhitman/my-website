@@ -126,24 +126,23 @@ const Home = () => {
             </Text>
           </Heading>
           <Text marginTop={{ base: 3, md: 5 }} fontSize="xl">
-            Hi I&apos;m Arnav, a High School Senior and an aspiring CS and Econ
-            major.
+            Hi I&apos;m Pulkit!
           </Text>
           <Text marginTop={{ base: 3, md: 5 }} fontSize="xl">
-            I&apos;ve lived in cities across India, but currently call Bangalore
-            home!
+            I build webapps, design campaigns & narrate stories (digitally).
           </Text>
           <Text marginTop={{ base: 1, md: 3 }} fontSize="xl">
-            I mainly started programming as a hobby but after making projects
-            and learning through youtube, I&apos;ve grown to adore it!
+            Jumping straight into the tech scene in eigth grade, I started with web development,
+            progressing to embedded systems and dabbled with linux & some cybersec, finally 
+            coming full circle by engaging with the internet at a whole new level this year.
           </Text>
           <Text marginTop={{ base: 1, md: 3 }} fontSize="xl">
-            I&apos;m passionate about Crypto, Financial Technology, Programming
-            language Creation, Image Manipulation, Web Development and Chatbots!
+            On the tech side, I&apos;m passionate about Embedded Systems, Neurological Interfaces, 
+            Web Development and adding meaning to my users&apos; lives (:
           </Text>
           <Text marginTop={{ base: 1, md: 3 }} fontSize="xl">
-            At home I love reading YA novels, watching Formula1, running my food
-            blog, collecting fountain pens and spending time with family.
+            btw that --is just the beginning. I am also into hip hop production, socio-poitical activism,
+            automobiles, military stuff and comparitive religion.
           </Text>
           <Link href="/about" passHref>
             <ThemedButton top={3}>Read More</ThemedButton>
@@ -217,7 +216,7 @@ const Home = () => {
               lineHeight="shorter"
               mb={{ base: 6, md: 3 }}
             >
-              <Text display="block">Want to see more?</Text>
+              <Text display="block">Wanna see more?</Text>
             </Box>{" "}
             <Link href="/projects" passHref>
               <ThemedButton
@@ -271,9 +270,6 @@ const Home = () => {
                     <IconWrapper icon={FaPython} text="Python" />
                     <IconWrapper icon={SiJavascript} text="Javascript" />
                     <IconWrapper icon={SiTypescript} text="Typescript" />
-                    <IconWrapper icon={SiRust} text="Rust" />
-                    <IconWrapper icon={SiDeno} text="Deno" />
-                    <IconWrapper icon={SiSolidity} text="Solidity" />
                     <IconWrapper icon={SiGnubash} text="Bash" />
                   </Flex>
                 </Td>
@@ -284,7 +280,6 @@ const Home = () => {
                 <Td>
                   <Flex>
                     <IconWrapper icon={SiPostgresql} text="Postgresql" />
-                    <IconWrapper icon={SiRedis} text="Redis" />
                     <IconWrapper icon={SiMongodb} text="MongoDB" />
                     <IconWrapper icon={SiFirebase} text="Firebase DB" />
                   </Flex>
@@ -298,7 +293,6 @@ const Home = () => {
                     <IconWrapper icon={SiDocker} text="Docker" />
                     <IconWrapper icon={SiKubernetes} text="Kubernetes" />
                     <IconWrapper icon={SiGithubactions} text="Github Actions" />
-                    <IconWrapper icon={SiTravisci} text="Travis CI" />
                     <IconWrapper icon={SiLinux} text="Linux" />
                     <IconWrapper icon={SiGit} text="Git" />
                   </Flex>
@@ -310,8 +304,6 @@ const Home = () => {
                   <Flex>
                     <IconWrapper icon={SiStripe} text="Stripe" />
                     <IconWrapper icon={SiPaypal} text="Paypal" />
-                    <IconWrapper icon={SiGrafana} text="Grafana" />
-                    <IconWrapper icon={SiPrometheus} text="Prometheus" />
                     <IconWrapper icon={SiDatadog} text="Datadog" />
                   </Flex>
                 </Td>
@@ -325,7 +317,6 @@ const Home = () => {
                     <IconWrapper icon={SiVercel} text="Vercel" />
                     <IconWrapper icon={SiGooglecloud} text="Google Cloud" />
                     <IconWrapper icon={SiCloudflare} text="Cloudflare" />
-                    <IconWrapper icon={SiIbmwatson} text="IBM watson" />
                   </Flex>
                 </Td>
               </Tr>
@@ -361,7 +352,7 @@ const Home = () => {
               Contact Me
             </Text>
             <Text mt={3} fontSize={{ base: "sm", md: "md" }}>
-              View all contact options
+              View every way to reach out!
             </Text>
           </Heading>
         </Flex>
