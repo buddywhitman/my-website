@@ -63,6 +63,21 @@ import EnhancedProject from "components/EnhancedProject";
 import GithubProject from "components/GithubProject";
 import MoreProjectList from "data/more_projects";
 
+interface IconWrapperProps {
+  icon: IconType;
+  text: string;
+}
+
+const IconWrapper = ({ icon, text }: IconWrapperProps) => {
+  return (
+    <Tooltip label={text}>
+      <Box margin={1}>
+        <Icon as={icon} h={{ base: 7, md: 10 }} w={{ base: 7, md: 10 }} />
+      </Box>
+    </Tooltip>
+  );
+};
+
 const Projects = () => {
   const bl = useColorModeValue("brand.400", "brand.600");
   const [data, SetData] = useState(null);
