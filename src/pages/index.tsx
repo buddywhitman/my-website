@@ -135,33 +135,24 @@ const Home = () => {
           />
         ))}
       </Flex>
-      <Flex
-        bg={bl}
-        mb={5}
-        p={{ base: 0, md: 10 }}
-        w="full"
-        alignItems="center"
-        justifyContent="center"
-      >
-        <Flex justify="center" w="full">
-          <Box
-            w={{ base: "full", md: "100%", lg: "50%" }}
-            px={4}
-            py={10}
-            textAlign={{ base: "left", md: "center" }}
-          >
-            <Link href="/tech" passHref>
-              <ThemedButton
-                bg="#ffffff"
-                color="rgb(17, 17, 17)"
-                marginX={5}
-                paddingX={{ base: 5, md: 10 }}
-              >
-                View All Projects
-              </ThemedButton>
-            </Link>
-          </Box>
-        </Flex>
+      <Flex justify="center" w="full">
+        <Box
+          w={{ base: "full", md: "100%", lg: "50%" }}
+          px={4}
+          py={10}
+          textAlign={{ base: "left", md: "center" }}
+        >
+          <Link href="/tech" passHref>
+            <ThemedButton
+              bg="#ffffff"
+              color="rgb(17, 17, 17)"
+              marginX={5}
+              paddingX={{ base: 5, md: 10 }}
+            >
+              View All Projects
+            </ThemedButton>
+          </Link>
+        </Box>
       </Flex>
       
       <Flex
