@@ -4,6 +4,7 @@ import {
   Heading,
   Flex,
   Text,
+  useBreakpointValue,
   useColorModeValue,
 } from "@chakra-ui/react";
 import Link from "next/link";
