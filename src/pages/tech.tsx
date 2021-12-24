@@ -58,7 +58,6 @@ import {
   SiFirebase,
   SiGit,
 } from "react-icons/si";
-
 import EnhancedProject from "components/EnhancedProject";
 import GithubProject from "components/GithubProject";
 import MoreProjectList from "data/more_projects";
