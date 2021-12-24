@@ -7,7 +7,7 @@ and starter code from [Daggy1234](https://github.com/Daggy1234/)
 
 ## Getting Started
 
-You can either click `Use this template` button on this repository and clone the repo or directly from your terminal:
+You can either click one of the `Deploy` buttons on this repository or clone the repo directly from your terminal:
 
 ```bash
 npx degit sozonome/nextarter-chakra <YOUR_APP_NAME>
@@ -16,14 +16,18 @@ npx degit sozonome/nextarter-chakra <YOUR_APP_NAME>
 Then, run the development server:
 
 ```bash
+npm install
+# or
+yarn install
+
 npm run dev
 # or
 yarn dev
 ```
+(I recommend using a single package manager for the project - yarn OR npm, mixing em can result in missing packages)
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `src/pages/index.js`. The page auto-updates as you edit the file.
+You can start editing the page by modifying `src/pages/index.tsx`. The page auto-updates as you edit the file.
 
 ## References
 
