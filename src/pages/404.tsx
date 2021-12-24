@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Box, Button, Image } from "@chakra-ui/react";
 import Link from "next/link";
 import MotionBox from "components/motion/Box";
