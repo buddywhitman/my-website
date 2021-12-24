@@ -39,4 +39,4 @@ const Design = () => {
   );
 };
 
-export default Contact;
+export default Design;
