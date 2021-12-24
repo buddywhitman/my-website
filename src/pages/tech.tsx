@@ -78,7 +78,7 @@ const IconWrapper = ({ icon, text }: IconWrapperProps) => {
   );
 };
 
-const Projects = () => {
+const Tech = () => {
   const bl = useColorModeValue("brand.400", "brand.600");
   const [data, SetData] = useState(null);
   const SlidShow = useBreakpointValue({ base: 1, lg: 2 });
@@ -324,4 +324,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default Tech;
