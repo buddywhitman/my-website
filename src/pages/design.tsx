@@ -7,8 +7,6 @@ import {
   useColorModeValue,
 } from "@chakra-ui/react";
 
-import Link from "next/link";
-
 const Design = () => {
   const bl = useColorModeValue("brand.400", "brand.600");
   return (
