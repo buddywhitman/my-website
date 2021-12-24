@@ -116,7 +116,7 @@ const Home = () => {
               zIndex: -1,
             }}
           >
-            Featured Projects
+            Featured Work
           </Text>
         </Heading>
         {FeaturedProjectList.map((value) => (
@@ -150,16 +150,6 @@ const Home = () => {
             py={10}
             textAlign={{ base: "left", md: "center" }}
           >
-            <Box
-              fontSize={{ base: "4xl", sm: "6xl" }}
-              fontWeight="extrabold"
-              letterSpacing="tight"
-              color="white"
-              lineHeight="shorter"
-              mb={{ base: 6, md: 3 }}
-            >
-              <Text display="block">Want to see more?</Text>
-            </Box>{" "}
             <Link href="/tech" passHref>
               <ThemedButton
                 bg="#ffffff"
