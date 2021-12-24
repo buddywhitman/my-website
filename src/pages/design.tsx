@@ -1,3 +1,5 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable react/jsx-props-no-spreading */
 import {
   Box,
   Heading,
