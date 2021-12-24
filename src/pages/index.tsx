@@ -101,7 +101,7 @@ const Home = () => {
           />
         </Box>
       </Flex>
-      <Flex direction="column" p={{ base: 1, md: 10, xl: 20 }} marginTop={10}>
+      <Flex direction="column" p={{ base: 1, md: 8, xl: 20 }} marginTop={10}>
         <Heading as="h2" size="2xl">
           <Text
             as="span"
@@ -140,7 +140,6 @@ const Home = () => {
         <Box
           w={{ base: "full", md: "100%", lg: "50%" }}
           px={4}
-          pt={1}
           pb={10}
           textAlign={{ base: "left", md: "center" }}
         >
