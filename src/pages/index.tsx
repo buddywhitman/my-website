@@ -2,78 +2,16 @@
 import {
   Box,
   Heading,
-  Tooltip,
   Flex,
-  Spacer,
   Text,
-  useBreakpointValue,
-  Table,
-  Tr,
-  Thead,
-  Th,
-  Tbody,
-  Td,
-  Icon,
   useColorModeValue,
 } from "@chakra-ui/react";
 import Link from "next/link";
-import { BsArrowRight } from "react-icons/bs";
-import { FaPython } from "react-icons/fa";
-import { IconType } from "react-icons/lib";
-import {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  SiPypi,
-  SiJavascript,
-  SiTypescript,
-  SiRust,
-  SiAmazonaws,
-  SiDeno,
-  SiDocker,
-  SiKubernetes,
-  SiGithubactions,
-  SiTravisci,
-  SiDatadog,
-  SiSolidity,
-  SiStripe,
-  SiCloudflare,
-  SiGnubash,
-  SiGrafana,
-  SiLinux,
-  SiNetlify,
-  SiPaypal,
-  SiPostgresql,
-  SiPrometheus,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  SiPypy,
-  SiRedis,
-  SiVercel,
-  SiMongodb,
-  SiIbmwatson,
-  SiGooglecloud,
-  SiFirebase,
-  SiGit,
-} from "react-icons/si";
-
 import FeaturedProject from "components/FeaturedProject";
 import ImageBox from "components/ImageBox";
 import SomeText from "components/SomeText";
 import ThemedButton from "components/ThemedButton";
 import FeaturedProjectList from "data/featured_projects";
-
-interface IconWrapperProps {
-  icon: IconType;
-  text: string;
-}
-
-const IconWrapper = ({ icon, text }: IconWrapperProps) => {
-  return (
-    <Tooltip label={text}>
-      <Box margin={1}>
-        <Icon as={icon} h={{ base: 7, md: 10 }} w={{ base: 7, md: 10 }} />
-      </Box>
-    </Tooltip>
-  );
-};
 
 const Home = () => {
   const isSmall = useBreakpointValue({ base: true, md: false });
@@ -232,107 +170,7 @@ const Home = () => {
           </Box>
         </Flex>
       </Flex>
-      <Box textAlign="center" p={{ base: 0, md: 10 }} mt={10}>
-        <Heading marginBottom={5} as="h2" size="2xl">
-          <Text
-            as="span"
-            position="relative"
-            _after={{
-              content: "''",
-              width: "full",
-              height: "25%",
-              position: "absolute",
-              bottom: 1,
-              left: 0,
-              bg: bl,
-              zIndex: -1,
-            }}
-          >
-            Technology I Use
-          </Text>
-        </Heading>
-        <Text fontSize="xl">
-          A comprehensive list of tech I&apos;ve learnt to use and mastered!
-        </Text>
-        <Box overflowX="scroll" textAlign="center" fontSize="xl">
-          <Table size="lg" variant="simple">
-            <Thead>
-              <Tr>
-                <Th>Category</Th>
-                <Th>Technologies</Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              <Tr>
-                <Td>Programming Languages </Td>
-                {/* Programming Languages */}
-                <Td flexDirection="row">
-                  <Flex>
-                    <IconWrapper icon={FaPython} text="Python" />
-                    <IconWrapper icon={SiJavascript} text="Javascript" />
-                    <IconWrapper icon={SiTypescript} text="Typescript" />
-                    <IconWrapper icon={SiRust} text="Rust" />
-                    <IconWrapper icon={SiDeno} text="Deno" />
-                    <IconWrapper icon={SiSolidity} text="Solidity" />
-                    <IconWrapper icon={SiGnubash} text="Bash" />
-                  </Flex>
-                </Td>
-              </Tr>
-              {/* Databases */}
-              <Tr>
-                <Td>Databases </Td>
-                <Td>
-                  <Flex>
-                    <IconWrapper icon={SiPostgresql} text="Postgresql" />
-                    <IconWrapper icon={SiRedis} text="Redis" />
-                    <IconWrapper icon={SiMongodb} text="MongoDB" />
-                    <IconWrapper icon={SiFirebase} text="Firebase DB" />
-                  </Flex>
-                </Td>
-              </Tr>
-              {/* Devops */}
-              <Tr>
-                <Td>Ci/Deployment</Td>
-                <Td>
-                  <Flex>
-                    <IconWrapper icon={SiDocker} text="Docker" />
-                    <IconWrapper icon={SiKubernetes} text="Kubernetes" />
-                    <IconWrapper icon={SiGithubactions} text="Github Actions" />
-                    <IconWrapper icon={SiTravisci} text="Travis CI" />
-                    <IconWrapper icon={SiLinux} text="Linux" />
-                    <IconWrapper icon={SiGit} text="Git" />
-                  </Flex>
-                </Td>
-              </Tr>
-              <Tr>
-                <Td>Payments/Data Visualization</Td>
-                <Td>
-                  <Flex>
-                    <IconWrapper icon={SiStripe} text="Stripe" />
-                    <IconWrapper icon={SiPaypal} text="Paypal" />
-                    <IconWrapper icon={SiGrafana} text="Grafana" />
-                    <IconWrapper icon={SiPrometheus} text="Prometheus" />
-                    <IconWrapper icon={SiDatadog} text="Datadog" />
-                  </Flex>
-                </Td>
-              </Tr>
-              <Tr>
-                <Td>Cloud</Td>
-                <Td>
-                  <Flex>
-                    <IconWrapper icon={SiAmazonaws} text="AWS" />
-                    <IconWrapper icon={SiNetlify} text="Netlify" />
-                    <IconWrapper icon={SiVercel} text="Vercel" />
-                    <IconWrapper icon={SiGooglecloud} text="Google Cloud" />
-                    <IconWrapper icon={SiCloudflare} text="Cloudflare" />
-                    <IconWrapper icon={SiIbmwatson} text="IBM watson" />
-                  </Flex>
-                </Td>
-              </Tr>
-            </Tbody>
-          </Table>
-        </Box>
-      </Box>
+      
       <Flex
         color="white"
         bg={bl}
