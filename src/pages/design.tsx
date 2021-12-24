@@ -3,16 +3,10 @@ import {
   Heading,
   Text,
   useColorModeValue,
-  VisuallyHidden,
-  Icon,
-  Tooltip,
-  Input,
-  FormControl,
-  FormLabel,
-  Textarea,
-  Flex,
 } from "@chakra-ui/react";
+
 import Link from "next/link";
+
 const Design = () => {
   const bl = useColorModeValue("brand.400", "brand.600");
   return (
@@ -35,7 +29,7 @@ const Design = () => {
           Design
         </Text>
       </Heading>
-          </Box>
+    </Box>
   );
 };
 
