@@ -219,7 +219,7 @@ const Home = () => {
             >
               <Text display="block">Want to see more?</Text>
             </Box>{" "}
-            <Link href="/projects" passHref>
+            <Link href="/tech" passHref>
               <ThemedButton
                 bg="#ffffff"
                 color="rgb(17, 17, 17)"
