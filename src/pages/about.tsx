@@ -183,7 +183,7 @@ const About = () => {
               zIndex: -1,
             }}
           >
-            My CS Journey
+            My Journey
           </Text>
         </Heading>
         <VerticalTimeline lineColor={b}>
