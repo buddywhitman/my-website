@@ -43,8 +43,8 @@ const DrawerWidget = ({ onClose, isOpen }: DrawerWidgetProps) => {
               <Link passHref href="/about">
                 <Heading>About</Heading>
               </Link>
-              <Link passHref href="/projects">
-                <Heading>Projects</Heading>
+              <Link passHref href="/tech">
+                <Heading>Tech</Heading>
               </Link>
               <Link passHref href="/contact">
                 <Heading>Contact</Heading>
