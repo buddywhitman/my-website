@@ -8,6 +8,7 @@ import {
   useBreakpointValue,
   useColorModeValue,
 } from "@chakra-ui/react";
+
 import Link from "next/link";
 import { BsArrowRight } from "react-icons/bs";
 import FeaturedProject from "components/FeaturedProject";
