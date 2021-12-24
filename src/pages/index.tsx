@@ -139,7 +139,8 @@ const Home = () => {
         <Box
           w={{ base: "full", md: "100%", lg: "50%" }}
           px={4}
-          py={10}
+          pt={5}
+          pb={10}
           textAlign={{ base: "left", md: "center" }}
         >
           <Link href="/tech" passHref>
