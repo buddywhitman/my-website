@@ -1,3 +1,5 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable react/jsx-props-no-spreading */
 import {
   Alert,
   AlertIcon,
@@ -18,10 +20,9 @@ import {
   Td,
   Icon,
 } from "@chakra-ui/react";
+
 import { useEffect, useState } from "react";
 import Slider from "react-slick";
-
-import { BsArrowRight } from "react-icons/bs";
 import { FaPython } from "react-icons/fa";
 import { IconType } from "react-icons/lib";
 import {
