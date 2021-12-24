@@ -77,6 +77,7 @@ const Projects = () => {
   }, []);
 
   return (
+    <Box>
      <Box textAlign="center" p={{ base: 0, md: 10 }} mt={10}>
         <Heading marginBottom={5} as="h2" size="2xl">
           <Text
@@ -304,6 +305,7 @@ const Projects = () => {
         )}
       </Box>
     </Box>
+  </Box>   
   );
 };
 
