@@ -10,7 +10,6 @@ import {
   Spinner,
   Tooltip,
   Flex,
-  Spacer,
   Table,
   Tr,
   Thead,
