@@ -74,7 +74,6 @@ const Header = ({ onOpen }: HeaderProps) => {
         <Flex alignItems="center" display={{ base: "none", md: "flex" }}>
           <HeaderTextComponent text="home" url="/" />
           <HeaderTextComponent text="about" url="/about" />
-          <HeaderTextComponent text="tech" url="/tech" />
           <HeaderTextComponent text="projects" url="/projects" />
           <HeaderTextComponent text="contact" url="/contact" />
           {/* <HeaderTextComponent text="donate" url="https://dagpi.xyz/donate" /> */}
