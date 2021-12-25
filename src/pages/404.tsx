@@ -1,6 +1,7 @@
 /* eslint-disable prettier/prettier */
 import { Box, Button, Image } from "@chakra-ui/react";
 import Link from "next/link";
+
 import MotionBox from "components/motion/Box";
 
 const Page404 = () => {
@@ -22,7 +23,7 @@ const Page404 = () => {
         <Box textAlign="center" marginTop={4}>
           <Link href="/" passHref>
             <Button size="lg">Home</Button>
-          </Link>  
+          </Link>
         </Box>
         <a href="https://www.freepik.com/vectors/computer">
           Computer vector created by jcomp - www.freepik.com

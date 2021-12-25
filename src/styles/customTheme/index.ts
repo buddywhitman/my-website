@@ -1,3 +1,6 @@
+/* eslint-disable prettier/prettier */
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable prettier/prettier */
 import { extendTheme } from "@chakra-ui/react";
 import { mode } from "@chakra-ui/theme-tools";
 
@@ -11,6 +14,8 @@ const customTheme = extendTheme({
   components: {
     Button,
   },
+  initialColorMode: "dark",
+  useSystemColorMode: true,
   styles: {
     global: (props: any) => ({
       "*::selection": {
