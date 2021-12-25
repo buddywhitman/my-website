@@ -11,7 +11,7 @@ and starter code from [Daggy1234](https://github.com/Daggy1234/)
 You can either click one of the `Deploy` buttons on this repository or clone the repo directly from your terminal:
 
 ```bash
-npx degit sozonome/nextarter-chakra <YOUR_APP_NAME>
+npx degit buddywhitman/my-website <YOUR_APP_NAME>
 ```
 
 Then, run the development server:
