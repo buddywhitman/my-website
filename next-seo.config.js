@@ -11,7 +11,7 @@ const defaultSEOConfig = {
     description: "Personal website that showcases my best work, tells you about me and has some fun eastern eggs",
     images: [
       {
-        url: "https://www.daggy.tech/daggy_big.png",
+        url: "https://www.daggy.tech/daggy_big.webp",
         height: 1024,
         width: 1024,
         alt: "png",

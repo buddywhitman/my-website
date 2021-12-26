@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/naming-convention */
 import {
   Box,
@@ -140,12 +141,12 @@ const About = () => {
           />
           <TextImage
             text="2020  threw a curveball. I watched summer plans dissapear as I looked for  hobbies to fill time. A Reddit community talked about discord bot  development, and intrigued, I dove in. I instantly fell in love  and slowly drove head first into the programming rabbit hole. Soon I  spent all my free time making websites, bots, and more. I started a  startup, volunteered for NGO's and even did a few internships and  freelance work. I was blown away by what I could make with code. Old  interests like Pokémon, crypto and f1 fell into my programming projects.  I knew I had found what I was passionate about, and I ran with that!  The Open-source community was so powerful, and all the amazing people  I've met on GitHub have inspired me to do more. "
-            image="/gh.png"
-            alt="Github homescreen"
+            image="/gh.webp"
+            alt="me lookig at graphs"
             reverse
             cw="70%"
             height={470}
-            width={799}
+            width={900}
           />
           <TextImage
             text="Apart  from programming, I'm a passionate environmentalist. I've collected  over 120kgs+ of e-waste for recycling and developed a software solution  to help people find e-waste centres. I'm into MUN, having founded NAFL's  MUN club and winning the Oxford MUN Singapore. As a self-proclaimed YA  novel aficionado, I can tear through a teen novel no matter how 'cringe'  and still love it! I'm also a passionate member of my school book club,  where I love the discussions we have on literature, philosophy,  society, and feminism. On the left is my favourite book: Paper Towns by John Green, it's a novel that I can always read when I'm  in a bad mood.."

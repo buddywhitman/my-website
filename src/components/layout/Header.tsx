@@ -72,9 +72,9 @@ const Header = ({ onOpen }: HeaderProps) => {
       </Heading>
       <Box marginLeft="auto">
         <Flex alignItems="center" display={{ base: "none", md: "flex" }}>
-          <HeaderTextComponent text="home" url="/" />
           <HeaderTextComponent text="about" url="/about" />
           <HeaderTextComponent text="tech" url="/tech" />
+          <HeaderTextComponent text="design" url="/design" />
           <HeaderTextComponent text="contact" url="/contact" />
           {/* <HeaderTextComponent text="donate" url="https://dagpi.xyz/donate" /> */}
           <MenuItem>
