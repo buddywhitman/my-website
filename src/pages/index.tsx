@@ -95,12 +95,12 @@ const Home = () => {
           </Link>
         </Box>
         <Spacer />
-        <Box>
+        <Box pt={10} lg={500} alignContent={{ base: "center", md: "left" }}>
           <ImageBox
-            image="/daggy_big.png"
-            height={512}
-            width={512}
-            alt="Vercel Logo"
+            image="/daggy_big.webp"
+            height={500}
+            width={800}
+            alt="image of pulkit working on pc"
           />
         </Box>
       </Flex>

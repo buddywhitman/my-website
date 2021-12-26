@@ -37,14 +37,14 @@ const DrawerWidget = ({ onClose, isOpen }: DrawerWidgetProps) => {
         <DrawerBody>
           <MotionBox>
             <Flex marginY={4} direction="column" textAlign="left" spacing={3}>
-              <Link passHref href="/">
-                <Heading>Home</Heading>
-              </Link>
               <Link passHref href="/about">
                 <Heading>About</Heading>
               </Link>
               <Link passHref href="/tech">
                 <Heading>Tech</Heading>
+              </Link>
+              <Link passHref href="/design">
+                <Heading>Design</Heading>
               </Link>
               <Link passHref href="/contact">
                 <Heading>Contact</Heading>
