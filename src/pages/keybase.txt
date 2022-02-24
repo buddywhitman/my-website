@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/buddywhitman
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://buddywhitman.vercel.app
+  * I am buddywhitman (https://keybase.io/buddywhitman) on keybase.
+  * I have a public key ASAO3yuqIPe2ZYSYY9bq9mNIytsx0s4OF6Em_mp2DhqmWAo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "01200edf2baa20f7b665849863d6eaf66348cadb31d2ce0e17a126fe6a760e1aa6580a",
+      "host": "keybase.io",
+      "kid": "01200edf2baa20f7b665849863d6eaf66348cadb31d2ce0e17a126fe6a760e1aa6580a",
+      "uid": "ba4ed03a41888547851fe566ea4b4919",
+      "username": "buddywhitman"
+    },
+    "merkle_root": {
+      "ctime": 1645691253,
+      "hash": "95c6776901f05bdf78e16d2152d9b32c3d2be6fd596cd96e4b6797aaabdbaed755e833783a3f43e12c6d4a7576ea4d8a23f9e81307f849ab3b6a5b1ef97fb7f9",
+      "hash_meta": "492ebfdb355cb7e639efcc2cf469a1e061aec969cc3753ea0939ef24143ed835",
+      "seqno": 21943883
+    },
+    "service": {
+      "entropy": "cHKbDyPyLGyUjjh5+oWLfrCz",
+      "hostname": "buddywhitman.vercel.app",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.9.0"
+  },
+  "ctime": 1645691335,
+  "expire_in": 504576000,
+  "prev": "0a61ebee8ede53ef3dc99f95c6adfe232bb58acbe9c199066973be960df2fd5b",
+  "seqno": 15,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEgDt8rqiD3tmWEmGPW6vZjSMrbMdLODhehJv5qdg4aplgKp3BheWxvYWTESpcCD8QgCmHr7o7eU+89yZ+Vxq3+Iyu1isvpwZkGaXO+lg3y/VvEINDoAOR8PlDK7jsbdJ1T0X1mN5CTauVzaoHRZHmDwHKTAgHCo3NpZ8RA+3DWzRZ5Nj2LjRfyg5GD+fXZ20WBAfGSwPRmCm1MqVo+5bMxFuhaVugB4cUDNpXxxhF7ZP4AA/iTmGAFWFZvCahzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIH9tYXoCmOMbWeYPr0uZpKRY3nXyk8gum/gE6lmVfJK2o3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/buddywhitman
+
+==================================================================
