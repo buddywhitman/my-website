@@ -1,6 +1,5 @@
-import { BsGithub, BsArrowRight } from "react-icons/bs";
+import { BsGithub } from "react-icons/bs";
 import { CgWebsite } from "react-icons/cg";
-import { FaPython } from "react-icons/fa";
 import { IconType } from "react-icons/lib";
 import { SiPypi, SiDocker } from "react-icons/si";
 
@@ -32,7 +31,7 @@ const FeaturedProjectList: FeaturedProjectType[] = [
     width: 1919,
     description:
       "Dagpi is a SoftwareAsAService API that I'm the CEO and founder of. It features ImageManipulation as a servie with a dashboard. Each user has metrics, and the option to buy a premium service with stripe. Dagpi uses rust, python and typescript. View github for full stack!",
-    images: ["/dagpi_home_w.png", "/dagpi_home_b.png"],
+    images: ["/dagpi_home_w.webp", "/dagpi_home_b.webp"],
     tags: [
       "python",
       "api",
@@ -68,7 +67,7 @@ const FeaturedProjectList: FeaturedProjectType[] = [
     width: 1920,
     description:
       "Polaroid is an Image Manipulation Library for python written in rust. By combining the speed of rust with the ease of python, I've developed an up-and-coming image library to rival PIL!",
-    images: ["/polaroid_w.png", "/polaroid_b.png"],
+    images: ["/polaroid_w.webp", "/polaroid_b.webp"],
     tags: ["rust", "images", "python", "pypi", "pyo3"],
     icons: [
       {
@@ -92,7 +91,7 @@ const FeaturedProjectList: FeaturedProjectType[] = [
     width: 1666,
     description:
       "DaggyFoodBlog is my experiment with running a custom blog on the hugo platform. Lots of SEO optimization, Image optimization and performance! Also some great articles",
-    images: ["/foodblog.png", "/foodblog.png"],
+    images: ["/foodblog.webp", "/foodblog.webp"],
     tags: ["blog", "hugo", "netlify", "html", "js", "css"],
     icons: [
       {
@@ -116,7 +115,7 @@ const FeaturedProjectList: FeaturedProjectType[] = [
     width: 1457,
     description:
       "Dagbot was my first serious bot! Dagbot is written in python, with tons of features using discord api, dagpi and a variety of others. Coupled with A MERN stack dashboard that syncs with the bot, this is a fully full stack app!",
-    images: ["/dagbot_ss_w.png", "/dagbot_ss_b.png"],
+    images: ["/dagbot_ss_w.webp", "/dagbot_ss_b.webp"],
     tags: [
       "python",
       "bot",

@@ -17,9 +17,9 @@
     "purpose": "maskable"
   },
   {
-    "src": "manifest-icon-512.maskable.png",
+    "src": "manifest-icon-512.maskable.webp",
     "sizes": "512x512",
-    "type": "image/png",
+    "type": "image/webp",
     "purpose": "maskable"
   }
 ]

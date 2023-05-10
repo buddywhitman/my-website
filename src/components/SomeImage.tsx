@@ -17,7 +17,7 @@ const SomeImage = () => {
         marginX="auto"
       >
         <Image
-          src="/Launching-amico.svg"
+          src="/Launching-amico.webp"
           width={400}
           height={400}
           alt="Launching Illustration"

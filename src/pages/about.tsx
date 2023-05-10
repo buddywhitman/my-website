@@ -132,7 +132,7 @@ const About = () => {
         <Box marginY="5%">
           <TextImage
             text="I'm  a 17-year-old high school kid from Bangalore. I grew up in Chennai,  Delhi and Gurgaon before moving to Bangalore. I'm Hindu and Buddhist, and  generally enjoy Computer Science and Econ. I've always been fascinated  with Science and Maths, be it through topping my class in elementary  school or qualifying for the top 25 in Olympiads. With that  interest in STEM, my dad encouraged me to start coding early, and I  considered it a fun activity. My journey pivoted in the  8th Grade when I left my unconventional Experiential learning school in  Gurgaon to join NAFL in Bangalore. The stem culture here was awesome,  and I developed a great appreciation for Electronics and Programming. I  spent a ton of time tinkering with electronics, working with  microprocessors and circuits to make fun projects. As an IGCSE student I  explored interesting CS theory like Logic gates and Image Optimization  Algorithms. With my growing knowledge of python, making projects was  fun."
-            image="/dagbot.png"
+            image="/dagbot.webp"
             height={600}
             cw="60%"
             width={600}
@@ -150,7 +150,7 @@ const About = () => {
           />
           <TextImage
             text="Apart  from programming, I'm a passionate environmentalist. I've collected  over 120kgs+ of e-waste for recycling and developed a software solution  to help people find e-waste centres. I'm into MUN, having founded NAFL's  MUN club and winning the Oxford MUN Singapore. As a self-proclaimed YA  novel aficionado, I can tear through a teen novel no matter how 'cringe'  and still love it! I'm also a passionate member of my school book club,  where I love the discussions we have on literature, philosophy,  society, and feminism. On the left is my favourite book: Paper Towns by John Green, it's a novel that I can always read when I'm  in a bad mood.."
-            image="/papertowns.jpg"
+            image="/papertowns.webp"
             alt="Github homescreen"
             cw="50%"
             reverse={false}
@@ -159,7 +159,7 @@ const About = () => {
           />
           <TextImage
             text="For unwinding, I love making memes to spread laughter but also start discussions on issues. Currently have over 80000 Reddit Karma.  I also run a fountain pen YouTube Channel, and Instagram page where I share photos and guides on pen maintenance! Fountain Pens are a huge passion of mine, and as a member of the Indian Fountain Pen Association, I'm happy to promote the hobby.  As a huge f1 fan, I watch every race, no matter the time or date. As part of my f1 love, I also work as a freelancer for Sportskeeda, writing f1 articles."
-            image="/hobbies.png"
+            image="/hobbies.webp"
             alt="Github homescreen"
             cw="50%"
             reverse
@@ -270,7 +270,7 @@ const About = () => {
             description="Worked with IBM and the NGO emancipaction to use IBM technology and help victims of human trafficing/child abuse get mental health help via a chatbot. Helped create chatbot with IBM watson and integrate into a website"
           />
           <TimelineElement
-            icon={<CHI src="/dagpiw.png" />}
+            icon={<CHI src="/dagpiw.webp" />}
             location=""
             bg="#805ed2"
             heading="CEO/Founder Dagpi"
