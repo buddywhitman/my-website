@@ -1,8 +1,3 @@
-/* eslint-disable react/jsx-props-no-spreading */
-/**
- * @todo: remove this comment below when ready
- * ref: https://github.com/vercel/next.js/issues/13712#issuecomment-910409023
- * */
 import createEmotionServer from "@emotion/server/create-instance";
 // eslint-disable-next-line @next/next/no-document-import-in-page
 import Document, {
@@ -16,7 +11,7 @@ import * as React from "react";
 
 import createEmotionCache from "styles/createEmotionCache";
 
-const APP_NAME = "nextarter-chakra";
+const APP_NAME = "buddywhitman";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -79,13 +74,6 @@ class MyDocument extends Document {
           />
           <link rel="apple-touch-icon" href="/apple-icon-180.png" />
           <meta name="/apple-mobile-web-app-capable" content="yes" />
-          {/* add your own app-icon */}
-          {/* <link
-            rel="apple-touch-icon"
-            sizes="180x180"
-            href="/icons/apple-touch-icon.png"
-          />
-          <link rel="shortcut icon" href="/app-icon.png" /> */}
           <link rel="manifest" href="/manifest.json" />
           <link
             rel="stylesheet"

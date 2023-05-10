@@ -24,19 +24,15 @@ import { useEffect, useState } from "react";
 import { FaPython } from "react-icons/fa";
 import { IconType } from "react-icons/lib";
 import {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  SiPypi,
   SiJavascript,
   SiTypescript,
   SiRust,
   SiAmazonaws,
-  SiDeno,
   SiDocker,
   SiKubernetes,
   SiGithubactions,
   SiTravisci,
   SiDatadog,
-  SiSolidity,
   SiStripe,
   SiCloudflare,
   SiGnubash,
@@ -46,12 +42,9 @@ import {
   SiPaypal,
   SiPostgresql,
   SiPrometheus,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  SiPypy,
   SiRedis,
   SiVercel,
   SiMongodb,
-  SiIbmwatson,
   SiGooglecloud,
   SiFirebase,
   SiGit,
@@ -132,9 +125,6 @@ const Tech = () => {
                     <IconWrapper icon={SiJavascript} text="Javascript" />
                     <IconWrapper icon={SiTypescript} text="Typescript" />
                     <IconWrapper icon={SiRust} text="Rust" />
-                    <IconWrapper icon={SiDeno} text="Deno" />
-                    <IconWrapper icon={SiSolidity} text="Solidity" />
-                    <IconWrapper icon={SiGnubash} text="Bash" />
                   </Flex>
                 </Td>
               </Tr>
@@ -161,6 +151,7 @@ const Tech = () => {
                     <IconWrapper icon={SiTravisci} text="Travis CI" />
                     <IconWrapper icon={SiLinux} text="Linux" />
                     <IconWrapper icon={SiGit} text="Git" />
+                    <IconWrapper icon={SiGnubash} text="Bash" />
                   </Flex>
                 </Td>
               </Tr>
@@ -185,7 +176,6 @@ const Tech = () => {
                     <IconWrapper icon={SiVercel} text="Vercel" />
                     <IconWrapper icon={SiGooglecloud} text="Google Cloud" />
                     <IconWrapper icon={SiCloudflare} text="Cloudflare" />
-                    <IconWrapper icon={SiIbmwatson} text="IBM watson" />
                   </Flex>
                 </Td>
               </Tr>
