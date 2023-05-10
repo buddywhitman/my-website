@@ -64,7 +64,7 @@ class MyDocument extends Document {
           <meta name="mobile-web-app-capable" content="yes" />
           <meta
             name="description"
-            content="Portfolio site that showcases my best work, tells you about me and has some fun eastern eggs"
+            content="Web Developer. Web Designer. India. UX. Frontend Developer. Full Stack Developer."
           />
           <meta name="theme-color" content="#FFFFFF" />
           <meta
@@ -81,11 +81,6 @@ class MyDocument extends Document {
           <link rel="apple-touch-icon" href="/apple-icon-180.png" />
           <meta name="/apple-mobile-web-app-capable" content="yes" />
           <link rel="manifest" href="/manifest.json" />
-          <link
-            rel="stylesheet"
-            type="text/css"
-            href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css"
-          />
         </Head>
         <body>
           <Main />
