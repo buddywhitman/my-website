@@ -2,12 +2,12 @@
 const defaultSEOConfig = {
   title: "buddywhitman",
   defaultTitle: "buddywhitman",
-  description: "Personal website that showcases my best work, tells you about me and has some fun eastern eggs",
+  description: "Portfolio site that showcases my best work, tells you about me and has some fun eastern eggs",
   canonical: "https://buddywhitman.vercel.app",
   openGraph: {
     url: "https://buddywhitman.vercel.app",
     title: "buddywhitman",
-    description: "Personal website that showcases my best work, tells you about me and has some fun eastern eggs",
+    description: "Portfolio site that showcases my best work, tells you about me and has some fun eastern eggs",
     images: [
       {
         url: "https://buddywhitman.vercel.app/daggy.png",

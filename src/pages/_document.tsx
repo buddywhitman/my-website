@@ -53,6 +53,7 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head>
           <meta name="application-name" content={APP_NAME} />
+          <meta name="robots" content="all" />
           <meta name="apple-mobile-web-app-capable" content="yes" />
           <meta
             name="apple-mobile-web-app-status-bar-style"
@@ -61,11 +62,16 @@ class MyDocument extends Document {
           <meta name="apple-mobile-web-app-title" content={APP_NAME} />
           <meta name="format-detection" content="telephone=no" />
           <meta name="mobile-web-app-capable" content="yes" />
+          <meta
+            name="description"
+            content="Portfolio site that showcases my best work, tells you about me and has some fun eastern eggs"
+          />
           <meta name="theme-color" content="#FFFFFF" />
           <meta
             name="google-site-verification"
             content="0_OaGchPmWPm4Es55g9khnm9XPgy0nWp2jO2xoAkZGQ"
           />
+          <meta name="rating" content="adult" />
           <link
             rel="icon"
             type="image/png"
