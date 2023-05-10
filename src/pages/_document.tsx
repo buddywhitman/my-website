@@ -67,6 +67,7 @@ class MyDocument extends Document {
           <meta name="format-detection" content="telephone=no" />
           <meta name="mobile-web-app-capable" content="yes" />
           <meta name="theme-color" content="#FFFFFF" />
+          <meta name="google-site-verification" content="0_OaGchPmWPm4Es55g9khnm9XPgy0nWp2jO2xoAkZGQ" />
           <link
             rel="icon"
             type="image/png"
