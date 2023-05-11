@@ -49,7 +49,10 @@ const DrawerWidget = ({ onClose, isOpen }: DrawerWidgetProps) => {
               <Link passHref href="/contact">
                 <Heading>Contact</Heading>
               </Link>
-              <Link passHref href="https://dagpi.xyz/donate">
+              <Link
+                passHref
+                href="https://www.patreon.com/checkout/10499173/9791345"
+              >
                 <Heading>Donate</Heading>
               </Link>
             </Flex>

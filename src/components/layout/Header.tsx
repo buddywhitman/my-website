@@ -76,7 +76,7 @@ const Header = ({ onOpen }: HeaderProps) => {
           <HeaderTextComponent text="tech" url="/tech" />
           <HeaderTextComponent text="design" url="/design" />
           <HeaderTextComponent text="contact" url="/contact" />
-          {/* <HeaderTextComponent text="donate" url="https://dagpi.xyz/donate" /> */}
+          {/* <HeaderTextComponent text="donate" url="https://www.patreon.com/checkout/10499173/9791345" /> */}
           <MenuItem>
             <ThemeToggle />
           </MenuItem>

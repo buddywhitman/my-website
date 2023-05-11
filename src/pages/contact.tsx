@@ -20,20 +20,6 @@ import { SiDiscord, SiTwitter } from "react-icons/si";
 
 import ThemedButton from "components/ThemedButton";
 
-// <Flex alignItems="center" p={3} rounded="lg" maxW="50%" bg="#000">
-//   <Icon
-//     h={{ base: 4, md: 12 }}
-//     w={{ base: 4, md: 12 }}
-//     as={BsFillTerminalFill}
-//     mr={3}
-//     color="#fff"
-//   />
-//   <Text fontSize="lg" color="#66ff00" fontFamily="monospace">
-//     <chakra.span mr={1}>$</chakra.span>
-//     npx daggy1234
-//   </Text>
-// </Flex>
-
 interface IconWrapProps {
   icon: IconType;
   color: string;

@@ -5,7 +5,7 @@ const Footer = () => {
     <Flex as="footer" width="full" align="center">
       <Text>
         {new Date().getFullYear()} -{" "}
-        <Link href="https://daggy.tech" isExternal>
+        <Link href="https://buddywhitman.vercel.app" isExternal>
           buddywhitman
         </Link>
       </Text>
