@@ -1,7 +1,7 @@
 import { Box, Button, Code, Flex, Image, Link } from "@chakra-ui/react";
 import { AiFillGithub } from "react-icons/ai";
 
-const repoLink = "https://github.com/sozonome/nextarter-chakra";
+const repoLink = "https://github.com/buddywhitman/my-website";
 
 const CTASection = () => {
   return (
@@ -10,7 +10,7 @@ const CTASection = () => {
         <Link
           aria-label="Deploy to Vercel"
           isExternal
-          href="https://vercel.com/import/git?s=https://github.com/sozonome/nextarter-chakra"
+          href="https://vercel.com/import/git?s=https://github.com/buddywhitman/my-website"
         >
           <Image src="https://vercel.com/button" alt="Vercel deploy button" />
         </Link>
@@ -18,7 +18,7 @@ const CTASection = () => {
         <Link
           aria-label="Deploy to Netlify"
           isExternal
-          href="https://app.netlify.com/start/deploy?repository=https://github.com/sozonome/nextarter-chakra"
+          href="https://app.netlify.com/start/deploy?repository=https://github.com/buddywhitman/my-website"
         >
           <Image
             src="https://www.netlify.com/img/deploy/button.svg"
