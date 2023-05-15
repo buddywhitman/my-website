@@ -51,6 +51,9 @@ import {
   SiKotlin,
   SiPerl,
   SiLua,
+  SiCplusplus,
+  SiC,
+  SiGo
 } from "react-icons/si";
 import Slider from "react-slick";
 
@@ -126,8 +129,11 @@ const Tech = () => {
                   <Flex>
                     <IconWrapper icon={FaPython} text="Python" />
                     <IconWrapper icon={FaJava} text="Java" />
+                    <IconWrapper icon={SiC} text="C" />
+                    <IconWrapper icon={SiCplusplus} text="C++" />
                     <IconWrapper icon={SiJavascript} text="Javascript" />
                     <IconWrapper icon={SiTypescript} text="Typescript" />
+                    <IconWrapper icon={SiGo} text="Go" />
                     <IconWrapper icon={SiKotlin} text="Kotlin" />
                     <IconWrapper icon={SiRust} text="Rust" />
                     <IconWrapper icon={SiPerl} text="Perl" />
