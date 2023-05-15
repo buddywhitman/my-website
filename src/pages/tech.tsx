@@ -52,7 +52,6 @@ import {
   SiPerl,
   SiLua,
 } from "react-icons/si";
-import { TbBrandCpp, TbBrandGolang } from "react-icons/tb";
 import Slider from "react-slick";
 
 import EnhancedProject from "components/EnhancedProject";
@@ -126,11 +125,9 @@ const Tech = () => {
                 <Td flexDirection="row">
                   <Flex>
                     <IconWrapper icon={FaPython} text="Python" />
-                    <IconWrapper icon={TbBrandCpp} text="C++" />
                     <IconWrapper icon={FaJava} text="Java" />
                     <IconWrapper icon={SiJavascript} text="Javascript" />
                     <IconWrapper icon={SiTypescript} text="Typescript" />
-                    <IconWrapper icon={TbBrandGolang} text="Go" />
                     <IconWrapper icon={SiKotlin} text="Kotlin" />
                     <IconWrapper icon={SiRust} text="Rust" />
                     <IconWrapper icon={SiPerl} text="Perl" />
