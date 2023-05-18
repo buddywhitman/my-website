@@ -44,7 +44,7 @@ const SpecialHeaderTextComponent = ({
   text: string;
   url: string;
 }) => {
-  const hc = useColorModeValue("#0066ff", "#005ce6");
+  const hc = useColorModeValue("#33adff", "#005ce6");
 
   return (
     <MenuItem>
@@ -100,8 +100,10 @@ const Header = ({ onOpen }: HeaderProps) => {
         <Flex alignItems="center" display={{ base: "none", md: "flex" }}>
           <HeaderTextComponent text="about" url="/about" />
           <HeaderTextComponent text="tech" url="/tech" />
+          {/*
           <HeaderTextComponent text="design" url="/design" />
           <HeaderTextComponent text="blog" url="/blog" />
+          */}
           <HeaderTextComponent text="contact" url="/contact" />
           <SpecialHeaderTextComponent
             text="donate"

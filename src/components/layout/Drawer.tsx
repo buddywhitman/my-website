@@ -38,14 +38,19 @@ const DrawerWidget = ({ onClose, isOpen }: DrawerWidgetProps) => {
           <MotionBox>
             <Flex marginY={4} direction="column" textAlign="left" spacing={3}>
               <Link passHref href="/about">
-                <Heading>About</Heading>
+                <Heading>about</Heading>
               </Link>
               <Link passHref href="/tech">
-                <Heading>Tech</Heading>
+                <Heading>tTech</Heading>
               </Link>
+              {/*
               <Link passHref href="/design">
-                <Heading>Design</Heading>
+                <Heading>design</Heading>
               </Link>
+              <Link passHref href="/blog">
+                <Heading>blog</Heading>
+              </Link>
+              */}
               <Link passHref href="/contact">
                 <Heading>Contact</Heading>
               </Link>
