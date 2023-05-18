@@ -37,6 +37,32 @@ const HeaderTextComponent = ({ text, url }: { text: string; url: string }) => {
     </MenuItem>
   );
 };
+const SpecialHeaderTextComponent = ({
+  text,
+  url,
+}: {
+  text: string;
+  url: string;
+}) => {
+  const hc = useColorModeValue("#0066ff", "#005ce6");
+
+  return (
+    <MenuItem>
+      <Heading
+        _hover={{
+          background: `${hc} none repeat scroll 0% 0%`,
+        }}
+        padding={2}
+        rounded="md"
+        fontWeight="500"
+        as="h2"
+        size="md"
+      >
+        <Link href={url}>{text}</Link>
+      </Heading>
+    </MenuItem>
+  );
+};
 
 interface HeaderProps {
   onOpen: () => void;
@@ -75,8 +101,12 @@ const Header = ({ onOpen }: HeaderProps) => {
           <HeaderTextComponent text="about" url="/about" />
           <HeaderTextComponent text="tech" url="/tech" />
           <HeaderTextComponent text="design" url="/design" />
+          <HeaderTextComponent text="blog" url="/blog" />
           <HeaderTextComponent text="contact" url="/contact" />
-          <HeaderTextComponent text="donate" url="https://www.patreon.com/checkout/10499173/9791345" />
+          <SpecialHeaderTextComponent
+            text="donate"
+            url="https://www.patreon.com/checkout/10499173/9791345"
+          />
           <MenuItem>
             <ThemeToggle />
           </MenuItem>
