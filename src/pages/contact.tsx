@@ -16,7 +16,7 @@ import Link from "next/link";
 import { FaKeybase } from "react-icons/fa";
 import { IconType } from "react-icons/lib";
 import { MdEmail } from "react-icons/md";
-import { SiDiscord, SiTwitter } from "react-icons/si";
+import { SiDiscord } from "react-icons/si";
 
 import ThemedButton from "components/ThemedButton";
 
@@ -83,19 +83,13 @@ const Contact = () => {
             text="Discord"
             icon={SiDiscord}
             color="#5865F2"
-            url="https://discord.gg/MZM9Ctkrcb"
+            url="https://discord.com/users/732152359882457138"
           />
           <IconWrap
             text="Keybase"
             icon={FaKeybase}
             color="#ff6f21"
             url="https://keybase.io/buddywhitman"
-          />
-          <IconWrap
-            text="Twitter"
-            icon={SiTwitter}
-            color="#1DA1F2"
-            url="https://twitter.com/desihippe/"
           />
           <IconWrap
             text="Mail"

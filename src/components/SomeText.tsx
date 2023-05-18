@@ -9,7 +9,8 @@ import {
 } from "@chakra-ui/react";
 import { NextRouter, useRouter } from "next/router";
 import { IconType } from "react-icons";
-import { BsTwitter, BsLinkedin, BsReddit, BsGithub } from "react-icons/bs";
+import { BsBehance, BsLinkedin, BsGithub } from "react-icons/bs";
+import { SiResearchgate } from "react-icons/si";
 
 interface IconWrapProps {
   router: NextRouter;
@@ -59,27 +60,27 @@ const SomeText = () => {
       <Flex marginX={{ base: "10%", sm: "30%", md: 0 }}>
         <IconWrap
           router={router}
-          url="https://twitter.com/pulkityouknowme"
-          color="#1DA1F2"
-          icon={BsTwitter}
-        />
-        <IconWrap
-          router={router}
           url="https://www.linkedin.com/in/buddywhitman/"
           color="#0e76a8"
           icon={BsLinkedin}
         />
         <IconWrap
           router={router}
-          url="https://reddit.com/u/buddywhitman"
-          color="#FF5700"
-          icon={BsReddit}
-        />
-        <IconWrap
-          router={router}
           url="https://github.com/buddywhitman"
           color={useColorModeValue("black", "white")}
           icon={BsGithub}
+        />
+        <IconWrap
+          router={router}
+          url="https://behance.com/buddywhitman"
+          color="#053eff"
+          icon={BsBehance}
+        />
+        <IconWrap
+          router={router}
+          url="https://www.researchgate.net/profile/Pulkit-Kumar-7"
+          color="#00ccbb"
+          icon={SiResearchgate}
         />
       </Flex>
     </Box>
