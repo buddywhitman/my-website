@@ -16,7 +16,7 @@ const defaultSEOConfig = {
         alt: "png",
       },
     ],
-    site_name: "buddywhtitman",
+    site_name: "buddywhitman",
   },
   twitter: {
     handle: "@desihippe",
