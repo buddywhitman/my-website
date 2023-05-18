@@ -6,7 +6,7 @@ module.exports = withPWA({
   swcMinify: true,
   pwa: {
     disable:
-      process.env.NODE_ENV === "development" ||
+      process.env.NODE_ENV === "development",
       // process.env.NODE_ENV === "preview" ||
       // process.env.NODE_ENV === "production",
       // delete two lines above to enable PWA in production deployment
