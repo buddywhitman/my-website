@@ -203,13 +203,6 @@ const Home = () => {
             Contact
           </ThemedButton>
         </Link>
-        {/* <Box justifyContent="center" textAlign="center" fontSize="xl">
-          <Flex>
-            <IconWrapper icon={SiSublimetext} text="Sublime Text" />
-            <IconWrapper icon={SiMacos} text="macos" />
-            <IconWrapper icon={BsGithub} text="github" />
-          </Flex>
-        </Box> */}
       </Flex>
     </Box>
   );

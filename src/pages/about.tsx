@@ -131,7 +131,7 @@ const About = () => {
         </Heading>
         <Box marginY="5%">
           <TextImage
-            text="I'm  a 17-year-old high school kid from Bangalore. I grew up in Chennai,  Delhi and Gurgaon before moving to Bangalore. I'm Hindu and Buddhist, and  generally enjoy Computer Science and Econ. I've always been fascinated  with Science and Maths, be it through topping my class in elementary  school or qualifying for the top 25 in Olympiads. With that  interest in STEM, my dad encouraged me to start coding early, and I  considered it a fun activity. My journey pivoted in the  8th Grade when I left my unconventional Experiential learning school in  Gurgaon to join NAFL in Bangalore. The stem culture here was awesome,  and I developed a great appreciation for Electronics and Programming. I  spent a ton of time tinkering with electronics, working with  microprocessors and circuits to make fun projects. As an IGCSE student I  explored interesting CS theory like Logic gates and Image Optimization  Algorithms. With my growing knowledge of python, making projects was  fun."
+            text="I'm  a 17-year-old high school senior from Bangalore. I grew up in Chennai, Kolkata and Jamshedpur before moving down here. I read the Upanishads and Vedanta, and  generally enjoy Computer Science and Econ. As an ISC student, I explored interesting CS theory like logic synthesis and hardware implementation. With my growing knowledge of java, c and python, making projects was fun."
             image="/dagbot.webp"
             height={600}
             cw="60%"
@@ -140,16 +140,16 @@ const About = () => {
             reverse={false}
           />
           <TextImage
-            text="2020  threw a curveball. I watched summer plans dissapear as I looked for  hobbies to fill time. A Reddit community talked about discord bot  development, and intrigued, I dove in. I instantly fell in love  and slowly drove head first into the programming rabbit hole. Soon I  spent all my free time making websites, bots, and more. I started a  startup, volunteered for NGO's and even did a few internships and  freelance work. I was blown away by what I could make with code. Old  interests like Pokémon, crypto and f1 fell into my programming projects.  I knew I had found what I was passionate about, and I ran with that!  The Open-source community was so powerful, and all the amazing people  I've met on GitHub have inspired me to do more. "
+            text="2020  threw a curveball. I watched summer plans dissapear as I looked for projects to fill time. After expanding my LinkedIn network, I started getting messages from founders who were usually still in college with offers to do gigs for em - ranging all over the tech spectrum, from graphic design to webapps and producing audio-visual content to managing social media presence. Before I knew it, I was spending all my free time making websites, bots, and more. I started a  startup, volunteered for NGOs and even did a few internships. I was blown away by what I could make with code. The open source community was so powerful, and all the amazing people I've met on GitHub have inspired me to do more. "
             image="/gh.webp"
-            alt="me lookig at graphs"
+            alt="me looking at graphs"
             reverse
             cw="70%"
             height={470}
             width={900}
           />
           <TextImage
-            text="Apart  from programming, I'm a passionate environmentalist. I've collected  over 120kgs+ of e-waste for recycling and developed a software solution  to help people find e-waste centres. I'm into MUN, having founded NAFL's  MUN club and winning the Oxford MUN Singapore. As a self-proclaimed YA  novel aficionado, I can tear through a teen novel no matter how 'cringe'  and still love it! I'm also a passionate member of my school book club,  where I love the discussions we have on literature, philosophy,  society, and feminism. On the left is my favourite book: Paper Towns by John Green, it's a novel that I can always read when I'm  in a bad mood.."
+            text="Apart  from programming, I'm a passionate environmentalist. I've collected  over 120kgs+ of e-waste for recycling and developed a software solution  to help people find e-waste centres. I'm into MUN, having founded NAFL's  MUN club and winning the Oxford MUN Singapore. As a self-proclaimed YA  novel aficionado, I can tear through a teen novel no matter how 'cringe' and still love it! I'm also a passionate member of my school book club,  where I love the discussions we have on literature, philosophy,  society, and feminism. On the left is my favourite book: Paper Towns by John Green, it's a novel that I can always read when I'm in a bad mood.."
             image="/papertowns.webp"
             alt="Github homescreen"
             cw="50%"
@@ -158,7 +158,7 @@ const About = () => {
             width={162}
           />
           <TextImage
-            text="For unwinding, I love making memes to spread laughter but also start discussions on issues. Currently have over 80000 Reddit Karma.  I also run a fountain pen YouTube Channel, and Instagram page where I share photos and guides on pen maintenance! Fountain Pens are a huge passion of mine, and as a member of the Indian Fountain Pen Association, I'm happy to promote the hobby.  As a huge f1 fan, I watch every race, no matter the time or date. As part of my f1 love, I also work as a freelancer for Sportskeeda, writing f1 articles."
+            text="For unwinding, I love making memes to spread laughter but also start discussions on issues. As a huge f1 fan, I watch every race, no matter the time or date. As part of my f1 love, I also work as a freelancer for Sportskeeda, writing f1 articles."
             image="/hobbies.webp"
             alt="Github homescreen"
             cw="50%"
@@ -194,7 +194,7 @@ const About = () => {
             bg="#149414"
             heading="Started Programming"
             date="2011"
-            description="Started Learning to code with Python (Udemy) and Javascript Animations (Khan Academy)"
+            description="Started Learning to code with C (Let Us C) and Javascript Animations (Khan Academy)"
           />
           <TimelineElement
             icon={<SiScratch />}
@@ -207,17 +207,17 @@ const About = () => {
 
           <TimelineElement
             icon={<CHI src="https://i.imgur.com/oQODMmY.png" />}
-            location="Bangalore- NAFL"
+            location="Bangalore - SFS"
             bg="#ff9bd3"
-            heading="IGCSE Computer Science"
+            heading="ICSE Computer Science"
             date="2018 - 2020"
-            description="A* in IGCSE computer science with distinction. I learnt theory as well as practical coursework with python"
+            description="A centum in ICSE computer science examinations. I learnt theory as well as practical coursework with Java"
           />
           <TimelineElement
             icon={<CHI src="https://i.imgur.com/8EFyuVt.png" />}
             location="Bangalore"
             bg="#5865F2"
-            heading="IBM Proffesional Data Science Certificatio )"
+            heading="IBM Proffesional Data Science Certification)"
             date="2020"
             description="Completed IBM's 9 part course on becoming a professional data scientist. Worked with pandas, sklearn, matplotlib and more to finish a capstone with interactive maps!"
           />
@@ -227,7 +227,7 @@ const About = () => {
             bg="#5865F2"
             heading="Discord Bot Development (discord.py, serenity.rs)"
             date="2020 - present"
-            description="Discord bot development with the discord api. Initially started with discord.py, worked my way up and beame comfortable. Shifted to serenity with rust. Also made 8+ PR's and was an active contributor to the library"
+            description="Discord bot development with the discord api. Initially started with discord.py, worked my way up and became comfortable. Shifted to serenity with rust. Also made 8+ PR's and was an active contributor to the library"
           />
           <TimelineElement
             icon={<FaRust />}
@@ -247,11 +247,11 @@ const About = () => {
           />
           <TimelineElement
             icon={<CHI src="https://i.imgur.com/0eaRcNu.png" />}
-            location="Bangalore - MAIS"
+            location="Bangalore - SFS ISC"
             bg="#ff9bd3"
-            heading="A Level Computer Science"
+            heading="ISC Computer Science"
             date="2020 - 2022"
-            description="Working on getting an A Level CS course. 2020-2021 year :A [top grade], predicted A* for 2021-2022. More advanced theory including python and java programming"
+            description="Working on my ISC course. 2020-2021 year :A [top grade], predicted A* for 2021-2022. More advanced theory including python and java programming"
           />
           <TimelineElement
             icon={<CHI src="https://i.imgur.com/vsOGsb2.png" />}
