@@ -16,6 +16,8 @@ module.exports = withPWA({
     register: true,
   },
   reactStrictMode: true,
+});
+{/*
   "rewrites": [
     {
       "source": "/:path*",
@@ -28,4 +30,4 @@ module.exports = withPWA({
       "destination": "https://buddywhitman.vercel.app/blog"
     }
   ]
-});
+*/}
