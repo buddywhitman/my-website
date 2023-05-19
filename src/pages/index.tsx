@@ -95,12 +95,19 @@ const Home = () => {
             Vedanta philosophy.
           </Text>
           */}
-          <Stack direction="row" spacing={4} align="center">
+          <Stack
+            marginTop={{ base: 1, md: 1 }}
+            direction="row"
+            spacing={4}
+            align="center"
+          >
             <Link href="/about" passHref>
               <ThemedButton top={3}>Read More</ThemedButton>
             </Link>
             <Link href="/tech" passHref>
-              <ThemedButton top={3}>Tech Stack</ThemedButton>
+              <ThemedButton rightIcon={<BsArrowRight />} top={3}>
+                Tech Stack
+              </ThemedButton>
             </Link>
           </Stack>
         </Box>
