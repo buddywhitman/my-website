@@ -109,6 +109,13 @@ const Home = () => {
                 Tech Stack
               </ThemedButton>
             </Link>
+            {/*
+            <Link href="/design" passHref>
+              <ThemedButton rightIcon={<BsArrowRight />} top={3}>
+                Portfolio
+              </ThemedButton>
+            </Link>
+            */}
           </Stack>
         </Box>
         <Spacer />
