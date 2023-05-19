@@ -44,14 +44,12 @@ const SpecialHeaderTextComponent = ({
   text: string;
   url: string;
 }) => {
-  const hc = useColorModeValue("#33adff", "#005ce6");
+  const hc = useColorModeValue("brand.400", "brand.600");
 
   return (
     <MenuItem>
       <Heading
-        _hover={{
-          background: `${hc} none repeat scroll 0% 0%`,
-        }}
+        bg={hc}
         padding={2}
         rounded="md"
         fontWeight="500"
