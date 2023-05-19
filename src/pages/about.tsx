@@ -131,7 +131,7 @@ const About = () => {
         </Heading>
         <Box marginY="5%">
           <TextImage
-            text="I'm  a 17-year-old high school senior from Bangalore. I grew up in Chennai, Kolkata and Jamshedpur before moving down here. I read the Upanishads and Vedanta, and  generally enjoy Computer Science and Econ. As an ISC student, I explored interesting CS theory like logic synthesis and hardware implementation. With my growing knowledge of java, c and python, making projects was fun."
+            text="A decade or two down the line, I would love to launch a consumer-facing hard tech venture. I am also into music production, socio-poitical activism, military stuff and comparative religion. My belief in absolute equality, world peace, love, individuality and internationalism stems from an avid interest in the Vedanta philosophy. Scroll down to know more!"
             image="/dagbot.webp"
             height={600}
             cw="60%"

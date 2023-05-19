@@ -274,6 +274,7 @@ const Tech = () => {
                     <IconWrapper icon={SiMysql} text="MySQL" />
                     <IconWrapper icon={SiRedis} text="Redis" />
                     <IconWrapper icon={SiMongodb} text="MongoDB" />
+                    <IconWrapper icon={SiAmazondynamodb} text="Dyanmo DB" />
                     <IconWrapper icon={SiMicrosoftsqlserver} text="MsSQL" />
                   </Flex>
                 </Td>
@@ -332,7 +333,6 @@ const Tech = () => {
                 <Td>Cloud</Td>
                 <Td>
                   <Flex>
-                    <IconWrapper icon={SiAmazondynamodb} text="Dyanmo DB" />
                     <IconWrapper icon={SiAmazonec2} text="EC2" />
                     <IconWrapper icon={SiAmazonecs} text="ECS" />
                     <IconWrapper icon={SiAmazoneks} text="EKS" />
