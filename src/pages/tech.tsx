@@ -225,8 +225,7 @@ const Tech = () => {
             </Thead>
             <Tbody>
               <Tr>
-                <Td>Programming Languages </Td>
-                {/* Programming Languages */}
+                <Td>Languages </Td>
                 <Td flexDirection="row">
                   <Flex>
                     <IconWrapper icon={FaJava} text="Java" />
@@ -243,7 +242,6 @@ const Tech = () => {
                   </Flex>
                 </Td>
               </Tr>
-              {/* Frameworks */}
               <Tr>
                 <Td>Frameworks/libs </Td>
                 <Td>
@@ -300,7 +298,7 @@ const Tech = () => {
                 </Td>
               </Tr>
               <Tr>
-                <Td>Data Visualization/ML</Td>
+                <Td>Visualization/ML</Td>
                 <Td>
                   <Flex>
                     <IconWrapper icon={SiTableau} text="Tableau" />
