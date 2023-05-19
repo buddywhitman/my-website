@@ -10,7 +10,7 @@ import {
 import { NextRouter, useRouter } from "next/router";
 import { IconType } from "react-icons";
 import { BsBehance, BsLinkedin, BsGithub } from "react-icons/bs";
-import { SiResearchgate } from "react-icons/si";
+// import { SiResearchgate } from "react-icons/si";
 
 interface IconWrapProps {
   router: NextRouter;
@@ -76,12 +76,14 @@ const SomeText = () => {
           color="#053eff"
           icon={BsBehance}
         />
+        {/*
         <IconWrap
           router={router}
           url="https://www.researchgate.net/profile/Pulkit-Kumar-7"
           color="#00ccbb"
           icon={SiResearchgate}
         />
+        */}
       </Flex>
     </Box>
   );
