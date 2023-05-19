@@ -5,6 +5,7 @@ import {
   Flex,
   Spacer,
   Text,
+  Stack,
   useBreakpointValue,
   useColorModeValue,
 } from "@chakra-ui/react";
@@ -94,12 +95,14 @@ const Home = () => {
             Vedanta philosophy.
           </Text>
           */}
-          <Link href="/about" passHref>
-            <ThemedButton top={3}>Read More</ThemedButton>
-          </Link>
-          <Link href="/tech" passHref>
-            <ThemedButton top={3}>Tech Stack</ThemedButton>
-          </Link>
+          <Stack direction="row" spacing={4} align="center">
+            <Link href="/about" passHref>
+              <ThemedButton top={3}>Read More</ThemedButton>
+            </Link>
+            <Link href="/tech" passHref>
+              <ThemedButton top={3}>Tech Stack</ThemedButton>
+            </Link>
+          </Stack>
         </Box>
         <Spacer />
         <Box pt={10} lg={500} alignContent={{ base: "center", md: "left" }}>
