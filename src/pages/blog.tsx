@@ -2,7 +2,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import { Box, Heading, Text, useColorModeValue } from "@chakra-ui/react";
 
-const Design = () => {
+const Blog = () => {
   const bl = useColorModeValue("brand.400", "brand.600");
   return (
     <Box p={{ base: 1, md: 8 }}>
@@ -21,11 +21,11 @@ const Design = () => {
             zIndex: -1,
           }}
         >
-          Design
+          Blog
         </Text>
       </Heading>
     </Box>
   );
 };
 
-export default Design;
+export default Blog;

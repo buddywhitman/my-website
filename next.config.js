@@ -25,7 +25,7 @@ module.exports = withPWA({
           "value": "blog.buddywhitman.vercel.app"
         }
       ],
-      "destination": "/blog"
+      "destination": "https://buddywhitman.vercel.app/blog"
     }
   ]
 });
