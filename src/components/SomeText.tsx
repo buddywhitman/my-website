@@ -60,7 +60,7 @@ const SomeText = () => {
       <Flex marginX={{ base: "10%", sm: "30%", md: 0 }}>
         <IconWrap
           router={router}
-          url="https://www.linkedin.com/in/buddywhitman/"
+          url="https://www.linkedin.com/in/buddywhitman"
           color="#0e76a8"
           icon={BsLinkedin}
         />
