@@ -48,7 +48,6 @@ import {
   SiC,
   SiGo,
   SiReact,
-  SiReactrouter,
   SiRedux,
   SiAngular,
   SiNextdotjs,
@@ -129,7 +128,6 @@ import {
   SiFreebsd,
   SiKalilinux,
   SiTails,
-  SiCanva,
   SiAdobeaftereffects,
   SiAdobeaudition,
   SiAbletonlive,
@@ -247,7 +245,6 @@ const Tech = () => {
                 <Td>
                   <Flex>
                     <IconWrapper icon={SiReact} text="React" />
-                    <IconWrapper icon={SiReactrouter} text="React Router" />
                     <IconWrapper icon={SiRedux} text="Redux" />
                     <IconWrapper icon={SiAngular} text="Angular" />
                     <IconWrapper icon={SiNodedotjs} text="Node.js" />
@@ -415,7 +412,6 @@ const Tech = () => {
                     <IconWrapper icon={SiObsstudio} text="OBS Studio" />
                     <IconWrapper icon={SiAdobeaudition} text="Audition" />
                     <IconWrapper icon={SiAbletonlive} text="Ableton" />
-                    <IconWrapper icon={SiCanva} text="Canva" />
                     <IconWrapper icon={SiAdobeindesign} text="InDesign" />
                     <IconWrapper icon={SiMiro} text="Miro" />
                     <IconWrapper icon={SiLunacy} text="Lunacy" />
