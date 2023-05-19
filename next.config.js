@@ -17,3 +17,17 @@ module.exports = withPWA({
   },
   reactStrictMode: true,
 });
+({
+  "rewrites": [
+    {
+      "source": "/:path*",
+      "has": [
+        {
+          "type": "host",
+          "value": "blog.buddywhitman.vercel.app"
+        }
+      ],
+      "destination": "/blog/:path*"
+    }
+  ]
+});
