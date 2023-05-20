@@ -82,9 +82,9 @@ const Home = () => {
           </Text>
           <Text marginTop={{ base: 1, md: 3 }} fontSize="xl">
             While I deeply empathize with my users, I&apos;m also mindful of
-            business goals, keeping products scalable, easily deployable and
-            practising an agile workflow during development, all in sync with
-            latest lint and documentation conventions.
+            business goals, keeping products scalable, highly optimized, easily
+            deployable and practising an agile workflow during development, all
+            in sync with latest lint and documentation conventions.
           </Text>
           {/*
           <Text marginTop={{ base: 1, md: 3 }} fontSize="xl">
