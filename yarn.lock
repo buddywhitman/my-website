@@ -1845,10 +1845,10 @@
   resolved "https://registry.npmjs.org/@fontsource/playfair-display/-/playfair-display-4.5.0.tgz"
   integrity sha512-c3um+IFEznTocFPFOGJz8zsDReMVkj7Pgp/csEbvNnwqHfr/ZzvLx37m+NolhdqzpFfBFnIQ2fblVoOgQLaOag==
 
-"@fontsource/raleway@^4.5.12":
-  version "4.5.12"
-  resolved "https://registry.yarnpkg.com/@fontsource/raleway/-/raleway-4.5.12.tgz#25a7bc448a8440a46205e7259e1f8cb03fa59e18"
-  integrity sha512-uKs13d6NFWU4vf5LSDHK/cbaAw+UXkzz03fKjyvkKq8Nop+CeB6o8STEDkZD9/uOo3v3sgm59Wyw8uGWvxoCiA==
+"@fontsource/raleway@^5.0.1":
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/@fontsource/raleway/-/raleway-5.0.1.tgz#5a04530d6f1077949b85f74fd0c8df980335af39"
+  integrity sha512-k63YnBzrKTxY1rqCkonQxk3sIdF1jBo92JzG2v0vLGVduNALcMovD0RrSGfu90YTqUEHhuEBirA9V6mQ5JCT5w==
 
 "@graphql-typed-document-node/core@^3.0.0":
   version "3.1.0"

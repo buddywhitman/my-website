@@ -27,7 +27,7 @@
     "@emotion/styled": "^11.11.0",
     "@fontsource/montserrat": "^4.5.1",
     "@fontsource/playfair-display": "^4.5.0",
-    "@fontsource/raleway": "^4.5.12",
+    "@fontsource/raleway": "^5.0.1",
     "@types/react-icons": "3.0.0",
     "framer-motion": "^4.1.17",
     "next": "^12.1.0",
