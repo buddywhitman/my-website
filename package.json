@@ -17,7 +17,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "@apollo/client": "^3.4.16",
+    "@apollo/client": "^3.7.14",
     "@apollo/graphql": "^14.5.0",
     "@chakra-ui/react": "^1.6.9",
     "@chakra-ui/theme-tools": "^1.2.1",
