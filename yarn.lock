@@ -5216,10 +5216,10 @@ next-pwa@^5.3.1:
     workbox-webpack-plugin "^6.3.0"
     workbox-window "^6.3.0"
 
-next-seo@^4.28.1:
-  version "4.28.1"
-  resolved "https://registry.npmjs.org/next-seo/-/next-seo-4.28.1.tgz"
-  integrity sha512-WZgwdM+UhpNF3A37zFllzmPhnOVJ9vYeYlc0n3Z/kYfz/QQgy8NEdncNNggS9dU4JD8xriaCcyknhy5OsrFsJw==
+next-seo@^6.0.0:
+  version "6.0.0"
+  resolved "https://registry.yarnpkg.com/next-seo/-/next-seo-6.0.0.tgz#4568dc61a44dbdf5fe5ff44156cd0ff8804889a2"
+  integrity sha512-jKKt1p1z4otMA28AyeoAONixVjdYmgFCWwpEFtu+DwRHQDllVX3RjtyXbuCQiUZEfQ9rFPBpAI90vDeLZlMBdg==
 
 next-sitemap@^2.5.28:
   version "2.5.28"
