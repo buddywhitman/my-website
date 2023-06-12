@@ -22,7 +22,7 @@
     "@chakra-ui/react": "^1.6.9",
     "@chakra-ui/theme-tools": "^1.2.1",
     "@emotion/cache": "^11.4.0",
-    "@emotion/react": "^11.4.1",
+    "@emotion/react": "^11.11.1",
     "@emotion/server": "^11.4.0",
     "@emotion/styled": "^11.11.0",
     "@fontsource/montserrat": "^5.0.2",
