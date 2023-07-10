@@ -1837,10 +1837,10 @@
   resolved "https://registry.yarnpkg.com/@fontsource/montserrat/-/montserrat-5.0.2.tgz#47762d9179460588f819720a67b39f5aab33e111"
   integrity sha512-pU5i2L3j1zWHmCxspsmgV46X+HE7XaT2rbpnsmYpmS8lSuSyiZhuwCzjU4To2+P3dxZj9WrJ9TcU26UcU8fhfg==
 
-"@fontsource/playfair-display@^4.5.0":
-  version "4.5.0"
-  resolved "https://registry.npmjs.org/@fontsource/playfair-display/-/playfair-display-4.5.0.tgz"
-  integrity sha512-c3um+IFEznTocFPFOGJz8zsDReMVkj7Pgp/csEbvNnwqHfr/ZzvLx37m+NolhdqzpFfBFnIQ2fblVoOgQLaOag==
+"@fontsource/playfair-display@^5.0.5":
+  version "5.0.5"
+  resolved "https://registry.yarnpkg.com/@fontsource/playfair-display/-/playfair-display-5.0.5.tgz#4bf3f943d2480257ba7ce7699c0be5757b1a0fcb"
+  integrity sha512-IeFiP3TAGXX3TAabYfuSkmfzMFNSXhZ1td0wWgcZAcQ+DeZJWK1spw7AHt1ePM5EY/vu13JxVl+4vrGi18VMhg==
 
 "@fontsource/raleway@^5.0.2":
   version "5.0.2"
