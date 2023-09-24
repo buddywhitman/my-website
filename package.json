@@ -25,7 +25,7 @@
     "@emotion/react": "^11.11.1",
     "@emotion/server": "^11.4.0",
     "@emotion/styled": "^11.11.0",
-    "@fontsource/montserrat": "^5.0.2",
+    "@fontsource/montserrat": "^5.0.8",
     "@fontsource/playfair-display": "^5.0.5",
     "@fontsource/raleway": "^5.0.2",
     "@types/react-icons": "3.0.0",
