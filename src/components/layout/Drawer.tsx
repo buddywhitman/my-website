@@ -41,7 +41,7 @@ const DrawerWidget = ({ onClose, isOpen }: DrawerWidgetProps) => {
                 <Heading>about</Heading>
               </Link>
               <Link passHref href="/tech">
-                <Heading>tTech</Heading>
+                <Heading>tech</Heading>
               </Link>
               {/*
               <Link passHref href="/design">
@@ -52,13 +52,13 @@ const DrawerWidget = ({ onClose, isOpen }: DrawerWidgetProps) => {
               </Link>
               */}
               <Link passHref href="/contact">
-                <Heading>Contact</Heading>
+                <Heading>contact</Heading>
               </Link>
               <Link
                 passHref
                 href="https://www.patreon.com/checkout/10499173/9791345"
               >
-                <Heading>Donate</Heading>
+                <Heading>donate</Heading>
               </Link>
             </Flex>
           </MotionBox>
