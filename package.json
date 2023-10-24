@@ -30,7 +30,7 @@
     "@fontsource/raleway": "^5.0.2",
     "@types/react-icons": "3.0.0",
     "framer-motion": "^4.1.17",
-    "next": "^12.1.0",
+    "next": "^13.5.0",
     "next-pwa": "^5.3.1",
     "next-seo": "^6.1.0",
     "prop-types": "^15.7.2",
