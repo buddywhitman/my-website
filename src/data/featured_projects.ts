@@ -30,7 +30,7 @@ const FeaturedProjectList: FeaturedProjectType[] = [
     height: 1032,
     width: 1919,
     description:
-      "Dagpi is a SoftwareAsAService API that I'm the CEO and founder of. It features ImageManipulation as a servie with a dashboard. Each user has metrics, and the option to buy a premium service with stripe. Dagpi uses rust, python and typescript. View github for full stack!",
+      "Dagpi is a SoftwareAsAService API that I created a while back. It features ImageManipulation as a service with a dashboard. Each user has metrics, and the option to buy a premium service with stripe. Dagpi uses rust, python and typescript. View github for full stack!",
     images: ["/dagpi_home_w.webp", "/dagpi_home_b.webp"],
     tags: [
       "python",
