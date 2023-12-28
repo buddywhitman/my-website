@@ -26,45 +26,42 @@ import { IconType } from "react-icons/lib";
 import {
   SiJavascript,
   SiTypescript,
-  SiRust,
+  // SiRust,
   SiDocker,
   SiKubernetes,
-  SiGithubactions,
+  // SiGithubactions,
   SiTravisci,
   SiCloudflare,
   SiGnubash,
   SiPostgresql,
-  SiRedis,
   SiMicrosoftsqlserver,
   SiVercel,
   SiMongodb,
   SiGooglecloud,
   SiFirebase,
   SiGit,
-  SiKotlin,
+  /* SiKotlin,
   SiPerl,
-  SiLua,
+  SiLua, */
   SiCplusplus,
   SiC,
-  SiGo,
+  // SiGo,
   SiReact,
   SiRedux,
   SiAngular,
   SiNextdotjs,
   SiNodedotjs,
-  SiExpress,
   SiVuedotjs,
-  SiThreedotjs,
   SiSpring,
-  SiFlask,
-  SiDjango,
+  // SiFlask,
+  // SiDjango,
   SiGatsby,
   SiFlutter,
   SiChakraui,
-  SiNginx,
+  /* SiNginx,
   SiApache,
   SiGraphql,
-  SiJquery,
+  SiJquery, */
   SiTableau,
   SiPowerbi,
   SiQgis,
@@ -74,9 +71,8 @@ import {
   SiOpencv,
   SiPytorch,
   SiNumpy,
-  SiScipy,
   SiPandas,
-  SiApachespark,
+  /* SiApachespark,
   SiScala,
   SiApachehadoop,
   SiElasticsearch,
@@ -85,38 +81,32 @@ import {
   SiApachekafka,
   SiOpensearch,
   SiLogstash,
+  SiPerforce, */
   SiMysql,
   SiJenkins,
-  SiPerforce,
   SiGitlab,
   SiOracle,
   SiHeroku,
-  SiRedhatopenshift,
-  SiAmazondynamodb,
   SiAmazonec2,
   SiAmazonecs,
+  SiAmazons3,
+  SiMicrosoftazure,
+  /* SiRedhatopenshift,
+  SiAmazondynamodb,
   SiAmazoneks,
   SiAmazonrds,
-  SiAmazons3,
   SiAmazonsqs,
-  SiMicrosoftazure,
   SiAuth0,
   SiOpenid,
   SiJsonwebtokens,
   SiJson,
   SiMqtt,
-  SiIfttt,
+  SiIfttt, */
   SiBabel,
   SiWebpack,
   SiYarn,
   SiChocolatey,
   SiNpm,
-  SiJira,
-  SiMarkdown,
-  SiLatex,
-  SiNotion,
-  SiMicrosoftvisio,
-  SiWikidotjs,
   SiWindows11,
   SiMacos,
   SiArduino,
@@ -129,31 +119,15 @@ import {
   SiKalilinux,
   SiTails,
   SiAdobeaftereffects,
-  SiAdobeaudition,
   SiAbletonlive,
   SiAdobeillustrator,
   SiAdobeindesign,
   SiAdobephotoshop,
   SiAdobepremierepro,
-  SiObsstudio,
   SiAdobexd,
   SiInvision,
   SiFigma,
   SiSketch,
-  SiLunacy,
-  SiMiro,
-  SiAndroidstudio,
-  SiVisualstudio,
-  SiUnity,
-  SiApachenetbeanside,
-  SiIntellijidea,
-  SiEclipseide,
-  SiXcode,
-  SiWebstorm,
-  SiPycharm,
-  SiDatagrip,
-  SiClion,
-  SiJupyter,
 } from "react-icons/si";
 import Slider from "react-slick";
 
@@ -232,11 +206,12 @@ const Tech = () => {
                     <IconWrapper icon={SiCplusplus} text="C++" />
                     <IconWrapper icon={SiJavascript} text="Javascript" />
                     <IconWrapper icon={SiTypescript} text="Typescript" />
+                    {/* 
                     <IconWrapper icon={SiGo} text="Go" />
                     <IconWrapper icon={SiKotlin} text="Kotlin" />
                     <IconWrapper icon={SiRust} text="Rust" />
                     <IconWrapper icon={SiPerl} text="Perl" />
-                    <IconWrapper icon={SiLua} text="Lua" />
+                    <IconWrapper icon={SiLua} text="Lua" /> */}
                   </Flex>
                 </Td>
               </Tr>
@@ -250,11 +225,10 @@ const Tech = () => {
                     <IconWrapper icon={SiNodedotjs} text="Node.js" />
                     <IconWrapper icon={SiVuedotjs} text="Vue.js" />
                     <IconWrapper icon={SiSpring} text="Spring" />
+                    {/* 
                     <IconWrapper icon={SiFlask} text="Flask" />
-                    <IconWrapper icon={SiDjango} text="Django" />
+                    <IconWrapper icon={SiDjango} text="Django" /> */}
                     <IconWrapper icon={SiNextdotjs} text="Next.js" />
-                    <IconWrapper icon={SiExpress} text="Express.js" />
-                    <IconWrapper icon={SiThreedotjs} text="Three.js" />
                     <IconWrapper icon={SiGatsby} text="Gatsby" />
                     <IconWrapper icon={SiFlutter} text="Flutter" />
                     <IconWrapper icon={SiChakraui} text="Chakra UI" />
@@ -269,9 +243,7 @@ const Tech = () => {
                     <IconWrapper icon={SiOracle} text="DBMS" />
                     <IconWrapper icon={SiPostgresql} text="Postgresql" />
                     <IconWrapper icon={SiMysql} text="MySQL" />
-                    <IconWrapper icon={SiRedis} text="Redis" />
                     <IconWrapper icon={SiMongodb} text="MongoDB" />
-                    <IconWrapper icon={SiAmazondynamodb} text="Dyanmo DB" />
                     <IconWrapper icon={SiMicrosoftsqlserver} text="MsSQL" />
                   </Flex>
                 </Td>
@@ -285,13 +257,13 @@ const Tech = () => {
                     <IconWrapper icon={SiJenkins} text="Jenkins" />
                     <IconWrapper icon={SiVercel} text="Vercel" />
                     <IconWrapper icon={SiHeroku} text="Heroku" />
-                    <IconWrapper icon={SiPerforce} text="Perforce" />
                     <IconWrapper icon={SiGit} text="Git" />
-                    <IconWrapper icon={SiGithubactions} text="Github Actions" />
                     <IconWrapper icon={SiGitlab} text="GitLab" />
                     <IconWrapper icon={SiDocker} text="Docker" />
                     <IconWrapper icon={SiKubernetes} text="Kubernetes" />
-                    <IconWrapper icon={SiRedhatopenshift} text="OpenShift" />
+                    {/* <IconWrapper icon={SiPerforce} text="Perforce" />
+                    <IconWrapper icon={SiGithubactions} text="Github Actions" />
+                    <IconWrapper icon={SiRedhatopenshift} text="OpenShift" /> */}
                   </Flex>
                 </Td>
               </Tr>
@@ -308,7 +280,6 @@ const Tech = () => {
                     <IconWrapper icon={SiOpencv} text="OpenCV" />
                     <IconWrapper icon={SiPytorch} text="PyTorch" />
                     <IconWrapper icon={SiNumpy} text="NumPy" />
-                    <IconWrapper icon={SiScipy} text="SciPy" />
                     <IconWrapper icon={SiPandas} text="Pandas" />
                   </Flex>
                 </Td>
@@ -332,10 +303,10 @@ const Tech = () => {
                   <Flex>
                     <IconWrapper icon={SiAmazonec2} text="EC2" />
                     <IconWrapper icon={SiAmazonecs} text="ECS" />
-                    <IconWrapper icon={SiAmazoneks} text="EKS" />
+                    {/* <IconWrapper icon={SiAmazoneks} text="EKS" />
                     <IconWrapper icon={SiAmazonrds} text="RDS" />
+                    <IconWrapper icon={SiAmazonsqs} text="SQS" /> */}
                     <IconWrapper icon={SiAmazons3} text="S3" />
-                    <IconWrapper icon={SiAmazonsqs} text="SQS" />
                     <IconWrapper icon={SiMicrosoftazure} text="Azure" />
                     <IconWrapper icon={SiGooglecloud} text="Google Cloud" />
                     <IconWrapper icon={SiCloudflare} text="Cloudflare" />
@@ -343,7 +314,7 @@ const Tech = () => {
                   </Flex>
                 </Td>
               </Tr>
-              <Tr>
+              {/* <Tr>
                 <Td>Caching/Data Processing</Td>
                 <Td>
                   <Flex>
@@ -362,8 +333,8 @@ const Tech = () => {
                     <IconWrapper icon={SiLogstash} text="Logstash" />
                   </Flex>
                 </Td>
-              </Tr>
-              <Tr>
+              </Tr> */}
+              {/* <Tr>
                 <Td>Auth/Telemetry</Td>
                 <Td>
                   <Flex>
@@ -375,7 +346,7 @@ const Tech = () => {
                     <IconWrapper icon={SiIfttt} text="IFTTT" />
                   </Flex>
                 </Td>
-              </Tr>
+              </Tr> */}
               <Tr>
                 <Td>Ecosystems</Td>
                 <Td>
@@ -409,44 +380,8 @@ const Tech = () => {
                       icon={SiAdobeaftereffects}
                       text="After Effects"
                     />
-                    <IconWrapper icon={SiObsstudio} text="OBS Studio" />
-                    <IconWrapper icon={SiAdobeaudition} text="Audition" />
                     <IconWrapper icon={SiAbletonlive} text="Ableton" />
                     <IconWrapper icon={SiAdobeindesign} text="InDesign" />
-                    <IconWrapper icon={SiMiro} text="Miro" />
-                    <IconWrapper icon={SiLunacy} text="Lunacy" />
-                  </Flex>
-                </Td>
-              </Tr>
-              <Tr>
-                <Td>PM/Docs</Td>
-                <Td>
-                  <Flex>
-                    <IconWrapper icon={SiJira} text="Jira" />
-                    <IconWrapper icon={SiMarkdown} text="Md" />
-                    <IconWrapper icon={SiLatex} text="LaTex" />
-                    <IconWrapper icon={SiNotion} text="Notion" />
-                    <IconWrapper icon={SiMicrosoftvisio} text="Visio" />
-                    <IconWrapper icon={SiWikidotjs} text="Wiki.js" />
-                  </Flex>
-                </Td>
-              </Tr>
-              <Tr>
-                <Td>IDEs</Td>
-                <Td>
-                  <Flex>
-                    <IconWrapper icon={SiVisualstudio} text="VS" />
-                    <IconWrapper icon={SiIntellijidea} text="IDEA" />
-                    <IconWrapper icon={SiEclipseide} text="Eclipse" />
-                    <IconWrapper icon={SiWebstorm} text="WebStorm" />
-                    <IconWrapper icon={SiPycharm} text="PyCharm" />
-                    <IconWrapper icon={SiDatagrip} text="DataGrip" />
-                    <IconWrapper icon={SiClion} text="CLion" />
-                    <IconWrapper icon={SiJupyter} text="Jupyter" />
-                    <IconWrapper icon={SiAndroidstudio} text="Android Studio" />
-                    <IconWrapper icon={SiXcode} text="Xcode" />
-                    <IconWrapper icon={SiUnity} text="Unity" />
-                    <IconWrapper icon={SiApachenetbeanside} text="NetBeans" />
                   </Flex>
                 </Td>
               </Tr>

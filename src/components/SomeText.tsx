@@ -55,7 +55,7 @@ const SomeText = () => {
         Pulkit Kumar
       </Heading>
       <Heading opacity="0.7" as="h3" fontSize={{ base: "xl", md: "3xl" }}>
-        Full Stack Developer & Designer
+        HW/SW Developer & Designer
       </Heading>
       <Flex marginX={{ base: "10%", sm: "30%", md: 0 }}>
         <IconWrap

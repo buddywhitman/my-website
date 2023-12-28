@@ -104,8 +104,8 @@ const Header = ({ onOpen }: HeaderProps) => {
           */}
           <HeaderTextComponent text="contact" url="/contact" />
           <SpecialHeaderTextComponent
-            text="donate"
-            url="https://www.patreon.com/checkout/10499173/9791345"
+            text="resume"
+            url="https://1drv.ms/f/s!AmI8B3-BxqydrZ8juUZMZ-vwvGFfTg?e=FbAAAE"
           />
           <MenuItem>
             <ThemeToggle />

@@ -70,11 +70,9 @@ const Home = () => {
             </Text>
           </Heading>
           <Text marginTop={{ base: 3, md: 5 }} fontSize="xl">
-            Hi I&apos;m Pulkit!
-          </Text>
-          <Text marginTop={{ base: 3, md: 5 }} fontSize="xl">
-            I love crafting delightful products & experiences for my fellow
-            humans.
+            Hey, There! I&apos;m Pulkit, an electrical engineering freshman at
+            MIT, Manipal. I love crafting delightful products & experiences for
+            my fellow humans.
           </Text>
           <Text marginTop={{ base: 1, md: 3 }} fontSize="xl">
             I do this by building thoughtful hardware and software products:
@@ -82,9 +80,9 @@ const Home = () => {
             interactive holograms and solar cars.
           </Text>
           <Text marginTop={{ base: 1, md: 3 }} fontSize="xl">
-            Reach out to work with me for all your software, hardware and branding needs,
-            I'll be happy to assist you. If you are looking forward to hiring me,
-            feel free to download my resume from the navbar.
+            Reach out to work with me for all your software, hardware and
+            branding needs. If you are looking for an undergrad hire, feel free
+            to download my resume.
           </Text>
           <Stack
             marginTop={{ base: 1, md: 1 }}
