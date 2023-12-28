@@ -9,8 +9,8 @@ import {
 } from "@chakra-ui/react";
 import { NextRouter, useRouter } from "next/router";
 import { IconType } from "react-icons";
-import { BsBehance, BsLinkedin, BsGithub } from "react-icons/bs";
-// import { SiResearchgate } from "react-icons/si";
+import { BsLinkedin, BsGithub } from "react-icons/bs";
+// import { BsBehance, SiResearchgate } from "react-icons/si";
 
 interface IconWrapProps {
   router: NextRouter;
@@ -70,12 +70,12 @@ const SomeText = () => {
           color={useColorModeValue("black", "white")}
           icon={BsGithub}
         />
-        <IconWrap
+        {/* <IconWrap
           router={router}
           url="https://behance.com/buddywhitman"
           color="#053eff"
           icon={BsBehance}
-        />
+        /> */}
         {/*
         <IconWrap
           router={router}
