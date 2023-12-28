@@ -40,7 +40,7 @@
     "react-icons": "^4.8.0",
     "react-slick": "^0.28.1",
     "react-vertical-timeline-component": "^3.6.0",
-    "sharp": "^0.32.1"
+    "sharp": "^0.33.1"
   },
   "devDependencies": {
     "@chakra-ui/cli": "^1.5.2",
