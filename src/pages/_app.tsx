@@ -2,9 +2,9 @@
 import { ChakraProvider } from "@chakra-ui/react";
 import { EmotionCache } from "@emotion/cache";
 import { CacheProvider } from "@emotion/react";
-import { DefaultSeo } from "next-seo";
 import { AppProps } from "next/app";
 import Head from "next/head";
+import { DefaultSeo } from "next-seo";
 import "@fontsource/raleway/latin.css";
 import "@fontsource/montserrat/latin.css";
 import "@fontsource/playfair-display/latin.css";
