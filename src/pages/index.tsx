@@ -77,24 +77,15 @@ const Home = () => {
             humans.
           </Text>
           <Text marginTop={{ base: 1, md: 3 }} fontSize="xl">
-            I do this by employing adaptive design and interaction principles in
-            my webapps and high-performance RESTful web services.
+            I do this by building thoughtful hardware and software products:
+            from RESTful web services and responsive web & native apps to
+            interactive holograms and solar cars.
           </Text>
           <Text marginTop={{ base: 1, md: 3 }} fontSize="xl">
-            While I deeply empathize with my users, I&apos;m also mindful of
-            business goals, keeping products scalable, highly optimized, easily
-            deployable and practising an agile workflow during development, all
-            in sync with latest lint and documentation conventions.
+            Reach out to work with me for all your software, hardware and branding needs,
+            I'll be happy to assist you. If you are looking forward to hiring me,
+            feel free to download my resume from the navbar.
           </Text>
-          {/*
-          <Text marginTop={{ base: 1, md: 3 }} fontSize="xl">
-            A decade or two down the line, I would love to launch a consumer-facing
-            hard tech venture. I am also into music production, socio-poitical activism, 
-            military stuff and comparitive religion. My belief in absolute equality,
-            world peace, love and internationalism stems from an avid interest in the
-            Vedanta philosophy.
-          </Text>
-          */}
           <Stack
             marginTop={{ base: 1, md: 1 }}
             direction="row"
