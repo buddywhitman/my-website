@@ -222,6 +222,14 @@ const About = () => {
           />
           <TimelineElement
             icon={<CHI src="https://i.imgur.com/oQODMmY.png" />}
+            location="National Cadet Corps"
+            bg="#ff9bd3"
+            heading="1 Karnataka Battalion"
+            date="2018-19"
+            description="Served as cadet over two years in the youth wing of the Indian Armed Forces, the largest youth organization in the world. Developed an appreciation for defence personnel across the world and the international relations/geopolity of India."
+          />
+          <TimelineElement
+            icon={<CHI src="https://i.imgur.com/oQODMmY.png" />}
             location="Cousera"
             bg="#ff9bd3"
             heading="nand2tetris"
@@ -345,32 +353,56 @@ const About = () => {
             location="Manipal Updates"
             bg="#0a549a"
             heading="Graphic Design"
-            date="2021"
+            date="2023"
             description="Helped launch and in some cases, manage social media presence for local businesses, which involved graphic design, digital marketing and social media management."
           />
           <TimelineElement
             icon={<CHI src="https://i.imgur.com/Gt5OyfT.png" />}
-            location=""
+            location="Kraftr"
             bg="#fcd8b6"
-            heading="Gifting a Life NGO Work"
-            date="2021"
-            description="Gifting a life NGO is an organisation that runs vaccine drives and has covid resource portals. I revamped the website and added whatsapp integrations."
+            heading="Business Strategy"
+            date="2023"
+            description="Joined a startup being incubated at the in-house incubation centre at MIT, which sources fashion deadstock from major denim manufacturers and upcycles them into shoes and other fashion accessories."
           />
           <TimelineElement
             icon={<FaEthereum />}
-            location=""
+            location="GramHealth"
             bg="#5d6dbe"
-            heading="Solidity + CryptoCurrency"
-            date="2021-present"
-            description="Learnt the solidity programming language and started developing crypto technology with web3 and the ethereum/binance chains. SLowly continuing"
+            heading="UI/UX Design"
+            date="2023"
+            description="Delivered high fidelity wireframes and prototypes for the web and mobile apps of GramHealth - another incubated startup that aims to implement an unified health ID that can be synced across several hospital chain, saving tons of precious time by giving access to healthcare professionals without the need for patients to reiterate their medical histories at each hospital."
           />
           <TimelineElement
             icon={<CHI src="https://i.imgur.com/NVcozFB.png" />}
-            location=""
+            location="Open Horizon Robotics"
             bg="#fcd8b6"
-            heading="Vitamin Coin"
-            date="2021"
-            description="Worked as a developer on an emerging crypto currency Vitc. Helped develop the discord and twitter tipbots for vitamin coin"
+            heading="Corporate Liasion & Public Outreach"
+            date="2023"
+            description="Handled the external relations of Open Horizon Robotics, a community dedicated to developing and increasing the adoption of open-source robotics resources and supplying a platform for productive collaboration and dissemination of information in universities across the nation."
+          />
+          <TimelineElement
+            icon={<CHI src="https://i.imgur.com/NVcozFB.png" />}
+            location="SolarMobil"
+            bg="#fcd8b6"
+            heading="System Engineer"
+            date="2023"
+            description="I work with the electronics team on developing the telemetry and tracking system of the next iteration of our solar racing car, which includes interfacing the battery management system (BMS), maximum power point tracker (MPPT) and various other third-party modules with the onboard NXP microcontroller board and an STM32-based display for the dashboard."
+          />
+          <TimelineElement
+            icon={<CHI src="https://i.imgur.com/NVcozFB.png" />}
+            location="Project Manas"
+            bg="#fcd8b6"
+            heading="Embedded Developer"
+            date="2023"
+            description="I work with the sensing and automation team to build and interface the sensors ecosystem onboard the autonomous vehicle prototype under development for the next iteration of the IGVC, which involves interfacing LiDARs and Matlab Simulink SLAM with the onboard STM32 development board for efficient sensor fusion and maximized situational awareness."
+          />
+          <TimelineElement
+            icon={<CHI src="https://i.imgur.com/NVcozFB.png" />}
+            location="Cryptonite"
+            bg="#fcd8b6"
+            heading="Security Engineer"
+            date="2023"
+            description="I regularly participate in CTFs organized by TryHackMe and HackTheBox, primarily focussing on penetrating machines with web exploitation and reverse engineering."
           />
         </VerticalTimeline>
         <Heading as="h3" size="2xl">
