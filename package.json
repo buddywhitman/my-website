@@ -46,7 +46,7 @@
     "@chakra-ui/cli": "^1.5.2",
     "@commitlint/config-conventional": "^17.6.3",
     "@types/react": "^17.0.24",
-    "commitlint": "^13.1.0",
+    "commitlint": "^18.4.4",
     "copy-webpack-plugin": "9",
     "eslint": "^7.32.0",
     "eslint-config-next": "^13.5.4",
