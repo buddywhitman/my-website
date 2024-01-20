@@ -58,28 +58,28 @@ const IconWrap = ({ icon, color, url, text }: IconWrapProps) => {
 const Contact = () => {
   const bl = useColorModeValue("brand.400", "brand.600");
   async function handleSubmit(event) {
-      event.preventDefault();
-      const formData = new FormData(event.target);
-  
-      formData.append("access_key", "ffedddbb-9617-479e-9e67-7cdf2d662ad9");
-  
-      const object = Object.fromEntries(formData);
-      const json = JSON.stringify(object);
-  
-      const response = await fetch("https://api.web3forms.com/submit", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            Accept: "application/json"
-          },
-          body: json
-      });
-      const result = await response.json();
-      if (result.success) {
-          console.log(result);
-      }
+    event.preventDefault();
+    const formData = new FormData(event.target);
+
+    formData.append("access_key", "ffedddbb-9617-479e-9e67-7cdf2d662ad9");
+
+    const object = Object.fromEntries(formData);
+    const json = JSON.stringify(object);
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: json,
+    });
+    const result = await response.json();
+    if (result.success) {
+      console.log(result);
     }
-    return (
+  }
+  return (
     <Box p={{ base: 1, md: 8 }}>
       <Heading as="h2" size="2xl">
         <Text
