@@ -57,7 +57,7 @@ const IconWrap = ({ icon, color, url, text }: IconWrapProps) => {
 
 const Contact = () => {
   const bl = useColorModeValue("brand.400", "brand.600");
-  async function handleSubmit(event: Event) {
+  async function handleSubmit(event) {
       event.preventDefault();
       const formData = new FormData(event.target);
   
