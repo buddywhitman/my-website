@@ -111,10 +111,10 @@ const Contact = () => {
           <form action="https://api.web3forms.com/submit" method="POST">
             <Heading size="lg">Contact Form</Heading>
             <FormControl id="access_key">
-              <Input 
-                type="hidden" 
-                name="access_key" 
-                value="ffedddbb-9617-479e-9e67-7cdf2d662ad9" 
+              <Input
+                type="hidden"
+                name="access_key"
+                value="ffedddbb-9617-479e-9e67-7cdf2d662ad9"
               />
             </FormControl>
             <FormControl mb={3} id="email">
