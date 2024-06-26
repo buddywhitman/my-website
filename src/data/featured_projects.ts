@@ -1,7 +1,6 @@
 import { BsGithub } from "react-icons/bs";
 import { CgWebsite } from "react-icons/cg";
 import { IconType } from "react-icons/lib";
-import { SiPypi, SiDocker } from "react-icons/si";
 
 interface FeaturedProjectTypeIconType {
   id: number;
@@ -25,126 +24,79 @@ interface FeaturedProjectType {
 const FeaturedProjectList: FeaturedProjectType[] = [
   {
     id: 0,
-    alt: "dagpi website",
-    name: "Dagpi",
+    alt: "MyCaptain Website",
+    name: "MyCaptain",
     height: 1032,
     width: 1919,
     description:
-      "Dagpi is a SoftwareAsAService API that I created a while back. It features ImageManipulation as a service with a dashboard. Each user has metrics, and the option to buy a premium service with stripe. Dagpi uses rust, python and typescript. View github for full stack!",
-    images: ["/dagpi_home_w.webp", "/dagpi_home_b.webp"],
+      "Most fun so far (aside form this portfolio ofc), worked with a team of 6 talented devs during the lockdown to build this platform enabling Indian teens to dive headfirst into a career of their choice",
+    images: ["/mycaptain_w.webp", "/mycaptain_b.webp"],
     tags: [
-      "python",
-      "api",
-      "rust",
+      "next",
       "react",
+      "graphql",
+      "react",
+      "moment",
       "docker",
-      "docker",
-      "express",
-      "linux",
-      "pgsql",
-      "stripe",
-      "grafana",
+      "node",
+      "strapi",
     ],
     icons: [
       {
-        id: 0,
-        icon: BsGithub,
-        url: "https://github.com/daggy1234/dagpi",
-      },
-      {
         id: 1,
         icon: CgWebsite,
-        url: "https://dagpi.xyz",
+        url: "https://mycaptain.in",
       },
     ],
     reversed: false,
   },
   {
     id: 1,
-    alt: "polaroid github",
-    name: "Polaroid",
+    alt: "GreatHR Website",
+    name: "GreatHR",
     height: 1031,
     width: 1920,
     description:
-      "Polaroid is an Image Manipulation Library for python written in rust. By combining the speed of rust with the ease of python, I've developed an up-and-coming image library to rival PIL!",
-    images: ["/polaroid_w.webp", "/polaroid_b.webp"],
-    tags: ["rust", "images", "python", "pypi", "pyo3"],
+      "GreatHR is an HRM suite running a RESTful web service built with Spring Boot and Java following the MVC pattern, served with Angular.",
+    images: ["/greathr_w.webp", "/greathr_b.webp"],
+    tags: ["spring boot", "angular", "rest", "java", "js", "aws"],
     icons: [
       {
         id: 0,
         icon: BsGithub,
-        url: "https://github.com/daggy1234/dagbot",
+        url: "https://github.com/buddywhitman/crud-app-frontend",
       },
       {
         id: 1,
-        icon: SiPypi,
-        url: "https://pypi.org/polaroid",
+        icon: BsGithub,
+        url: "https://github.com/crud-app-backend",
       },
     ],
     reversed: true,
   },
   {
     id: 2,
-    alt: "Daggy Food Blog",
-    name: "Food Blog",
+    alt: "ISA Acheivements Website",
+    name: "ISA Achievements",
     height: 893,
     width: 1666,
     description:
-      "DaggyFoodBlog is my experiment with running a custom blog on the hugo platform. Lots of SEO optimization, Image optimization and performance! Also some great articles",
-    images: ["/foodblog.webp", "/foodblog.webp"],
-    tags: ["blog", "hugo", "netlify", "html", "js", "css"],
+      "Thoughtful site to display (no points for guessing that one) the achievements of a student club's members. Built from scratch with vanilla CSS and JS.",
+    images: ["/isa.webp", "/isa.webp"],
+    tags: ["vanilla", "js", "vercel", "dom", "css"],
     icons: [
       {
         id: 0,
         icon: BsGithub,
-        url: "https://github.com/daggy1234/food-blog",
+        url: "https://github.com/buddywhitman/isa-achievements",
       },
       {
         id: 1,
         icon: CgWebsite,
-        url: "https://daggy-food-blog.netlify.app",
+        url: "https://isa-achievements.vercel.app/",
       },
     ],
     reversed: false,
-  },
-  {
-    id: 3,
-    alt: "dagbot in discord",
-    name: "Dagbot",
-    height: 1040,
-    width: 1457,
-    description:
-      "Dagbot was my first serious bot! Dagbot is written in python, with tons of features using discord api, dagpi and a variety of others. Coupled with A MERN stack dashboard that syncs with the bot, this is a fully full stack app!",
-    images: ["/dagbot_ss_w.webp", "/dagbot_ss_b.webp"],
-    tags: [
-      "python",
-      "bot",
-      "react",
-      "express",
-      "ts",
-      "docker",
-      "kubernetes",
-      "pgsql",
-      "mongodb",
-    ],
-    icons: [
-      {
-        id: 0,
-        icon: BsGithub,
-        url: "https://github.com/daggy1234/dagbot",
-      },
-      {
-        id: 1,
-        icon: CgWebsite,
-        url: "https://dagbot.daggy.tech",
-      },
-      {
-        id: 2,
-        icon: SiDocker,
-        url: "https://github.com/daggy1234/dagbot/pkgs/container/dagbot",
-      },
-    ],
-    reversed: true,
   },
 ];
 
