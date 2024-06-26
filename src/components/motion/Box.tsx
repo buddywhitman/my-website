@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { chakra, HTMLChakraProps } from "@chakra-ui/react";
 import { motion, HTMLMotionProps } from "framer-motion";
 

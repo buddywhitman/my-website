@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { IconButton, useColorMode } from "@chakra-ui/react";
 import { RiMoonFill, RiSunLine } from "react-icons/ri";
 

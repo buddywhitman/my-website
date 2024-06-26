@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Flex, Link, Text, useColorMode } from "@chakra-ui/react";
 import Image from "next/image";
 

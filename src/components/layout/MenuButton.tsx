@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { IconButton } from "@chakra-ui/react";
 import { CgMenuOreos } from "react-icons/cg";
 

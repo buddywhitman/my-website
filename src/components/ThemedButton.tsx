@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Button, ButtonProps, useColorModeValue } from "@chakra-ui/react";
 
 const ThemedButton = (props: ButtonProps) => {
