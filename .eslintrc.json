@@ -1,4 +1,5 @@
 {
+  "endOfLine": "off",
   "extends": [
     "sznm/react",
     "plugin:react/jsx-runtime",
