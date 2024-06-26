@@ -222,15 +222,15 @@ const Tech = () => {
                     <IconWrapper icon={SiReact} text="React" />
                     <IconWrapper icon={SiRedux} text="Redux" />
                     <IconWrapper icon={SiAngular} text="Angular" />
-                    <IconWrapper icon={SiNodedotjs} text="Node.js" />
-                    <IconWrapper icon={SiVuedotjs} text="Vue.js" />
+                    {/* <IconWrapper icon={SiNodedotjs} text="Node.js" />
+                    <IconWrapper icon={SiVuedotjs} text="Vue.js" /> */}
                     <IconWrapper icon={SiSpring} text="Spring" />
                     {/* 
                     <IconWrapper icon={SiFlask} text="Flask" />
                     <IconWrapper icon={SiDjango} text="Django" /> */}
                     <IconWrapper icon={SiNextdotjs} text="Next.js" />
-                    <IconWrapper icon={SiGatsby} text="Gatsby" />
-                    <IconWrapper icon={SiFlutter} text="Flutter" />
+                    {/* <IconWrapper icon={SiGatsby} text="Gatsby" />
+                    <IconWrapper icon={SiFlutter} text="Flutter" /> */}
                     <IconWrapper icon={SiChakraui} text="Chakra UI" />
                   </Flex>
                 </Td>
@@ -240,11 +240,11 @@ const Tech = () => {
                 <Td>Databases </Td>
                 <Td>
                   <Flex>
-                    <IconWrapper icon={SiOracle} text="DBMS" />
-                    <IconWrapper icon={SiPostgresql} text="Postgresql" />
+                    {/* <IconWrapper icon={SiOracle} text="DBMS" />
+                    <IconWrapper icon={SiPostgresql} text="Postgresql" /> */}
                     <IconWrapper icon={SiMysql} text="MySQL" />
                     <IconWrapper icon={SiMongodb} text="MongoDB" />
-                    <IconWrapper icon={SiMicrosoftsqlserver} text="MsSQL" />
+                    {/* <IconWrapper icon={SiMicrosoftsqlserver} text="MsSQL" /> */}
                   </Flex>
                 </Td>
               </Tr>
@@ -274,11 +274,11 @@ const Tech = () => {
                     <IconWrapper icon={SiTableau} text="Tableau" />
                     <IconWrapper icon={SiPowerbi} text="Power BI" />
                     <IconWrapper icon={SiQgis} text="QGIS" />
-                    <IconWrapper icon={SiR} text="R" />
+                    {/* <IconWrapper icon={SiR} text="R" />
                     <IconWrapper icon={SiTensorflow} text="TensorFlow" />
                     <IconWrapper icon={SiKeras} text="Keras" />
                     <IconWrapper icon={SiOpencv} text="OpenCV" />
-                    <IconWrapper icon={SiPytorch} text="PyTorch" />
+                    <IconWrapper icon={SiPytorch} text="PyTorch" /> */}
                     <IconWrapper icon={SiNumpy} text="NumPy" />
                     <IconWrapper icon={SiPandas} text="Pandas" />
                   </Flex>
@@ -307,10 +307,10 @@ const Tech = () => {
                     <IconWrapper icon={SiAmazonrds} text="RDS" />
                     <IconWrapper icon={SiAmazonsqs} text="SQS" /> */}
                     <IconWrapper icon={SiAmazons3} text="S3" />
-                    <IconWrapper icon={SiMicrosoftazure} text="Azure" />
+                    {/* <IconWrapper icon={SiMicrosoftazure} text="Azure" /> */}
                     <IconWrapper icon={SiGooglecloud} text="Google Cloud" />
-                    <IconWrapper icon={SiCloudflare} text="Cloudflare" />
-                    <IconWrapper icon={SiFirebase} text="Firebase" />
+                    {/* <IconWrapper icon={SiCloudflare} text="Cloudflare" />
+                    <IconWrapper icon={SiFirebase} text="Firebase" /> */}
                   </Flex>
                 </Td>
               </Tr>
@@ -352,10 +352,10 @@ const Tech = () => {
                 <Td>
                   <Flex>
                     <IconWrapper icon={SiWindows11} text="Windows" />
-                    <IconWrapper icon={SiMacos} text="MacOS" />
+                    {/* <IconWrapper icon={SiMacos} text="MacOS" /> */}
                     <IconWrapper icon={SiUbuntu} text="Ubuntu" />
-                    <IconWrapper icon={SiDebian} text="Debian" />
-                    <IconWrapper icon={SiFreebsd} text="FreeBSD" />
+                    {/* <IconWrapper icon={SiDebian} text="Debian" />
+                    <IconWrapper icon={SiFreebsd} text="FreeBSD" /> */}
                     <IconWrapper icon={SiArduino} text="Arduino" />
                     <IconWrapper icon={SiArm} text="Arm" />
                     <IconWrapper icon={SiRaspberrypi} text="Raspberry Pi" />
@@ -370,17 +370,17 @@ const Tech = () => {
                 <Td>
                   <Flex>
                     <IconWrapper icon={SiAdobeillustrator} text="Illustrator" />
-                    <IconWrapper icon={SiAdobephotoshop} text="Photoshop" />
+                    {/* <IconWrapper icon={SiAdobephotoshop} text="Photoshop" />
+                    <IconWrapper icon={SiInvision} text="InVision" /> */}
                     <IconWrapper icon={SiAdobexd} text="Xd" />
-                    <IconWrapper icon={SiInvision} text="InVision" />
                     <IconWrapper icon={SiFigma} text="Figma" />
                     <IconWrapper icon={SiSketch} text="Sketch" />
                     <IconWrapper icon={SiAdobepremierepro} text="Premier Pro" />
-                    <IconWrapper
+                    {/* <IconWrapper
                       icon={SiAdobeaftereffects}
                       text="After Effects"
                     />
-                    <IconWrapper icon={SiAbletonlive} text="Ableton" />
+                    <IconWrapper icon={SiAbletonlive} text="Ableton" /> */}
                     <IconWrapper icon={SiAdobeindesign} text="InDesign" />
                   </Flex>
                 </Td>
