@@ -131,40 +131,40 @@ const About = () => {
         </Heading>
         <Box marginY="5%">
           <TextImage
-            text="A decade or two down the line, I would love to launch a consumer-facing hard tech venture. I am also into music production, socio-poitical activism, military stuff and comparative religion. My belief in absolute equality, world peace, love, individuality and internationalism stems from an avid interest in the Vedanta philosophy. The earliest memory that I have of the stuff that runs on the screen takes me back to the fifth grade. My father, meaning to introduce me to HTML, showed me how to click a button and receive a warm greeting: Hello, Pulkit! I was shocked at how the computer knew my name, something I did not recall saying before, and I wanted to learn how my dad accomplished the feat. By the time I answered that question by learning HTML, CSS & WordPress by the seventh grade, having started two blogs and seemingly destined to end up in software development - a thousand new questions were begging for attention. That is when I decided to learn what's truly under the hood – stepping into hardware. I joined a local maker lab – going by the name of SP Robotics Works. Every day after school, I'd spend three to four hours in a highly stimulating environment - surrounded by passionate individuals working on building robotic and IoT systems using the Arduino and Raspberry Pi platforms, implementing several sensors, actuators and communication modules."
-            image="/dagbot.webp"
-            height={600}
-            cw="60%"
-            width={600}
-            alt="Dagbot logo"
+            text="A decade or two down the line, I would love to launch a consumer-facing hard tech venture. I am also into music production, socio-poitical activism, military stuff and comparative religion. My belief in absolute equality, world peace, love, individuality and internationalism stems from an avid interest in the Vedanta philosophy. The earliest memory I have of the stuff that runs on the screen takes me back to fifth grade. My father, meaning to introduce me to HTML - showed me how to click a button and receive a warm greeting: Hello, Pulkit! I was shocked at how the computer knew my name, something I did not recall telling it earlier, and I wanted to learn how my dad accomplished the feat. By the time I answered that question by learning HTML, CSS & WordPress by the seventh grade, having started two blogs and seemingly destined to end up in software development - a thousand new questions were begging for attention. That is when I decided to learn what's truly under the hood – stepping into hardware. I joined a local maker lab – going by the name of SP Robotics Works. Every day after school, I'd spend three to four hours in a highly stimulating environment - surrounded by passionate individuals working on building robotic and IoT systems using the Arduino and Raspberry Pi platforms, implementing several sensors, actuators and communication modules."
+            image={useColorModeValue("/staring.webp", "/staring.webp")}
+            height={400}
+            cw="50%"
+            width={480}
+            alt="staring into the vast ocean"
             reverse={false}
           />
           <TextImage
-            text="By the time I graduated from their year-long programme, I knew that I wanted to explore the intersection of hardware and software, where man meets machine. I designed algorithms for gesture recognition for an interactive hologram and dreamt up BCIs long before I heard of Neuralink. Growing up reading a lot (I used to spend the entire day at the exhaustive library in my mother's school through middle school), I'm grateful to my parents for giving me exposure to a wide range of uncensored knowledge: conflicting schools of thought, jarring insights into the lives of personalities I'd only heard about. "
-            image="/gh.webp"
-            alt="me looking at graphs"
+            text="By the time I graduated from their year-long programme, I knew that I wanted to explore the intersection of hardware and software, where man meets machine. I designed algorithms for gesture recognition for an interactive hologram and dreamt up BCIs long before I had heard of Neuralink. Growing up reading a lot (I used to spend the entire day at the exhaustive library in my mother's school through middle school), I'm grateful to my parents for giving me an exposure to a huge range of uncensored knowledge, conflicting schools of thought and jarring insights into the lives of personalities I'd only heard about. "
+            image={useColorModeValue("/working_ww.webp", "/working_bb.webp")}
+            alt="working"
             reverse
-            cw="70%"
-            height={330}
-            width={720}
+            cw="50%"
+            height={300}
+            width={500}
           />
           <TextImage
-            text="All of this helped shape a complex perspective, understanding love, peace and freedom despite or rather, because of the many things that unite and divide the people of our world. Around this time, I started exploring existential questions to understand spirituality and politics for myself, inspired by Walter Isaacson's biographies of Steve Jobs and Albert Einstein. Never entirely emerging from my indulges in humanities, all my future endeavours featured a design/human perspective, trying to understand what people find beautiful, what gives us a reason to smile amidst this rat race. Throughout high school, I focussed a lot more on coursework, implementing hobbyist projects like R/C skateboards and AWS-enabled smart speakers while being able to secure straight As in my sophomore and senior years."
+            text="All of this helped shape a complex worldview - understanding love, peace and freedom are the only things that matter despite, or rather because, of the many things that unite and divide the people of our world. Around this time, I started exploring existential questions to understand spirituality and politics for myself, inspired by Walter Isaacson's biographies of Steve Jobs and Albert Einstein. Never entirely emerging from my indulges in humanities, all my future endeavours featured a design/human perspective, trying to understand what people find beautiful, what gives us a reason to smile amidst this rat race. Throughout high school, I focussed a lot more on coursework, implementing hobbyist projects like R/C skateboards and AWS-enabled smart speakers while being able to secure straight As in my sophomore and senior years."
             image="/papertowns.webp"
-            alt="Github homescreen"
+            alt="Be Here Now"
             cw="50%"
             reverse={false}
             height={290}
             width={290}
           />
           <TextImage
-            text="In college, I'm expanding my knowledge across three fronts: Web/App Development, Coding/DSA and Embedded Development/Hardware Design. My day is spent balancing classes with meetings and workshops organised by several of the student clubs (ACM, IEEE, GDSC, etc.) that I actively participate in and bond with friends over heartfelt conversations and music jamming sessions. I conclude my day at the workshop, where we (a team of eight) work on building a solar-powered racing car for the World Solar Challenge (WSC) and the Electric Solar Vehicle Championship (ESVC), where I work for the electronics subsystem. I also handle website and app development for some start-ups incubated at our innovation centre while helping local businesses with their digital transformation journey through a local freelance-facilitating platform. Now, now I'm feeling pretty honoured that you stayed with me all the way till here (blushes). Scroll down to explore my journey!"
-            image="/hobbies.webp"
-            alt="Github homescreen"
+            text="In college, I'm expanding my knowledge across three fronts: Application/Services Development, Systems/Embedded Engineering and Hardware/Silicon Design. My day is spent balancing classes with meetings and workshops organised by several of the student clubs (ACM, IEEE, GDSC, etc.) that I actively participate in and bond with friends over heartfelt conversations and music jamming sessions. I conclude my day at the workshop, where we (a team of twenty) work on building a solar-powered (endurance) racing car for the World Solar Challenge, Australia. I am responsible for the LV electronics - MCU, Displays, Sensor Fusion, Task Scheduling, etc. I also handle web/app dev for some start-ups incubated at our innovation centre while helping local businesses with their digital transformation needs. Now, now I'm feeling a lil proud of my storytelling that kept you hooked all the way till here (blushes). If you are still not bored to death, scroll down to explore my journey!"
+            image={useColorModeValue("/hobbies.webp", "/college_w.webp")}
+            alt="Manipal"
             cw="50%"
             reverse
-            height={350}
-            width={550}
+            height={300}
+            width={455}
           />
         </Box>
       </Flex>
@@ -213,7 +213,7 @@ const About = () => {
             description="Started designing a handheld metal detector with the 555 timer IC and a bunch of passive components and thakfully, my dad decided to hire a private tutor who taught me how to read circuit diagrams and solder the components on to a GPCB."
           />
           <TimelineElement
-            icon={<CHI src="https://i.imgur.com/oQODMmY.png" />}
+            icon={<CHI src="https://i.imgur.com/oQODMmY.webp" />}
             location="Bangalore"
             bg="#ff9bd3"
             heading="SP Robotic Works"
@@ -221,7 +221,7 @@ const About = () => {
             description="A local maker lab where I worked with Arduino development boards and Raspberry Pi SBCs to build robots and IoT prototypes by interfacing several sensors, actuators and communication modules."
           />
           <TimelineElement
-            icon={<CHI src="https://i.imgur.com/oQODMmY.png" />}
+            icon={<CHI src="https://i.imgur.com/oQODMmY.webp" />}
             location="National Cadet Corps"
             bg="#ff9bd3"
             heading="1 Karnataka Battalion"
@@ -229,7 +229,7 @@ const About = () => {
             description="Served as cadet over two years in the youth wing of the Indian Armed Forces, the largest youth organization in the world. Developed an appreciation for defence personnel across the world and the international relations/geopolity of India."
           />
           <TimelineElement
-            icon={<CHI src="https://i.imgur.com/oQODMmY.png" />}
+            icon={<CHI src="https://i.imgur.com/oQODMmY.webp" />}
             location="Cousera"
             bg="#ff9bd3"
             heading="nand2tetris"
@@ -237,7 +237,7 @@ const About = () => {
             description="Stumbled upon a bunch of MOOCs that I got super OCDed about, most notably the nand2tetris course, a two-part series about building a computer in a virtual environment: straight from the nand gate to building the entire operating system using a dedicated machine lanugage the instructors call Hack."
           />
           <TimelineElement
-            icon={<CHI src="https://i.imgur.com/oQODMmY.png" />}
+            icon={<CHI src="https://i.imgur.com/oQODMmY.webp" />}
             location="Bangalore"
             bg="#ff9bd3"
             heading="Xesbi"
@@ -269,7 +269,7 @@ const About = () => {
             description="Attended yet another remote React.js series along with dad, where I picked up a lot about Router and Hooks while also learning JS in quite some depth, DOM manipulation, jQuery and GSAP included."
           />
           <TimelineElement
-            icon={<CHI src="https://i.imgur.com/8EFyuVt.png" />}
+            icon={<CHI src="https://i.imgur.com/8EFyuVt.webp" />}
             location="SFS Public School"
             bg="#5865F2"
             heading="Improvisation of Nuclear Reactors"
@@ -277,7 +277,7 @@ const About = () => {
             description="In partial fulfilment of our Physics course requirements, I wrote a paper on utilizing Direct Energy Conversion (DEC) and the Seebeck Effect to improve the efficiency of nuclear reactors which I felt underwent a very lossy conversion of energy from chemical, thermal, mechanical to finally generating electricity. Also discussed the structure of the Sandia laboratories' DEC prototype in the paper."
           />
           <TimelineElement
-            icon={<CHI src="https://i.imgur.com/8EFyuVt.png" />}
+            icon={<CHI src="https://i.imgur.com/8EFyuVt.webp" />}
             location=""
             bg="#5865F2"
             heading="FlatCalc"
@@ -285,7 +285,7 @@ const About = () => {
             description="In partial fulfilment of our CS course requirements, I designed a TUI Java application designed to provide an accurate budget estimate to real estate customers who are bogged down by jargons and hidden costs. Wrote decoupled code, implementing SOLID principles and OOPS concepts like polymorphism and inheritance."
           />
           <TimelineElement
-            icon={<CHI src="https://i.imgur.com/8EFyuVt.png" />}
+            icon={<CHI src="https://i.imgur.com/8EFyuVt.webp" />}
             location="SFS Public School"
             bg="#5865F2"
             heading="ICSE Computer Science"
@@ -301,7 +301,7 @@ const About = () => {
             description="Another founder onboarded be to join her amazing dev team, where I worked on their responsive webapp using React, GraphQL and Moment JS, with Google Analytics for (you guessed it) analytics, Vercel for CI/CD, implementing interaction design principles I picked up in an UI/UX specialization discovered on (you guessed it again) Coursera."
           />
           <TimelineElement
-            icon={<CHI src="https://i.imgur.com/0eaRcNu.png" />}
+            icon={<CHI src="https://i.imgur.com/0eaRcNu.webp" />}
             location="Aspire Technologies"
             bg="#ff9bd3"
             heading="Data Science and Analytics"
@@ -309,7 +309,7 @@ const About = () => {
             description="Generated business intelligence insights using a bunch of Python libraries like numpy, pandas, matplotlib and BI software like Tableau, PowerBI and Infogram."
           />
           <TimelineElement
-            icon={<CHI src="https://i.imgur.com/vsOGsb2.png" />}
+            icon={<CHI src="https://i.imgur.com/vsOGsb2.webp" />}
             location="Bangalore"
             bg="#67daf9"
             heading="Project fAte"
@@ -349,7 +349,7 @@ const About = () => {
             description="Started my undergraduate studies as an Electrical and Electronics Engineering freshman at MIT, Manipal. Joined the core/working commitees of all the major student organizations on campus including IEEE, ACM, GDSC, ASME, IAESTE, IECSE, ISA, IEE&C and these organizations known as student projects: a solar racing car team contesting in the World Solar Challenge held biennally in an Australia, a CTF team which regularly emerges as India's topmost performer, and an autonomous vehicle team that contests in the Intelligent Ground Vehicle Competiton hosted by the Oakland University of Michigan, USA. "
           />
           <TimelineElement
-            icon={<CHI src="https://i.imgur.com/wMdLsNB.png" />}
+            icon={<CHI src="https://i.imgur.com/wMdLsNB.webp" />}
             location="Manipal Updates"
             bg="#0a549a"
             heading="Graphic Design"
@@ -357,7 +357,7 @@ const About = () => {
             description="Helped launch and in some cases, manage social media presence for local businesses, which involved graphic design, digital marketing and social media management."
           />
           <TimelineElement
-            icon={<CHI src="https://i.imgur.com/Gt5OyfT.png" />}
+            icon={<CHI src="https://i.imgur.com/Gt5OyfT.webp" />}
             location="Kraftr"
             bg="#fcd8b6"
             heading="Business Strategy"
@@ -373,7 +373,7 @@ const About = () => {
             description="Delivered high fidelity wireframes and prototypes for the web and mobile apps of GramHealth - another incubated startup that aims to implement an unified health ID that can be synced across several hospital chain, saving tons of precious time by giving access to healthcare professionals without the need for patients to reiterate their medical histories at each hospital."
           />
           <TimelineElement
-            icon={<CHI src="https://i.imgur.com/NVcozFB.png" />}
+            icon={<CHI src="https://i.imgur.com/NVcozFB.webp" />}
             location="Open Horizon Robotics"
             bg="#fcd8b6"
             heading="Corporate Liasion & Public Outreach"
@@ -381,7 +381,7 @@ const About = () => {
             description="Handled the external relations of Open Horizon Robotics, a community dedicated to developing and increasing the adoption of open-source robotics resources and supplying a platform for productive collaboration and dissemination of information in universities across the nation."
           />
           <TimelineElement
-            icon={<CHI src="https://i.imgur.com/NVcozFB.png" />}
+            icon={<CHI src="https://i.imgur.com/NVcozFB.webp" />}
             location="SolarMobil"
             bg="#fcd8b6"
             heading="System Engineer"
@@ -389,7 +389,7 @@ const About = () => {
             description="I work with the electronics team on developing the telemetry and tracking system of the next iteration of our solar racing car, which includes interfacing the battery management system (BMS), maximum power point tracker (MPPT) and various other third-party modules with the onboard NXP microcontroller board and an STM32-based display for the dashboard."
           />
           <TimelineElement
-            icon={<CHI src="https://i.imgur.com/NVcozFB.png" />}
+            icon={<CHI src="https://i.imgur.com/NVcozFB.webp" />}
             location="Project Manas"
             bg="#fcd8b6"
             heading="Embedded Developer"
@@ -397,7 +397,7 @@ const About = () => {
             description="I work with the sensing and automation team to build and interface the sensors ecosystem onboard the autonomous vehicle prototype under development for the next iteration of the IGVC, which involves interfacing LiDARs and Matlab Simulink SLAM with the onboard STM32 development board for efficient sensor fusion and maximized situational awareness."
           />
           <TimelineElement
-            icon={<CHI src="https://i.imgur.com/NVcozFB.png" />}
+            icon={<CHI src="https://i.imgur.com/NVcozFB.webp" />}
             location="Cryptonite"
             bg="#fcd8b6"
             heading="Security Engineer"

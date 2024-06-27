@@ -110,10 +110,10 @@ const Home = () => {
         <Spacer />
         <Box pt={10} lg={500} alignContent={{ base: "center", md: "left" }}>
           <ImageBox
-            image="/daggy_big.webp"
-            height={500}
-            width={800}
-            alt="image of pulkit working on pc"
+            image={useColorModeValue("/home_b.webp", "/home_w.webp")}
+            height={450}
+            width={730}
+            alt="pulkit smiling"
           />
         </Box>
       </Flex>
