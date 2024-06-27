@@ -224,6 +224,7 @@ const About = () => {
           <TimelineElement
             icon={<CHI src="https://ncc.highereduhry.ac.in/Images/NCCLogo.png" />}
             location="National Cadet Corps"
+            bg="#ffffff"
             heading="1 Karnataka Battalion"
             date="2018-19"
             description="Served as cadet over two years in the youth wing of the Indian Armed Forces, the largest youth organization in the world. Developed an appreciation for defence personnel across the world and the international relations/geopolity of India."
