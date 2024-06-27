@@ -12,9 +12,10 @@ import Image from "next/image";
 import "react-vertical-timeline-component/style.min.css";
 import { ReactElement } from "react";
 import { BiCodeAlt } from "react-icons/bi";
-import { FaDiscord, FaRust, FaReact, FaEthereum } from "react-icons/fa";
+import { FaReact, FaEthereum, FaWordpressSimple } from "react-icons/fa";
 import { ImPaintFormat } from "react-icons/im";
-import { SiScratch, SiIbm } from "react-icons/si";
+import { SiCoursera, SiFlutter, SiIbm } from "react-icons/si";
+import { GiCircuitry } from "react-icons/gi";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
@@ -154,8 +155,8 @@ const About = () => {
             alt="Be Here Now"
             cw="50%"
             reverse={false}
-            height={290}
-            width={290}
+            height={350}
+            width={350}
           />
           <TextImage
             text="In college, I'm expanding my knowledge across three fronts: Application/Services Development, Systems/Embedded Engineering and Hardware/Silicon Design. My day is spent balancing classes with meetings and workshops organised by several of the student clubs (ACM, IEEE, GDSC, etc.) that I actively participate in and bond with friends over heartfelt conversations and music jamming sessions. I conclude my day at the workshop, where we (a team of twenty) work on building a solar-powered (endurance) racing car for the World Solar Challenge, Australia. I am responsible for the LV electronics - MCU, Displays, Sensor Fusion, Task Scheduling, etc. I also handle web/app dev for some start-ups incubated at our innovation centre while helping local businesses with their digital transformation needs. Now, now I'm feeling a lil proud of my storytelling that kept you hooked all the way till here (blushes). If you are still not bored to death, scroll down to explore my journey!"
@@ -197,15 +198,15 @@ const About = () => {
             description="Started Learning to code with C (Let Us C) and HTML/CSS (W3Schools)"
           />
           <TimelineElement
-            icon={<SiScratch />}
+            icon={<FaWordpressSimple />}
             location=""
-            bg="#f6ab3c"
+            bg="#21759b"
             heading="WordPress Development"
             date="2016"
             description="Built a website for the student-run sustainability startup Pratyutpanna at our school and later, blogs for keeping in touch with my friends as I was leaving Chennai for a new city."
           />
           <TimelineElement
-            icon={<SiScratch />}
+            icon={<GiCircuitry />}
             location=""
             bg="#f6ab3c"
             heading="Circuit Design"
@@ -213,7 +214,7 @@ const About = () => {
             description="Started designing a handheld metal detector with the 555 timer IC and a bunch of passive components and thakfully, my dad decided to hire a private tutor who taught me how to read circuit diagrams and solder the components on to a GPCB."
           />
           <TimelineElement
-            icon={<CHI src="https://i.imgur.com/oQODMmY.webp" />}
+            icon={<CHI src="https://static-asset.inc42.com/sp-robotics-works.png" />}
             location="Bangalore"
             bg="#ff9bd3"
             heading="SP Robotic Works"
@@ -221,71 +222,70 @@ const About = () => {
             description="A local maker lab where I worked with Arduino development boards and Raspberry Pi SBCs to build robots and IoT prototypes by interfacing several sensors, actuators and communication modules."
           />
           <TimelineElement
-            icon={<CHI src="https://i.imgur.com/oQODMmY.webp" />}
+            icon={<CHI src="https://ncc.highereduhry.ac.in/Images/NCCLogo.png" />}
             location="National Cadet Corps"
-            bg="#ff9bd3"
             heading="1 Karnataka Battalion"
             date="2018-19"
             description="Served as cadet over two years in the youth wing of the Indian Armed Forces, the largest youth organization in the world. Developed an appreciation for defence personnel across the world and the international relations/geopolity of India."
           />
           <TimelineElement
-            icon={<CHI src="https://i.imgur.com/oQODMmY.webp" />}
+            icon={<SiCoursera />}
             location="Cousera"
-            bg="#ff9bd3"
+            bg="#0056d2"
             heading="nand2tetris"
             date="2019"
             description="Stumbled upon a bunch of MOOCs that I got super OCDed about, most notably the nand2tetris course, a two-part series about building a computer in a virtual environment: straight from the nand gate to building the entire operating system using a dedicated machine lanugage the instructors call Hack."
           />
           <TimelineElement
-            icon={<CHI src="https://i.imgur.com/oQODMmY.webp" />}
+            icon={<CHI src="/xesbi.webp" />}
             location="Bangalore"
-            bg="#ff9bd3"
+            bg="#ffffff"
             heading="Xesbi"
             date="2020"
             description="Attended a pretty hands-on workshop on training wakeword recognition models using TensorFlow and Keras organised by Xesbi Systems, a startup making programmable FPGAs. Bought their development board and built a GPIO-enabled voice assistant using the Google Cloud NLP service and the AWS Poly TTS API over HTTP and UART which won the second prize at the year's science fair."
           />
           <TimelineElement
-            icon={<FaDiscord />}
+            icon={<CHI src="https://m.media-amazon.com/images/I/41MB6mjFGdL.jpg" />}
             location="Remote"
-            bg="#5865F2"
+            bg="#ffffff"
             heading="The Teen Business Podcast"
             date="2020"
             description="After auditing the visual design specialization offered by calarts on Coursera, I got the perfect chance to test my skills when a school alumnus reached out to me to build the brand kit and handle social media presence for a podcast he started, inviting teen entrepreuners to talk about their insightful journeys."
           />
           <TimelineElement
-            icon={<FaDiscord />}
+            icon={<CHI src="https://www.isola-group.com/wp-content/uploads/Chinese-Flag-Circle-1400x0-c-default.png" />}
             location="AnonOps"
-            bg="#5865F2"
+            bg="#ee1c25"
             heading="Hacking the Chinese Military"
             date="2020"
             description="I spent the lockdown playing Minecraft, learning uhh penetration testing and hanging out in discord servers. When the Galwan conflict happened, Anonymous had an operation targeting the CPC government in reponse to their oppression of the Uyghurs and I stepped in with all guns blazing: managed to deface 81.cn and lock the Chinese admins out haha"
           />
           <TimelineElement
             icon={<FaReact />}
-            location=""
-            bg="#5865F2"
+            location="Aspire Technologies"
+            bg="#61DBFB"
             heading="React and JS"
             date="2020"
             description="Attended yet another remote React.js series along with dad, where I picked up a lot about Router and Hooks while also learning JS in quite some depth, DOM manipulation, jQuery and GSAP included."
           />
           <TimelineElement
-            icon={<CHI src="https://i.imgur.com/8EFyuVt.webp" />}
+            icon={<CHI src="https://www.sfsicse.com/images/College_Logo.png" />}
             location="SFS Public School"
-            bg="#5865F2"
+            bg="#000000"
             heading="Improvisation of Nuclear Reactors"
             date="2021"
             description="In partial fulfilment of our Physics course requirements, I wrote a paper on utilizing Direct Energy Conversion (DEC) and the Seebeck Effect to improve the efficiency of nuclear reactors which I felt underwent a very lossy conversion of energy from chemical, thermal, mechanical to finally generating electricity. Also discussed the structure of the Sandia laboratories' DEC prototype in the paper."
           />
           <TimelineElement
-            icon={<CHI src="https://i.imgur.com/8EFyuVt.webp" />}
+            icon={<CHI src="/flatcalc.webp" />}
             location=""
-            bg="#5865F2"
+            bg="#ffffff"
             heading="FlatCalc"
             date="2021"
             description="In partial fulfilment of our CS course requirements, I designed a TUI Java application designed to provide an accurate budget estimate to real estate customers who are bogged down by jargons and hidden costs. Wrote decoupled code, implementing SOLID principles and OOPS concepts like polymorphism and inheritance."
           />
           <TimelineElement
-            icon={<CHI src="https://i.imgur.com/8EFyuVt.webp" />}
+            icon={<CHI src="https://akashinternationalschool.com/wp-content/uploads/2023/03/ICSE-150x150.png" />}
             location="SFS Public School"
             bg="#5865F2"
             heading="ICSE Computer Science"
@@ -293,7 +293,7 @@ const About = () => {
             description="Did a lot of object-oriented programming (OOPs) coursework in Java, scoring a perfect 100 in the sophomore-year standardized examination, which Indians affectionately call the boards."
           />
           <TimelineElement
-            icon={<FaRust />}
+            icon={<CHI src="https://lh3.googleusercontent.com/gbNv8gI3GPf8f9AEzohjYpCOl_JFW0sq0cF6olJbZthkwQeYBtv077SNU1fVL0C71cg=s180" />}
             location="Remote"
             bg="#f44d1d"
             heading="MyCaptain"
@@ -301,7 +301,7 @@ const About = () => {
             description="Another founder onboarded be to join her amazing dev team, where I worked on their responsive webapp using React, GraphQL and Moment JS, with Google Analytics for (you guessed it) analytics, Vercel for CI/CD, implementing interaction design principles I picked up in an UI/UX specialization discovered on (you guessed it again) Coursera."
           />
           <TimelineElement
-            icon={<CHI src="https://i.imgur.com/0eaRcNu.webp" />}
+            icon={<CHI src="https://images.collegedunia.com/public/image/institute/logo_1606901122download%20(1).jfif?h=78.11&w=78.11&mode=stretch" />}
             location="Aspire Technologies"
             bg="#ff9bd3"
             heading="Data Science and Analytics"
@@ -309,15 +309,15 @@ const About = () => {
             description="Generated business intelligence insights using a bunch of Python libraries like numpy, pandas, matplotlib and BI software like Tableau, PowerBI and Infogram."
           />
           <TimelineElement
-            icon={<CHI src="https://i.imgur.com/vsOGsb2.webp" />}
+            icon={<SiFlutter />}
             location="Bangalore"
-            bg="#67daf9"
+            bg="#0468d7"
             heading="Project fAte"
             date="2022"
             description="A friend started a teen-run non-profit to help excess food wasted in commercial establishments reach hungry street dogs across the city and I led the app dev for him, organizing a bunch of 9 teens across 7 time zones to build a cross-platform app using Flutter and Google Maps API."
           />
           <TimelineElement
-            icon={<SiIbm />}
+            icon={<CHI src="https://alexandraawe.weebly.com/uploads/1/0/1/0/101020644/published/logo.jpeg?1515974294" />}
             location="Christ Junior College"
             bg="#000"
             heading="Junior Social Scientist Conference"
@@ -325,7 +325,7 @@ const About = () => {
             description="Co-authored a paper with a junior under the guidance of my humanities faculty on the resurgence of India, both as an economy and a democracy for the conference in title, which earned us the Outstanding Presentation award from the judging panel."
           />
           <TimelineElement
-            icon={<SiIbm />}
+            icon={<CHI src="https://www.postoast.com/wp-content/uploads/2019/07/motto-of-Delhi-Public-School-Service-Before-Self.jpg" />}
             location="DPS North"
             bg="#000"
             heading="Rotating Space Station Prototype"
@@ -333,7 +333,7 @@ const About = () => {
             description="Developed a rotating wheel space station prototype, which involved chemical process engineering and a bunch of explosions to synthesis the fuel in our chemistry lab and a lot of strucutral design to ensure the fuel cannister placement and chassis design such that we could keep it spinning for the longest time without reigniting the cannisters despite the aerodynamic drag."
           />
           <TimelineElement
-            icon={<CHI src="/dagpiw.webp" />}
+            icon={<BiCodeAlt />}
             location="SFS Public School"
             bg="#805ed2"
             heading="ISC Computer Science"
@@ -341,15 +341,15 @@ const About = () => {
             description="Did a ton of coursework in Digital Logic Synthesis and Hardware Implementation, along with Statistical Methods and Data Structures & Algorithms in Java, scoring a 99 in my senior year examinations, equivalent to the IBDP"
           />
           <TimelineElement
-            icon={<ImPaintFormat />}
+            icon={<CHI src="https://i2.wp.com/v.fastcdn.co/u/2990d1d3/26382126-0-Manah.png" />}
             location="Manipal"
-            bg="#EB459E"
+            bg="#ffffff"
             heading="Manipal Institute of Technology"
             date="2023"
             description="Started my undergraduate studies as an Electrical and Electronics Engineering freshman at MIT, Manipal. Joined the core/working commitees of all the major student organizations on campus including IEEE, ACM, GDSC, ASME, IAESTE, IECSE, ISA, IEE&C and these organizations known as student projects: a solar racing car team contesting in the World Solar Challenge held biennally in an Australia, a CTF team which regularly emerges as India's topmost performer, and an autonomous vehicle team that contests in the Intelligent Ground Vehicle Competiton hosted by the Oakland University of Michigan, USA. "
           />
           <TimelineElement
-            icon={<CHI src="https://i.imgur.com/wMdLsNB.webp" />}
+            icon={<CHI src="https://dms.mydukaan.io/original/webp/media/c7a8700c-4a66-4956-806f-9a35db7b1b80.png" />}
             location="Manipal Updates"
             bg="#0a549a"
             heading="Graphic Design"
@@ -357,7 +357,7 @@ const About = () => {
             description="Helped launch and in some cases, manage social media presence for local businesses, which involved graphic design, digital marketing and social media management."
           />
           <TimelineElement
-            icon={<CHI src="https://i.imgur.com/Gt5OyfT.webp" />}
+            icon={<CHI src="https://media.licdn.com/dms/image/D4D0BAQFNNw_EWsB7rw/company-logo_200_200/0/1698148055364?e=1727308800&v=beta&t=k8bLVWLmo0RUZyfS4PIoelsivNFQ1qVsqqQ1M4oXcPM" />}
             location="Kraftr"
             bg="#fcd8b6"
             heading="Business Strategy"
@@ -365,7 +365,7 @@ const About = () => {
             description="Joined a startup being incubated at the in-house incubation centre at MIT, which sources fashion deadstock from major denim manufacturers and upcycles them into shoes and other fashion accessories."
           />
           <TimelineElement
-            icon={<FaEthereum />}
+            icon={<CHI src="https://media.licdn.com/dms/image/D4D0BAQG2YRqggziZXQ/company-logo_200_200/0/1719257242555/gramhealth_logo?e=1727308800&v=beta&t=cr-AMZem3ZLcnT42Zl0ycVDUuBXFFFDKwikDu2wND3I" />}
             location="GramHealth"
             bg="#5d6dbe"
             heading="UI/UX Design"
@@ -373,7 +373,7 @@ const About = () => {
             description="Delivered high fidelity wireframes and prototypes for the web and mobile apps of GramHealth - another incubated startup that aims to implement an unified health ID that can be synced across several hospital chain, saving tons of precious time by giving access to healthcare professionals without the need for patients to reiterate their medical histories at each hospital."
           />
           <TimelineElement
-            icon={<CHI src="https://i.imgur.com/NVcozFB.webp" />}
+            icon={<CHI src="/ohr.webp" />}
             location="Open Horizon Robotics"
             bg="#fcd8b6"
             heading="Corporate Liasion & Public Outreach"
@@ -381,28 +381,36 @@ const About = () => {
             description="Handled the external relations of Open Horizon Robotics, a community dedicated to developing and increasing the adoption of open-source robotics resources and supplying a platform for productive collaboration and dissemination of information in universities across the nation."
           />
           <TimelineElement
-            icon={<CHI src="https://i.imgur.com/NVcozFB.webp" />}
-            location="SolarMobil"
-            bg="#fcd8b6"
-            heading="System Engineer"
-            date="2023"
-            description="I work with the electronics team on developing the telemetry and tracking system of the next iteration of our solar racing car, which includes interfacing the battery management system (BMS), maximum power point tracker (MPPT) and various other third-party modules with the onboard NXP microcontroller board and an STM32-based display for the dashboard."
-          />
-          <TimelineElement
-            icon={<CHI src="https://i.imgur.com/NVcozFB.webp" />}
+            icon={<CHI src="https://yt3.googleusercontent.com/9pe499Ez-QsD-KlUV1BodwnBffsd5PnUACu4vhfz63I1IKaKi2L4YICjM_kUX5LEOFfFJfjr0Q=s176-c-k-c0x00ffffff-no-rj" />}
             location="Project Manas"
             bg="#fcd8b6"
-            heading="Embedded Developer"
+            heading="Taskphase Member"
             date="2023"
-            description="I work with the sensing and automation team to build and interface the sensors ecosystem onboard the autonomous vehicle prototype under development for the next iteration of the IGVC, which involves interfacing LiDARs and Matlab Simulink SLAM with the onboard STM32 development board for efficient sensor fusion and maximized situational awareness."
+            description="I was a part of the sensing and automation taskphase, where I learnt tons about sensor fusion, localization & mapping for autonomous vehicles, ROS2, Lidars, Simulink, Motors and Control Theory."
           />
           <TimelineElement
-            icon={<CHI src="https://i.imgur.com/NVcozFB.webp" />}
+            icon={<CHI src="https://scontent.fblr14-1.fna.fbcdn.net/v/t39.30808-1/299608679_569327604979984_7164348980644291815_n.jpg?stp=dst-jpg_p200x200&_nc_cat=106&ccb=1-7&_nc_sid=f4b9fd&_nc_ohc=qLU3PU1w5NEQ7kNvgHsZoSn&_nc_ht=scontent.fblr14-1.fna&oh=00_AYDHfDaEu6lQfRMXnUYsIg_1M4KNvuG3LVR4aGIZ6EI91Q&oe=668373DF" />}
             location="Cryptonite"
             bg="#fcd8b6"
-            heading="Security Engineer"
+            heading="Taskphase Member"
             date="2023"
-            description="I regularly participate in CTFs organized by TryHackMe and HackTheBox, primarily focussing on penetrating machines with web exploitation and reverse engineering."
+            description="I participated in CTFs organized by TryHackMe and HackTheBox, primarily focussing on penetrating machines with web exploitation and reverse engineering."
+          />
+          <TimelineElement
+            icon={<CHI src="/solarmobil.webp" />}
+            location="SolarMobil"
+            bg="#ffffff"
+            heading="System Engineer"
+            date="2023"
+            description="I work on the automotive electronics of the next iteration of our solar racing car, which includes interfacing the battery management system (BMS), maximum power point tracker (MPPT) and Motor Controller with the onboard Arm Cortex M7-based STM32 evaluation board, building the steering-mounted display and developing the telemetry & tracking systems."
+          />
+          <TimelineElement
+            icon={<CHI src="/moss.webp" />}
+            location="Manipal Open Source Society"
+            bg="#fcd8b6"
+            heading="Open Source Hardware Workshop"
+            date="2024"
+            description="I conducted a workshop on the power and reach of open source projects, focusing on hardware in particular - from hobbyist electronics like the Arduino and Sparkfun Electronics to full-blown VLSI workflows with OpenLANE and Skywater."
           />
         </VerticalTimeline>
         <Heading as="h3" size="2xl">
