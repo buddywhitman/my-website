@@ -145,8 +145,8 @@ const About = () => {
             alt="me looking at graphs"
             reverse
             cw="70%"
-            height={400}
-            width={700}
+            height={330}
+            width={720}
           />
           <TextImage
             text="All of this helped shape a complex perspective, understanding love, peace and freedom despite or rather, because of the many things that unite and divide the people of our world. Around this time, I started exploring existential questions to understand spirituality and politics for myself, inspired by Walter Isaacson's biographies of Steve Jobs and Albert Einstein. Never entirely emerging from my indulges in humanities, all my future endeavours featured a design/human perspective, trying to understand what people find beautiful, what gives us a reason to smile amidst this rat race. Throughout high school, I focussed a lot more on coursework, implementing hobbyist projects like R/C skateboards and AWS-enabled smart speakers while being able to secure straight As in my sophomore and senior years."
@@ -154,8 +154,8 @@ const About = () => {
             alt="Github homescreen"
             cw="50%"
             reverse={false}
-            height={300}
-            width={300}
+            height={290}
+            width={290}
           />
           <TextImage
             text="In college, I'm expanding my knowledge across three fronts: Web/App Development, Coding/DSA and Embedded Development/Hardware Design. My day is spent balancing classes with meetings and workshops organised by several of the student clubs (ACM, IEEE, GDSC, etc.) that I actively participate in and bond with friends over heartfelt conversations and music jamming sessions. I conclude my day at the workshop, where we (a team of eight) work on building a solar-powered racing car for the World Solar Challenge (WSC) and the Electric Solar Vehicle Championship (ESVC), where I work for the electronics subsystem. I also handle website and app development for some start-ups incubated at our innovation centre while helping local businesses with their digital transformation journey through a local freelance-facilitating platform. Now, now I'm feeling pretty honoured that you stayed with me all the way till here (blushes). Scroll down to explore my journey!"
@@ -163,8 +163,8 @@ const About = () => {
             alt="Github homescreen"
             cw="50%"
             reverse
-            height={320}
-            width={600}
+            height={350}
+            width={550}
           />
         </Box>
       </Flex>
