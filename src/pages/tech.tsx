@@ -240,11 +240,11 @@ const Tech = () => {
                 <Td>Databases </Td>
                 <Td>
                   <Flex>
-                    {/* <IconWrapper icon={SiOracle} text="DBMS" />
-                    <IconWrapper icon={SiPostgresql} text="Postgresql" /> */}
+                    {/* <IconWrapper icon={SiOracle} text="DBMS" /> */}
+                    <IconWrapper icon={SiPostgresql} text="Postgresql" />
                     <IconWrapper icon={SiMysql} text="MySQL" />
-                    <IconWrapper icon={SiMongodb} text="MongoDB" />
-                    {/* <IconWrapper icon={SiMicrosoftsqlserver} text="MsSQL" /> */}
+                    {/* <IconWrapper icon={SiMongodb} text="MongoDB" />
+                    <IconWrapper icon={SiMicrosoftsqlserver} text="MsSQL" /> */}
                   </Flex>
                 </Td>
               </Tr>
