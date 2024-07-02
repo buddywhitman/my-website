@@ -4,20 +4,20 @@ import { QueryData } from "../../types/typed_data";
 
 const GITHUB_TOKEN = process.env.GITHUB_PA;
 const ExceptionRules = [
-  "daggy1234/dagpi",
-  "daggy1234/dagpi-auth",
-  "daggy1234/dagpi-data",
-  "daggy1234/dagpi-central",
-  "daggy1234/dagpi-dashboard",
-  "daggy1234/dagbot",
-  "daggy1234/dagpaste",
-  "daggy1234/polaroid",
-  "daggy1234/image-uploader",
-  "daggy1234/r.daggy",
-  "daggy1234/udymts",
-  "daggy1234/ewaste-app",
-  "daggy1234/daggy1234",
-  "daggy1234/f1bot",
+  "buddywhitman/my-website",
+  "buddywhitman/isa-achievements",
+  "buddywhitman/crud-app-frontend",
+  "buddywhitman/crud-app-backend",
+  "buddywhitman/buddywhitman",
+  "buddywhitman/grocery-ecommerce",
+  "buddywhitman/schedul.io",
+  "buddywhitman/flatcalc",
+  "buddywhitman/cryptonite-tp",
+  "buddywhitman/electronica",
+  "buddywhitman/resume-cv",
+  "buddywhitman/VaxBot",
+  "buddywhitman/buddywhitman.github.io",
+  "buddywhitman/soil.io",
 ];
 
 const query = `
