@@ -16,6 +16,7 @@ import FeaturedProject from "components/FeaturedProject";
 import ImageBox from "components/ImageBox";
 import SomeText from "components/SomeText";
 import ThemedButton from "components/ThemedButton";
+import ThemedMainButton from "components/ThemedMainButton";
 import FeaturedProjectList from "data/featured_projects";
 
 const Home = () => {
@@ -70,7 +71,7 @@ const Home = () => {
             </Text>
           </Heading>
           <Text marginTop={{ base: 3, md: 5 }} fontSize="xl">
-            Hey, There! I&apos;m Pulkit, an electrical engineering freshman at
+            Hey, There! I&apos;m Pulkit, an electrical engineering sophomore at
             MIT, Manipal. I love crafting delightful products & experiences for
             my fellow humans.
           </Text>
@@ -81,8 +82,7 @@ const Home = () => {
           </Text>
           <Text marginTop={{ base: 1, md: 3 }} fontSize="xl">
             Reach out to work with me for all your software, hardware and
-            branding needs. If you are looking for an undergrad hire, feel free
-            to download my resume.
+            branding needs.
           </Text>
           <Stack
             marginTop={{ base: 1, md: 1 }}
@@ -90,12 +90,12 @@ const Home = () => {
             spacing={4}
             align="center"
           >
-            <Link href="/about" passHref>
-              <ThemedButton top={3}>Read More</ThemedButton>
-            </Link>
             <Link href="/tech" passHref>
+              <ThemedMainButton top={3}>Tech Stack</ThemedMainButton>
+            </Link>
+            <Link href="/about" passHref>
               <ThemedButton rightIcon={<BsArrowRight />} top={3}>
-                Tech Stack
+                Read More
               </ThemedButton>
             </Link>
             {/*
