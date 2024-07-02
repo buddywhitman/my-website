@@ -21,109 +21,91 @@ interface MoreProjectType {
 const MoreProjectsList: MoreProjectType[] = [
   {
     id: 0,
-    title: "Image Uploader",
+    title: "portfolio",
     description:
-      "A classic image uploader to post images to. With fs writes, a UI to upload images, a REST API and a authorization system featuring both username/password and a token. Fully customizeable and designed to be self-hosted, it also features a docker image to run.",
-    tags: ["tailwind", "html", "rust", "actix", "docker"],
+      "Liked this site? here's the easily replicable source code for it! Using Next.js, Chakra UI, and Framer Motion, it's responsive, fast, and looks great! I also used Vercel for deployment and Github for version control. I also used the Github API to fetch my pinned projects!",
+    tags: ["next", "react", "chakra", "vercel", "github"],
     icons: [
       {
         id: 0,
         icon: BsGithub,
-        url: "https://github.com/daggy1234/image-uploader",
-      },
-      {
-        id: 1,
-        icon: SiDocker,
-        url: "https://github.com/Daggy1234/image-uploader/pkgs/container/image-uploader",
+        url: "https://github.com/buddywhitman/my-website",
       },
     ],
   },
   {
     id: 1,
-    title: "DagPaste",
+    title: "WakeWord Recognition",
     description:
-      "DagPaste is my take on hastebin. Self hosteable, it features highlight js syntax highlighting, rest API to add pastes, and raw paste fetching. Using the fs, and rocket.rs for the rust api its fast, performant and looks great! Speedy with rust + vanillajs + css and template rendering",
-    tags: ["rust", "rocket", "docker", "html", "css", "js"],
+      "Dabbled a bit with TensorFlow and Keras and trained a gated RNN to recognise the wake word 'hey buddy'. The model was trained on a dataset of 100 recorded positive and negative samples and achieved an accuracy of 98% on the test set.",
+    tags: ["tensorflow", "keras", "python", "jupyter"],
     icons: [
       {
         id: 0,
         icon: BsGithub,
-        url: "https://github.com/daggy1234/DagPaste",
-      },
-      {
-        id: 1,
-        icon: SiDocker,
-        url: "https://hub.docker.com/repository/docker/daggy1234/pastebin",
-      },
-      {
-        id: 2,
-        icon: BsDownload,
-        url: "https://mega.nz/folder/QZ8Clbia#kCmJm3iS4PkwYHuKBRzT5g",
+        url: "https://github.com/buddywhitman/WakeWord_Recognition",
       },
     ],
   },
   {
     id: 2,
-    title: "Udymts",
+    title: "flatCalc",
     description:
-      "An esoteric programming language (esolang) is designed to test the boundaries of computer programming design, as a proof of concept, as software art. My idea was making python cryptic by using a ceaser cipher. Compiled udymts, is just shifting by a unit of 5. To push boundaries, the actual compiler that takes in python files is written in rust. With pyo3, the compiler can execute python code! Mentioned by a top esolang blog",
-    tags: ["pyo3", "encryption", "esolang", "rust", "compiler", "cli"],
+      "FlatCalc is a real-estate calculator, designed to reveal all the hidden prices involved in a real estate deal and help users map out an accurate budget with sound financial understanding.",
+    tags: ["java", "swing"],
     icons: [
       {
         id: 0,
         icon: BsGithub,
-        url: "https://github.com/daggy1234/udymts",
-      },
-      {
-        id: 1,
-        icon: FaLink,
-        url: "https://esolangs.org/wiki/Udymts",
+        url: "https://github.com/buddywhitman/flatcalc",
       },
     ],
   },
   {
     id: 3,
-    title: "Ewaste App",
+    title: "electronica",
     description:
-      "A Work in progress idea to help users find waste recycling locations. The idea being, users get a map of possible nearby ewaste drop-off locations. The app uses location data to show nearby dropoff points and get navigation and info about them!",
-    tags: [
-      "nextjs",
-      "firebase",
-      "firestore",
-      "auth",
-      "googlemaps",
-      "geolocation",
-      "",
-    ],
+      "A hardware knowledge repository - made in an attempt to unify hardware resources and create a structured curriculum, similar to roadmaps.sh for software career paths.",
+    tags: ["markdown", "verilog", "C", "STM32Cube"],
     icons: [
       {
-        id: 1,
-        icon: CgWebsite,
-        url: "https://ewaste-app.vercel.com",
+        id: 0,
+        icon: BsGithub,
+        url: "https://github.com/buddywhitman/electronica",
       },
     ],
   },
   {
     id: 4,
-    title: "R.Daggy",
+    title: "Arduino LiquidCrystal",
     description:
-      "A private moderation discord bot written in rust. It features reaction roles, moderation, information, fun and more. Using the serenity.rs librray and the discord API it supports slash commands and text commands! The bot also is compiled to a binary inside a minimal docker image, to be run effortlessly with env vars",
-    tags: ["rust", "serenity", "docker", "discord"],
+      "I know, I know. This is a repository owned by the Arduino org and made my first open source contribution here by getting a PR merged successfully for implementing a feature to support the rather unusual 3x10 LCD display format.",
+    tags: [
+      "C",
+      "Arduino",
+      "CMake",
+      "Make",
+      "GCC",
+    ],
+    icons: [
+      {
+        id: 1,
+        icon: BsGithub,
+        url: "https://ewaste-app.vercel.com",
+      },
+    ],
+  },
+  {
+    id: 5,
+    title: "vaxBot",
+    description:
+      "A private vaccine appointment bot written with Discordjs. It utilizes the CoWin API to fetch available vaccine slots from nearby vaccination centers and allows a user to book an appointment for the same, all within the discord server itself!",
+    tags: ["discordjs", "js", "cowin"],
     icons: [
       {
         id: 0,
         icon: BsGithub,
-        url: "https://github.com/daggy1234/r.daggy",
-      },
-      {
-        id: 1,
-        icon: SiDocker,
-        url: "https://quay.io/daggy1234/rdaggy",
-      },
-      {
-        id: 2,
-        icon: SiDiscord,
-        url: "https://server.daggy.tech",
+        url: "https://github.com/buddywhitman/VaxBot",
       },
     ],
   },
