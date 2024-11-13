@@ -102,7 +102,8 @@ const Header = ({ onOpen }: HeaderProps) => {
           <HeaderTextComponent text="design" url="/design" />
           <HeaderTextComponent text="blog" url="/blog" />
           */}
-          <SpecialHeaderTextComponent text="contact" url="/contact" />
+          <HeaderTextComponent text="contact" url="/contact" />
+          <SpecialHeaderTextComponent text="resume" url="https://github.com/buddywhitman/my-website/blob/main/Pulkit_Kumar_Resume.pdf" />
           <MenuItem>
             <ThemeToggle />
           </MenuItem>
