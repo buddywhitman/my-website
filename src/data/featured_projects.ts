@@ -76,7 +76,7 @@ const FeaturedProjectList: FeaturedProjectType[] = [
   },
   {
     id: 2,
-    alt: "ISA Acheivements Website",
+    alt: "ISA Achievements Website",
     name: "ISA Achievements",
     height: 893,
     width: 1666,
