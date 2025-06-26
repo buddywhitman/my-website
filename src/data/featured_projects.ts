@@ -29,7 +29,7 @@ const FeaturedProjectList: FeaturedProjectType[] = [
     height: 1032,
     width: 1919,
     description:
-      "Most fun so far (aside form this portfolio ofc), worked with a team of 6 talented devs during the lockdown to build this platform enabling Indian teens to dive headfirst into a career of their choice",
+      "Most fun so far (aside from this portfolio ofc), worked with a team of 6 talented devs during the lockdown to build this platform enabling Indian teens to dive headfirst into a career of their choice",
     images: ["/mycaptain_w.webp", "/mycaptain_b.webp"],
     tags: [
       "next",
