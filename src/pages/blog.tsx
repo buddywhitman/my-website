@@ -43,7 +43,7 @@ const Blog = ({ posts }: BlogProps) => {
             <MotionBox
               key={post.slug}
               whileHover={{ y: -5 }}
-              transition={{ duration: 0.2 }}
+              transition={{ duration: 0.2 } as any}
             >
               <NextLink href={`/blog/${post.slug}`} passHref legacyBehavior>
                 <ChakraLink

@@ -19,8 +19,8 @@ import ThemedMainButton from "components/ThemedMainButton";
 import FeaturedProjectList from "data/featured_projects";
 import SchemaMarkup from "components/SchemaMarkup";
 
-const MotionBox = motion(Box);
-const MotionFlex = motion(Flex);
+const MotionBox = motion(Box) as any;
+const MotionFlex = motion(Flex) as any;
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -41,7 +41,7 @@ const itemVariants = {
       type: "spring",
       duration: 0.5,
       bounce: 0.2,
-    },
+    } as any,
   },
 };
 
@@ -122,12 +122,12 @@ const Home = () => {
                 hardware.
               </Text>
               <Stack direction="row" gap={4} pt={4}>
-                <Link href="/tech" passHref>
+                <Link href="/tech" passHref legacyBehavior>
                   <ThemedMainButton>Tech Stack</ThemedMainButton>
                 </Link>
-                <Link href="/about" passHref>
-                  <ThemedButton rightIcon={<BsArrowRight />}>
-                    Read More
+                <Link href="/about" passHref legacyBehavior>
+                  <ThemedButton>
+                    Read More <BsArrowRight style={{ marginLeft: '8px' }} />
                   </ThemedButton>
                 </Link>
               </Stack>
@@ -159,7 +159,7 @@ const Home = () => {
             ))}
           </VStack>
           <Flex justify="center" mt={16}>
-            <Link href="/tech" passHref>
+            <Link href="/tech" passHref legacyBehavior>
               <ThemedButton variant="outline" px={12}>
                 View All Projects
               </ThemedButton>
@@ -184,16 +184,15 @@ const Home = () => {
               Available for consulting on inference infrastructure, embedded
               systems, and AI integration.
             </Text>
-            <Link href="/contact" passHref>
+            <Link href="/contact" passHref legacyBehavior>
               <ThemedButton
                 bg="white"
                 color="brand.500"
                 _hover={{ bg: "gray.100" }}
-                rightIcon={<BsArrowRight />}
                 size="xl"
                 px={12}
               >
-                Get in Touch
+                Get in Touch <BsArrowRight style={{ marginLeft: '8px' }} />
               </ThemedButton>
             </Link>
           </VStack>

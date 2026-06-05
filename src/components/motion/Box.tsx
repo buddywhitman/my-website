@@ -1,11 +1,10 @@
 /* eslint-disable prettier/prettier */
 import { chakra, HTMLChakraProps } from "@chakra-ui/react";
 import { motion, HTMLMotionProps } from "framer-motion";
+import React from "react";
 
-import { Merge } from "types/merge";
+type MotionBoxProps = HTMLChakraProps<"div"> & HTMLMotionProps<"div">;
 
-type MotionBoxProps = Merge<HTMLChakraProps<"div">, HTMLMotionProps<"div">>;
+const MotionBox = motion(chakra.div) as any;
 
-const MotionBox: React.FC<MotionBoxProps> = motion(chakra.div);
-
-export default MotionBox;
+export default MotionBox as React.FC<MotionBoxProps>;

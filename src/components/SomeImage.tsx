@@ -1,9 +1,10 @@
 /* eslint-disable prettier/prettier */
-import { Flex, Link, Text, useColorMode } from "@chakra-ui/react";
+import { Flex, Link, Text } from "@chakra-ui/react";
 import Image from "next/image";
 
 import HelperImage from "./HelperImage";
 import MotionBox from "./motion/Box";
+import { useColorMode } from "components/ui/color-mode";
 
 const SomeImage = () => {
   const { colorMode } = useColorMode();
@@ -12,7 +13,7 @@ const SomeImage = () => {
     <>
       <MotionBox
         animate={{ y: 20, scale: 0.97 }}
-        transition={{ repeat: Infinity, duration: 2, repeatType: "reverse" }}
+        transition={{ repeat: Infinity, duration: 2, repeatType: "reverse" } as any}
         marginY={8}
         maxWidth={[240, 320]}
         marginX="auto"
@@ -30,7 +31,7 @@ const SomeImage = () => {
         </Link>
       </Text>
 
-      <Flex marginY={4} justifyContent="center" alignItems="center">
+      <Flex marginY={4} justifyContent="center" alignItems="center" gap={4}>
         <HelperImage src={`/nextjs-icon-${colorMode}.svg`} label="NextJS" />
         <HelperImage src="/chakra-ui-logomark-colored.svg" label="Chakra UI" />
         <HelperImage src="/ts-logo-512.svg" label="TypeScript" />

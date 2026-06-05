@@ -10,10 +10,9 @@ import {
 import { motion } from "framer-motion";
 import { BsLinkedin, BsGithub } from "react-icons/bs";
 
-const MotionBox = motion(Box);
-const MotionHeading = motion(Heading);
-const MotionText = motion(Text);
-const MotionFlex = motion(Flex);
+const MotionHeading = motion(Heading) as any;
+const MotionText = motion(Text) as any;
+const MotionFlex = motion(Flex) as any;
 
 const springConfig = { type: "spring", duration: 0.5, bounce: 0.2 };
 
@@ -29,7 +28,7 @@ const SomeText = () => {
         <MotionHeading
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ ...springConfig, delay: 0.1 }}
+          transition={{ ...springConfig, delay: 0.1 } as any}
           fontWeight="800"
           fontSize={{ base: "5xl", md: "7xl" }}
           letterSpacing="tight"
@@ -41,7 +40,7 @@ const SomeText = () => {
         <MotionText
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ ...springConfig, delay: 0.2 }}
+          transition={{ ...springConfig, delay: 0.2 } as any}
           fontSize={{ base: "xl", md: "2xl" }}
           fontWeight="medium"
           color="fg.muted"
@@ -54,7 +53,7 @@ const SomeText = () => {
       <MotionText
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ ...springConfig, delay: 0.3 }}
+        transition={{ ...springConfig, delay: 0.3 } as any}
         fontSize={{ base: "md", md: "lg" }}
         lineHeight="tall"
         color="fg.default"
@@ -68,7 +67,7 @@ const SomeText = () => {
       <MotionFlex
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ ...springConfig, delay: 0.4 }}
+        transition={{ ...springConfig, delay: 0.4 } as any}
         gap={6}
       >
         <ChakraLink

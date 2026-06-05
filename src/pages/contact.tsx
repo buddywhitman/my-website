@@ -4,12 +4,11 @@ import {
   Text,
   VisuallyHidden,
   Icon,
-  Tooltip,
   Input,
-  FormControl,
-  FormLabel,
+  Field,
   Textarea,
   Flex,
+  VStack,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import { FaKeybase } from "react-icons/fa";
@@ -18,6 +17,7 @@ import { MdEmail } from "react-icons/md";
 import { SiDiscord } from "react-icons/si";
 
 import ThemedButton from "components/ThemedButton";
+import { Tooltip } from "components/ui/tooltip";
 
 interface IconWrapProps {
   icon: IconType;
@@ -28,9 +28,9 @@ interface IconWrapProps {
 
 const IconWrap = ({ icon, color, url, text }: IconWrapProps) => {
   return (
-    <Link href={url} passHref>
-      <Flex my={3} textAlign="left" alignItems="center" justifyContent="left" _hover={{ color: "brand.400" }}>
-        <Tooltip label={url} hasArrow>
+    <Link href={url} passHref legacyBehavior>
+      <Flex as="a" my={3} textAlign="left" alignItems="center" justifyContent="left" _hover={{ color: "brand.400" }}>
+        <Tooltip content={url} showArrow>
           <Box
             aria-label={text}
             display="inline-block"
@@ -76,7 +76,7 @@ const Contact = () => {
           Contact
         </Text>
       </Heading>
-      <Flex direction={{ base: "column", md: "row" }} p={{ base: 1, md: 8 }}>
+      <Flex direction={{ base: "column", md: "row" }} p={{ base: 1, md: 8 }} gap={8}>
         <Flex w={{ base: "100%", md: "50%" }} direction="column">
           <IconWrap
             text="Discord"
@@ -93,40 +93,51 @@ const Contact = () => {
           <IconWrap
             text="Mail"
             icon={MdEmail}
-            color="fg.default"
+            color="white"
             url="mailto:pulkit.talks@gmail.com"
           />
         </Flex>
         <Flex
-          alignSelf="right"
           color="#fff"
           p={8}
           paddingY={16}
           w={{ base: "100%", md: "50%" }}
-          rounded="lg"
+          rounded="3xl"
           bg="brand.500"
           direction="column"
         >
           <form action="https://api.web3forms.com/submit" method="POST">
-            <Heading size="lg">Contact Form</Heading>
-            <FormControl mb={5} id="access_key">
+            <VStack align="stretch" gap={6}>
+              <Heading size="lg">Contact Form</Heading>
               <Input
                 type="hidden"
                 name="access_key"
                 value="ffedddbb-9617-479e-9e67-7cdf2d662ad9"
               />
-            </FormControl>
-            <FormControl mb={3} id="email">
-              <FormLabel>Email address</FormLabel>
-              <Input type="email" name="email" />
-            </FormControl>
-            <FormControl mb={3} id="message">
-              <FormLabel>Message</FormLabel>
-              <Textarea name="message" />
-            </FormControl>
-            <ThemedButton type="submit" bg="#ffffff" color="rgb(17, 17, 17)">
-              Submit
-            </ThemedButton>
+              <Field.Root>
+                <Field.Label color="white">Email address</Field.Label>
+                <Input 
+                  type="email" 
+                  name="email" 
+                  bg="whiteAlpha.200" 
+                  border="none" 
+                  _focus={{ bg: "whiteAlpha.300" }}
+                />
+              </Field.Root>
+              <Field.Root>
+                <Field.Label color="white">Message</Field.Label>
+                <Textarea 
+                  name="message" 
+                  bg="whiteAlpha.200" 
+                  border="none" 
+                  _focus={{ bg: "whiteAlpha.300" }}
+                  rows={5}
+                />
+              </Field.Root>
+              <ThemedButton type="submit" bg="#ffffff" color="brand.500" _hover={{ bg: "gray.100" }}>
+                Submit
+              </ThemedButton>
+            </VStack>
           </form>
         </Flex>
       </Flex>

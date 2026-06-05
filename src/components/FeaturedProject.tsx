@@ -32,7 +32,7 @@ interface FeaturedProjectProps {
   width: number;
 }
 
-const MotionFlex = motion(Flex);
+const MotionFlex = motion(Flex) as any;
 
 const FeaturedProject = (props: FeaturedProjectProps) => {
   const {
@@ -48,7 +48,7 @@ const FeaturedProject = (props: FeaturedProjectProps) => {
   } = props;
 
   const isMobile = useBreakpointValue({ base: true, md: false });
-  const image = images[1]; // Using dark mode image by default for immersive feel
+  const image = images[1] || images[0]; // Fallback to first image
 
   if (isMobile) {
     return (
@@ -87,7 +87,7 @@ const FeaturedProject = (props: FeaturedProjectProps) => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-100px" }}
-      transition={{ type: "spring", duration: 0.8, bounce: 0.2 }}
+      transition={{ type: "spring", duration: 0.8, bounce: 0.2 } as any}
     >
       <Box flex="1.2">
         <ImageBox height={height} width={width} image={image} alt={alt} />

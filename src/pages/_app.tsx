@@ -13,6 +13,7 @@ import defaultSEOConfig from "../../next-seo.config";
 import Layout from "components/layout";
 import createEmotionCache from "styles/createEmotionCache";
 import customTheme from "styles/customTheme";
+import { ColorModeProvider } from "components/ui/color-mode";
 import "styles/globals.css";
 
 const clientSideEmotionCache = createEmotionCache();
@@ -29,16 +30,18 @@ const MyApp = ({
   return (
     <CacheProvider value={emotionCache}>
       <ChakraProvider value={customTheme}>
-        <Head>
-          <meta
-            name="viewport"
-            content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover"
-          />
-        </Head>
-        <DefaultSeo {...defaultSEOConfig} />
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
+        <ColorModeProvider>
+          <Head>
+            <meta
+              name="viewport"
+              content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover"
+            />
+          </Head>
+          <DefaultSeo {...defaultSEOConfig} />
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ColorModeProvider>
       </ChakraProvider>
     </CacheProvider>
   );

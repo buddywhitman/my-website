@@ -1,7 +1,7 @@
 import { Button, ButtonProps } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 
-const MotionButton = motion(Button);
+const MotionButton = motion(Button) as any;
 
 const ThemedMainButton = (props: ButtonProps) => {
   const { children, ...rest } = props;
@@ -9,7 +9,7 @@ const ThemedMainButton = (props: ButtonProps) => {
     <MotionButton
       whileHover={{ y: -2 }}
       whileTap={{ scale: 0.97 }}
-      transition={{ type: "spring", stiffness: 400, damping: 17 }}
+      transition={{ type: "spring", stiffness: 400, damping: 17 } as any}
       borderRadius="full"
       display="inline-flex"
       variant="outline"

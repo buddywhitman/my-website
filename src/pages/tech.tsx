@@ -1,20 +1,16 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react/jsx-props-no-spreading */
 import {
-  Alert,
   Box,
   Heading,
   SimpleGrid,
   Text,
   useBreakpointValue,
   Spinner,
-  Tooltip,
   Flex,
   Icon,
   VStack,
   HStack,
-  Wrap,
-  WrapItem,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { BiCodeAlt } from "react-icons/bi";
@@ -52,7 +48,7 @@ import {
   SiKeras,
   SiFastapi,
   SiOpenai,
-  SiN8N,
+  SiNodered,
   SiAdobecreativecloud,
 } from "react-icons/si";
 import Slider from "react-slick";
@@ -61,6 +57,8 @@ import EnhancedProject from "components/EnhancedProject";
 import GithubProject from "components/GithubProject";
 import MoreProjectList from "data/more_projects";
 import MotionBox from "components/motion/Box";
+import { Tooltip } from "components/ui/tooltip";
+import { Alert } from "components/ui/alert";
 
 interface SkillPillProps {
   icon: IconType;
@@ -69,7 +67,7 @@ interface SkillPillProps {
 
 const SkillPill = ({ icon, name }: SkillPillProps) => {
   return (
-    <Tooltip label={name} hasArrow placement="top">
+    <Tooltip content={name} showArrow positioning={{ placement: "top" }}>
       <MotionBox
         whileHover={{ 
           scale: 1.1, 
@@ -77,7 +75,7 @@ const SkillPill = ({ icon, name }: SkillPillProps) => {
           boxShadow: "0 0 15px var(--chakra-colors-brand-500)",
           borderColor: "brand.500"
         }}
-        transition={{ type: "spring", stiffness: 300 }}
+        transition={{ type: "spring", stiffness: 300 } as any}
         p={3}
         bg="bg.surface"
         borderRadius="full"
@@ -117,17 +115,15 @@ const SkillCategory = ({ title, icon, skills, delay }: SkillCategoryProps) => (
     borderColor="border.default"
     _hover={{ borderColor: "brand.500" }}
   >
-    <HStack mb={6} spacing={3}>
+    <HStack mb={6} gap={3}>
       <Icon as={icon} w={6} h={6} color="brand.400" aria-label={title} />
       <Heading size="md">{title}</Heading>
     </HStack>
-    <Wrap spacing={4}>
+    <Flex gap={4} wrap="wrap">
       {skills.map((skill) => (
-        <WrapItem key={skill.name}>
-          <SkillPill icon={skill.icon} name={skill.name} />
-        </WrapItem>
+        <SkillPill key={skill.name} icon={skill.icon} name={skill.name} />
       ))}
-    </Wrap>
+    </Flex>
   </MotionBox>
 );
 
@@ -179,7 +175,7 @@ const Tech = () => {
         { icon: SiTensorflow, name: "TensorFlow" },
         { icon: SiKeras, name: "Keras" },
         { icon: SiOpenai, name: "OpenAI" },
-        { icon: SiN8N, name: "n8n" },
+        { icon: SiNodered, name: "Automation" },
         { icon: SiNumpy, name: "NumPy" },
       ],
     },
@@ -253,7 +249,7 @@ const Tech = () => {
           </Text>
         </MotionBox>
 
-        <SimpleGrid columns={{ base: 1, lg: 2, xl: 3 }} spacing={8} px={{ base: 0, md: 4 }}>
+        <SimpleGrid columns={{ base: 1, lg: 2, xl: 3 }} gap={8} px={{ base: 0, md: 4 }}>
           {skillCategories.map((category) => (
             <SkillCategory
               key={category.title}
@@ -286,13 +282,13 @@ const Tech = () => {
           </Text>
         </Heading>
         <Box marginBottom={10}>
-          <Alert variant="left-accent" status="info" borderRadius="md">
+          <Alert variant="subtle" status="info" borderRadius="md" borderStartWidth="4px" borderStartColor="blue.500">
             View Featured Projects on the Home Page!
           </Alert>
         </Box>
         <SimpleGrid
           columns={{ base: 1, md: 2, lg: 3 }}
-          spacing={10}
+          gap={10}
           marginY={10}
         >
           {MoreProjectList.map((value) => (
@@ -306,7 +302,7 @@ const Tech = () => {
           ))}
         </SimpleGrid>
 
-        <VStack spacing={16} align="stretch" mt={20}>
+        <VStack gap={16} align="stretch" mt={20}>
           <Box>
             <Heading as="h2" size="xl" mb={8}>
               <Text

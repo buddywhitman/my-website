@@ -1,105 +1,48 @@
-import {
-  Box,
-  Heading,
-  Flex,
-  Icon,
-  Spacer,
-  Text,
-  Tooltip,
-  VisuallyHidden,
-} from "@chakra-ui/react";
-import Link from "next/link";
-import { IconType } from "react-icons";
-
-interface IconWrapProps {
-  icon: IconType;
-  color: string;
-  url: string;
-}
-
-const IconWrap = ({ icon, color, url }: IconWrapProps) => {
-  return (
-    <Link href={url} passHref>
-      <Flex textAlign="left" alignItems="center" justifyContent="left">
-        <Tooltip style={{ cursor: "progress" }} label={url}>
-          <Box
-            aria-label={icon.toString()}
-            display="inline-block"
-            marginLeft="1em"
-          >
-            <VisuallyHidden>{url}</VisuallyHidden>
-            <Icon
-              h={{ base: 6, md: 6 }}
-              w={{ base: 6, md: 6 }}
-              as={icon}
-              color={color}
-            />
-          </Box>
-        </Tooltip>
-      </Flex>
-    </Link>
-  );
-};
-
-interface IconLinkProps {
-  icon: IconType;
-  url: string;
-  id: number;
-}
+import { Box, Flex, Heading, Text, Link, Icon, chakra } from "@chakra-ui/react";
+import MotionBox from "components/motion/Box";
+import { Tooltip } from "components/ui/tooltip";
 
 interface EnhancedProjectProps {
+  icons: { icon: any; url: string }[];
   title: string;
   description: string;
   tags: string[];
-  icons: IconLinkProps[];
 }
 
-export default function EnhancedProject(props: EnhancedProjectProps) {
-  const { title, description, tags, icons } = props;
-
+const EnhancedProject = ({
+  icons,
+  title,
+  description,
+  tags,
+}: EnhancedProjectProps) => {
   return (
-    <Flex
-      direction="column"
-      maxW="md"
-      position="relative"
-      rounded="md"
-      bg="bg.subtle"
+    <MotionBox
+      whileHover={{ y: -5 }}
       p={6}
+      bg="bg.surface"
+      borderRadius="2xl"
+      borderWidth="1px"
+      borderColor="border.default"
+      _hover={{ borderColor: "brand.500", boxShadow: "xl" }}
     >
-      <Flex textAlign="left" my={3} alignItems="center">
-        <Heading alignSelf="left" fontSize={{ base: "xl", md: "2xl" }}>
-          {title}
-        </Heading>
-        <Spacer />
-        <Flex alignItems="center" alignSelf="flex-end">
-          {icons.map((index) => (
-            <IconWrap
-              key={index.id}
-              icon={index.icon}
-              color="fg.default"
-              url={index.url}
-            />
-          ))}
-        </Flex>
-      </Flex>
-      <Text marginBottom={6} fontSize="xs" color="fg.muted">
-        {description}
-      </Text>
-      <Box my={1} bottom={1} position="absolute">
-        {tags.map((value, index) => (
-          <Text
-            p={1}
-            display="inline-block"
-            // eslint-disable-next-line react/no-array-index-key
-            key={index}
-            opacity="0.7"
-            fontSize="xs"
-            color="fg.muted"
-          >
-            {value}
-          </Text>
+      <Flex gap={3} mb={4}>
+        {icons.map((item, index: number) => (
+          <Tooltip key={index} content="Project Link">
+            <chakra.a href={item.url} target="_blank" rel="noopener noreferrer" cursor="pointer">
+               <Icon as={item.icon} w={6} h={6} color="brand.400" />
+            </chakra.a>
+          </Tooltip>
         ))}
-      </Box>
-    </Flex>
+      </Flex>
+      <Heading size="md" mb={2}>{title}</Heading>
+      <Text color="fg.muted" mb={4}>{description}</Text>
+      <Flex gap={2} wrap="wrap">
+        {tags.map((tag) => (
+          <Text key={tag} fontSize="xs" color="brand.500" fontWeight="bold">#{tag}</Text>
+        ))}
+      </Flex>
+    </MotionBox>
   );
-}
+};
+
+export default EnhancedProject;

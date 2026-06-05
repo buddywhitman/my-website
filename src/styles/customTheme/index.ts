@@ -1,6 +1,39 @@
-import { createSystem, defaultConfig, defineConfig } from "@chakra-ui/react";
+import { createSystem, defaultConfig, defineConfig, defineRecipe } from "@chakra-ui/react";
 import colors from "./colors";
 import fonts from "./fonts";
+
+const buttonRecipe = defineRecipe({
+  base: {
+    borderRadius: "full",
+    fontWeight: "semibold",
+    transition: "all 0.2s ease-in-out",
+  },
+  variants: {
+    variant: {
+      solid: {
+        bg: "brand.500",
+        color: "white",
+        _hover: {
+          bg: "brand.600",
+          transform: "translateY(-1px)",
+          boxShadow: "0 4px 12px rgba(2, 132, 199, 0.3)",
+        },
+      },
+      outline: {
+        border: "1px solid",
+        borderColor: "border.default",
+        _hover: {
+          bg: "bg.subtle",
+        },
+      },
+      ghost: {
+        _hover: {
+          bg: "bg.subtle",
+        },
+      },
+    },
+  },
+});
 
 const config = defineConfig({
   theme: {
@@ -41,36 +74,7 @@ const config = defineConfig({
       },
     },
     recipes: {
-      button: {
-        base: {
-          borderRadius: "full",
-          fontWeight: "semibold",
-          transition: "all 0.2s ease-in-out",
-        },
-        variants: {
-          solid: {
-            bg: "brand.500",
-            color: "white",
-            _hover: {
-              bg: "brand.600",
-              transform: "translateY(-1px)",
-              boxShadow: "0 4px 12px rgba(2, 132, 199, 0.3)",
-            },
-          },
-          outline: {
-            border: "1px solid",
-            borderColor: "border.default",
-            _hover: {
-              bg: "bg.subtle",
-            },
-          },
-          ghost: {
-            _hover: {
-              bg: "bg.subtle",
-            },
-          },
-        },
-      },
+      button: buttonRecipe,
     },
   },
   globalCss: {
@@ -81,7 +85,7 @@ const config = defineConfig({
       lineHeight: "relaxed",
       margin: 0,
       padding: 0,
-      WebkitFontSmoothing: "antialiased",
+      fontSmooth: "antialiased",
     },
     "*::selection": {
       bg: "brand.400",

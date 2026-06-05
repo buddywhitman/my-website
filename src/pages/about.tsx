@@ -11,12 +11,11 @@ import {
   VStack,
   HStack,
   Badge,
-  Divider,
+  Separator,
 } from "@chakra-ui/react";
 import Image from "next/image";
-import { ReactElement } from "react";
 import { BiCodeAlt, BiChip, BiBrain, BiStats, BiTimeFive } from "react-icons/bi";
-import { FaExternalLinkAlt, FaAward, FaFileAlt, FaLightbulb } from "react-icons/fa";
+import { FaExternalLinkAlt, FaFileAlt, FaLightbulb } from "react-icons/fa";
 import MotionBox from "components/motion/Box";
 import SchemaMarkup from "components/SchemaMarkup";
 
@@ -117,18 +116,18 @@ const ExperienceItem = ({ role, company, period, description, tags, delay }: Exp
     borderLeftColor="brand.500"
   >
     <Flex justifyContent="space-between" alignItems="flex-start" mb={2} flexWrap="wrap">
-      <VStack align="start" spacing={0}>
+      <VStack align="start" gap={0}>
         <Heading size="md">{role}</Heading>
         <Text color="brand.300" fontWeight="bold">{company}</Text>
       </VStack>
-      <Badge colorScheme="brand" variant="subtle" px={3} py={1} borderRadius="full">
+      <Badge colorPalette="brand" variant="subtle" px={3} py={1} borderRadius="full">
         {period}
       </Badge>
     </Flex>
     <Text mb={4} color="fg.muted">{description}</Text>
-    <HStack spacing={2} flexWrap="wrap">
+    <HStack gap={2} flexWrap="wrap">
       {tags.map(tag => (
-        <Badge key={tag} variant="outline" colorScheme="gray" fontSize="xs">{tag}</Badge>
+        <Badge key={tag} variant="outline" colorPalette="gray" fontSize="xs">{tag}</Badge>
       ))}
     </HStack>
   </MotionBox>
@@ -211,7 +210,7 @@ const About = () => {
         <Heading as="h3" size="xl" mb={10} textAlign="center">
           Core Expertise
         </Heading>
-        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8}>
+        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={8}>
           <ExpertiseCard
             title="HPC & Embedded Systems"
             description="Architecting low-latency, safety-critical systems using FreeRTOS, STM32, and Arm Cortex architectures."
@@ -256,7 +255,7 @@ const About = () => {
         <Heading as="h3" size="xl" mb={10} textAlign="center">
           Publications & IP
         </Heading>
-        <VStack spacing={6} align="stretch">
+        <VStack gap={6} align="stretch">
           <MotionBox
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -269,11 +268,11 @@ const About = () => {
           >
             <Flex alignItems="center" mb={4}>
               <Icon as={FaFileAlt} color="brand.500" mr={3} />
-              <Badge colorScheme="green">Scientific Reports (Springer Nature, Q1)</Badge>
+              <Badge colorPalette="green">Scientific Reports (Springer Nature, Q1)</Badge>
             </Flex>
             <Heading size="md" mb={2}>Technical validation of a multimodal emotion-adaptive biofeedback system for autonomic regulation using guided breathing</Heading>
             <Text color="fg.muted" mb={4}>Published in Sci Rep (2026). DOI: 10.1038/s41598-026-46105-9</Text>
-            <Link href="https://doi.org/10.1038/s41598-026-46105-9" isExternal color="brand.300">
+            <Link href="https://doi.org/10.1038/s41598-026-46105-9" target="_blank" rel="noopener noreferrer" color="brand.300">
               View Publication <Icon as={FaExternalLinkAlt} mx="2px" size="xs" />
             </Link>
           </MotionBox>
@@ -290,16 +289,16 @@ const About = () => {
           >
             <Flex alignItems="center" mb={4}>
               <Icon as={FaFileAlt} color="brand.500" mr={3} />
-              <Badge colorScheme="blue">IEEE VTC (A*)</Badge>
+              <Badge colorPalette="blue">IEEE VTC (A*)</Badge>
             </Flex>
             <Heading size="md" mb={2}>Physics-Informed Stochastic Receding Horizon Control for Autonomous Energy Management in Solar Racing</Heading>
             <Text color="fg.muted" mb={4}>Accepted for IEEE VTC (2026).</Text>
-            <Link href="https://vtc2026spring.trackchair.com/paper/47987" isExternal color="brand.300">
+            <Link href="https://vtc2026spring.trackchair.com/paper/47987" target="_blank" rel="noopener noreferrer" color="brand.300">
               View Paper <Icon as={FaExternalLinkAlt} mx="2px" size="xs" />
             </Link>
           </MotionBox>
 
-          <SimpleGrid columns={{ base: 1, md: 3 }} spacing={6}>
+          <SimpleGrid columns={{ base: 1, md: 3 }} gap={6}>
             <MotionBox
               p={6}
               bg="bg.surface"
@@ -342,7 +341,7 @@ const About = () => {
         <Heading as="h3" size="xl" mb={10} textAlign="center">
           Key Experiences
         </Heading>
-        <VStack align="stretch" spacing={0}>
+        <VStack align="stretch" gap={0}>
           <ExperienceItem
             role="Founding Engineer"
             company="Fettle"

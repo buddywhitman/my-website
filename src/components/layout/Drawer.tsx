@@ -1,7 +1,5 @@
 import {
   Drawer,
-  Heading,
-  Flex,
   Link as ChakraLink,
   VStack,
 } from "@chakra-ui/react";
@@ -30,7 +28,7 @@ const DrawerLink = ({ text, url, onClick }: { text: string; url: string; onClick
 
 const DrawerWidget = ({ onClose, isOpen }: DrawerWidgetProps) => {
   return (
-    <Drawer.Root open={isOpen} onOpenChange={onClose} placement="right">
+    <Drawer.Root open={isOpen} onOpenChange={onClose} placement="end">
       <Drawer.Backdrop />
       <Drawer.Positioner>
         <Drawer.Content
@@ -42,7 +40,6 @@ const DrawerWidget = ({ onClose, isOpen }: DrawerWidgetProps) => {
             position="absolute" 
             top="4" 
             right="4" 
-            size="lg"
           />
           <Drawer.Body>
             <MotionBox

@@ -29,5 +29,3 @@ const defaultSEOConfig = {
 };
 
 export default defaultSEOConfig;
-
-export default defaultSEOConfig;

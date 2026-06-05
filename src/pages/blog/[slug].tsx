@@ -6,7 +6,7 @@ import {
   HStack,
   Badge,
   Code,
-  Divider,
+  Separator,
   Link as ChakraLink,
 } from "@chakra-ui/react";
 import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
@@ -44,7 +44,7 @@ const components = {
       {...props}
     />
   ),
-  hr: () => <Divider my={12} />,
+  hr: () => <Separator my={12} />,
 };
 
 interface PostPageProps {
