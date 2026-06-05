@@ -192,7 +192,10 @@ const Home = () => {
 
         {/* Contact CTA */}
         <MotionBox
-          variants={itemVariants}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
           bg="brand.500"
           color="white"
           p={{ base: 8, md: 16 }}
@@ -221,6 +224,12 @@ const Home = () => {
           </VStack>
         </MotionBox>
       </MotionBox>
+    </Box>
+  );
+};
+
+export default Home;
+ox>
     </Box>
   );
 };
