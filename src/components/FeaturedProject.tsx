@@ -69,7 +69,7 @@ const FeaturedProject = (props: FeaturedProjectProps) => {
           <Heading size="xl" mb={4} fontWeight="800">
             {name}
           </Heading>
-          <Text color="fg.muted" fontSize="lg" mb={6}>
+          <Text color="whiteAlpha.700" fontSize="lg" mb={6}>
             {description}
           </Text>
           <HStack gap={2} flexWrap="wrap" mb={6}>

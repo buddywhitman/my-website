@@ -76,7 +76,7 @@ const SomeText = () => {
         transition={{ ...springConfig, delay: 0.5 } as any}
         fontSize={{ base: "lg", md: "xl" }}
         lineHeight="relaxed"
-        color="fg.muted"
+        color="whiteAlpha.700"
         maxW="2xl"
         borderLeft="4px solid"
         borderColor="brand.500"
@@ -99,7 +99,7 @@ const SomeText = () => {
           <ChakraLink
             href="https://www.linkedin.com/in/buddywhitman"
             target="_blank"
-            color="fg.muted"
+            color="whiteAlpha.700"
             _hover={{ color: "brand.500" }}
             transition="color 0.2s"
           >
@@ -110,7 +110,7 @@ const SomeText = () => {
           <ChakraLink
             href="https://github.com/buddywhitman"
             target="_blank"
-            color="fg.muted"
+            color="whiteAlpha.700"
             _hover={{ color: "brand.500" }}
             transition="color 0.2s"
           >
