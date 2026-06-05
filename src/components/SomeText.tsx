@@ -9,83 +9,114 @@ import {
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { BsLinkedin, BsGithub } from "react-icons/bs";
+import { Magnetic } from "./motion/Magnetic";
 
 const MotionHeading = motion(Heading) as any;
 const MotionText = motion(Text) as any;
 const MotionFlex = motion(Flex) as any;
 
-const springConfig = { type: "spring", duration: 0.5, bounce: 0.2 };
+const springConfig = { type: "spring", duration: 0.8, bounce: 0.2 };
 
 const SomeText = () => {
   return (
     <VStack
       align="flex-start"
-      gap={6}
+      gap={8}
       p={{ base: 6, md: 10 }}
-      maxW="2xl"
+      maxW="3xl"
     >
       <Box>
         <MotionHeading
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ ...springConfig, delay: 0.1 } as any}
-          fontWeight="800"
-          fontSize={{ base: "5xl", md: "7xl" }}
+          fontWeight="900"
+          fontSize={{ base: "7xl", md: "9xl", lg: "10xl" }}
           letterSpacing="tight"
           lineHeight="0.9"
-          color="fg.default"
+          color="white"
+          fontFamily="display"
+          mb={12}
+          bgGradient="to-br"
+          gradientFrom="white"
+          gradientTo="whiteAlpha.600"
+          bgClip="text"
         >
-          Pulkit Kumar
+          Silicon to<br/>Intelligence.
         </MotionHeading>
         <MotionText
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ ...springConfig, delay: 0.2 } as any}
-          fontSize={{ base: "xl", md: "2xl" }}
-          fontWeight="medium"
-          color="fg.muted"
-          mt={4}
+          transition={{ ...springConfig, delay: 0.3 } as any}
+          fontSize={{ base: "3xl", md: "4xl" }}
+          fontWeight="900"
+          color="brand.400"
+          letterSpacing="tighter"
+          textTransform="uppercase"
         >
-          Founding Engineer & Researcher
+          Pulkit Kumar
+        </MotionText>
+        <MotionText
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ ...springConfig, delay: 0.4 } as any}
+          fontSize={{ base: "xl", md: "2xl" }}
+          fontWeight="bold"
+          color="whiteAlpha.800"
+          mt={4}
+          letterSpacing="wide"
+        >
+          FULL-STACK INFERENCE ARCHITECT
         </MotionText>
       </Box>
 
       <MotionText
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ ...springConfig, delay: 0.3 } as any}
-        fontSize={{ base: "md", md: "lg" }}
-        lineHeight="tall"
-        color="fg.default"
+        transition={{ ...springConfig, delay: 0.5 } as any}
+        fontSize={{ base: "lg", md: "xl" }}
+        lineHeight="relaxed"
+        color="fg.muted"
+        maxW="2xl"
+        borderLeft="4px solid"
+        borderColor="brand.500"
+        pl={8}
+        py={2}
       >
-        Pre-final year EE undergrad. I build production inference infrastructure,
-        safety-critical embedded systems, and real-time voice AI. Co-authored a
-        Q1 Springer Nature paper; 3 patents filed. Currently founding engineer
-        on a health-tech voice AI platform serving hospital networks at scale.
+        Architecting production-grade infrastructure from **RTL-level hardware** 
+        up to **agentic AI orchestration**. Specializing in low-latency systems 
+        for HFT, hospital networks, and autonomous racing. Q1 Nature Author.
       </MotionText>
 
       <MotionFlex
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ ...springConfig, delay: 0.4 } as any}
-        gap={6}
+        transition={{ ...springConfig, delay: 0.6 } as any}
+        gap={8}
+        pt={4}
       >
-        <ChakraLink
-          href="https://www.linkedin.com/in/buddywhitman"
-          target="_blank"
-          _hover={{ color: "brand.500", transform: "translateY(-2px)" }}
-          transition="all 0.2s"
-        >
-          <Icon as={BsLinkedin} boxSize={6} />
-        </ChakraLink>
-        <ChakraLink
-          href="https://github.com/buddywhitman"
-          target="_blank"
-          _hover={{ color: "brand.500", transform: "translateY(-2px)" }}
-          transition="all 0.2s"
-        >
-          <Icon as={BsGithub} boxSize={6} />
-        </ChakraLink>
+        <Magnetic>
+          <ChakraLink
+            href="https://www.linkedin.com/in/buddywhitman"
+            target="_blank"
+            color="fg.muted"
+            _hover={{ color: "brand.500" }}
+            transition="color 0.2s"
+          >
+            <Icon as={BsLinkedin} boxSize={8} />
+          </ChakraLink>
+        </Magnetic>
+        <Magnetic>
+          <ChakraLink
+            href="https://github.com/buddywhitman"
+            target="_blank"
+            color="fg.muted"
+            _hover={{ color: "brand.500" }}
+            transition="color 0.2s"
+          >
+            <Icon as={BsGithub} boxSize={8} />
+          </ChakraLink>
+        </Magnetic>
       </MotionFlex>
     </VStack>
   );

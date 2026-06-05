@@ -1,8 +1,6 @@
-import { BsGithub, BsDownload } from "react-icons/bs";
-import { CgWebsite } from "react-icons/cg";
-import { FaLink } from "react-icons/fa";
+import { BsGithub } from "react-icons/bs";
 import { IconType } from "react-icons/lib";
-import { SiDocker, SiDiscord } from "react-icons/si";
+import { FaFlask, FaUniversity, FaFilePdf } from "react-icons/fa";
 
 interface MoreProjectTypeIconType {
   id: number;
@@ -21,91 +19,85 @@ interface MoreProjectType {
 const MoreProjectsList: MoreProjectType[] = [
   {
     id: 0,
-    title: "portfolio",
+    title: "Interactive Agentic Hologram",
     description:
-      "Liked this site? here's the easily replicable source code for it! Using Next.js, Chakra UI, and Framer Motion, it's responsive, fast, and looks great! I also used Vercel for deployment and Github for version control. I also used the Github API to fetch my pinned projects!",
-    tags: ["next", "react", "chakra", "vercel", "github"],
+      "Prototyping an agentic holographic control system using Nvidia Jetson and Ultraleap. Features a custom agentic shell over Linux for natural language gesture-based interaction.",
+    tags: ["Agentic AI", "Nvidia Jetson", "Verilog", "Embedded Linux"],
     icons: [
       {
         id: 0,
         icon: BsGithub,
-        url: "https://github.com/buddywhitman/my-website",
+        url: "https://github.com/buddywhitman",
       },
     ],
   },
   {
     id: 1,
-    title: "WakeWord Recognition",
+    title: "Physics-Informed Stochastic Control",
     description:
-      "Dabbled a bit with TensorFlow and Keras and trained a gated RNN to recognise the wake word 'hey buddy'. The model was trained on a dataset of 100 recorded positive and negative samples and achieved an accuracy of 98% on the test set.",
-    tags: ["tensorflow", "keras", "python", "jupyter"],
+      "Research paper accepted at IEEE VTC 2026. Focuses on Physics-Informed Stochastic Receding Horizon Control (PI-SRHC) for autonomous energy management in racing electric vehicles.",
+    tags: ["Control Theory", "Stochastic", "IEEE", "Python"],
     icons: [
       {
         id: 0,
-        icon: BsGithub,
-        url: "https://github.com/buddywhitman/WakeWord_Recognition",
+        icon: FaUniversity,
+        url: "https://vtc2026spring.trackchair.com/paper/47987",
       },
     ],
   },
   {
     id: 2,
-    title: "flatCalc",
+    title: "Networked Patient Monitoring",
     description:
-      "FlatCalc is a real-estate calculator, designed to reveal all the hidden prices involved in a real estate deal and help users map out an accurate budget with sound financial understanding.",
-    tags: ["java", "swing"],
+      "Clustered networking for real-time monitoring of vitals across large hospital wards. Implemented optimized Pan-Tompkins algorithm for R-R peak detection on constrained ESP32 platforms.",
+    tags: ["Networking", "RTOS", "DSP", "ESP32", "HealthTech"],
     icons: [
       {
         id: 0,
         icon: BsGithub,
-        url: "https://github.com/buddywhitman/flatcalc",
+        url: "https://github.com/buddywhitman",
       },
     ],
   },
   {
     id: 3,
-    title: "electronica",
+    title: "Automated Robotic Solar Cleaning",
     description:
-      "A hardware knowledge repository - made in an attempt to unify hardware resources and create a structured curriculum, similar to roadmaps.sh for software career paths.",
-    tags: ["markdown", "verilog", "C", "STM32Cube"],
+      "Patented system (202541079610) for automated robotic PV panel cleaning with obstacle detection. Integrated ultrasonic sensors and torque motor-driven brushes for optimized efficiency.",
+    tags: ["Robotics", "Patent", "Sensors", "Arduino"],
     icons: [
       {
         id: 0,
-        icon: BsGithub,
-        url: "https://github.com/buddywhitman/electronica",
+        icon: FaFilePdf,
+        url: "#",
       },
     ],
   },
   {
     id: 4,
-    title: "Arduino LiquidCrystal",
+    title: "Urban Planning Agentic RAG",
     description:
-      "I know, I know. This is a repository owned by the Arduino org and made my first open source contribution here by getting a PR merged successfully for implementing a feature to support the rather unusual 3x10 LCD display format.",
-    tags: [
-      "C",
-      "Arduino",
-      "CMake",
-      "Make",
-      "GCC",
-    ],
+      "Deployed RAG-based LLM workflows for compliance and regulation at DCPR AI. Automated multi-TB document processing pipelines, reducing TTM by 88% and increasing data integrity by 39%.",
+    tags: ["LangChain", "n8n", "Vector DB", "FastAPI"],
     icons: [
       {
-        id: 1,
+        id: 0,
         icon: BsGithub,
-        url: "https://ewaste-app.vercel.com",
+        url: "https://github.com/buddywhitman",
       },
     ],
   },
   {
     id: 5,
-    title: "vaxBot",
+    title: "Open-Source Hardware: MOSS",
     description:
-      "A private vaccine appointment bot written with Discordjs. It utilizes the CoWin API to fetch available vaccine slots from nearby vaccination centers and allows a user to book an appointment for the same, all within the discord server itself!",
-    tags: ["discordjs", "js", "cowin"],
+      "Led community building around the OpenLane and SkyWater130 stack. Contributed to Arduino libraries for unconventional hardware, organizing workshops for 300+ participants.",
+    tags: ["Open Source", "ASIC", "Arduino", "Community"],
     icons: [
       {
         id: 0,
         icon: BsGithub,
-        url: "https://github.com/buddywhitman/VaxBot",
+        url: "https://github.com/buddywhitman",
       },
     ],
   },

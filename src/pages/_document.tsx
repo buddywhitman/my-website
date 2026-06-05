@@ -65,14 +65,14 @@ class MyDocument extends Document {
           <meta name="mobile-web-app-capable" content="yes" />
           <meta
             name="description"
-            content="Pulkit Kumar - Embedded Systems & Voice AI Engineer. Founding Engineer at Fettle. Specializing in safety-critical systems, AI inference, and production hardware."
+            content="Pulkit Kumar - Inference Architect & HPC Researcher. Founding Engineer at Fettle. Specialized in safety-critical systems, AI inference, and production hardware."
           />
           <meta name="theme-color" content="#FFFFFF" />
           <meta
             name="google-site-verification"
             content="0_OaGchPmWPm4Es55g9khnm9XPgy0nWp2jO2xoAkZGQ"
           />
-          <meta name="rating" content="adult" />
+          <meta name="rating" content="general" />
           <link
             rel="icon"
             type="image/png"

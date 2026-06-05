@@ -13,7 +13,7 @@ import {
   HStack,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import { BiCodeAlt } from "react-icons/bi";
+import { BiCodeAlt, BiGitRepoForked, BiStar, BiCheckCircle } from "react-icons/bi";
 import { FaPython, FaJava, FaRobot, FaMicrochip, FaServer, FaCloud, FaPalette, FaTools } from "react-icons/fa";
 import { IconType } from "react-icons/lib";
 import {
@@ -108,16 +108,17 @@ const SkillCategory = ({ title, icon, skills, delay }: SkillCategoryProps) => (
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.5, delay }}
-    p={6}
+    p={8}
     bg="bg.surface"
-    borderRadius="2xl"
+    borderRadius="3xl"
     borderWidth="1px"
     borderColor="border.default"
     _hover={{ borderColor: "brand.500" }}
+    boxShadow="sm"
   >
-    <HStack mb={6} gap={3}>
-      <Icon as={icon} w={6} h={6} color="brand.400" aria-label={title} />
-      <Heading size="md">{title}</Heading>
+    <HStack mb={8} gap={4}>
+      <Icon as={icon} w={8} h={8} color="brand.400" aria-label={title} />
+      <Heading size="lg" fontWeight="800" letterSpacing="tight">{title}</Heading>
     </HStack>
     <Flex gap={4} wrap="wrap">
       {skills.map((skill) => (
@@ -128,15 +129,20 @@ const SkillCategory = ({ title, icon, skills, delay }: SkillCategoryProps) => (
 );
 
 const Tech = () => {
-  const [data, SetData] = useState(null);
+  const [data, SetData] = useState<any>(null);
   const SlidShow = useBreakpointValue({ base: 1, lg: 2 });
+  
   useEffect(() => {
-    const json = async () => {
-      const repos = await fetch("/api/get-repos");
-      const toks = await repos.json();
-      SetData(toks);
+    const fetchGitHub = async () => {
+      try {
+        const repos = await fetch("/api/get-repos");
+        const toks = await repos.json();
+        if (toks.status) SetData(toks.data);
+      } catch (e) {
+        console.error("GitHub fetch failed", e);
+      }
     };
-    json();
+    fetchGitHub();
   }, []);
 
   const skillCategories = [
@@ -220,36 +226,76 @@ const Tech = () => {
 
   return (
     <Box pb={20}>
-      <Box textAlign="center" p={{ base: 4, md: 10 }} mt={10}>
+      <Box textAlign="left" p={{ base: 4, md: 10 }} mt={10}>
         <MotionBox
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <Heading marginBottom={5} as="h2" size="2xl">
-            <Text
-              as="span"
-              position="relative"
-              _after={{
-                content: "''",
-                width: "full",
-                height: "25%",
-                position: "absolute",
-                bottom: 1,
-                left: 0,
-                bg: "brand.500",
-                zIndex: -1,
-              }}
-            >
-              Technology Stack
-            </Text>
+          <Text
+            fontFamily="display"
+            fontSize="sm"
+            fontWeight="bold"
+            color="brand.500"
+            letterSpacing="widest"
+            mb={4}
+            textTransform="uppercase"
+          >
+            Capabilities
+          </Text>
+          <Heading marginBottom={8} as="h2" size="4xl" fontWeight="900" letterSpacing="tighter" fontFamily="display" fontStyle="italic">
+            Tech<br/>Stack.
           </Heading>
-          <Text fontSize="xl" color="fg.muted" mb={12}>
-            A curated list of technologies I use to build high-impact solutions.
+          <Text fontSize="xl" color="fg.muted" mb={12} maxW="2xl">
+            A curated intersection of safety-critical embedded systems, 
+            high-performance computing, and production-grade AI infrastructure.
           </Text>
         </MotionBox>
 
-        <SimpleGrid columns={{ base: 1, lg: 2, xl: 3 }} gap={8} px={{ base: 0, md: 4 }}>
+        {/* Live GitHub Stats */}
+        {data && (
+           <MotionBox
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            mb={20}
+            p={8}
+            bg="bg.subtle"
+            borderRadius="3xl"
+            borderWidth="1px"
+            borderColor="border.subtle"
+           >
+              <Heading size="md" mb={8} color="fg.muted" textTransform="uppercase" letterSpacing="widest">Live Activity</Heading>
+              <Flex justify="space-between" wrap="wrap" gap={8}>
+                <VStack align="start" gap={1}>
+                  <Text color="fg.muted" fontWeight="bold" fontSize="sm" textTransform="uppercase">Total Contributions</Text>
+                  <Text fontSize="4xl" fontWeight="900" color="brand.500">
+                    {data.contributionsCollection.contributionCalendar.totalContributions}
+                  </Text>
+                </VStack>
+                <VStack align="start" gap={1}>
+                  <Text color="fg.muted" fontWeight="bold" fontSize="sm" textTransform="uppercase">Commits</Text>
+                  <Text fontSize="4xl" fontWeight="900">
+                    {data.contributionsCollection.totalCommitContributions}
+                  </Text>
+                </VStack>
+                <VStack align="start" gap={1}>
+                  <Text color="fg.muted" fontWeight="bold" fontSize="sm" textTransform="uppercase">Pull Requests</Text>
+                  <Text fontSize="4xl" fontWeight="900">
+                    {data.contributionsCollection.totalPullRequestContributions}
+                  </Text>
+                </VStack>
+                <VStack align="start" gap={1}>
+                  <Text color="fg.muted" fontWeight="bold" fontSize="sm" textTransform="uppercase">Organizations</Text>
+                  <Text fontSize="4xl" fontWeight="900">
+                    {data.repositoriesContributedTo.nodes.length}+
+                  </Text>
+                </VStack>
+              </Flex>
+           </MotionBox>
+        )}
+
+        <SimpleGrid columns={{ base: 1, lg: 2, xl: 3 }} gap={10} px={{ base: 0, md: 4 }}>
           {skillCategories.map((category) => (
             <SkillCategory
               key={category.title}
@@ -262,33 +308,18 @@ const Tech = () => {
         </SimpleGrid>
       </Box>
 
-      <Box p={{ base: 4, md: 8 }} mt={10}>
-        <Heading as="h2" size="2xl" mb={8}>
-          <Text
-            as="span"
-            position="relative"
-            _after={{
-              content: "''",
-              width: "full",
-              height: "25%",
-              position: "absolute",
-              bottom: 1,
-              left: 0,
-              bg: "brand.500",
-              zIndex: -1,
-            }}
-          >
-            More Projects
-          </Text>
+      <Box p={{ base: 4, md: 10 }} mt={20}>
+        <Heading as="h2" size="4xl" fontWeight="900" letterSpacing="tighter" fontFamily="display" fontStyle="italic" mb={12}>
+          Engineering<br/>Journal.
         </Heading>
         <Box marginBottom={10}>
-          <Alert variant="subtle" status="info" borderRadius="md" borderStartWidth="4px" borderStartColor="blue.500">
-            View Featured Projects on the Home Page!
+          <Alert variant="subtle" status="info" borderRadius="md" borderStartWidth="4px" borderStartColor="brand.500">
+            Showcasing a mix of specialized embedded work and open-source contributions.
           </Alert>
         </Box>
         <SimpleGrid
           columns={{ base: 1, md: 2, lg: 3 }}
-          gap={10}
+          gap={8}
           marginY={10}
         >
           {MoreProjectList.map((value) => (
@@ -302,29 +333,20 @@ const Tech = () => {
           ))}
         </SimpleGrid>
 
-        <VStack gap={16} align="stretch" mt={20}>
+        <VStack gap={24} align="stretch" mt={32}>
           <Box>
-            <Heading as="h2" size="xl" mb={8}>
-              <Text
-                as="span"
-                position="relative"
-                _after={{
-                  content: "''",
-                  width: "full",
-                  height: "25%",
-                  position: "absolute",
-                  bottom: 1,
-                  left: 0,
-                  bg: "brand.500",
-                  zIndex: -1,
-                }}
-              >
-                Open Source Repositories
-              </Text>
-            </Heading>
-            <Box my={3} minH="220px">
-              {data === null ? (
-                <Flex justify="center" align="center" minH="220px">
+            <Flex justify="space-between" align="center" mb={10}>
+              <Heading as="h2" size="2xl" fontWeight="800" letterSpacing="tight">
+                Open Source
+              </Heading>
+              <HStack gap={4} color="fg.muted">
+                 <Icon as={BiGitRepoForked} />
+                 <Text fontWeight="bold">Pinned Repositories</Text>
+              </HStack>
+            </Flex>
+            <Box my={3} minH="250px">
+              {!data ? (
+                <Flex justify="center" align="center" minH="250px">
                   <Spinner color="brand.500" size="xl" />
                 </Flex>
               ) : (
@@ -338,40 +360,27 @@ const Tech = () => {
                   autoplay
                   autoplaySpeed={3000}
                 >
-                  {
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore
-                    data.data.repositories.nodes.map((value) => (
-                      <GithubProject key={value.id} data={value} />
-                    ))
-                  }
+                  {data.repositories.nodes.map((value: any) => (
+                    <GithubProject key={value.id} data={value} />
+                  ))}
                 </Slider>
               )}
             </Box>
           </Box>
 
           <Box>
-            <Heading as="h2" size="xl" mb={8}>
-              <Text
-                as="span"
-                position="relative"
-                _after={{
-                  content: "''",
-                  width: "full",
-                  height: "25%",
-                  position: "absolute",
-                  bottom: 1,
-                  left: 0,
-                  bg: "brand.500",
-                  zIndex: -1,
-                }}
-              >
-                Contributions
-              </Text>
-            </Heading>
-            <Box my={3} minH="220px">
-              {data === null ? (
-                <Flex justify="center" align="center" minH="220px">
+            <Flex justify="space-between" align="center" mb={10}>
+              <Heading as="h2" size="2xl" fontWeight="800" letterSpacing="tight">
+                Impact
+              </Heading>
+              <HStack gap={4} color="brand.500">
+                 <Icon as={BiCheckCircle} />
+                 <Text fontWeight="bold">Organization Contributions</Text>
+              </HStack>
+            </Flex>
+            <Box my={3} minH="250px">
+              {!data ? (
+                <Flex justify="center" align="center" minH="250px">
                   <Spinner color="brand.500" size="xl" />
                 </Flex>
               ) : (
@@ -385,13 +394,9 @@ const Tech = () => {
                   autoplay
                   autoplaySpeed={3000}
                 >
-                  {
-                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                    // @ts-ignore
-                    data.data.repositoriesContributedTo.nodes.map((value) => (
-                      <GithubProject key={value.id} data={value} />
-                    ))
-                  }
+                  {data.repositoriesContributedTo.nodes.map((value: any) => (
+                    <GithubProject key={value.id} data={value} />
+                  ))}
                 </Slider>
               )}
             </Box>

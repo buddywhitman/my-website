@@ -16,6 +16,8 @@ import {
 import Image from "next/image";
 import { BiCodeAlt, BiChip, BiBrain, BiStats, BiTimeFive } from "react-icons/bi";
 import { FaExternalLinkAlt, FaFileAlt, FaLightbulb } from "react-icons/fa";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import MotionBox from "components/motion/Box";
 import SchemaMarkup from "components/SchemaMarkup";
 
@@ -38,30 +40,40 @@ const TextImage = ({
   width,
   cw,
 }: TextImageProps) => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+
+  const x = useTransform(scrollYProgress, [0, 1], reverse ? [-50, 50] : [50, -50]);
+
   return (
     <Flex
-      marginY={{ base: 8, md: 12 }}
+      ref={ref}
+      marginY={{ base: 12, md: 24 }}
       paddingX={{ base: 0, md: 4, xl: 10 }}
-      marginX={{ base: 0, xl: "10%" }}
+      marginX={{ base: 0, xl: "5%" }}
       direction={{ base: "column", md: reverse ? "row-reverse" : "row" }}
       alignItems="center"
+      gap={16}
     >
       <Box
-        mr={{ base: 0, md: reverse ? 0 : 8 }}
-        ml={{ base: 0, md: reverse ? 8 : 0 }}
         textAlign={{ base: "center", md: "left" }}
         width={{ base: "100%", md: cw }}
       >
-        <Text fontSize="lg" lineHeight="tall">{text}</Text>
+        <Text fontSize="2xl" lineHeight="tall" fontWeight="medium" color="fg.default">
+          {text}
+        </Text>
       </Box>
       <MotionBox
-        whileHover={{ scale: 1.02 }}
-        transition={{ duration: 0.3 }}
-        borderRadius="xl"
+        style={{ x } as any}
+        borderRadius="3xl"
         overflow="hidden"
         boxShadow="2xl"
+        flex="1"
       >
-        <Image height={height} width={width} src={image} alt={alt} style={{ borderRadius: '12px' }} />
+        <Image height={height} width={width} src={image} alt={alt} style={{ borderRadius: '24px' }} />
       </MotionBox>
     </Flex>
   );
@@ -80,16 +92,16 @@ const ExpertiseCard = ({ title, description, icon, delay }: ExpertiseCardProps) 
     whileInView={{ opacity: 1, y: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.5, delay }}
-    p={6}
+    p={10}
     bg="bg.surface"
-    borderRadius="xl"
+    borderRadius="3xl"
     borderWidth="1px"
     borderColor="border.default"
-    _hover={{ borderColor: "brand.500", transform: "translateY(-4px)" }}
+    _hover={{ borderColor: "brand.500", transform: "translateY(-8px)", boxShadow: "xl" }}
   >
-    <Icon as={icon} w={10} h={10} color="brand.400" mb={4} aria-label={title} />
-    <Heading size="md" mb={2}>{title}</Heading>
-    <Text color="fg.muted">{description}</Text>
+    <Icon as={icon} w={12} h={12} color="brand.400" mb={6} aria-label={title} />
+    <Heading size="lg" mb={4} fontWeight="800">{title}</Heading>
+    <Text color="fg.muted" fontSize="lg">{description}</Text>
   </MotionBox>
 );
 
@@ -108,26 +120,27 @@ const ExperienceItem = ({ role, company, period, description, tags, delay }: Exp
     whileInView={{ opacity: 1, x: 0 }}
     viewport={{ once: true }}
     transition={{ duration: 0.5, delay }}
-    mb={8}
-    p={6}
-    bg="bg.surface"
-    borderRadius="xl"
-    borderLeftWidth="4px"
+    mb={12}
+    p={10}
+    bg="bg.subtle"
+    borderRadius="3xl"
+    borderLeftWidth="8px"
     borderLeftColor="brand.500"
+    boxShadow="sm"
   >
-    <Flex justifyContent="space-between" alignItems="flex-start" mb={2} flexWrap="wrap">
-      <VStack align="start" gap={0}>
-        <Heading size="md">{role}</Heading>
-        <Text color="brand.300" fontWeight="bold">{company}</Text>
+    <Flex justifyContent="space-between" alignItems="flex-start" mb={4} flexWrap="wrap">
+      <VStack align="start" gap={1}>
+        <Heading size="xl" fontWeight="900" letterSpacing="tight">{role}</Heading>
+        <Text color="brand.400" fontWeight="800" fontSize="lg" textTransform="uppercase" letterSpacing="widest">{company}</Text>
       </VStack>
-      <Badge colorPalette="brand" variant="subtle" px={3} py={1} borderRadius="full">
+      <Badge colorPalette="brand" variant="surface" px={4} py={2} borderRadius="full" fontSize="sm">
         {period}
       </Badge>
     </Flex>
-    <Text mb={4} color="fg.muted">{description}</Text>
-    <HStack gap={2} flexWrap="wrap">
+    <Text mb={6} color="fg.default" fontSize="xl" lineHeight="relaxed">{description}</Text>
+    <HStack gap={3} flexWrap="wrap">
       {tags.map(tag => (
-        <Badge key={tag} variant="outline" colorPalette="gray" fontSize="xs">{tag}</Badge>
+        <Badge key={tag} variant="outline" colorPalette="gray" fontSize="xs" px={3} py={1} borderRadius="md">{tag}</Badge>
       ))}
     </HStack>
   </MotionBox>
@@ -157,39 +170,35 @@ const About = () => {
   return (
     <Box pb={20}>
       <SchemaMarkup data={aboutSchema} />
-      <Flex alignItems="center" direction="column" pt={10}>
+      <Flex alignItems="flex-start" direction="column" pt={10} px={{ base: 6, md: 10, lg: 20 }}>
         <MotionBox
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
         >
-          <Heading as="h2" size="2xl" mb={10}>
-            <Text
-              as="span"
-              position="relative"
-              _after={{
-                content: "''",
-                width: "full",
-                height: "25%",
-                position: "absolute",
-                bottom: 1,
-                left: 0,
-                bg: "brand.500",
-                zIndex: -1,
-              }}
-            >
-              About Me
-            </Text>
+          <Text
+            fontFamily="display"
+            fontSize="sm"
+            fontWeight="bold"
+            color="brand.500"
+            letterSpacing="widest"
+            mb={4}
+            textTransform="uppercase"
+          >
+            The Architect
+          </Text>
+          <Heading as="h2" size="4xl" fontWeight="900" letterSpacing="tighter" fontFamily="display" fontStyle="italic" mb={16}>
+            Deeptech<br/>Pioneer.
           </Heading>
         </MotionBox>
 
-        <Box>
+        <Box w="full">
           <TextImage
             text="I am a Systems Engineer and Founding Engineer at Fettle, currently pursuing my undergraduate degree at Manipal Institute of Technology (Expected 2027). My journey in technology began in the fifth grade with a simple 'Hello World' in HTML, which sparked a decade-long obsession with understanding what truly happens 'under the hood'. This curiosity led me from high-level software development into the intricate world of hardware, embedded systems, and silicon design."
             image="/staring.webp"
-            height={400}
+            height={600}
             cw="50%"
-            width={480}
+            width={600}
             alt="staring into the vast ocean"
             reverse={false}
           />
@@ -198,34 +207,34 @@ const About = () => {
             image="/working_bb.webp"
             alt="working"
             reverse
-            cw="50%"
-            height={300}
-            width={500}
+            cw="55%"
+            height={500}
+            width={700}
           />
         </Box>
       </Flex>
 
       {/* Core Expertise Section */}
-      <Box px={{ base: 4, md: 8, lg: 20 }} mt={20}>
-        <Heading as="h3" size="xl" mb={10} textAlign="center">
+      <Box px={{ base: 6, md: 10, lg: 20 }} mt={32}>
+        <Heading as="h3" size="3xl" mb={16} fontWeight="900" letterSpacing="tight">
           Core Expertise
         </Heading>
-        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={8}>
+        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={12}>
           <ExpertiseCard
-            title="HPC & Embedded Systems"
-            description="Architecting low-latency, safety-critical systems using FreeRTOS, STM32, and Arm Cortex architectures."
+            title="HPC & Low-Latency"
+            description="Architecting high-frequency, safety-critical systems using FreeRTOS, STM32, and Arm Cortex architectures for HFT and racing."
             icon={BiChip}
             delay={0.1}
           />
           <ExpertiseCard
-            title="Agentic AI & RAG"
-            description="Building autonomous LLM workflows and RAG-based applications using n8n, LangChain, and vector databases."
+            title="Agentic AI & Inference"
+            description="Building autonomous LLM workflows and optimized inference pipelines using LiveKit, PyTorch, and distributed K8s clusters."
             icon={BiBrain}
             delay={0.2}
           />
           <ExpertiseCard
-            title="VLSI & SoC Design"
-            description="Experience with RTL design (Verilog), ASIC design flows, and FPGA implementation (Vivado/Vitis)."
+            title="VLSI & ASIC Design"
+            description="Experience with RTL design (Verilog), UVM verification, and ASIC design flows (STA, PPA, floorplanning)."
             icon={BiCodeAlt}
             delay={0.3}
           />
@@ -242,7 +251,7 @@ const About = () => {
             delay={0.5}
           />
           <ExpertiseCard
-            title="Full-Stack Architecture"
+            title="Distributed Systems"
             description="Developing scalable backends with FastAPI, Kubernetes, and cloud-native observability stacks."
             icon={BiCodeAlt}
             delay={0.6}
@@ -251,94 +260,102 @@ const About = () => {
       </Box>
 
       {/* Publications & IP Section */}
-      <Box px={{ base: 4, md: 8, lg: 20 }} mt={24}>
-        <Heading as="h3" size="xl" mb={10} textAlign="center">
+      <Box px={{ base: 6, md: 10, lg: 20 }} mt={40}>
+        <Heading as="h3" size="3xl" mb={16} fontWeight="900" letterSpacing="tight">
           Publications & IP
         </Heading>
-        <VStack gap={6} align="stretch">
+        <VStack gap={10} align="stretch">
           <MotionBox
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            p={6}
+            p={10}
             bg="bg.surface"
-            borderRadius="xl"
+            borderRadius="3xl"
             borderWidth="1px"
             borderColor="border.default"
+            position="relative"
+            overflow="hidden"
           >
-            <Flex alignItems="center" mb={4}>
-              <Icon as={FaFileAlt} color="brand.500" mr={3} />
-              <Badge colorPalette="green">Scientific Reports (Springer Nature, Q1)</Badge>
+            <Box position="absolute" top={0} left={0} w="full" h="4px" bg="green.400" />
+            <Flex alignItems="center" mb={6} gap={4}>
+              <Icon as={FaFileAlt} color="brand.500" boxSize={8} />
+              <Badge colorPalette="green" fontSize="sm" px={3} py={1}>Scientific Reports (Springer Nature, Q1)</Badge>
             </Flex>
-            <Heading size="md" mb={2}>Technical validation of a multimodal emotion-adaptive biofeedback system for autonomic regulation using guided breathing</Heading>
-            <Text color="fg.muted" mb={4}>Published in Sci Rep (2026). DOI: 10.1038/s41598-026-46105-9</Text>
-            <Link href="https://doi.org/10.1038/s41598-026-46105-9" target="_blank" rel="noopener noreferrer" color="brand.300">
-              View Publication <Icon as={FaExternalLinkAlt} mx="2px" size="xs" />
+            <Heading size="xl" mb={4} fontWeight="800" lineHeight="shorter">Technical validation of a multimodal emotion-adaptive biofeedback system for autonomic regulation using guided breathing</Heading>
+            <Text color="fg.muted" mb={8} fontSize="lg">Published in Sci Rep (2026). DOI: 10.1038/s41598-026-46105-9</Text>
+            <Link 
+                href="https://doi.org/10.1038/s41598-026-46105-9" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                color="brand.500" 
+                fontWeight="900" 
+                fontSize="xl"
+                _hover={{ color: "brand.600", textDecoration: "underline" }}
+            >
+              View Publication <Icon as={FaExternalLinkAlt} mx="2px" boxSize={4} />
             </Link>
           </MotionBox>
 
           <MotionBox
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            p={6}
+            p={10}
             bg="bg.surface"
-            borderRadius="xl"
+            borderRadius="3xl"
             borderWidth="1px"
             borderColor="border.default"
+            position="relative"
+            overflow="hidden"
           >
-            <Flex alignItems="center" mb={4}>
-              <Icon as={FaFileAlt} color="brand.500" mr={3} />
-              <Badge colorPalette="blue">IEEE VTC (A*)</Badge>
+            <Box position="absolute" top={0} left={0} w="full" h="4px" bg="blue.400" />
+            <Flex alignItems="center" mb={6} gap={4}>
+              <Icon as={FaFileAlt} color="brand.500" boxSize={8} />
+              <Badge colorPalette="blue" fontSize="sm" px={3} py={1}>IEEE VTC (A*)</Badge>
             </Flex>
-            <Heading size="md" mb={2}>Physics-Informed Stochastic Receding Horizon Control for Autonomous Energy Management in Solar Racing</Heading>
-            <Text color="fg.muted" mb={4}>Accepted for IEEE VTC (2026).</Text>
-            <Link href="https://vtc2026spring.trackchair.com/paper/47987" target="_blank" rel="noopener noreferrer" color="brand.300">
-              View Paper <Icon as={FaExternalLinkAlt} mx="2px" size="xs" />
+            <Heading size="xl" mb={4} fontWeight="800" lineHeight="shorter">Physics-Informed Stochastic Receding Horizon Control for Autonomous Energy Management in Solar Racing</Heading>
+            <Text color="fg.muted" mb={8} fontSize="lg">Accepted for IEEE VTC (2026).</Text>
+            <Link 
+                href="https://vtc2026spring.trackchair.com/paper/47987" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                color="brand.500" 
+                fontWeight="900" 
+                fontSize="xl"
+                _hover={{ color: "brand.600", textDecoration: "underline" }}
+            >
+              View Paper <Icon as={FaExternalLinkAlt} mx="2px" boxSize={4} />
             </Link>
           </MotionBox>
 
-          <SimpleGrid columns={{ base: 1, md: 3 }} gap={6}>
-            <MotionBox
-              p={6}
-              bg="bg.surface"
-              borderRadius="xl"
-              borderWidth="1px"
-              borderColor="border.default"
-            >
-              <Icon as={FaLightbulb} color="yellow.400" mb={3} />
-              <Heading size="sm" mb={2}>Patent: Adaptive EV Interface</Heading>
-              <Text fontSize="sm" color="fg.muted">System and method for adaptive interface in EV control and monitoring. Filed 2025.</Text>
-            </MotionBox>
-            <MotionBox
-              p={6}
-              bg="bg.surface"
-              borderRadius="xl"
-              borderWidth="1px"
-              borderColor="border.default"
-            >
-              <Icon as={FaLightbulb} color="yellow.400" mb={3} />
-              <Heading size="sm" mb={2}>Patent: Long-Range Telemetry</Heading>
-              <Text fontSize="sm" color="fg.muted">System and method for long-range telemetry and observability for Solar EVs. Filed 2025.</Text>
-            </MotionBox>
-            <MotionBox
-              p={6}
-              bg="bg.surface"
-              borderRadius="xl"
-              borderWidth="1px"
-              borderColor="border.default"
-            >
-              <Icon as={FaLightbulb} color="yellow.400" mb={3} />
-              <Heading size="sm" mb={2}>Patent: Robotic Solar Cleaning</Heading>
-              <Text fontSize="sm" color="fg.muted">Automated robotic solar panel cleaning with obstacle detection. Filed 2025.</Text>
-            </MotionBox>
+          <SimpleGrid columns={{ base: 1, md: 3 }} gap={8}>
+            {[
+                { title: "Adaptive EV Interface", desc: "System and method for adaptive interface in EV control and monitoring. Filed 2025." },
+                { title: "Long-Range Telemetry", desc: "System and method for long-range telemetry and observability for Solar EVs. Filed 2025." },
+                { title: "Robotic Solar Cleaning", desc: "Automated robotic solar panel cleaning with obstacle detection. Filed 2025." }
+            ].map((patent, i) => (
+                <MotionBox
+                    key={i}
+                    p={8}
+                    bg="bg.subtle"
+                    borderRadius="3xl"
+                    borderWidth="1px"
+                    borderColor="border.default"
+                    _hover={{ borderColor: "yellow.400" }}
+                >
+                    <Icon as={FaLightbulb} color="yellow.400" boxSize={8} mb={4} />
+                    <Heading size="md" mb={4} fontWeight="800">Patent: {patent.title}</Heading>
+                    <Text fontSize="md" color="fg.muted" lineHeight="relaxed">{patent.desc}</Text>
+                </MotionBox>
+            ))}
           </SimpleGrid>
         </VStack>
       </Box>
 
       {/* Key Experiences Section */}
-      <Box px={{ base: 4, md: 8, lg: 20 }} mt={24}>
-        <Heading as="h3" size="xl" mb={10} textAlign="center">
+      <Box px={{ base: 6, md: 10, lg: 20 }} mt={40}>
+        <Heading as="h3" size="3xl" mb={16} fontWeight="900" letterSpacing="tight">
           Key Experiences
         </Heading>
         <VStack align="stretch" gap={0}>
@@ -366,35 +383,12 @@ const About = () => {
             tags={["Agentic AI", "Business Automation", "LLMs", "Product Strategy"]}
             delay={0.3}
           />
-          <ExperienceItem
-            role="Machine Learning Engineer"
-            company="DCPR AI"
-            period="2024"
-            description="Leveraged n8n to build agentic RAG-based LLM workflows for Urban Planning regulation. Optimized data ingestion pipelines, reducing TTM by 88% and increasing data integrity by 39%."
-            tags={["RAG", "n8n", "LLMOps", "Data Engineering"]}
-            delay={0.4}
-          />
         </VStack>
       </Box>
 
-      <Flex alignItems="center" direction="column" mt={20}>
-        <Heading as="h3" size="xl">
-          <Text
-            as="span"
-            position="relative"
-            _after={{
-              content: "''",
-              width: "full",
-              height: "25%",
-              position: "absolute",
-              top: 1,
-              left: 0,
-              bg: "brand.500",
-              zIndex: -1,
-            }}
-          >
-            The journey continues...
-          </Text>
+      <Flex alignItems="center" direction="column" mt={40} mb={20}>
+        <Heading as="h3" size="4xl" fontWeight="900" letterSpacing="tighter" fontFamily="display" fontStyle="italic">
+           Keep<br/>Pushing.
         </Heading>
       </Flex>
     </Box>

@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-
 import { QueryData } from "../../types/typed_data";
 
 const GITHUB_TOKEN = process.env.GITHUB_PA;
+
 const ExceptionRules = [
   "buddywhitman/my-website",
   "buddywhitman/isa-achievements",
@@ -23,6 +23,22 @@ const ExceptionRules = [
 const query = `
   query {
     viewer {
+      login
+      contributionsCollection {
+        contributionCalendar {
+          totalContributions
+          weeks {
+            contributionDays {
+              contributionCount
+              date
+            }
+          }
+        }
+        totalCommitContributions
+        totalPullRequestContributions
+        totalIssueContributions
+        totalRepositoryContributions
+      }
       repositories(
         first: 100
         orderBy: { field: STARGAZERS, direction: DESC },
@@ -48,7 +64,7 @@ const query = `
         }
       }
       repositoriesContributedTo(
-        contributionTypes: COMMIT
+        contributionTypes: [COMMIT, PULL_REQUEST, ISSUE, REPOSITORY]
         first: 100
         orderBy: { field: STARGAZERS, direction: DESC }
       ) {
@@ -71,29 +87,46 @@ const query = `
           }
         }
       }
-      
     }
   }
 `;
 
 export default async (req: NextApiRequest, res: NextApiResponse) => {
-  const resp = await fetch("https://api.github.com/graphql", {
-    method: "POST",
-    body: JSON.stringify({ query }),
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `bearer ${GITHUB_TOKEN}`,
-    },
-  });
-  const js: QueryData = (await resp.json()).data.viewer;
-  if (resp.status === 200) {
+  if (!GITHUB_TOKEN) {
+    return res.status(200).send({ status: false, message: "Missing GITHUB_PA token" });
+  }
+
+  try {
+    const resp = await fetch("https://api.github.com/graphql", {
+      method: "POST",
+      body: JSON.stringify({ query }),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `bearer ${GITHUB_TOKEN}`,
+      },
+    });
+
+    const result = await resp.json();
+    
+    if (result.errors) {
+       console.error(result.errors);
+       return res.status(200).send({ status: false, data: null });
+    }
+
+    const js = result.data.viewer;
+
+    // Filter OWNER repositories
     js.repositories.nodes = js.repositories.nodes.filter(
-      (repo) =>
+      (repo: any) =>
         !ExceptionRules.includes(repo.nameWithOwner.toLowerCase()) &&
         repo.isFork === false
     );
+
+    // Merge OWNER and CONTRIBUTED_TO nodes for a unified "Projects & Activity" view if needed
+    // But for now, we just return the enhanced data
     res.status(200).send({ status: true, data: js });
-  } else {
+  } catch (error) {
+    console.error(error);
     res.status(200).send({ status: false, data: null });
   }
 };

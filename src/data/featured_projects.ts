@@ -1,5 +1,6 @@
 import { BsGithub } from "react-icons/bs";
 import { CgWebsite } from "react-icons/cg";
+import { FaFlask, FaUniversity } from "react-icons/fa";
 import { IconType } from "react-icons/lib";
 
 interface FeaturedProjectTypeIconType {
@@ -24,79 +25,79 @@ interface FeaturedProjectType {
 const FeaturedProjectList: FeaturedProjectType[] = [
   {
     id: 0,
-    alt: "MyCaptain Website",
-    name: "MyCaptain",
-    height: 1032,
-    width: 1919,
+    alt: "Solar Racing Telemetry & Race Engineering Digital Twin",
+    name: "Solar Racing Digital Twin",
+    height: 1080,
+    width: 1920,
     description:
-      "Most fun so far (aside from this portfolio ofc), worked with a team of 6 talented devs during the lockdown to build this platform enabling Indian teens to dive headfirst into a career of their choice",
-    images: ["/mycaptain_w.webp", "/mycaptain_b.webp"],
-    tags: [
-      "next",
-      "react",
-      "graphql",
-      "react",
-      "moment",
-      "docker",
-      "node",
-      "strapi",
-    ],
+      "Engineered a high-performance race strategy engine for solar EVs. Built a real-time digital twin integrating weather APIs, GIS elevation data, and vehicle dynamics. Leveraged stochastic receding horizon control for SoC optimization, leading to IEEE VTC publication and 2+ provisional patents.",
+    images: ["/telemetry_2026.webp", "/telemetry_b.webp"],
+    tags: ["HPC", "Control Theory", "STM32H7", "RTOS", "C++", "InfluxDB"],
     icons: [
       {
         id: 1,
-        icon: CgWebsite,
-        url: "https://mycaptain.in",
+        icon: FaUniversity,
+        url: "https://vtc2026spring.trackchair.com/paper/47987",
       },
     ],
     reversed: false,
   },
   {
     id: 1,
-    alt: "GreatHR Website",
-    name: "GreatHR",
-    height: 1031,
+    alt: "Agentic Voice AI for Hospital Workflows",
+    name: "Fettle: Agentic Voice AI",
+    height: 1080,
     width: 1920,
     description:
-      "GreatHR is an HRM suite running a RESTful web service built with Spring Boot and Java following the MVC pattern, served with Angular.",
-    images: ["/greathr_w.webp", "/greathr_b.webp"],
-    tags: ["spring boot", "angular", "rest", "java", "js", "aws"],
+      "Architected distributed voice AI agents for high-concurrency hospital customer experience. Implemented SIP trunking with LiveKit and optimized real-time inference using PyTorch & TorchRec. Founding Engineer owning the entire DevOps lifecycle and backend architecture.",
+    images: ["/fettle_2026.webp", "/fettle_b.webp"],
+    tags: ["Agentic AI", "LiveKit", "PyTorch", "Kubernetes", "FastAPI", "Inference"],
     icons: [
       {
         id: 0,
-        icon: BsGithub,
-        url: "https://github.com/buddywhitman/crud-app-frontend",
-      },
-      {
-        id: 1,
-        icon: BsGithub,
-        url: "https://github.com/crud-app-backend",
+        icon: CgWebsite,
+        url: "https://fettle.health",
       },
     ],
     reversed: true,
   },
   {
     id: 2,
-    alt: "ISA Achievements Website",
-    name: "ISA Achievements",
-    height: 893,
-    width: 1666,
+    alt: "CoreEL SoC Design & ASIC Flow",
+    name: "SoC Design & ASIC Flow",
+    height: 1080,
+    width: 1920,
     description:
-      "Thoughtful site to display (no points for guessing that one) the achievements of a student club's members. Built from scratch with vanilla CSS and JS.",
-    images: ["/isa.webp", "/isa.webp"],
-    tags: ["vanilla", "js", "vercel", "dom", "css"],
+      "RTL2GDSII design of high-speed CAN bus and I2C controllers. Collaborated with synthesis and UVM verification teams to ensure timing closure on a Virtex 7 FPGA. Expert exposure to ASIC design flow including STA, floorplanning, and PPA optimization.",
+    images: ["/soc_2026.webp", "/soc_b.webp"],
+    tags: ["Verilog", "FPGA", "UVM", "ASIC Flow", "Vivado", "HFT"],
     icons: [
       {
         id: 0,
         icon: BsGithub,
-        url: "https://github.com/buddywhitman/isa-achievements",
-      },
-      {
-        id: 1,
-        icon: CgWebsite,
-        url: "https://isa-achievements.vercel.app/",
+        url: "https://github.com/buddywhitman",
       },
     ],
     reversed: false,
+  },
+  {
+    id: 3,
+    alt: "Multimodal Biofeedback System (Nature Publication)",
+    name: "Biofeedback Edge AI",
+    height: 1080,
+    width: 1920,
+    description:
+      "Technical validation of a multimodal emotion-adaptive biofeedback system for autonomic regulation. Published in Nature Scientific Reports (Q1). Deployed multimodal edge AI pipeline using LSTM + transformer encoders on Jetson/ESP32 platforms.",
+    images: ["/nature_2026.webp", "/nature_b.webp"],
+    tags: ["Edge AI", "DSP", "Nature", "Transformer", "Jetson", "C"],
+    icons: [
+      {
+        id: 1,
+        icon: FaFlask,
+        url: "https://doi.org/10.1038/s41598-026-46105-9",
+      },
+    ],
+    reversed: true,
   },
 ];
 

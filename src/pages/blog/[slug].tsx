@@ -13,6 +13,7 @@ import type { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote } from "next-mdx-remote";
 import type { MDXRemoteSerializeResult } from "next-mdx-remote";
+import { NextSeo } from "next-seo";
 
 import { getPostBySlug, getSlugs } from "lib/mdx";
 import type { PostFrontmatter } from "types/blog";
@@ -68,6 +69,20 @@ const PostPage: NextPage<PostPageProps> = ({ source, frontmatter }) => {
 
   return (
     <Layout>
+      <NextSeo
+        title={frontmatter.title}
+        description={frontmatter.description}
+        openGraph={{
+          title: frontmatter.title,
+          description: frontmatter.description,
+          type: "article",
+          article: {
+            publishedTime: frontmatter.date,
+            authors: ["Pulkit Kumar"],
+            tags: frontmatter.tags,
+          },
+        }}
+      />
       <SchemaMarkup data={blogSchema} />
       <Box maxW="container.md" mx="auto" py={12} px={4}>
         <VStack align="start" gap={6} mb={12}>

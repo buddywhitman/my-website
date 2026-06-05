@@ -28,8 +28,8 @@ interface IconWrapProps {
 
 const IconWrap = ({ icon, color, url, text }: IconWrapProps) => {
   return (
-    <Link href={url} passHref legacyBehavior>
-      <Flex as="a" my={3} textAlign="left" alignItems="center" justifyContent="left" _hover={{ color: "brand.400" }}>
+    <Flex asChild my={3} textAlign="left" alignItems="center" justifyContent="left" _hover={{ color: "brand.400" }}>
+      <Link href={url}>
         <Tooltip content={url} showArrow>
           <Box
             aria-label={text}
@@ -50,8 +50,8 @@ const IconWrap = ({ icon, color, url, text }: IconWrapProps) => {
           {" "}
           | {text}
         </Heading>
-      </Flex>
-    </Link>
+      </Link>
+    </Flex>
   );
 };
 

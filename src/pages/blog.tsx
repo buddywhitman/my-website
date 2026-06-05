@@ -45,12 +45,13 @@ const Blog = ({ posts }: BlogProps) => {
               whileHover={{ y: -5 }}
               transition={{ duration: 0.2 } as any}
             >
-              <NextLink href={`/blog/${post.slug}`} passHref legacyBehavior>
-                <ChakraLink
-                  _hover={{ textDecoration: "none" }}
-                  display="block"
-                  h="full"
-                >
+              <ChakraLink
+                asChild
+                _hover={{ textDecoration: "none" }}
+                display="block"
+                h="full"
+              >
+                <NextLink href={`/blog/${post.slug}`}>
                   <Box
                     p={8}
                     h="full"
@@ -93,8 +94,8 @@ const Blog = ({ posts }: BlogProps) => {
                       </Text>
                     </VStack>
                   </Box>
-                </ChakraLink>
-              </NextLink>
+                </NextLink>
+              </ChakraLink>
             </MotionBox>
           ))}
         </SimpleGrid>
