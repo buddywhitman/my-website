@@ -22,8 +22,8 @@ const GithubProject = (val: GithubProjectProps) => {
       p={{ base: 2, md: 5 }}
     >
       <Flex direction="row">
-        <Icon as={data.isPrivate ? FiLock : FiBook} mt={1} />
-        <a href={data.url} style={{ color: "#0363cf", marginLeft: "0.5em" }}>
+        <Icon as={data.isPrivate ? FiLock : FiBook} mt={1} aria-label={data.isPrivate ? "Private Repository" : "Public Repository"} />
+        <a href={data.url} style={{ color: "var(--chakra-colors-brand-300)", marginLeft: "0.5em" }}>
           <Heading
             fontWeight="bold"
             fontSize={{ base: "sm", md: "md" }}
@@ -48,6 +48,7 @@ const GithubProject = (val: GithubProjectProps) => {
                 marginRight: "0.5em",
                 backgroundColor: data.primaryLanguage.color,
               }}
+              aria-hidden="true"
             />
             <Text fontSize={{ base: "sm", md: "md" }}>
               {data.primaryLanguage.name}
@@ -55,12 +56,12 @@ const GithubProject = (val: GithubProjectProps) => {
           </Flex>
         )}
         <Flex ml={8}>
-          <Icon as={FiStar} mt={1} mr={1} />
+          <Icon as={FiStar} mt={1} mr={1} aria-label="Stars" />
           <Text fontSize={{ base: "sm", md: "md" }}>{data.stargazerCount}</Text>
         </Flex>
         {data.licenseInfo && (
           <Flex ml={8}>
-            <Icon as={HiOutlineScale} mt={1} mr={1} />
+            <Icon as={HiOutlineScale} mt={1} mr={1} aria-label="License" />
             <Text fontSize={{ base: "sm", md: "md" }}>
               {data.licenseInfo.nickname || data.licenseInfo.name}
             </Text>

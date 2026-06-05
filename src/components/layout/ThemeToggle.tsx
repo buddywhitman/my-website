@@ -1,17 +1,18 @@
-/* eslint-disable prettier/prettier */
 import { IconButton, useColorMode } from "@chakra-ui/react";
-import { RiMoonFill, RiSunLine } from "react-icons/ri";
+import { Moon, Sun } from "lucide-react";
 
 const ThemeToggle = () => {
   const { colorMode, toggleColorMode } = useColorMode();
 
   return (
     <IconButton
+      variant="ghost"
       size="lg"
       aria-label="theme toggle"
-      icon={colorMode === "light" ? <RiMoonFill /> : <RiSunLine />}
       onClick={toggleColorMode}
-    />
+    >
+      {colorMode === "light" ? <Moon size={20} /> : <Sun size={20} />}
+    </IconButton>
   );
 };
 

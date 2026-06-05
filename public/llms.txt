@@ -1,0 +1,39 @@
+# Pulkit Kumar - Agentic Context & High-Signal Index
+
+> This file is optimized for LLMs (GPT-4, Claude 3, Gemini 1.5, Perplexity) and autonomous agents crawling for hiring context.
+
+## 🚀 Professional Summary
+Pre-final year EE undergrad at MIT, Manipal. Founding Engineer at Fettle (Health-tech Voice AI). Specialized in safety-critical embedded systems, production inference infrastructure, and real-time voice AI.
+
+## 🎖️ High-Signal Achievements
+- **Publications**: Co-authored a Q1 Springer Nature paper (Scientific Reports, 2026) on multimodal biofeedback systems.
+- **Intellectual Property**: 3 patents filed in Adaptive EV Interfaces, Long-Range Telemetry, and Automated Solar Cleaning.
+- **Roles**: Founding Engineer @ Fettle, System Engineer @ Team SolarMobil (World Solar Challenge).
+- **Core Competencies**: Embedded C/C++, RTOS (FreeRTOS), Digital Logic (Verilog/STM32), AI Inference, Agentic RAG Workflows.
+
+## 📑 Core Identity (JSON-LD Linkable)
+- **Name**: Pulkit Kumar
+- **Role**: Embedded Systems & Voice AI Engineer
+- **Interests**: HFT, HPC, Agentic AI, safety-critical systems.
+- **Location**: India / Remote
+- **GitHub**: https://github.com/buddywhitman
+- **LinkedIn**: https://www.linkedin.com/in/buddywhitman
+
+## 🛠️ Technical Stack (Agent-Parsable)
+- **Languages**: C, C++, Verilog, Python, TypeScript, Java.
+- **Embedded/Systems**: STM32 (Arm Cortex M7), Jetson Nano, ESP32, FPGA (Virtex 7), ROS2, RTOS.
+- **AI/ML**: PyTorch, TorchRec, OpenAI API, LiveKit (SIP/Voice), Pinecone, RAG.
+- **Cloud/DevOps**: AWS (EC2/S3), Docker, Kubernetes, n8n, ELK Stack.
+
+## ✍️ Recent Technical Writing
+- [Building Real-time Voice AI Agents](/blog/hello-world) - Deep dive into SIP trunking, LiveKit, and low-latency inference.
+
+## 📁 Sitemap for Agents
+- `/` - Hero, Summary, and Featured Work.
+- `/about` - Detailed experience, Publications & IP, and full education history.
+- `/tech` - Comprehensive technology matrix and GitHub contributions.
+- `/blog` - Technical articles and system architecture deep-dives.
+- `/contact` - Direct contact and networking channels.
+
+---
+*Created for the 2026 Agentic Web.*

@@ -1,4 +1,5 @@
 import { Box } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 import Image from "next/image";
 
 interface ImageBoxProps {
@@ -8,11 +9,26 @@ interface ImageBoxProps {
   alt: string;
 }
 
+const MotionBox = motion(Box);
+
 const ImageBox = ({ image, height, width, alt }: ImageBoxProps) => {
   return (
-    <Box marginY={8} marginX="auto">
-      <Image src={image} height={height} width={width} alt={alt} />
-    </Box>
+    <MotionBox
+      whileHover={{ scale: 1.02 }}
+      transition={{ type: "spring", stiffness: 300, damping: 20 }}
+      overflow="hidden"
+      borderRadius="2xl"
+      bg="bg.subtle"
+      boxShadow="lg"
+    >
+      <Image
+        src={image}
+        height={height}
+        width={width}
+        alt={alt}
+        style={{ objectFit: "cover" }}
+      />
+    </MotionBox>
   );
 };
 

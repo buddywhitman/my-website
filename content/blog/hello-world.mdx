@@ -1,0 +1,33 @@
+---
+title: "Building Real-time Voice AI Agents"
+date: "2026-05-01"
+description: "Exploring the architecture and challenges of building low-latency voice-to-voice AI agents using WebSockets and the latest LLMs."
+tags: ["AI", "WebSockets", "Voice", "Next.js"]
+---
+
+# Building Real-time Voice AI Agents
+
+The landscape of human-computer interaction is shifting rapidly. With the advent of ultra-low latency models, we can now build voice agents that feel truly conversational.
+
+## The Architecture
+
+A typical real-time voice agent involves several components working in harmony:
+
+1.  **Voice Activity Detection (VAD)**: Detecting when the user starts and stops speaking.
+2.  **Speech-to-Text (STT)**: Converting audio streams into text.
+3.  **Large Language Model (LLM)**: Processing the text and generating a response.
+4.  **Text-to-Speech (TTS)**: Converting the response back into audio.
+
+```typescript
+const socket = new WebSocket("wss://api.voice-agent.ai/v1/stream");
+
+socket.onopen = () => {
+  console.log("Connected to Voice AI Agent");
+};
+```
+
+## Challenges
+
+Latency is the biggest hurdle. To achieve a "natural" feel, the round-trip time needs to be under 500ms. This requires optimized streaming protocols and edge computing.
+
+Stay tuned for more deep dives into the world of AI!

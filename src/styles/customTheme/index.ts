@@ -1,39 +1,95 @@
-/* eslint-disable prettier/prettier */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable prettier/prettier */
-import { extendTheme } from "@chakra-ui/react";
-import { mode } from "@chakra-ui/theme-tools";
-
+import { createSystem, defaultConfig, defineConfig } from "@chakra-ui/react";
 import colors from "./colors";
-import Button from "./components/button";
 import fonts from "./fonts";
 
-const customTheme = extendTheme({
-  fonts,
-  colors,
-  components: {
-    Button,
+const config = defineConfig({
+  theme: {
+    tokens: {
+      colors,
+      fonts,
+      spacing: {
+        "0": { value: "0rem" },
+        "1": { value: "0.25rem" },
+        "2": { value: "0.5rem" },
+        "3": { value: "0.75rem" },
+        "4": { value: "1rem" },
+        "5": { value: "1.25rem" },
+        "6": { value: "1.5rem" },
+        "8": { value: "2rem" },
+        "10": { value: "2.5rem" },
+        "12": { value: "3rem" },
+        "16": { value: "4rem" },
+        "20": { value: "5rem" },
+        "24": { value: "6rem" },
+        "32": { value: "8rem" },
+        "40": { value: "10rem" },
+        "48": { value: "12rem" },
+        "56": { value: "14rem" },
+        "64": { value: "16rem" },
+      },
+    },
+    semanticTokens: {
+      colors: {
+        bg: {
+          default: { value: "{colors.bg.canvas}" },
+          subtle: { value: "{colors.bg.subtle}" },
+        },
+        fg: {
+          default: { value: "{colors.fg.default}" },
+          muted: { value: "{colors.fg.muted}" },
+        },
+      },
+    },
+    recipes: {
+      button: {
+        base: {
+          borderRadius: "full",
+          fontWeight: "semibold",
+          transition: "all 0.2s ease-in-out",
+        },
+        variants: {
+          solid: {
+            bg: "brand.500",
+            color: "white",
+            _hover: {
+              bg: "brand.600",
+              transform: "translateY(-1px)",
+              boxShadow: "0 4px 12px rgba(2, 132, 199, 0.3)",
+            },
+          },
+          outline: {
+            border: "1px solid",
+            borderColor: "border.default",
+            _hover: {
+              bg: "bg.subtle",
+            },
+          },
+          ghost: {
+            _hover: {
+              bg: "bg.subtle",
+            },
+          },
+        },
+      },
+    },
   },
-  initialColorMode: "dark",
-  useSystemColorMode: true,
-  styles: {
-    global: (props: any) => ({
-      "*::selection": {
-        color: mode("#fff", "rgb(17, 17, 17)")(props),
-        background: mode(
-          "rgb(17, 17, 17) none repeat scroll 0% 0%",
-          "rgb(255, 255, 255) none repeat scroll 0% 0%"
-        )(props),
-      },
-
-      body: {
-        fontFamily: "body",
-        color: mode("#212529", "#f8f9fa")(props),
-        bg: mode("#f8f9fa", "#111111")(props),
-        lineHeight: "base",
-      },
-    }),
+  globalCss: {
+    "html, body": {
+      bg: "bg.default",
+      color: "fg.default",
+      fontFamily: "body",
+      lineHeight: "relaxed",
+      margin: 0,
+      padding: 0,
+      WebkitFontSmoothing: "antialiased",
+    },
+    "*::selection": {
+      bg: "brand.400",
+      color: "white",
+    },
   },
 });
 
-export default customTheme;
+export const system = createSystem(defaultConfig, config);
+
+export default system;

@@ -1,6 +1,5 @@
-/* eslint-disable prettier/prettier */
 import { IconButton } from "@chakra-ui/react";
-import { CgMenuOreos } from "react-icons/cg";
+import { Menu } from "lucide-react";
 
 interface MenuButtonProps {
   onClick: () => void;
@@ -9,12 +8,13 @@ interface MenuButtonProps {
 const MenuButton = ({ onClick }: MenuButtonProps) => {
   return (
     <IconButton
-      fontWeight="extrabold"
+      variant="ghost"
       size="lg"
       onClick={onClick}
       aria-label="toggle menu"
-      icon={<CgMenuOreos />}
-    />
+    >
+      <Menu size={24} />
+    </IconButton>
   );
 };
 

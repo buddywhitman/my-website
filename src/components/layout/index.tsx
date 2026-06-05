@@ -1,5 +1,5 @@
-import { Box, useDisclosure } from "@chakra-ui/react";
-import { ReactNode } from "react";
+import { Box, Container } from "@chakra-ui/react";
+import { ReactNode, useState } from "react";
 
 import Drawer from "./Drawer";
 import Footer from "./Footer";
@@ -10,22 +10,20 @@ type LayoutProps = {
 };
 
 const Layout = ({ children }: LayoutProps) => {
-  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [isOpen, setIsOpen] = useState(false);
+  const onOpen = () => setIsOpen(true);
+  const onClose = () => setIsOpen(false);
 
   return (
-    <Box
-      margin="0 auto"
-      marginX={{ base: 0, md: 8 }}
-      transition="0.5s ease-out"
-    >
-      <Box margin="8">
+    <Box minH="100vh" display="flex" flexDirection="column">
+      <Container maxW="container.xl" flex="1">
         <Header onOpen={onOpen} />
         <Drawer isOpen={isOpen} onClose={onClose} />
-        <Box as="main" marginY={22}>
+        <Box as="main" py="12">
           {children}
         </Box>
-        <Footer />
-      </Box>
+      </Container>
+      <Footer />
     </Box>
   );
 };

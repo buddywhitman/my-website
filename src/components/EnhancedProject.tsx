@@ -6,7 +6,6 @@ import {
   Spacer,
   Text,
   Tooltip,
-  useColorModeValue,
   VisuallyHidden,
 } from "@chakra-ui/react";
 import Link from "next/link";
@@ -57,7 +56,6 @@ interface EnhancedProjectProps {
 
 export default function EnhancedProject(props: EnhancedProjectProps) {
   const { title, description, tags, icons } = props;
-  const blackc = useColorModeValue("#000", "#fff");
 
   return (
     <Flex
@@ -65,7 +63,7 @@ export default function EnhancedProject(props: EnhancedProjectProps) {
       maxW="md"
       position="relative"
       rounded="md"
-      bg={useColorModeValue("gray.100", "#212930")}
+      bg="bg.subtle"
       p={6}
     >
       <Flex textAlign="left" my={3} alignItems="center">
@@ -78,13 +76,13 @@ export default function EnhancedProject(props: EnhancedProjectProps) {
             <IconWrap
               key={index.id}
               icon={index.icon}
-              color={blackc}
+              color="fg.default"
               url={index.url}
             />
           ))}
         </Flex>
       </Flex>
-      <Text marginBottom={6} fontSize="xs">
+      <Text marginBottom={6} fontSize="xs" color="fg.muted">
         {description}
       </Text>
       <Box my={1} bottom={1} position="absolute">
@@ -96,6 +94,7 @@ export default function EnhancedProject(props: EnhancedProjectProps) {
             key={index}
             opacity="0.7"
             fontSize="xs"
+            color="fg.muted"
           >
             {value}
           </Text>

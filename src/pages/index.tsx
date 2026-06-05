@@ -1,4 +1,3 @@
-/* eslint-disable prettier/prettier */
 import {
   Box,
   Heading,
@@ -6,9 +5,9 @@ import {
   Spacer,
   Text,
   Stack,
-  useBreakpointValue,
-  useColorModeValue,
+  VStack,
 } from "@chakra-ui/react";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { BsArrowRight } from "react-icons/bs";
 
@@ -18,205 +17,188 @@ import SomeText from "components/SomeText";
 import ThemedButton from "components/ThemedButton";
 import ThemedMainButton from "components/ThemedMainButton";
 import FeaturedProjectList from "data/featured_projects";
+import SchemaMarkup from "components/SchemaMarkup";
+
+const MotionBox = motion(Box);
+const MotionFlex = motion(Flex);
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.2,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      type: "spring",
+      duration: 0.5,
+      bounce: 0.2,
+    },
+  },
+};
 
 const Home = () => {
-  const isSmall = useBreakpointValue({ base: true, md: false });
-  const bl = useColorModeValue("brand.400", "brand.600");
-  const textc = useColorModeValue("brand.800", "brand.200");
+  const personSchema = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Pulkit Kumar",
+    url: "https://buddywhitman.vercel.app",
+    jobTitle: "Founding Engineer",
+    worksFor: {
+      "@type": "Organization",
+      name: "Fettle",
+    },
+    alumniOf: {
+      "@type": "CollegeOrUniversity",
+      name: "Manipal Institute of Technology",
+    },
+    sameAs: [
+      "https://github.com/buddywhitman",
+      "https://www.linkedin.com/in/buddywhitman",
+    ],
+    description: "Pre-final year EE undergrad specializing in Embedded Systems, Voice AI, and Production Inference Infrastructure.",
+  };
 
-  const paatern = useColorModeValue("/Clarence.svg", "/Taieri.svg");
   return (
     <Box>
-      <Box
-        height={{ base: "auto", md: "500px" }}
-        position="relative"
-        backgroundImage={isSmall ? "" : paatern}
-        marginY={8}
+      <SchemaMarkup data={personSchema} />
+      <MotionBox
+        initial="hidden"
+        animate="visible"
+        variants={containerVariants}
+        px={{ base: 6, md: 10, lg: 20 }}
+        py={10}
       >
-        <Box
-          backgroundColor={useColorModeValue("bgwhite.100", "bgblack.100")}
-          height={{ base: "auto", md: "100%" }}
-          borderTopRightRadius={{ base: 0, md: "100%" }}
-          width={{ base: "100%", md: "75%", lg: "65%", xl: "50%" }}
-        >
-          <SomeText />
-        </Box>
-      </Box>
-      <Flex
-        p={{ base: 5, xl: 20 }}
-        marginY={10}
-        flexDirection={{ base: "column", md: "row-reverse" }}
-      >
-        <Box
-          width={{ base: "100%", xl: "70%" }}
-          p={{ base: 0, md: 8 }}
-          textAlign={{ base: "left", md: "left" }}
-        >
-          <Heading as="h2" size="2xl">
-            <Text
-              as="span"
-              position="relative"
-              _after={{
-                content: "''",
-                width: "full",
-                height: "25%",
-                position: "absolute",
-                bottom: 1,
-                left: 0,
-                bg: bl,
-                zIndex: -1,
-              }}
-            >
-              About Me
-            </Text>
-          </Heading>
-          <Text marginTop={{ base: 3, md: 5 }} fontSize="xl">
-            Hey, There! I&apos;m Pulkit, an electrical engineering sophomore at
-            MIT, Manipal. I love crafting delightful products & experiences for
-            my fellow humans.
-          </Text>
-          <Text marginTop={{ base: 1, md: 3 }} fontSize="xl">
-            I do this by building thoughtful hardware and software products:
-            from RESTful web services and responsive web & native apps to
-            interactive holograms and solar cars.
-          </Text>
-          <Text marginTop={{ base: 1, md: 3 }} fontSize="xl">
-            Reach out to work with me for all your software, hardware and
-            branding needs.
-          </Text>
-          <Stack
-            marginTop={{ base: 1, md: 1 }}
-            direction="row"
-            spacing={4}
+        {/* Hero Section */}
+        <MotionBox variants={itemVariants} mb={20}>
+          <Flex
+            direction={{ base: "column", lg: "row" }}
             align="center"
+            justify="space-between"
+            gap={10}
           >
-            <Link href="/tech" passHref>
-              <ThemedMainButton top={3}>Tech Stack</ThemedMainButton>
-            </Link>
-            <Link href="/about" passHref>
-              <ThemedButton rightIcon={<BsArrowRight />} top={3}>
-                Read More
-              </ThemedButton>
-            </Link>
-            {/*
-            <Link href="/design" passHref>
-              <ThemedButton rightIcon={<BsArrowRight />} top={3}>
-                Portfolio
-              </ThemedButton>
-            </Link>
-            */}
-          </Stack>
-        </Box>
-        <Spacer />
-        <Box pt={10} lg={500} alignContent={{ base: "center", md: "left" }}>
-          <ImageBox
-            image={useColorModeValue("/home_b.webp", "/home_w.webp")}
-            height={450}
-            width={730}
-            alt="pulkit smiling"
-          />
-        </Box>
-      </Flex>
-      <Flex direction="column" p={{ base: 1, md: 8, xl: 20 }} marginTop={10}>
-        <Heading as="h2" size="2xl">
-          <Text
-            as="span"
-            position="relative"
-            _after={{
-              content: "''",
-              width: "full",
-              height: "25%",
-              position: "absolute",
-              bottom: 1,
-              left: 0,
-              bg: bl,
-              zIndex: -1,
-            }}
-          >
-            Featured Work
-          </Text>
-        </Heading>
-        {FeaturedProjectList.map((value) => (
-          <FeaturedProject
-            name={value.name}
-            description={value.description}
-            textc={textc}
-            images={[value.images[0], value.images[1]]}
-            key={value.id}
-            tags={value.tags}
-            link_icons={value.icons}
-            height={value.height}
-            width={value.width}
-            alt={value.alt}
-            reversed={value.reversed}
-          />
-        ))}
-      </Flex>
-      <Flex justify="center" w="full">
-        <Box
-          w={{ base: "full", md: "100%", lg: "50%" }}
-          px={4}
-          pb={10}
-          textAlign={{ base: "left", md: "center" }}
-        >
-          <Link href="/tech" passHref>
-            <ThemedButton
-              bg="#ffffff"
-              color="rgb(17, 17, 17)"
-              marginX={5}
-              paddingX={{ base: 5, md: 10 }}
-            >
-              View All Projects
-            </ThemedButton>
-          </Link>
-        </Box>
-      </Flex>
+            <Box flex="1">
+              <SomeText />
+            </Box>
+            <Box flex="1" display={{ base: "none", lg: "block" }}>
+              <ImageBox
+                image="/home_w.webp"
+                height={600}
+                width={600}
+                alt="Pulkit Kumar"
+              />
+            </Box>
+          </Flex>
+        </MotionBox>
 
-      <Flex
-        color="white"
-        bg={bl}
-        alignItems="center"
-        textAlign={{ base: "center", md: "left" }}
-        p={{ base: 2, md: 10 }}
-        mt={10}
-        rounded="lg"
-      >
-        <Flex direction="column">
-          <Heading marginBottom={5} as="h2" size="2xl">
-            <Text
-              as="span"
-              position="relative"
-              _after={{
-                content: "''",
-                width: "full",
-                height: "25%",
-                position: "absolute",
-                bottom: 1,
-                left: 0,
-                bg: bl,
-                zIndex: -1,
-              }}
-            >
-              Contact Me
-            </Text>
-            <Text mt={3} fontSize={{ base: "sm", md: "md" }}>
-              View all contact options
-            </Text>
-          </Heading>
-        </Flex>
-        <Spacer />
-        <Link href="/contact" passHref>
-          <ThemedButton
-            bg="#ffffff"
-            color="rgb(17, 17, 17)"
-            marginX={5}
-            rightIcon={<BsArrowRight />}
-            paddingX={{ base: 5, md: 10 }}
+        {/* About Section */}
+        <MotionBox variants={itemVariants} mb={32}>
+          <Flex
+            direction={{ base: "column", md: "row" }}
+            gap={12}
+            align="flex-start"
           >
-            Contact
-          </ThemedButton>
-        </Link>
-      </Flex>
+            <VStack align="flex-start" flex="1" gap={6}>
+              <Heading size="3xl" fontWeight="800" letterSpacing="tight">
+                About
+              </Heading>
+              <Text fontSize="xl" color="fg.muted" lineHeight="relaxed">
+                Hey, There! I&apos;m Pulkit. I build production-grade AI infrastructure
+                and safety-critical systems. My work spans from real-time voice AI
+                platforms to Q1-published research in embedded systems.
+              </Text>
+              <Text fontSize="xl" color="fg.muted" lineHeight="relaxed">
+                Currently, I&apos;m a founding engineer at a health-tech startup,
+                architecting voice AI systems for hospital networks. I focus on
+                the intersection of high-performance inference and reliable
+                hardware.
+              </Text>
+              <Stack direction="row" gap={4} pt={4}>
+                <Link href="/tech" passHref>
+                  <ThemedMainButton>Tech Stack</ThemedMainButton>
+                </Link>
+                <Link href="/about" passHref>
+                  <ThemedButton rightIcon={<BsArrowRight />}>
+                    Read More
+                  </ThemedButton>
+                </Link>
+              </Stack>
+            </VStack>
+            <Spacer />
+          </Flex>
+        </MotionBox>
+
+        {/* Featured Work Section */}
+        <MotionBox variants={itemVariants} mb={32}>
+          <Heading size="3xl" fontWeight="800" letterSpacing="tight" mb={12}>
+            Featured Work
+          </Heading>
+          <VStack gap={20} align="stretch">
+            {FeaturedProjectList.map((value) => (
+              <FeaturedProject
+                name={value.name}
+                description={value.description}
+                textc="fg.muted"
+                images={[value.images[0], value.images[1]]}
+                key={value.id}
+                tags={value.tags}
+                link_icons={value.icons}
+                height={value.height}
+                width={value.width}
+                alt={value.alt}
+                reversed={value.reversed}
+              />
+            ))}
+          </VStack>
+          <Flex justify="center" mt={16}>
+            <Link href="/tech" passHref>
+              <ThemedButton variant="outline" px={12}>
+                View All Projects
+              </ThemedButton>
+            </Link>
+          </Flex>
+        </MotionBox>
+
+        {/* Contact CTA */}
+        <MotionBox
+          variants={itemVariants}
+          bg="brand.500"
+          color="white"
+          p={{ base: 8, md: 16 }}
+          rounded="3xl"
+          textAlign="center"
+        >
+          <VStack gap={8}>
+            <Heading size="4xl" fontWeight="900" letterSpacing="tight">
+              Let&apos;s build something resilient.
+            </Heading>
+            <Text fontSize="xl" opacity="0.9" maxW="2xl">
+              Available for consulting on inference infrastructure, embedded
+              systems, and AI integration.
+            </Text>
+            <Link href="/contact" passHref>
+              <ThemedButton
+                bg="white"
+                color="brand.500"
+                _hover={{ bg: "gray.100" }}
+                rightIcon={<BsArrowRight />}
+                size="xl"
+                px={12}
+              >
+                Get in Touch
+              </ThemedButton>
+            </Link>
+          </VStack>
+        </MotionBox>
+      </MotionBox>
     </Box>
   );
 };

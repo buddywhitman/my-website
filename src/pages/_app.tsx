@@ -28,10 +28,10 @@ const MyApp = ({
 }: MyAppProps) => {
   return (
     <CacheProvider value={emotionCache}>
-      <ChakraProvider theme={customTheme}>
+      <ChakraProvider value={customTheme}>
         <Head>
           <meta
-            name="viewpo`rt"
+            name="viewport"
             content="minimum-scale=1, initial-scale=1, width=device-width, shrink-to-fit=no, viewport-fit=cover"
           />
         </Head>
@@ -42,10 +42,6 @@ const MyApp = ({
       </ChakraProvider>
     </CacheProvider>
   );
-};
-
-MyApp.defaultProps = {
-  emotionCache: clientSideEmotionCache,
 };
 
 export default MyApp;

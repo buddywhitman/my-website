@@ -8,12 +8,20 @@ interface IconLinkProps {
 }
 
 const IconLink = ({ icon, url }: IconLinkProps) => {
+  const label = url.includes("github.com") ? "View Source on GitHub" : "View Live Project";
+  
   return (
-    <Box mr={3}>
-      <Link href={url} isExternal>
-        <VisuallyHidden>{url}</VisuallyHidden>
-        <Icon boxSize={8} as={icon} />
-        <Icon boxSize={8} as={BiLinkExternal} />
+    <Box>
+      <Link 
+        href={url} 
+        target="_blank" 
+        display="flex" 
+        alignItems="center" 
+        _hover={{ color: "brand.400" }}
+        aria-label={label}
+      >
+        <Icon boxSize={6} as={icon} />
+        <Icon boxSize={3} as={BiLinkExternal} ml={1} />
       </Link>
     </Box>
   );

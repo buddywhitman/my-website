@@ -2,156 +2,136 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import {
   Alert,
-  AlertIcon,
   Box,
   Heading,
   SimpleGrid,
   Text,
   useBreakpointValue,
-  useColorModeValue,
   Spinner,
   Tooltip,
   Flex,
-  Table,
-  Tr,
-  Thead,
-  Th,
-  Tbody,
-  Td,
   Icon,
+  VStack,
+  HStack,
+  Wrap,
+  WrapItem,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import { FaPython, FaJava } from "react-icons/fa";
+import { BiCodeAlt } from "react-icons/bi";
+import { FaPython, FaJava, FaRobot, FaMicrochip, FaServer, FaCloud, FaPalette, FaTools } from "react-icons/fa";
 import { IconType } from "react-icons/lib";
 import {
   SiJavascript,
   SiTypescript,
-  // SiRust,
   SiDocker,
   SiKubernetes,
-  // SiGithubactions,
-  SiTravisci,
-  SiCloudflare,
-  SiGnubash,
   SiPostgresql,
-  SiMicrosoftsqlserver,
   SiVercel,
-  SiMongodb,
   SiGooglecloud,
-  SiFirebase,
   SiGit,
-  /* SiKotlin,
-  SiPerl,
-  SiLua, */
   SiCplusplus,
   SiC,
-  // SiGo,
   SiReact,
   SiRedux,
   SiAngular,
   SiNextdotjs,
-  SiNodedotjs,
-  SiVuedotjs,
   SiSpring,
-  // SiFlask,
-  // SiDjango,
-  SiGatsby,
-  SiFlutter,
   SiChakraui,
-  /* SiNginx,
-  SiApache,
-  SiGraphql,
-  SiJquery, */
-  SiTableau,
-  SiPowerbi,
-  SiQgis,
-  SiR,
-  SiTensorflow,
-  SiKeras,
-  SiOpencv,
-  SiPytorch,
   SiNumpy,
   SiPandas,
-  /* SiApachespark,
-  SiScala,
-  SiApachehadoop,
-  SiElasticsearch,
-  SiKibana,
-  SiGrafana,
-  SiApachekafka,
-  SiOpensearch,
-  SiLogstash,
-  SiPerforce, */
   SiMysql,
-  SiJenkins,
-  SiGitlab,
-  SiOracle,
-  SiHeroku,
   SiAmazonec2,
-  SiAmazonecs,
-  SiAmazons3,
-  SiMicrosoftazure,
-  /* SiRedhatopenshift,
-  SiAmazondynamodb,
-  SiAmazoneks,
-  SiAmazonrds,
-  SiAmazonsqs,
-  SiAuth0,
-  SiOpenid,
-  SiJsonwebtokens,
-  SiJson,
-  SiMqtt,
-  SiIfttt, */
-  SiBabel,
-  SiWebpack,
-  SiYarn,
-  SiChocolatey,
-  SiNpm,
-  SiWindows11,
-  SiMacos,
+  SiGooglechrome,
   SiArduino,
   SiArm,
-  SiTorproject,
   SiRaspberrypi,
   SiUbuntu,
-  SiDebian,
-  SiFreebsd,
-  SiKalilinux,
-  SiTails,
-  SiAdobeaftereffects,
-  SiAbletonlive,
-  SiAdobeillustrator,
-  SiAdobeindesign,
-  SiAdobephotoshop,
-  SiAdobepremierepro,
-  SiAdobexd,
-  SiInvision,
   SiFigma,
-  SiSketch,
+  SiPytorch,
+  SiTensorflow,
+  SiKeras,
+  SiFastapi,
+  SiOpenai,
+  SiN8N,
+  SiAdobecreativecloud,
 } from "react-icons/si";
 import Slider from "react-slick";
 
 import EnhancedProject from "components/EnhancedProject";
 import GithubProject from "components/GithubProject";
 import MoreProjectList from "data/more_projects";
+import MotionBox from "components/motion/Box";
 
-interface IconWrapperProps {
+interface SkillPillProps {
   icon: IconType;
-  text: string;
+  name: string;
 }
 
-const IconWrapper = ({ icon, text }: IconWrapperProps) => {
+const SkillPill = ({ icon, name }: SkillPillProps) => {
   return (
-    <Tooltip label={text}>
-      <Box margin={1}>
-        <Icon as={icon} h={{ base: 7, md: 10 }} w={{ base: 7, md: 10 }} />
-      </Box>
+    <Tooltip label={name} hasArrow placement="top">
+      <MotionBox
+        whileHover={{ 
+          scale: 1.1, 
+          y: -5,
+          boxShadow: "0 0 15px var(--chakra-colors-brand-500)",
+          borderColor: "brand.500"
+        }}
+        transition={{ type: "spring", stiffness: 300 }}
+        p={3}
+        bg="bg.surface"
+        borderRadius="full"
+        borderWidth="1px"
+        borderColor="border.default"
+        display="flex"
+        alignItems="center"
+        justifyContent="center"
+        cursor="default"
+        tabIndex={0}
+        role="img"
+        aria-label={name}
+      >
+        <Icon as={icon} h={6} w={6} color="brand.300" />
+      </MotionBox>
     </Tooltip>
   );
 };
 
+interface SkillCategoryProps {
+  title: string;
+  icon: IconType;
+  skills: { icon: IconType; name: string }[];
+  delay: number;
+}
+
+const SkillCategory = ({ title, icon, skills, delay }: SkillCategoryProps) => (
+  <MotionBox
+    initial={{ opacity: 0, y: 20 }}
+    whileInView={{ opacity: 1, y: 0 }}
+    viewport={{ once: true }}
+    transition={{ duration: 0.5, delay }}
+    p={6}
+    bg="bg.surface"
+    borderRadius="2xl"
+    borderWidth="1px"
+    borderColor="border.default"
+    _hover={{ borderColor: "brand.500" }}
+  >
+    <HStack mb={6} spacing={3}>
+      <Icon as={icon} w={6} h={6} color="brand.400" aria-label={title} />
+      <Heading size="md">{title}</Heading>
+    </HStack>
+    <Wrap spacing={4}>
+      {skills.map((skill) => (
+        <WrapItem key={skill.name}>
+          <SkillPill icon={skill.icon} name={skill.name} />
+        </WrapItem>
+      ))}
+    </Wrap>
+  </MotionBox>
+);
+
 const Tech = () => {
-  const bl = useColorModeValue("brand.400", "brand.600");
   const [data, SetData] = useState(null);
   const SlidShow = useBreakpointValue({ base: 1, lg: 2 });
   useEffect(() => {
@@ -163,235 +143,131 @@ const Tech = () => {
     json();
   }, []);
 
+  const skillCategories = [
+    {
+      title: "Languages",
+      icon: BiCodeAlt,
+      delay: 0.1,
+      skills: [
+        { icon: FaJava, name: "Java" },
+        { icon: FaPython, name: "Python" },
+        { icon: SiC, name: "C" },
+        { icon: SiCplusplus, name: "C++" },
+        { icon: SiJavascript, name: "Javascript" },
+        { icon: SiTypescript, name: "Typescript" },
+      ],
+    },
+    {
+      title: "Systems & Embedded",
+      icon: FaMicrochip,
+      delay: 0.2,
+      skills: [
+        { icon: SiArduino, name: "Arduino" },
+        { icon: SiArm, name: "Arm" },
+        { icon: SiRaspberrypi, name: "Raspberry Pi" },
+        { icon: SiUbuntu, name: "Ubuntu" },
+        { icon: FaMicrochip, name: "STM32" },
+        { icon: FaTools, name: "Verilog" },
+      ],
+    },
+    {
+      title: "ML & AI",
+      icon: FaRobot,
+      delay: 0.3,
+      skills: [
+        { icon: SiPytorch, name: "PyTorch" },
+        { icon: SiTensorflow, name: "TensorFlow" },
+        { icon: SiKeras, name: "Keras" },
+        { icon: SiOpenai, name: "OpenAI" },
+        { icon: SiN8N, name: "n8n" },
+        { icon: SiNumpy, name: "NumPy" },
+      ],
+    },
+    {
+      title: "Web & Full-Stack",
+      icon: FaServer,
+      delay: 0.4,
+      skills: [
+        { icon: SiReact, name: "React" },
+        { icon: SiNextdotjs, name: "Next.js" },
+        { icon: SiAngular, name: "Angular" },
+        { icon: SiSpring, name: "Spring Boot" },
+        { icon: SiFastapi, name: "FastAPI" },
+        { icon: SiChakraui, name: "Chakra UI" },
+      ],
+    },
+    {
+      title: "Cloud & DevOps",
+      icon: FaCloud,
+      delay: 0.5,
+      skills: [
+        { icon: SiAmazonec2, name: "AWS" },
+        { icon: SiGooglecloud, name: "Google Cloud" },
+        { icon: SiDocker, name: "Docker" },
+        { icon: SiKubernetes, name: "Kubernetes" },
+        { icon: SiVercel, name: "Vercel" },
+        { icon: SiGit, name: "Git" },
+      ],
+    },
+    {
+      title: "Design",
+      icon: FaPalette,
+      delay: 0.6,
+      skills: [
+        { icon: SiFigma, name: "Figma" },
+        { icon: SiAdobecreativecloud, name: "Adobe Creative Cloud" },
+        { icon: SiGooglechrome, name: "UI/UX Research" },
+        { icon: FaPalette, name: "Branding" },
+      ],
+    },
+  ];
+
   return (
-    <Box>
-      <Box textAlign="center" p={{ base: 0, md: 10 }} mt={10}>
-        <Heading marginBottom={5} as="h2" size="2xl">
-          <Text
-            as="span"
-            position="relative"
-            _after={{
-              content: "''",
-              width: "full",
-              height: "25%",
-              position: "absolute",
-              bottom: 1,
-              left: 0,
-              bg: bl,
-              zIndex: -1,
-            }}
-          >
-            Technology I Use
+    <Box pb={20}>
+      <Box textAlign="center" p={{ base: 4, md: 10 }} mt={10}>
+        <MotionBox
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <Heading marginBottom={5} as="h2" size="2xl">
+            <Text
+              as="span"
+              position="relative"
+              _after={{
+                content: "''",
+                width: "full",
+                height: "25%",
+                position: "absolute",
+                bottom: 1,
+                left: 0,
+                bg: "brand.500",
+                zIndex: -1,
+              }}
+            >
+              Technology Stack
+            </Text>
+          </Heading>
+          <Text fontSize="xl" color="fg.muted" mb={12}>
+            A curated list of technologies I use to build high-impact solutions.
           </Text>
-        </Heading>
-        <Text fontSize="xl">
-          A comprehensive list of tech I&apos;ve learnt to use and mastered!
-        </Text>
-        <Box overflowX="scroll" textAlign="center" fontSize="xl">
-          <Table size="lg" variant="simple">
-            <Thead>
-              <Tr>
-                <Th>Category</Th>
-                <Th>Technologies</Th>
-              </Tr>
-            </Thead>
-            <Tbody>
-              <Tr>
-                <Td>Languages </Td>
-                <Td flexDirection="row">
-                  <Flex>
-                    <IconWrapper icon={FaJava} text="Java" />
-                    <IconWrapper icon={FaPython} text="Python" />
-                    <IconWrapper icon={SiC} text="C" />
-                    <IconWrapper icon={SiCplusplus} text="C++" />
-                    <IconWrapper icon={SiJavascript} text="Javascript" />
-                    <IconWrapper icon={SiTypescript} text="Typescript" />
-                    {/* 
-                    <IconWrapper icon={SiGo} text="Go" />
-                    <IconWrapper icon={SiKotlin} text="Kotlin" />
-                    <IconWrapper icon={SiRust} text="Rust" />
-                    <IconWrapper icon={SiPerl} text="Perl" />
-                    <IconWrapper icon={SiLua} text="Lua" /> */}
-                  </Flex>
-                </Td>
-              </Tr>
-              <Tr>
-                <Td>Frameworks/libs </Td>
-                <Td>
-                  <Flex>
-                    <IconWrapper icon={SiReact} text="React" />
-                    <IconWrapper icon={SiRedux} text="Redux" />
-                    <IconWrapper icon={SiAngular} text="Angular" />
-                    {/* <IconWrapper icon={SiNodedotjs} text="Node.js" />
-                    <IconWrapper icon={SiVuedotjs} text="Vue.js" /> */}
-                    <IconWrapper icon={SiSpring} text="Spring" />
-                    {/* 
-                    <IconWrapper icon={SiFlask} text="Flask" />
-                    <IconWrapper icon={SiDjango} text="Django" /> */}
-                    <IconWrapper icon={SiNextdotjs} text="Next.js" />
-                    {/* <IconWrapper icon={SiGatsby} text="Gatsby" />
-                    <IconWrapper icon={SiFlutter} text="Flutter" /> */}
-                    <IconWrapper icon={SiChakraui} text="Chakra UI" />
-                  </Flex>
-                </Td>
-              </Tr>
-              {/* Databases */}
-              <Tr>
-                <Td>Databases </Td>
-                <Td>
-                  <Flex>
-                    {/* <IconWrapper icon={SiOracle} text="DBMS" /> */}
-                    <IconWrapper icon={SiPostgresql} text="Postgresql" />
-                    <IconWrapper icon={SiMysql} text="MySQL" />
-                    {/* <IconWrapper icon={SiMongodb} text="MongoDB" />
-                    <IconWrapper icon={SiMicrosoftsqlserver} text="MsSQL" /> */}
-                  </Flex>
-                </Td>
-              </Tr>
-              {/* Devops */}
-              <Tr>
-                <Td>CI/Containerization</Td>
-                <Td>
-                  <Flex>
-                    <IconWrapper icon={SiTravisci} text="Travis CI" />
-                    <IconWrapper icon={SiJenkins} text="Jenkins" />
-                    <IconWrapper icon={SiVercel} text="Vercel" />
-                    <IconWrapper icon={SiHeroku} text="Heroku" />
-                    <IconWrapper icon={SiGit} text="Git" />
-                    <IconWrapper icon={SiGitlab} text="GitLab" />
-                    <IconWrapper icon={SiDocker} text="Docker" />
-                    <IconWrapper icon={SiKubernetes} text="Kubernetes" />
-                    {/* <IconWrapper icon={SiPerforce} text="Perforce" />
-                    <IconWrapper icon={SiGithubactions} text="Github Actions" />
-                    <IconWrapper icon={SiRedhatopenshift} text="OpenShift" /> */}
-                  </Flex>
-                </Td>
-              </Tr>
-              <Tr>
-                <Td>Visualization/ML</Td>
-                <Td>
-                  <Flex>
-                    <IconWrapper icon={SiTableau} text="Tableau" />
-                    <IconWrapper icon={SiPowerbi} text="Power BI" />
-                    <IconWrapper icon={SiQgis} text="QGIS" />
-                    {/* <IconWrapper icon={SiR} text="R" />
-                    <IconWrapper icon={SiTensorflow} text="TensorFlow" />
-                    <IconWrapper icon={SiKeras} text="Keras" />
-                    <IconWrapper icon={SiOpencv} text="OpenCV" />
-                    <IconWrapper icon={SiPytorch} text="PyTorch" /> */}
-                    <IconWrapper icon={SiNumpy} text="NumPy" />
-                    <IconWrapper icon={SiPandas} text="Pandas" />
-                  </Flex>
-                </Td>
-              </Tr>
-              <Tr>
-                <Td>Build Tools</Td>
-                <Td>
-                  <Flex>
-                    <IconWrapper icon={SiGnubash} text="bash" />
-                    <IconWrapper icon={SiBabel} text="babel" />
-                    <IconWrapper icon={SiWebpack} text="webpack" />
-                    <IconWrapper icon={SiYarn} text="yarn" />
-                    <IconWrapper icon={SiChocolatey} text="chocolatey" />
-                    <IconWrapper icon={SiNpm} text="npm" />
-                  </Flex>
-                </Td>
-              </Tr>
-              <Tr>
-                <Td>Cloud</Td>
-                <Td>
-                  <Flex>
-                    <IconWrapper icon={SiAmazonec2} text="EC2" />
-                    <IconWrapper icon={SiAmazonecs} text="ECS" />
-                    {/* <IconWrapper icon={SiAmazoneks} text="EKS" />
-                    <IconWrapper icon={SiAmazonrds} text="RDS" />
-                    <IconWrapper icon={SiAmazonsqs} text="SQS" /> */}
-                    <IconWrapper icon={SiAmazons3} text="S3" />
-                    {/* <IconWrapper icon={SiMicrosoftazure} text="Azure" /> */}
-                    <IconWrapper icon={SiGooglecloud} text="Google Cloud" />
-                    {/* <IconWrapper icon={SiCloudflare} text="Cloudflare" />
-                    <IconWrapper icon={SiFirebase} text="Firebase" /> */}
-                  </Flex>
-                </Td>
-              </Tr>
-              {/* <Tr>
-                <Td>Caching/Data Processing</Td>
-                <Td>
-                  <Flex>
-                    <IconWrapper icon={SiNginx} text="Nginx" />
-                    <IconWrapper icon={SiApache} text="Apache Web Server" />
-                    <IconWrapper icon={SiGraphql} text="GraphQL" />
-                    <IconWrapper icon={SiJquery} text="jQuery" />
-                    <IconWrapper icon={SiApachespark} text="Spark" />
-                    <IconWrapper icon={SiScala} text="Scala" />
-                    <IconWrapper icon={SiApachehadoop} text="Hadoop" />
-                    <IconWrapper icon={SiElasticsearch} text="Elasticsearch" />
-                    <IconWrapper icon={SiKibana} text="Kibana" />
-                    <IconWrapper icon={SiGrafana} text="Grafana" />
-                    <IconWrapper icon={SiApachekafka} text="Kafka" />
-                    <IconWrapper icon={SiOpensearch} text="Opensearch" />
-                    <IconWrapper icon={SiLogstash} text="Logstash" />
-                  </Flex>
-                </Td>
-              </Tr> */}
-              {/* <Tr>
-                <Td>Auth/Telemetry</Td>
-                <Td>
-                  <Flex>
-                    <IconWrapper icon={SiAuth0} text="Auth0" />
-                    <IconWrapper icon={SiOpenid} text="OpenID" />
-                    <IconWrapper icon={SiJsonwebtokens} text="JWT" />
-                    <IconWrapper icon={SiJson} text="JSON" />
-                    <IconWrapper icon={SiMqtt} text="MQTT" />
-                    <IconWrapper icon={SiIfttt} text="IFTTT" />
-                  </Flex>
-                </Td>
-              </Tr> */}
-              <Tr>
-                <Td>Ecosystems</Td>
-                <Td>
-                  <Flex>
-                    <IconWrapper icon={SiWindows11} text="Windows" />
-                    {/* <IconWrapper icon={SiMacos} text="MacOS" /> */}
-                    <IconWrapper icon={SiUbuntu} text="Ubuntu" />
-                    {/* <IconWrapper icon={SiDebian} text="Debian" />
-                    <IconWrapper icon={SiFreebsd} text="FreeBSD" /> */}
-                    <IconWrapper icon={SiArduino} text="Arduino" />
-                    <IconWrapper icon={SiArm} text="Arm" />
-                    <IconWrapper icon={SiRaspberrypi} text="Raspberry Pi" />
-                    <IconWrapper icon={SiKalilinux} text="Kali" />
-                    <IconWrapper icon={SiTails} text="Tails" />
-                    <IconWrapper icon={SiTorproject} text="Tor" />
-                  </Flex>
-                </Td>
-              </Tr>
-              <Tr>
-                <Td>Design</Td>
-                <Td>
-                  <Flex>
-                    <IconWrapper icon={SiAdobeillustrator} text="Illustrator" />
-                    {/* <IconWrapper icon={SiAdobephotoshop} text="Photoshop" />
-                    <IconWrapper icon={SiInvision} text="InVision" /> */}
-                    <IconWrapper icon={SiAdobexd} text="Xd" />
-                    <IconWrapper icon={SiFigma} text="Figma" />
-                    <IconWrapper icon={SiSketch} text="Sketch" />
-                    <IconWrapper icon={SiAdobepremierepro} text="Premier Pro" />
-                    {/* <IconWrapper
-                      icon={SiAdobeaftereffects}
-                      text="After Effects"
-                    />
-                    <IconWrapper icon={SiAbletonlive} text="Ableton" /> */}
-                    <IconWrapper icon={SiAdobeindesign} text="InDesign" />
-                  </Flex>
-                </Td>
-              </Tr>
-            </Tbody>
-          </Table>
-        </Box>
+        </MotionBox>
+
+        <SimpleGrid columns={{ base: 1, lg: 2, xl: 3 }} spacing={8} px={{ base: 0, md: 4 }}>
+          {skillCategories.map((category) => (
+            <SkillCategory
+              key={category.title}
+              title={category.title}
+              icon={category.icon}
+              skills={category.skills}
+              delay={category.delay}
+            />
+          ))}
+        </SimpleGrid>
       </Box>
 
-      <Box p={{ base: 1, md: 8 }}>
-        <Heading as="h2" size="2xl">
+      <Box p={{ base: 4, md: 8 }} mt={10}>
+        <Heading as="h2" size="2xl" mb={8}>
           <Text
             as="span"
             position="relative"
@@ -402,21 +278,20 @@ const Tech = () => {
               position: "absolute",
               bottom: 1,
               left: 0,
-              bg: bl,
+              bg: "brand.500",
               zIndex: -1,
             }}
           >
             More Projects
           </Text>
         </Heading>
-        <Box marginTop={5}>
-          <Alert variant="left-accent" status="info">
-            <AlertIcon />
+        <Box marginBottom={10}>
+          <Alert variant="left-accent" status="info" borderRadius="md">
             View Featured Projects on the Home Page!
           </Alert>
         </Box>
         <SimpleGrid
-          columns={{ base: 1, md: 2, lg: 3, xl: 3 }}
+          columns={{ base: 1, md: 2, lg: 3 }}
           spacing={10}
           marginY={10}
         >
@@ -430,90 +305,102 @@ const Tech = () => {
             />
           ))}
         </SimpleGrid>
-        <Heading as="h2" size="xl">
-          <Text
-            as="span"
-            position="relative"
-            _after={{
-              content: "''",
-              width: "full",
-              height: "25%",
-              position: "absolute",
-              bottom: 1,
-              left: 0,
-              bg: bl,
-              zIndex: -1,
-            }}
-          >
-            Other Projects
-          </Text>
-        </Heading>
-        <Box my={3}>
-          {data === null ? (
-            <Spinner />
-          ) : (
-            <Slider
-              infinite
-              centerMode
-              className="center"
-              pauseOnHover={false}
-              slidesToShow={SlidShow}
-              slidesToScroll={1}
-              autoplay
-              autoplaySpeed={2000}
-            >
-              {
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                data.data.repositories.nodes.map((value) => (
-                  <GithubProject data={value} />
-                ))
-              }
-            </Slider>
-          )}
-        </Box>
-        <Heading as="h2" size="xl">
-          <Text
-            as="span"
-            position="relative"
-            _after={{
-              content: "''",
-              width: "full",
-              height: "25%",
-              position: "absolute",
-              bottom: 1,
-              left: 0,
-              bg: bl,
-              zIndex: -1,
-            }}
-          >
-            Contributions
-          </Text>
-        </Heading>
-        <Box my={3}>
-          {data === null ? (
-            <Spinner />
-          ) : (
-            <Slider
-              infinite
-              centerMode
-              className="center"
-              pauseOnHover={false}
-              slidesToShow={SlidShow}
-              slidesToScroll={1}
-              autoplay
-              autoplaySpeed={2000}
-            >
-              {
-                // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-                // @ts-ignore
-                data.data.repositoriesContributedTo.nodes.map((value) => (
-                  <GithubProject data={value} />
-                ))
-              }
-            </Slider>
-          )}
-        </Box>
+
+        <VStack spacing={16} align="stretch" mt={20}>
+          <Box>
+            <Heading as="h2" size="xl" mb={8}>
+              <Text
+                as="span"
+                position="relative"
+                _after={{
+                  content: "''",
+                  width: "full",
+                  height: "25%",
+                  position: "absolute",
+                  bottom: 1,
+                  left: 0,
+                  bg: "brand.500",
+                  zIndex: -1,
+                }}
+              >
+                Open Source Repositories
+              </Text>
+            </Heading>
+            <Box my={3} minH="220px">
+              {data === null ? (
+                <Flex justify="center" align="center" minH="220px">
+                  <Spinner color="brand.500" size="xl" />
+                </Flex>
+              ) : (
+                <Slider
+                  infinite
+                  centerMode
+                  className="center"
+                  pauseOnHover={false}
+                  slidesToShow={SlidShow}
+                  slidesToScroll={1}
+                  autoplay
+                  autoplaySpeed={3000}
+                >
+                  {
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    data.data.repositories.nodes.map((value) => (
+                      <GithubProject key={value.id} data={value} />
+                    ))
+                  }
+                </Slider>
+              )}
+            </Box>
+          </Box>
+
+          <Box>
+            <Heading as="h2" size="xl" mb={8}>
+              <Text
+                as="span"
+                position="relative"
+                _after={{
+                  content: "''",
+                  width: "full",
+                  height: "25%",
+                  position: "absolute",
+                  bottom: 1,
+                  left: 0,
+                  bg: "brand.500",
+                  zIndex: -1,
+                }}
+              >
+                Contributions
+              </Text>
+            </Heading>
+            <Box my={3} minH="220px">
+              {data === null ? (
+                <Flex justify="center" align="center" minH="220px">
+                  <Spinner color="brand.500" size="xl" />
+                </Flex>
+              ) : (
+                <Slider
+                  infinite
+                  centerMode
+                  className="center"
+                  pauseOnHover={false}
+                  slidesToShow={SlidShow}
+                  slidesToScroll={1}
+                  autoplay
+                  autoplaySpeed={3000}
+                >
+                  {
+                    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+                    // @ts-ignore
+                    data.data.repositoriesContributedTo.nodes.map((value) => (
+                      <GithubProject key={value.id} data={value} />
+                    ))
+                  }
+                </Slider>
+              )}
+            </Box>
+          </Box>
+        </VStack>
       </Box>
     </Box>
   );

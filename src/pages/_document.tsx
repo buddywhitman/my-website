@@ -65,7 +65,7 @@ class MyDocument extends Document {
           <meta name="mobile-web-app-capable" content="yes" />
           <meta
             name="description"
-            content="Web Developer. Web Designer. India. UX. Frontend Developer. Full Stack Developer."
+            content="Pulkit Kumar - Embedded Systems & Voice AI Engineer. Founding Engineer at Fettle. Specializing in safety-critical systems, AI inference, and production hardware."
           />
           <meta name="theme-color" content="#FFFFFF" />
           <meta

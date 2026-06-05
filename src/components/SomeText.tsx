@@ -1,92 +1,94 @@
-/* eslint-disable prettier/prettier */
 import {
   Box,
-  Tooltip,
   Flex,
-  VisuallyHidden,
   Heading,
   Icon,
-  useColorModeValue,
+  Link as ChakraLink,
+  Text,
+  VStack,
 } from "@chakra-ui/react";
-import { NextRouter, useRouter } from "next/router";
-import { IconType } from "react-icons";
+import { motion } from "framer-motion";
 import { BsLinkedin, BsGithub } from "react-icons/bs";
-// import { BsBehance, SiResearchgate } from "react-icons/si";
 
-interface IconWrapProps {
-  router: NextRouter;
-  icon: IconType;
-  color: string;
-  url: string;
-}
+const MotionBox = motion(Box);
+const MotionHeading = motion(Heading);
+const MotionText = motion(Text);
+const MotionFlex = motion(Flex);
 
-const IconWrap = ({ icon, color, router, url }: IconWrapProps) => {
-  return (
-    <Tooltip style={{ cursor: "progress" }} label={url}>
-      <Box
-        aria-label={icon.toString()}
-        fontSize="2em"
-        display="inline-block"
-        marginRight="1em"
-      >
-        <VisuallyHidden>{url}</VisuallyHidden>
-        <Icon onClick={() => router.push(url)} as={icon} color={color} />
-      </Box>
-    </Tooltip>
-  );
-};
+const springConfig = { type: "spring", duration: 0.5, bounce: 0.2 };
 
 const SomeText = () => {
-  const router = useRouter();
-
   return (
-    <Box
-      position={{ base: "relative", md: "absolute" }}
-      bottom={0}
-      left={0}
-      textAlign={{ base: "center", md: "left" }}
-      alignContent={{ base: "center", md: "left" }}
-      borderTopRightRadius="5%"
-      p={{ base: 0, md: 6, lg: 10 }}
-      width={{ base: "100%", md: "50%", lg: "45%", xl: "35%" }}
-      backgroundColor={useColorModeValue("bgwhite.100", "bgblack.100")}
-      experimental_spaceY={3}
+    <VStack
+      align="flex-start"
+      gap={6}
+      p={{ base: 6, md: 10 }}
+      maxW="2xl"
     >
-      <Heading fontWeight="800" as="h2" fontSize={{ base: "5xl", md: "6xl" }}>
-        Pulkit Kumar
-      </Heading>
-      <Heading opacity="0.7" as="h3" fontSize={{ base: "xl", md: "3xl" }}>
-        HW/SW Developer & Designer
-      </Heading>
-      <Flex marginX={{ base: "10%", sm: "30%", md: 0 }}>
-        <IconWrap
-          router={router}
-          url="https://www.linkedin.com/in/buddywhitman"
-          color="#0e76a8"
-          icon={BsLinkedin}
-        />
-        <IconWrap
-          router={router}
-          url="https://github.com/buddywhitman"
-          color={useColorModeValue("black", "white")}
-          icon={BsGithub}
-        />
-        {/* <IconWrap
-          router={router}
-          url="https://behance.com/buddywhitman"
-          color="#053eff"
-          icon={BsBehance}
-        /> */}
-        {/*
-        <IconWrap
-          router={router}
-          url="https://www.researchgate.net/profile/Pulkit-Kumar-7"
-          color="#00ccbb"
-          icon={SiResearchgate}
-        />
-        */}
-      </Flex>
-    </Box>
+      <Box>
+        <MotionHeading
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ ...springConfig, delay: 0.1 }}
+          fontWeight="800"
+          fontSize={{ base: "5xl", md: "7xl" }}
+          letterSpacing="tight"
+          lineHeight="0.9"
+          color="fg.default"
+        >
+          Pulkit Kumar
+        </MotionHeading>
+        <MotionText
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ ...springConfig, delay: 0.2 }}
+          fontSize={{ base: "xl", md: "2xl" }}
+          fontWeight="medium"
+          color="fg.muted"
+          mt={4}
+        >
+          Founding Engineer & Researcher
+        </MotionText>
+      </Box>
+
+      <MotionText
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ ...springConfig, delay: 0.3 }}
+        fontSize={{ base: "md", md: "lg" }}
+        lineHeight="tall"
+        color="fg.default"
+      >
+        Pre-final year EE undergrad. I build production inference infrastructure,
+        safety-critical embedded systems, and real-time voice AI. Co-authored a
+        Q1 Springer Nature paper; 3 patents filed. Currently founding engineer
+        on a health-tech voice AI platform serving hospital networks at scale.
+      </MotionText>
+
+      <MotionFlex
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ ...springConfig, delay: 0.4 }}
+        gap={6}
+      >
+        <ChakraLink
+          href="https://www.linkedin.com/in/buddywhitman"
+          target="_blank"
+          _hover={{ color: "brand.500", transform: "translateY(-2px)" }}
+          transition="all 0.2s"
+        >
+          <Icon as={BsLinkedin} boxSize={6} />
+        </ChakraLink>
+        <ChakraLink
+          href="https://github.com/buddywhitman"
+          target="_blank"
+          _hover={{ color: "brand.500", transform: "translateY(-2px)" }}
+          transition="all 0.2s"
+        >
+          <Icon as={BsGithub} boxSize={6} />
+        </ChakraLink>
+      </MotionFlex>
+    </VStack>
   );
 };
 

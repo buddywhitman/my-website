@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, useColorModeValue, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Text, Link as ChakraLink, HStack } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
 
@@ -11,53 +11,32 @@ interface MenuItemProps {
 
 const MenuItem = ({ children }: MenuItemProps) => {
   return (
-    <Box display="inline-block" marginRight={{ base: "0.5em", lg: "1em" }}>
+    <Box>
       {children}
     </Box>
   );
 };
 
-const HeaderTextComponent = ({ text, url }: { text: string; url: string }) => {
-  const hc = useColorModeValue("#dee3ed", "#1d1e20");
-
+const HeaderLink = ({ text, url, isSpecial = false }: { text: string; url: string; isSpecial?: boolean }) => {
   return (
     <MenuItem>
-      <Heading
+      <ChakraLink
+        asChild
+        px="3"
+        py="2"
+        rounded="md"
+        fontWeight="medium"
+        fontSize="sm"
+        transition="all 0.2s"
+        bg={isSpecial ? "brand.500" : "transparent"}
+        color={isSpecial ? "white" : "fg.default"}
         _hover={{
-          background: `${hc} none repeat scroll 0% 0%`,
+          bg: isSpecial ? "brand.600" : "bg.subtle",
+          textDecoration: "none",
         }}
-        padding={2}
-        rounded="md"
-        fontWeight="500"
-        as="h2"
-        size="md"
       >
         <Link href={url}>{text}</Link>
-      </Heading>
-    </MenuItem>
-  );
-};
-const SpecialHeaderTextComponent = ({
-  text,
-  url,
-}: {
-  text: string;
-  url: string;
-}) => {
-  const hc = useColorModeValue("brand.400", "brand.600");
-
-  return (
-    <MenuItem>
-      <Heading
-        bg={hc}
-        padding={2}
-        rounded="md"
-        fontWeight="500"
-        as="h2"
-        size="md"
-      >
-        <Link href={url}>{text}</Link>
-      </Heading>
+      </ChakraLink>
     </MenuItem>
   );
 };
@@ -67,55 +46,52 @@ interface HeaderProps {
 }
 
 const Header = ({ onOpen }: HeaderProps) => {
-  const bl = useColorModeValue("brand.400", "brand.600");
-
   return (
     <Flex
-      alignItems="center"
       as="header"
       width="full"
-      align={{ base: "left", md: "center" }}
+      align="center"
+      justify="space-between"
+      py="4"
     >
-      <Heading fontWeight="bold" as="h1" size="lg">
-        <Text
-          as="span"
-          position="relative"
-          _after={{
-            content: "''",
-            width: "full",
-            height: "25%",
-            position: "absolute",
-            bottom: 1,
-            left: 0,
-            bg: bl,
-            zIndex: -1,
-          }}
-        >
-          <Link href="/">buddywhitman</Link>
-        </Text>
+      <Heading fontWeight="bold" fontSize="xl" letterSpacing="tight">
+        <Link href="/" passHref>
+          <Text
+            as="span"
+            position="relative"
+            _after={{
+              content: "''",
+              width: "full",
+              height: "30%",
+              position: "absolute",
+              bottom: "0",
+              left: "0",
+              bg: "brand.500/30",
+              zIndex: -1,
+            }}
+          >
+            buddywhitman
+          </Text>
+        </Link>
       </Heading>
-      <Box marginLeft="auto">
-        <Flex alignItems="center" display={{ base: "none", md: "flex" }}>
-          <HeaderTextComponent text="about" url="/about" />
-          <HeaderTextComponent text="tech" url="/tech" />
-          {/*
-          <HeaderTextComponent text="design" url="/design" />
-          <HeaderTextComponent text="blog" url="/blog" />
-          */}
-          <HeaderTextComponent text="contact" url="/contact" />
-          <SpecialHeaderTextComponent text="resume" url="https://github.com/buddywhitman/my-website/blob/main/Pulkit_Kumar_Resume.pdf" />
-          <MenuItem>
-            <ThemeToggle />
-          </MenuItem>
-        </Flex>
-        <Flex alignItems="center" display={{ base: "flex", md: "none" }}>
-          <MenuItem>
-            <ThemeToggle />
-          </MenuItem>
-          <MenuItem>
-            <MenuButton onClick={onOpen} />
-          </MenuItem>
-        </Flex>
+
+      <Box>
+        <HStack gap="1" display={{ base: "none", md: "flex" }}>
+          <HeaderLink text="about" url="/about" />
+          <HeaderLink text="tech" url="/tech" />
+          <HeaderLink text="contact" url="/contact" />
+          <HeaderLink 
+            text="resume" 
+            url="https://github.com/buddywhitman/my-website/blob/main/Pulkit_Kumar_Resume.pdf" 
+            isSpecial 
+          />
+          <ThemeToggle />
+        </HStack>
+        
+        <HStack gap="1" display={{ base: "flex", md: "none" }}>
+          <ThemeToggle />
+          <MenuButton onClick={onOpen} />
+        </HStack>
       </Box>
     </Flex>
   );

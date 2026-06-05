@@ -1,45 +1,33 @@
-import { DeepPartial, Theme } from "@chakra-ui/react";
-
-/** extend additional color here */
-const extendedColors: DeepPartial<
-  Record<string, Theme["colors"]["blackAlpha"]>
-> = {
-  brand: {
-    50: "#04d9ff",
-    100: "#caf0f8",
-    200: "#90e0ef",
-    300: "#00b4d8",
-    400: "#00a8e8",
-    500: "#007ea7",
-    600: "#00509d",
-    700: "#003f88",
-    800: "#00296b",
-    900: "#003459",
-  },
-
-  bgblack: {
-    100: "#111111",
-  },
-
-  bgwhite: {
-    100: "#f8f9fa",
-  },
-
-  textblack: {
-    100: "#212529",
-  },
-
-  textwhite: {
-    100: "#f8f9fa",
-  },
-};
-
-/** override chakra colors here */
-const overridenChakraColors: DeepPartial<Theme["colors"]> = {};
-
 const colors = {
-  ...overridenChakraColors,
-  ...extendedColors,
+  black: { value: "#000000" },
+  white: { value: "#FFFFFF" },
+  brand: {
+    50: { value: "#e6f6ff" },
+    100: { value: "#baedff" },
+    200: { value: "#7dd3fc" },
+    300: { value: "#38bdf8" },
+    400: { value: "#0ea5e9" },
+    500: { value: "#0284c7" },
+    600: { value: "#0369a1" },
+    700: { value: "#075985" },
+    800: { value: "#0c4a6e" },
+    900: { value: "#082f49" },
+    950: { value: "#020617" },
+  },
+  bg: {
+    canvas: { value: "{colors.black}" },
+    surface: { value: "#0A0A0A" },
+    subtle: { value: "#171717" },
+  },
+  fg: {
+    default: { value: "{colors.white}" },
+    muted: { value: "#A3A3A3" },
+    subtle: { value: "#737373" },
+  },
+  border: {
+    default: { value: "#262626" },
+    subtle: { value: "#171717" },
+  },
 };
 
 export default colors;

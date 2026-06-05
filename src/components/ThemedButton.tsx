@@ -1,25 +1,31 @@
-/* eslint-disable prettier/prettier */
-import { Button, ButtonProps, useColorModeValue } from "@chakra-ui/react";
+import { Button, ButtonProps } from "@chakra-ui/react";
+import { motion } from "framer-motion";
+
+const MotionButton = motion(Button);
 
 const ThemedButton = (props: ButtonProps) => {
-  const { children } = props;
+  const { children, ...rest } = props;
   return (
-    <Button
-      borderRadius="0.25em"
-      _hover={{}}
+    <MotionButton
+      whileHover={{ y: -2 }}
+      whileTap={{ scale: 0.97 }}
+      transition={{ type: "spring", stiffness: 400, damping: 17 }}
+      borderRadius="full"
       display="inline-flex"
-      variant="unstyled"
-      bg={useColorModeValue("#111111", "#ffffff")}
-      padding={5}
-      paddingY={3}
-      size="lg"
-      fontWeight="800"
-      height="auto"
-      color={useColorModeValue("#ffffff", "rgb(17, 17, 17)")}
-      {...props}
+      bg="fg.default"
+      color="bg.default"
+      px={8}
+      py={6}
+      fontSize="md"
+      fontWeight="bold"
+      _hover={{
+        bg: "brand.500",
+        color: "white",
+      }}
+      {...rest}
     >
       {children}
-    </Button>
+    </MotionButton>
   );
 };
 

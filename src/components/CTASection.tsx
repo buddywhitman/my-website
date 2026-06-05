@@ -6,10 +6,10 @@ const repoLink = "https://github.com/buddywhitman/my-website";
 const CTASection = () => {
   return (
     <Box textAlign="center" marginTop={8}>
-      <Flex marginY={4} justifyContent="center" gridGap={2}>
+      <Flex marginY={4} justifyContent="center" gap={2}>
         <Link
           aria-label="Deploy to Vercel"
-          isExternal
+          target="_blank"
           href="https://vercel.com/import/git?s=https://github.com/buddywhitman/my-website"
         >
           <Image src="https://vercel.com/button" alt="Vercel deploy button" />
@@ -17,7 +17,7 @@ const CTASection = () => {
 
         <Link
           aria-label="Deploy to Netlify"
-          isExternal
+          target="_blank"
           href="https://app.netlify.com/start/deploy?repository=https://github.com/buddywhitman/my-website"
         >
           <Image
@@ -31,28 +31,25 @@ const CTASection = () => {
         <Code>npx degit sozonome/nextarter-chakra {"<YOUR_APP_NAME>"}</Code>
         <br />
 
-        <Button
-          marginTop={2}
-          as="a"
-          href="https://github.com/sozonome/nextarter-chakra/generate"
-          target="_blank"
-          size="sm"
-        >
-          Use This Template
-        </Button>
+        <Link href="https://github.com/sozonome/nextarter-chakra/generate" target="_blank">
+          <Button
+            marginTop={2}
+            size="sm"
+          >
+            Use This Template
+          </Button>
+        </Link>
       </Box>
 
-      <Flex justifyContent="center" alignItems="center" gridGap={2}>
-        <Button
-          as="a"
-          href={repoLink}
-          target="_blank"
-          leftIcon={<AiFillGithub />}
-          size="sm"
-        >
-          Open in Github
-        </Button>
-        <Link href={repoLink} isExternal>
+      <Flex justifyContent="center" alignItems="center" gap={2}>
+        <Link href={repoLink} target="_blank">
+          <Button
+            size="sm"
+          >
+            <AiFillGithub /> Open in Github
+          </Button>
+        </Link>
+        <Link href={repoLink} target="_blank">
           <Image
             align="center"
             src="https://img.shields.io/github/stars/sozonome/nextarter-chakra?style=social"

@@ -2,7 +2,6 @@ import {
   Box,
   Heading,
   Text,
-  useColorModeValue,
   VisuallyHidden,
   Icon,
   Tooltip,
@@ -30,14 +29,15 @@ interface IconWrapProps {
 const IconWrap = ({ icon, color, url, text }: IconWrapProps) => {
   return (
     <Link href={url} passHref>
-      <Flex my={3} textAlign="left" alignItems="center" justifyContent="left">
-        <Tooltip style={{ cursor: "progress" }} label={url}>
+      <Flex my={3} textAlign="left" alignItems="center" justifyContent="left" _hover={{ color: "brand.400" }}>
+        <Tooltip label={url} hasArrow>
           <Box
-            aria-label={icon.toString()}
+            aria-label={text}
             display="inline-block"
             marginRight="1em"
+            tabIndex={0}
           >
-            <VisuallyHidden>{url}</VisuallyHidden>
+            <VisuallyHidden>{text}</VisuallyHidden>
             <Icon
               h={{ base: 8, md: 12 }}
               w={{ base: 8, md: 12 }}
@@ -56,7 +56,6 @@ const IconWrap = ({ icon, color, url, text }: IconWrapProps) => {
 };
 
 const Contact = () => {
-  const bl = useColorModeValue("brand.400", "brand.600");
   return (
     <Box p={{ base: 1, md: 8 }}>
       <Heading as="h2" size="2xl">
@@ -70,7 +69,7 @@ const Contact = () => {
             position: "absolute",
             bottom: 1,
             left: 0,
-            bg: bl,
+            bg: "brand.500",
             zIndex: -1,
           }}
         >
@@ -94,7 +93,7 @@ const Contact = () => {
           <IconWrap
             text="Mail"
             icon={MdEmail}
-            color={useColorModeValue("#000", "#fff")}
+            color="fg.default"
             url="mailto:pulkit.talks@gmail.com"
           />
         </Flex>
@@ -105,7 +104,7 @@ const Contact = () => {
           paddingY={16}
           w={{ base: "100%", md: "50%" }}
           rounded="lg"
-          bg={bl}
+          bg="brand.500"
           direction="column"
         >
           <form action="https://api.web3forms.com/submit" method="POST">
