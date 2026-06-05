@@ -131,13 +131,13 @@ const Home = () => {
               <Heading size="4xl" fontWeight="900" letterSpacing="tight" color="white">
                 2026 / Performance Architecture
               </Heading>
-              <Text fontSize="2xl" color="fg.muted" lineHeight="relaxed">
+              <Text fontSize="2xl" color="whiteAlpha.700" lineHeight="relaxed">
                 I architect production-grade infrastructure where **determinism meets 
                 intelligence**. My work spans from **RTL-level hardware optimization** 
                 for low-latency controllers to **agentic AI orchestration** for 
                 safety-critical environments.
               </Text>
-              <Text fontSize="2xl" color="fg.muted" lineHeight="relaxed">
+              <Text fontSize="2xl" color="whiteAlpha.700" lineHeight="relaxed">
                 Currently, I&apos;m a founding engineer at **Fettle**, where I lead 
                 software architecture for distributed voice AI. I also lead automotive 
                 electronics for **SolarMobil**, designing stochastic telemetry engines 
