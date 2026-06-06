@@ -143,13 +143,13 @@ const Home = () => {
                 electronics for <strong>SolarMobil</strong>, designing stochastic telemetry engines 
                 that fuse vehicle state with environmental data in real-time.
               </Text>
-              <Stack direction={{ base: "column", sm: "row" }} gap={6} pt={8} width="full">
+              <Stack direction={{ base: "column", sm: "row" }} gap={6} pt={8} width="full" flexWrap="wrap">
                 <Link href="/tech" passHref>
                   <ThemedButton size="xl" bg="brand.500" color="fg.default" px={10} width={{ base: "full", sm: "auto" }}>
                     Full Stack Capability
                   </ThemedButton>
                 </Link>
-                <Link href="/about" passHref>
+                <Link href="/about#publications" passHref>
                   <ThemedButton variant="outline" size="xl" px={10} width={{ base: "full", sm: "auto" }}>
                     Research Journal <BsArrowRight style={{ marginLeft: '12px' }} />
                   </ThemedButton>

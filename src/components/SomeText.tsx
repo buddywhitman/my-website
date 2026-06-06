@@ -9,6 +9,7 @@ import {
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { BsLinkedin, BsGithub } from "react-icons/bs";
+import { FaOrcid } from "react-icons/fa";
 import { Magnetic } from "./motion/Magnetic";
 
 const MotionHeading = motion(Heading) as any;
@@ -83,8 +84,8 @@ const SomeText = () => {
         pl={8}
         py={2}
       >
-        Architecting production-grade infrastructure from **RTL-level hardware** 
-        up to **agentic AI orchestration**. Specializing in low-latency systems 
+        Architecting production-grade infrastructure from <strong>RTL-level hardware</strong> 
+        up to <strong>agentic AI orchestration</strong>. Specializing in low-latency systems 
         for HFT, hospital networks, and autonomous racing. Q1 Nature Author.
       </MotionText>
 
@@ -115,6 +116,17 @@ const SomeText = () => {
             transition="color 0.2s"
           >
             <Icon as={BsGithub} boxSize={8} />
+          </ChakraLink>
+        </Magnetic>
+        <Magnetic>
+          <ChakraLink
+            href="https://orcid.org"
+            target="_blank"
+            color="fg.muted"
+            _hover={{ color: "brand.500" }}
+            transition="color 0.2s"
+          >
+            <Icon as={FaOrcid} boxSize={8} />
           </ChakraLink>
         </Magnetic>
       </MotionFlex>

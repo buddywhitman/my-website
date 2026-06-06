@@ -137,9 +137,14 @@ const Tech = () => {
       try {
         const repos = await fetch("/api/get-repos");
         const toks = await repos.json();
-        if (toks.status) SetData(toks.data);
+        if (toks.status) {
+          SetData(toks.data);
+        } else {
+          SetData({ failed: true });
+        }
       } catch (e) {
         console.error("GitHub fetch failed", e);
+        SetData({ failed: true });
       }
     };
     fetchGitHub();
@@ -244,7 +249,7 @@ const Tech = () => {
             Capabilities
           </Text>
           <Heading marginBottom={8} as="h2" size="4xl" fontWeight="900" letterSpacing="tighter" fontFamily="display" fontStyle="italic">
-            Tech<br/>Stack.
+            Tech Stack.
           </Heading>
           <Text fontSize="xl" color="whiteAlpha.700" mb={12} maxW="2xl">
             A curated intersection of safety-critical embedded systems, 
@@ -310,7 +315,7 @@ const Tech = () => {
 
       <Box p={{ base: 4, md: 10 }} mt={20}>
         <Heading as="h2" size="4xl" fontWeight="900" letterSpacing="tighter" fontFamily="display" fontStyle="italic" mb={12}>
-          Engineering<br/>Journal.
+          Engineering Journal.
         </Heading>
         <Box marginBottom={10}>
           <Alert variant="subtle" status="info" borderRadius="md" borderStartWidth="4px" borderStartColor="brand.500">

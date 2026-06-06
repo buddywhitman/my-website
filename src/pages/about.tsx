@@ -260,7 +260,7 @@ const About = () => {
       </Box>
 
       {/* Publications & IP Section */}
-      <Box px={{ base: 6, md: 10, lg: 20 }} mt={40}>
+      <Box px={{ base: 6, md: 10, lg: 20 }} mt={40} id="publications">
         <Heading as="h3" size="3xl" mb={16} fontWeight="900" letterSpacing="tight">
           Publications & IP
         </Heading>
@@ -388,7 +388,7 @@ const About = () => {
 
       <Flex alignItems="center" direction="column" mt={40} mb={20}>
         <Heading as="h3" size="4xl" fontWeight="900" letterSpacing="tighter" fontFamily="display" fontStyle="italic">
-           Keep<br/>Pushing.
+           Keep Pushing.
         </Heading>
       </Flex>
     </Box>

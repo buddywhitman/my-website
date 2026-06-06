@@ -56,7 +56,7 @@ const FeaturedProjectList: FeaturedProjectType[] = [
       {
         id: 0,
         icon: CgWebsite,
-        url: "https://fettle.health",
+        url: "https://letsfettle.com",
       },
     ],
     reversed: true,
@@ -75,7 +75,7 @@ const FeaturedProjectList: FeaturedProjectType[] = [
       {
         id: 0,
         icon: BsGithub,
-        url: "https://github.com/buddywhitman",
+        url: "https://coreel.com",
       },
     ],
     reversed: false,

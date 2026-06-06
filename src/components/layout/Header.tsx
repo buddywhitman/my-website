@@ -79,10 +79,11 @@ const Header = ({ onOpen }: HeaderProps) => {
         <HStack gap="1" display={{ base: "none", md: "flex" }}>
           <HeaderLink text="about" url="/about" />
           <HeaderLink text="tech" url="/tech" />
+          <HeaderLink text="blog" url="/blog" />
           <HeaderLink text="contact" url="/contact" />
           <HeaderLink 
             text="resume" 
-            url="https://github.com/buddywhitman/my-website/blob/main/Pulkit_Kumar_Resume.pdf" 
+            url="/resume" 
             isSpecial 
           />
           <ThemeToggle />

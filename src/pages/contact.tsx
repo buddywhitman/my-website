@@ -93,7 +93,7 @@ const Contact = () => {
           <IconWrap
             text="Mail"
             icon={MdEmail}
-            color="white"
+            color="fg.default"
             url="mailto:pulkit.talks@gmail.com"
           />
         </Flex>

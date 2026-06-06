@@ -68,7 +68,7 @@ const PostPage: NextPage<PostPageProps> = ({ source, frontmatter }) => {
   };
 
   return (
-    <Layout>
+    <>
       <NextSeo
         title={frontmatter.title}
         description={frontmatter.description}
@@ -114,7 +114,7 @@ const PostPage: NextPage<PostPageProps> = ({ source, frontmatter }) => {
           <MDXRemote {...source} components={components} />
         </Box>
       </Box>
-    </Layout>
+    </>
   );
 };
 
