@@ -123,7 +123,7 @@ const FeaturedProject = (props: FeaturedProjectProps) => {
         >
           Project // 2026
         </Text>
-        <Heading size="5xl" mb={10} fontWeight="900" letterSpacing="tight" color="white">
+        <Heading size="5xl" mb={10} fontWeight="900" letterSpacing="tight" color="fg.default">
           {name}
         </Heading>
         <Box
@@ -165,7 +165,7 @@ const FeaturedProject = (props: FeaturedProjectProps) => {
               fontWeight="900"
               letterSpacing="widest"
               borderColor="whiteAlpha.300"
-              color="white"
+              color="fg.default"
             >
               {tag}
             </Badge>

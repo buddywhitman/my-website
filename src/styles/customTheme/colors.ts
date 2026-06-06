@@ -14,20 +14,6 @@ const colors = {
     900: { value: "#082f49" },
     950: { value: "#020617" },
   },
-  bg: {
-    canvas: { value: "{colors.black}" },
-    surface: { value: "#0A0A0A" },
-    subtle: { value: "#171717" },
-  },
-  fg: {
-    default: { value: "{colors.white}" },
-    muted: { value: "#A3A3A3" },
-    subtle: { value: "#737373" },
-  },
-  border: {
-    default: { value: "#262626" },
-    subtle: { value: "#171717" },
-  },
 };
 
 export default colors;

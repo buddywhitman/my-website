@@ -64,13 +64,19 @@ const config = defineConfig({
     semanticTokens: {
       colors: {
         bg: {
-          default: { value: "{colors.bg.canvas}" },
-          subtle: { value: "{colors.bg.subtle}" },
+          default: { value: { base: "#ffffff", _dark: "#000000" } },
+          surface: { value: { base: "#f4f4f5", _dark: "#0a0a0a" } },
+          subtle: { value: { base: "#e5e5e5", _dark: "#171717" } },
         },
         fg: {
-          default: { value: "{colors.fg.default}" },
-          muted: { value: "{colors.fg.muted}" },
+          default: { value: { base: "#171717", _dark: "#ffffff" } },
+          muted: { value: { base: "#525252", _dark: "#a3a3a3" } },
+          subtle: { value: { base: "#737373", _dark: "#737373" } },
         },
+        border: {
+          default: { value: { base: "#d4d4d8", _dark: "#262626" } },
+          subtle: { value: { base: "#e5e5e5", _dark: "#171717" } },
+        }
       },
     },
     recipes: {

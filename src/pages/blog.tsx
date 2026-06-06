@@ -33,7 +33,7 @@ const Blog = ({ posts }: BlogProps) => {
           >
             Blog
           </Heading>
-          <Text fontSize="xl" color="fg.muted" maxW="2xl">
+          <Text fontSize="xl" color="whiteAlpha.700" maxW="2xl">
             Thoughts on software engineering, AI, and building products in 2026.
           </Text>
         </Box>
@@ -82,7 +82,7 @@ const Blog = ({ posts }: BlogProps) => {
                       <Heading size="xl" fontWeight="700">
                         {post.title}
                       </Heading>
-                      <Text color="fg.muted" fontSize="sm">
+                      <Text color="whiteAlpha.700" fontSize="sm">
                         {new Date(post.date).toLocaleDateString("en-US", {
                           year: "numeric",
                           month: "long",

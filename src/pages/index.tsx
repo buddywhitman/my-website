@@ -128,24 +128,24 @@ const Home = () => {
             align="center"
           >
             <VStack align="flex-start" flex="1" gap={8}>
-              <Heading size="4xl" fontWeight="900" letterSpacing="tight" color="white">
+              <Heading size="4xl" fontWeight="900" letterSpacing="tight" color="fg.default">
                 2026 / Performance Architecture
               </Heading>
-              <Text fontSize="2xl" color="whiteAlpha.700" lineHeight="relaxed">
-                I architect production-grade infrastructure where **determinism meets 
-                intelligence**. My work spans from **RTL-level hardware optimization** 
-                for low-latency controllers to **agentic AI orchestration** for 
+              <Text fontSize="2xl" color="fg.muted" lineHeight="relaxed">
+                I architect production-grade infrastructure where <strong>determinism meets 
+                intelligence</strong>. My work spans from <strong>RTL-level hardware optimization</strong> 
+                for low-latency controllers to <strong>agentic AI orchestration</strong> for 
                 safety-critical environments.
               </Text>
-              <Text fontSize="2xl" color="whiteAlpha.700" lineHeight="relaxed">
-                Currently, I&apos;m a founding engineer at **Fettle**, where I lead 
+              <Text fontSize="2xl" color="fg.muted" lineHeight="relaxed">
+                Currently, I&apos;m a founding engineer at <strong>Fettle</strong>, where I lead 
                 software architecture for distributed voice AI. I also lead automotive 
-                electronics for **SolarMobil**, designing stochastic telemetry engines 
+                electronics for <strong>SolarMobil</strong>, designing stochastic telemetry engines 
                 that fuse vehicle state with environmental data in real-time.
               </Text>
               <Stack direction={{ base: "column", sm: "row" }} gap={6} pt={8} width="full">
                 <Link href="/tech" passHref>
-                  <ThemedButton size="xl" bg="brand.500" color="white" px={10} width={{ base: "full", sm: "auto" }}>
+                  <ThemedButton size="xl" bg="brand.500" color="fg.default" px={10} width={{ base: "full", sm: "auto" }}>
                     Full Stack Capability
                   </ThemedButton>
                 </Link>
@@ -160,8 +160,14 @@ const Home = () => {
         </MotionBox>
 
         {/* Featured Work Section */}
-        <MotionBox variants={itemVariants} mb={32}>
-          <Heading size="3xl" fontWeight="800" letterSpacing="tight" mb={12}>
+        <MotionBox 
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          mb={32}
+        >
+          <Heading size="3xl" fontWeight="800" letterSpacing="tight" color="fg.default" mb={12}>
             Strategic Engineering
           </Heading>
           <VStack gap={20} align="stretch">
@@ -169,7 +175,7 @@ const Home = () => {
               <FeaturedProject
                 name={value.name}
                 description={value.description}
-                textc="fg.muted"
+                textc="whiteAlpha.700"
                 images={[value.images[0], value.images[1]]}
                 key={value.id}
                 tags={value.tags}
@@ -197,18 +203,18 @@ const Home = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           bg="brand.500"
-          color="white"
+          color="fg.default"
           p={{ base: 8, md: 16 }}
           rounded="3xl"
           textAlign="center"
         >
           <VStack gap={8}>
-            <Heading size="4xl" fontWeight="900" letterSpacing="tight">
+            <Heading size="4xl" fontWeight="900" letterSpacing="tight" color="fg.default">
               Architecting the High-Stakes.
             </Heading>
-            <Text fontSize="xl" opacity="0.9" maxW="2xl">
-              Actively seeking roles in **HFT**, **Inference Infrastructure**, and 
-              **Safety-Critical Embedded Systems**. I build the systems that cannot fail.
+            <Text fontSize="xl" opacity="0.9" maxW="2xl" color="fg.default">
+              Actively seeking roles in <strong>HFT</strong>, <strong>Inference Infrastructure</strong>, and 
+              <strong>Safety-Critical Embedded Systems</strong>. I build the systems that cannot fail.
             </Text>
             <Link href="/contact" passHref>
               <ThemedButton
@@ -224,12 +230,6 @@ const Home = () => {
           </VStack>
         </MotionBox>
       </MotionBox>
-    </Box>
-  );
-};
-
-export default Home;
-ox>
     </Box>
   );
 };

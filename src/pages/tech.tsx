@@ -246,7 +246,7 @@ const Tech = () => {
           <Heading marginBottom={8} as="h2" size="4xl" fontWeight="900" letterSpacing="tighter" fontFamily="display" fontStyle="italic">
             Tech<br/>Stack.
           </Heading>
-          <Text fontSize="xl" color="fg.muted" mb={12} maxW="2xl">
+          <Text fontSize="xl" color="whiteAlpha.700" mb={12} maxW="2xl">
             A curated intersection of safety-critical embedded systems, 
             high-performance computing, and production-grade AI infrastructure.
           </Text>
@@ -265,28 +265,28 @@ const Tech = () => {
             borderWidth="1px"
             borderColor="border.subtle"
            >
-              <Heading size="md" mb={8} color="fg.muted" textTransform="uppercase" letterSpacing="widest">Live Activity</Heading>
+              <Heading size="md" mb={8} color="whiteAlpha.700" textTransform="uppercase" letterSpacing="widest">Live Activity</Heading>
               <Flex justify="space-between" wrap="wrap" gap={8}>
                 <VStack align="start" gap={1}>
-                  <Text color="fg.muted" fontWeight="bold" fontSize="sm" textTransform="uppercase">Total Contributions</Text>
+                  <Text color="whiteAlpha.700" fontWeight="bold" fontSize="sm" textTransform="uppercase">Total Contributions</Text>
                   <Text fontSize="4xl" fontWeight="900" color="brand.500">
                     {data.contributionsCollection.contributionCalendar.totalContributions}
                   </Text>
                 </VStack>
                 <VStack align="start" gap={1}>
-                  <Text color="fg.muted" fontWeight="bold" fontSize="sm" textTransform="uppercase">Commits</Text>
+                  <Text color="whiteAlpha.700" fontWeight="bold" fontSize="sm" textTransform="uppercase">Commits</Text>
                   <Text fontSize="4xl" fontWeight="900">
                     {data.contributionsCollection.totalCommitContributions}
                   </Text>
                 </VStack>
                 <VStack align="start" gap={1}>
-                  <Text color="fg.muted" fontWeight="bold" fontSize="sm" textTransform="uppercase">Pull Requests</Text>
+                  <Text color="whiteAlpha.700" fontWeight="bold" fontSize="sm" textTransform="uppercase">Pull Requests</Text>
                   <Text fontSize="4xl" fontWeight="900">
                     {data.contributionsCollection.totalPullRequestContributions}
                   </Text>
                 </VStack>
                 <VStack align="start" gap={1}>
-                  <Text color="fg.muted" fontWeight="bold" fontSize="sm" textTransform="uppercase">Organizations</Text>
+                  <Text color="whiteAlpha.700" fontWeight="bold" fontSize="sm" textTransform="uppercase">Organizations</Text>
                   <Text fontSize="4xl" fontWeight="900">
                     {data.repositoriesContributedTo.nodes.length}+
                   </Text>
@@ -339,7 +339,7 @@ const Tech = () => {
               <Heading as="h2" size="2xl" fontWeight="800" letterSpacing="tight">
                 Open Source
               </Heading>
-              <HStack gap={4} color="fg.muted">
+              <HStack gap={4} color="whiteAlpha.700">
                  <Icon as={BiGitRepoForked} />
                  <Text fontWeight="bold">Pinned Repositories</Text>
               </HStack>
