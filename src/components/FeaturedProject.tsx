@@ -7,8 +7,7 @@ import {
   Badge,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import { IconType } from "react-icons";
 
 import IconLink from "components/IconLink";
@@ -49,27 +48,18 @@ const FeaturedProject = (props: FeaturedProjectProps) => {
     width,
   } = props;
 
-  const targetRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: targetRef,
-    offset: ["start end", "end start"],
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0, 1, 1, 0]);
-
   const isMobile = useBreakpointValue({ base: true, md: false });
   const image = images[1] || images[0];
 
   if (isMobile) {
     return (
-      <Box mb={10} ref={targetRef}>
+      <Box mb={10}>
         <ImageBox height={height} width={width} image={image} alt={alt} />
         <Box mt={6}>
           <Heading size="xl" mb={4} fontWeight="800">
             {name}
           </Heading>
-          <Text color="whiteAlpha.700" fontSize="lg" mb={6}>
+          <Text color="fg.muted" fontSize="lg" mb={6}>
             {description}
           </Text>
           <HStack gap={2} flexWrap="wrap" mb={6}>
@@ -91,14 +81,16 @@ const FeaturedProject = (props: FeaturedProjectProps) => {
 
   return (
     <MotionFlex
-      ref={targetRef}
-      style={{ opacity } as any}
       direction={reversed ? "row-reverse" : "row"}
       align="center"
       gap={24}
       py={32}
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.6 }}
     >
-      <MotionBox flex="1.5" style={{ y } as any}>
+      <MotionBox flex="1.5">
         <Box position="relative">
           <Box
             position="absolute"
@@ -127,15 +119,14 @@ const FeaturedProject = (props: FeaturedProjectProps) => {
           {name}
         </Heading>
         <Box
-          bg="whiteAlpha.50"
-          backdropFilter="blur(10px)"
+          bg="bg.subtle"
           p={12}
           borderRadius="4xl"
           borderWidth="1px"
-          borderColor="whiteAlpha.100"
+          borderColor="border.subtle"
           mb={12}
           position="relative"
-          boxShadow="2xl"
+          boxShadow="xl"
           _before={{
             content: "''",
             position: "absolute",
@@ -148,7 +139,7 @@ const FeaturedProject = (props: FeaturedProjectProps) => {
             borderBottomLeftRadius: "full",
           }}
         >
-          <Text color="whiteAlpha.900" fontSize="2xl" lineHeight="relaxed" fontWeight="medium">
+          <Text color="fg.default" fontSize="2xl" lineHeight="relaxed" fontWeight="medium">
             {description}
           </Text>
         </Box>
@@ -164,7 +155,7 @@ const FeaturedProject = (props: FeaturedProjectProps) => {
               fontSize="xs"
               fontWeight="900"
               letterSpacing="widest"
-              borderColor="whiteAlpha.300"
+              borderColor="border.default"
               color="fg.default"
             >
               {tag}
