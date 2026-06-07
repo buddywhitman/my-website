@@ -275,25 +275,25 @@ const Tech = () => {
                 <VStack align="start" gap={1}>
                   <Text color="whiteAlpha.700" fontWeight="bold" fontSize="sm" textTransform="uppercase">Total Contributions</Text>
                   <Text fontSize="4xl" fontWeight="900" color="brand.500">
-                    {data.contributionsCollection.contributionCalendar.totalContributions}
+                    {data?.contributionsCollection?.contributionCalendar?.totalContributions || 0}
                   </Text>
                 </VStack>
                 <VStack align="start" gap={1}>
                   <Text color="whiteAlpha.700" fontWeight="bold" fontSize="sm" textTransform="uppercase">Commits</Text>
                   <Text fontSize="4xl" fontWeight="900">
-                    {data.contributionsCollection.totalCommitContributions}
+                    {data?.contributionsCollection?.totalCommitContributions || 0}
                   </Text>
                 </VStack>
                 <VStack align="start" gap={1}>
                   <Text color="whiteAlpha.700" fontWeight="bold" fontSize="sm" textTransform="uppercase">Pull Requests</Text>
                   <Text fontSize="4xl" fontWeight="900">
-                    {data.contributionsCollection.totalPullRequestContributions}
+                    {data?.contributionsCollection?.totalPullRequestContributions || 0}
                   </Text>
                 </VStack>
                 <VStack align="start" gap={1}>
                   <Text color="whiteAlpha.700" fontWeight="bold" fontSize="sm" textTransform="uppercase">Organizations</Text>
                   <Text fontSize="4xl" fontWeight="900">
-                    {data.repositoriesContributedTo.nodes.length}+
+                    {data?.repositoriesContributedTo?.nodes?.length || 0}+
                   </Text>
                 </VStack>
               </Flex>
@@ -365,7 +365,7 @@ const Tech = () => {
                   autoplay
                   autoplaySpeed={3000}
                 >
-                  {data.repositories.nodes.map((value: any) => (
+                  {data?.repositories?.nodes?.map((value: any) => (
                     <GithubProject key={value.id} data={value} />
                   ))}
                 </Slider>

@@ -28,6 +28,7 @@ const SomeText = () => {
     >
       <Box>
         <MotionHeading
+          className="organic-gradient-text"
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ ...springConfig, delay: 0.1 } as any}
@@ -35,13 +36,9 @@ const SomeText = () => {
           fontSize={{ base: "7xl", md: "9xl", lg: "10xl" }}
           letterSpacing="tight"
           lineHeight="0.9"
-          color="white"
           fontFamily="display"
+          fontStyle="italic"
           mb={12}
-          bgGradient="to-br"
-          gradientFrom="white"
-          gradientTo="whiteAlpha.600"
-          bgClip="text"
         >
           Silicon to<br/>Intelligence.
         </MotionHeading>

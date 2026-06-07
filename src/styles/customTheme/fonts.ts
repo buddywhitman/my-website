@@ -1,7 +1,7 @@
 const fonts = {
-  heading: { value: "Montserrat, sans-serif" },
-  body: { value: "Inter, sans-serif" },
-  display: { value: "'Playfair Display', serif" },
+  heading: { value: "'EB Garamond', serif" },
+  body: { value: "'Inter', sans-serif" },
+  display: { value: "'EB Garamond', serif" },
   mono: { value: "'JetBrains Mono', monospace" },
 };
 

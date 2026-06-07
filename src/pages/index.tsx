@@ -76,9 +76,9 @@ const Home = () => {
         width="120%"
         height="120%"
         zIndex="-1"
-        opacity="0.4"
-        filter="blur(120px)"
-        background="radial-gradient(circle at 20% 30%, var(--chakra-colors-brand-900) 0%, transparent 40%), radial-gradient(circle at 80% 70%, var(--chakra-colors-brand-800) 0%, transparent 40%)"
+        opacity="0.2"
+        filter="blur(100px)"
+        className="organic-gradient-bg"
         pointerEvents="none"
       />
 
