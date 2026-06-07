@@ -12,12 +12,12 @@ const Footer = () => {
         borderColor="border.subtle"
         pt="8"
       >
-        <Text fontSize="sm" color="fg.muted">
+        <Text fontSize="sm" color="var(--synced-muted)">
           &copy; {new Date().getFullYear()} -{" "}
           <Link 
             href="https://buddywhitman.vercel.app" 
-            color="fg.default"
-            fontWeight="medium"
+            color="var(--synced-text)"
+            fontWeight="bold"
             _hover={{ color: "brand.500" }}
           >
             buddywhitman

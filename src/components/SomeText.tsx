@@ -7,10 +7,11 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { BsLinkedin, BsGithub } from "react-icons/bs";
 import { FaOrcid } from "react-icons/fa";
 import { Magnetic } from "./motion/Magnetic";
+import { useRef } from "react";
 
 const MotionHeading = motion(Heading) as any;
 const MotionText = motion(Text) as any;
@@ -19,12 +20,24 @@ const MotionFlex = motion(Flex) as any;
 const springConfig = { type: "spring", duration: 0.8, bounce: 0.2 };
 
 const SomeText = () => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"]
+  });
+  
+  const y = useTransform(scrollYProgress, [0, 1], [0, 150]);
+  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
   return (
     <VStack
+      ref={ref}
       align="flex-start"
       gap={8}
       p={{ base: 6, md: 10 }}
       maxW="3xl"
+      style={{ y, opacity } as any}
+      as={motion.div}
     >
       <Box>
         <MotionHeading
@@ -48,7 +61,7 @@ const SomeText = () => {
           transition={{ ...springConfig, delay: 0.3 } as any}
           fontSize={{ base: "3xl", md: "4xl" }}
           fontWeight="900"
-          color="brand.400"
+          color="var(--synced-text)"
           letterSpacing="tighter"
           textTransform="uppercase"
         >
@@ -60,7 +73,7 @@ const SomeText = () => {
           transition={{ ...springConfig, delay: 0.4 } as any}
           fontSize={{ base: "xl", md: "2xl" }}
           fontWeight="bold"
-          color="whiteAlpha.800"
+          color="var(--synced-muted)"
           mt={4}
           letterSpacing="wide"
         >
@@ -74,7 +87,7 @@ const SomeText = () => {
         transition={{ ...springConfig, delay: 0.5 } as any}
         fontSize={{ base: "lg", md: "xl" }}
         lineHeight="relaxed"
-        color="fg.muted"
+        color="var(--synced-muted)"
         maxW="2xl"
         borderLeft="4px solid"
         borderColor="brand.500"
@@ -99,7 +112,7 @@ const SomeText = () => {
             target="_blank"
             color="var(--synced-muted)"
             _hover={{ color: "brand.500", transform: "scale(1.2) rotate(10deg)" }}
-            transition="color 0.2s"
+            transition="all 0.2s"
           >
             <Icon as={BsLinkedin} boxSize={8} />
           </ChakraLink>
@@ -109,8 +122,8 @@ const SomeText = () => {
             href="https://github.com/buddywhitman"
             target="_blank"
             color="var(--synced-muted)"
-            _hover={{ color: "brand.500", transform: "scale(1.2) rotate(10deg)" }}
-            transition="color 0.2s"
+            _hover={{ color: "brand.500", transform: "scale(1.2) rotate(-10deg)" }}
+            transition="all 0.2s"
           >
             <Icon as={BsGithub} boxSize={8} />
           </ChakraLink>
@@ -121,7 +134,7 @@ const SomeText = () => {
             target="_blank"
             color="var(--synced-muted)"
             _hover={{ color: "brand.500", transform: "scale(1.2) rotate(10deg)" }}
-            transition="color 0.2s"
+            transition="all 0.2s"
           >
             <Icon as={FaOrcid} boxSize={8} />
           </ChakraLink>

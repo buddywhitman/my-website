@@ -12,7 +12,7 @@ import {
   VStack,
   HStack,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { BiCodeAlt, BiGitRepoForked, BiStar, BiCheckCircle } from "react-icons/bi";
 import { FaPython, FaJava, FaRobot, FaMicrochip, FaServer, FaCloud, FaPalette, FaTools } from "react-icons/fa";
 import { IconType } from "react-icons/lib";
@@ -52,6 +52,7 @@ import {
   SiAdobecreativecloud,
 } from "react-icons/si";
 import Slider from "react-slick";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 import EnhancedProject from "components/EnhancedProject";
 import GithubProject from "components/GithubProject";
@@ -70,17 +71,18 @@ const SkillPill = ({ icon, name }: SkillPillProps) => {
     <Tooltip content={name} showArrow positioning={{ placement: "top" }}>
       <MotionBox
         whileHover={{ 
-          scale: 1.1, 
+          scale: 1.2, 
+          rotate: [0, -10, 10, 0],
           y: -5,
           boxShadow: "0 0 15px var(--chakra-colors-brand-500)",
           borderColor: "brand.500"
         }}
         transition={{ type: "spring", stiffness: 300 } as any}
         p={3}
-        bg="bg.surface"
+        bg="var(--synced-surface)"
         borderRadius="full"
         borderWidth="1px"
-        borderColor="border.default"
+        borderColor="var(--synced-border)"
         display="flex"
         alignItems="center"
         justifyContent="center"
@@ -89,7 +91,7 @@ const SkillPill = ({ icon, name }: SkillPillProps) => {
         role="img"
         aria-label={name}
       >
-        <Icon as={icon} h={6} w={6} color="brand.300" />
+        <Icon as={icon} h={6} w={6} color="brand.400" />
       </MotionBox>
     </Tooltip>
   );
@@ -102,31 +104,42 @@ interface SkillCategoryProps {
   delay: number;
 }
 
-const SkillCategory = ({ title, icon, skills, delay }: SkillCategoryProps) => (
-  <MotionBox
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.5, delay }}
-    p={8}
-    bg="bg.surface"
-    borderRadius="3xl"
-    borderWidth="1px"
-    borderColor="border.default"
-    _hover={{ borderColor: "brand.500" }}
-    boxShadow="sm"
-  >
-    <HStack mb={8} gap={4}>
-      <Icon as={icon} w={8} h={8} color="brand.400" aria-label={title} />
-      <Heading size="lg" fontWeight="800" letterSpacing="tight">{title}</Heading>
-    </HStack>
-    <Flex gap={4} wrap="wrap">
-      {skills.map((skill) => (
-        <SkillPill key={skill.name} icon={skill.icon} name={skill.name} />
-      ))}
-    </Flex>
-  </MotionBox>
-);
+const SkillCategory = ({ title, icon, skills, delay }: SkillCategoryProps) => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  });
+  
+  const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
+
+  return (
+    <MotionBox
+      ref={ref}
+      style={{ y } as any}
+      initial={{ opacity: 0, scale: 0.9 }}
+      whileInView={{ opacity: 1, scale: 1 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.6, delay, type: "spring", bounce: 0.4 }}
+      p={8}
+      bg="var(--synced-surface)"
+      borderRadius="3xl"
+      borderWidth="1px"
+      borderColor="var(--synced-border)"
+      _hover={{ borderColor: "brand.500", transform: "rotate(1deg) scale(1.02)", boxShadow: "2xl" }}
+    >
+      <HStack mb={8} gap={4}>
+        <Icon as={icon} w={8} h={8} color="brand.400" aria-label={title} />
+        <Heading size="lg" fontWeight="800" letterSpacing="tight" color="var(--synced-text)">{title}</Heading>
+      </HStack>
+      <Flex gap={4} wrap="wrap">
+        {skills.map((skill) => (
+          <SkillPill key={skill.name} icon={skill.icon} name={skill.name} />
+        ))}
+      </Flex>
+    </MotionBox>
+  );
+};
 
 const Tech = () => {
   const [data, SetData] = useState<any>(null);
@@ -233,9 +246,9 @@ const Tech = () => {
     <Box pb={20}>
       <Box textAlign="left" p={{ base: 4, md: 10 }} mt={10}>
         <MotionBox
-          initial={{ opacity: 0, x: -20 }}
+          initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8, type: "spring", bounce: 0.3 }}
         >
           <Text
             fontFamily="display"
@@ -248,16 +261,14 @@ const Tech = () => {
           >
             Capabilities
           </Text>
-          <Heading marginBottom={8} as="h2" size="4xl" fontWeight="900" letterSpacing="tighter" fontFamily="display" fontStyle="italic">
+          <Heading marginBottom={8} as="h2" fontSize={{ base: "6xl", md: "8xl", lg: "9xl" }} fontWeight="900" letterSpacing="tighter" fontFamily="display" fontStyle="italic" color="var(--synced-text)">
             Tech Stack.
           </Heading>
-          <Text fontSize="xl" color="whiteAlpha.700" mb={12} maxW="2xl">
+          <Text fontSize="xl" color="var(--synced-muted)" mb={12} maxW="2xl">
             A curated intersection of safety-critical embedded systems, 
             high-performance computing, and production-grade AI infrastructure.
           </Text>
         </MotionBox>
-
-        {/* Live GitHub Stats removed */}
 
         <SimpleGrid columns={{ base: 1, lg: 2, xl: 3 }} gap={10} px={{ base: 0, md: 4 }}>
           {skillCategories.map((category) => (
@@ -273,11 +284,11 @@ const Tech = () => {
       </Box>
 
       <Box p={{ base: 4, md: 10 }} mt={20}>
-        <Heading as="h2" size="4xl" fontWeight="900" letterSpacing="tighter" fontFamily="display" fontStyle="italic" mb={12}>
+        <Heading as="h2" fontSize={{ base: "6xl", md: "8xl", lg: "9xl" }} fontWeight="900" letterSpacing="tighter" fontFamily="display" fontStyle="italic" mb={12} color="var(--synced-text)">
           Engineering Journal.
         </Heading>
         <Box marginBottom={10}>
-          <Alert variant="subtle" status="info" borderRadius="md" borderStartWidth="4px" borderStartColor="brand.500">
+          <Alert variant="subtle" status="info" borderRadius="md" borderStartWidth="4px" borderStartColor="brand.500" bg="var(--synced-surface)" color="var(--synced-text)">
             Showcasing a mix of specialized embedded work and open-source contributions.
           </Alert>
         </Box>
@@ -298,14 +309,19 @@ const Tech = () => {
         </SimpleGrid>
 
         <VStack gap={24} align="stretch" mt={32}>
-          <Box>
+          <MotionBox
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, type: "spring" }}
+          >
             <Flex justify="space-between" align="center" mb={10}>
-              <Heading as="h2" size="2xl" fontWeight="800" letterSpacing="tight">
+              <Heading as="h2" size="4xl" fontWeight="900" letterSpacing="tighter" color="var(--synced-text)">
                 Open Source
               </Heading>
-              <HStack gap={4} color="whiteAlpha.700">
-                 <Icon as={BiGitRepoForked} />
-                 <Text fontWeight="bold">Pinned Repositories</Text>
+              <HStack gap={4} color="var(--synced-muted)">
+                 <Icon as={BiGitRepoForked} boxSize={8} />
+                 <Text fontWeight="bold" display={{ base: "none", sm: "block" }}>Pinned Repositories</Text>
               </HStack>
             </Flex>
             <Box my={3} minH="250px">
@@ -330,16 +346,21 @@ const Tech = () => {
                 </Slider>
               )}
             </Box>
-          </Box>
+          </MotionBox>
 
-          <Box>
+          <MotionBox
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.6, type: "spring", delay: 0.2 }}
+          >
             <Flex justify="space-between" align="center" mb={10}>
-              <Heading as="h2" size="2xl" fontWeight="800" letterSpacing="tight">
+              <Heading as="h2" size="4xl" fontWeight="900" letterSpacing="tighter" color="var(--synced-text)">
                 Impact
               </Heading>
               <HStack gap={4} color="brand.500">
-                 <Icon as={BiCheckCircle} />
-                 <Text fontWeight="bold">Organization Contributions</Text>
+                 <Icon as={BiCheckCircle} boxSize={8} />
+                 <Text fontWeight="bold" display={{ base: "none", sm: "block" }}>Organization Contributions</Text>
               </HStack>
             </Flex>
             <Box my={3} minH="250px">
@@ -364,7 +385,7 @@ const Tech = () => {
                 </Slider>
               )}
             </Box>
-          </Box>
+          </MotionBox>
         </VStack>
       </Box>
     </Box>

@@ -46,12 +46,14 @@ const TextImage = ({
     offset: ["start end", "end start"],
   });
 
-  const x = useTransform(scrollYProgress, [0, 1], reverse ? [-50, 50] : [50, -50]);
+  const x = useTransform(scrollYProgress, [0, 1], reverse ? [-100, 100] : [100, -100]);
+  const rotate = useTransform(scrollYProgress, [0, 1], reverse ? [-5, 5] : [5, -5]);
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.8, 1, 0.8]);
 
   return (
     <Flex
       ref={ref}
-      marginY={{ base: 12, md: 24 }}
+      marginY={{ base: 12, md: 32 }}
       paddingX={{ base: 0, md: 4, xl: 10 }}
       marginX={{ base: 0, xl: "5%" }}
       direction={{ base: "column", md: reverse ? "row-reverse" : "row" }}
@@ -62,12 +64,12 @@ const TextImage = ({
         textAlign={{ base: "center", md: "left" }}
         width={{ base: "100%", md: cw }}
       >
-        <Text fontSize="2xl" lineHeight="tall" fontWeight="medium" color="fg.default">
+        <Text fontSize="2xl" lineHeight="tall" fontWeight="medium" color="var(--synced-text)">
           {text}
         </Text>
       </Box>
       <MotionBox
-        style={{ x } as any}
+        style={{ x, rotate, scale } as any}
         borderRadius="3xl"
         overflow="hidden"
         boxShadow="2xl"
@@ -86,65 +88,36 @@ interface ExpertiseCardProps {
   delay: number;
 }
 
-const ExpertiseCard = ({ title, description, icon, delay }: ExpertiseCardProps) => (
-  <MotionBox
-    initial={{ opacity: 0, y: 20 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.5, delay }}
-    p={10}
-    bg="bg.surface"
-    borderRadius="3xl"
-    borderWidth="1px"
-    borderColor="border.default"
-    _hover={{ borderColor: "brand.500", transform: "translateY(-8px)", boxShadow: "xl" }}
-  >
-    <Icon as={icon} w={12} h={12} color="brand.400" mb={6} aria-label={title} />
-    <Heading size="lg" mb={4} fontWeight="800">{title}</Heading>
-    <Text color="fg.muted" fontSize="lg">{description}</Text>
-  </MotionBox>
-);
+const ExpertiseCard = ({ title, description, icon, delay }: ExpertiseCardProps) => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  
+  const y = useTransform(scrollYProgress, [0, 1], [100, -100]);
 
-interface ExperienceItemProps {
-  role: string;
-  company: string;
-  period: string;
-  description: string;
-  tags: string[];
-  delay: number;
-}
-
-const ExperienceItem = ({ role, company, period, description, tags, delay }: ExperienceItemProps) => (
-  <MotionBox
-    initial={{ opacity: 0, x: -20 }}
-    whileInView={{ opacity: 1, x: 0 }}
-    viewport={{ once: true }}
-    transition={{ duration: 0.5, delay }}
-    mb={12}
-    p={10}
-    bg="bg.subtle"
-    borderRadius="3xl"
-    borderLeftWidth="8px"
-    borderLeftColor="brand.500"
-    boxShadow="sm"
-  >
-    <Flex justifyContent="space-between" alignItems="flex-start" mb={4} flexWrap="wrap">
-      <VStack align="start" gap={1}>
-        <Heading size="xl" fontWeight="900" letterSpacing="tight">{role}</Heading>
-        <Text color="brand.400" fontWeight="800" fontSize="lg" textTransform="uppercase" letterSpacing="widest">{company}</Text>
-      </VStack>
-      <Badge colorPalette="brand" variant="surface" px={4} py={2} borderRadius="full" fontSize="sm">
-        {period}
-      </Badge>
-    </Flex>
-    <Text mb={6} color="fg.default" fontSize="xl" lineHeight="relaxed">{description}</Text>
-    <HStack gap={3} flexWrap="wrap">
-      {tags.map(tag => (
-        <Badge key={tag} variant="outline" colorPalette="gray" fontSize="xs" px={3} py={1} borderRadius="md">{tag}</Badge>
-      ))}
-    </HStack>
-  </MotionBox>
-);
+  return (
+    <MotionBox
+      ref={ref}
+      style={{ y } as any}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.8, delay }}
+      p={10}
+      bg="var(--synced-surface)"
+      borderRadius="3xl"
+      borderWidth="1px"
+      borderColor="var(--synced-border)"
+      _hover={{ borderColor: "brand.500", transform: "scale(1.05) rotate(2deg)", boxShadow: "xl" }}
+    >
+      <Icon as={icon} w={12} h={12} color="brand.400" mb={6} aria-label={title} />
+      <Heading size="lg" mb={4} fontWeight="800" color="var(--synced-text)">{title}</Heading>
+      <Text color="var(--synced-muted)" fontSize="lg">{description}</Text>
+    </MotionBox>
+  );
+};
 
 const About = () => {
   const aboutSchema = {
@@ -187,8 +160,8 @@ const About = () => {
           >
             The Architect
           </Text>
-          <Heading as="h2" size="4xl" fontWeight="900" letterSpacing="tighter" fontFamily="display" fontStyle="italic" mb={16}>
-            Deeptech<br/>Pioneer.
+          <Heading as="h2" fontSize={{ base: "6xl", md: "8xl", lg: "9xl" }} fontWeight="900" letterSpacing="tighter" fontFamily="display" fontStyle="italic" mb={16} color="var(--synced-text)">
+            Deeptech Pioneer.
           </Heading>
         </MotionBox>
 
@@ -216,7 +189,7 @@ const About = () => {
 
       {/* Core Expertise Section */}
       <Box px={{ base: 6, md: 10, lg: 20 }} mt={32}>
-        <Heading as="h3" size="3xl" mb={16} fontWeight="900" letterSpacing="tight">
+        <Heading as="h3" fontSize={{ base: "5xl", md: "7xl" }} mb={16} fontWeight="900" letterSpacing="tight" color="var(--synced-text)">
           Core Expertise
         </Heading>
         <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={12}>
@@ -261,7 +234,7 @@ const About = () => {
 
       {/* Publications & IP Section */}
       <Box px={{ base: 6, md: 10, lg: 20 }} mt={40} id="publications">
-        <Heading as="h3" size="3xl" mb={16} fontWeight="900" letterSpacing="tight">
+        <Heading as="h3" fontSize={{ base: "5xl", md: "7xl" }} mb={16} fontWeight="900" letterSpacing="tight" color="var(--synced-text)">
           Publications & IP
         </Heading>
         <VStack gap={10} align="stretch">
@@ -270,20 +243,22 @@ const About = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             p={10}
-            bg="bg.surface"
+            bg="var(--synced-surface)"
             borderRadius="3xl"
             borderWidth="1px"
-            borderColor="border.default"
+            borderColor="var(--synced-border)"
             position="relative"
             overflow="hidden"
+            _hover={{ transform: "rotate(-1deg) scale(1.02)", boxShadow: "2xl" }}
+            transition={{ duration: 0.4 }}
           >
             <Box position="absolute" top={0} left={0} w="full" h="4px" bg="green.400" />
             <Flex alignItems="center" mb={6} gap={4}>
               <Icon as={FaFileAlt} color="brand.500" boxSize={8} />
               <Badge colorPalette="green" fontSize="sm" px={3} py={1}>Scientific Reports (Springer Nature, Q1)</Badge>
             </Flex>
-            <Heading size="xl" mb={4} fontWeight="800" lineHeight="shorter">Technical validation of a multimodal emotion-adaptive biofeedback system for autonomic regulation using guided breathing</Heading>
-            <Text color="fg.muted" mb={8} fontSize="lg">Published in Sci Rep (2026). DOI: 10.1038/s41598-026-46105-9</Text>
+            <Heading size="xl" mb={4} fontWeight="800" lineHeight="shorter" color="var(--synced-text)">Technical validation of a multimodal emotion-adaptive biofeedback system for autonomic regulation using guided breathing</Heading>
+            <Text color="var(--synced-muted)" mb={8} fontSize="lg">Published in Sci Rep (2026). DOI: 10.1038/s41598-026-46105-9</Text>
             <Link 
                 href="https://doi.org/10.1038/s41598-026-46105-9" 
                 target="_blank" 
@@ -302,20 +277,22 @@ const About = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             p={10}
-            bg="bg.surface"
+            bg="var(--synced-surface)"
             borderRadius="3xl"
             borderWidth="1px"
-            borderColor="border.default"
+            borderColor="var(--synced-border)"
             position="relative"
             overflow="hidden"
+            _hover={{ transform: "rotate(1deg) scale(1.02)", boxShadow: "2xl" }}
+            transition={{ duration: 0.4 }}
           >
             <Box position="absolute" top={0} left={0} w="full" h="4px" bg="blue.400" />
             <Flex alignItems="center" mb={6} gap={4}>
               <Icon as={FaFileAlt} color="brand.500" boxSize={8} />
               <Badge colorPalette="blue" fontSize="sm" px={3} py={1}>IEEE VTC (A*)</Badge>
             </Flex>
-            <Heading size="xl" mb={4} fontWeight="800" lineHeight="shorter">Physics-Informed Stochastic Receding Horizon Control for Autonomous Energy Management in Solar Racing</Heading>
-            <Text color="fg.muted" mb={8} fontSize="lg">Accepted for IEEE VTC (2026).</Text>
+            <Heading size="xl" mb={4} fontWeight="800" lineHeight="shorter" color="var(--synced-text)">Physics-Informed Stochastic Receding Horizon Control for Autonomous Energy Management in Solar Racing</Heading>
+            <Text color="var(--synced-muted)" mb={8} fontSize="lg">Accepted for IEEE VTC (2026).</Text>
             <Link 
                 href="https://vtc2026spring.trackchair.com/paper/47987" 
                 target="_blank" 
@@ -338,15 +315,16 @@ const About = () => {
                 <MotionBox
                     key={i}
                     p={8}
-                    bg="bg.subtle"
+                    bg="var(--synced-surface)"
                     borderRadius="3xl"
                     borderWidth="1px"
-                    borderColor="border.default"
-                    _hover={{ borderColor: "yellow.400" }}
+                    borderColor="var(--synced-border)"
+                    _hover={{ borderColor: "yellow.400", transform: "scale(1.05)", boxShadow: "lg" }}
+                    transition={{ duration: 0.3 }}
                 >
                     <Icon as={FaLightbulb} color="yellow.400" boxSize={8} mb={4} />
-                    <Heading size="md" mb={4} fontWeight="800">Patent: {patent.title}</Heading>
-                    <Text fontSize="md" color="fg.muted" lineHeight="relaxed">{patent.desc}</Text>
+                    <Heading size="md" mb={4} fontWeight="800" color="var(--synced-text)">Patent: {patent.title}</Heading>
+                    <Text fontSize="md" color="var(--synced-muted)" lineHeight="relaxed">{patent.desc}</Text>
                 </MotionBox>
             ))}
           </SimpleGrid>
@@ -355,7 +333,7 @@ const About = () => {
 
       {/* Comprehensive Career Timeline */}
       <Box px={{ base: 6, md: 10, lg: 20 }} mt={40} position="relative">
-        <Heading as="h3" size="3xl" mb={24} fontWeight="900" letterSpacing="tight" textAlign="center">
+        <Heading as="h3" fontSize={{ base: "5xl", md: "7xl" }} mb={24} fontWeight="900" letterSpacing="tight" textAlign="center" color="var(--synced-text)">
           The Journey
         </Heading>
         
@@ -593,29 +571,29 @@ const About = () => {
 
                 <MotionBox
                   initial={{ opacity: 0, x: isEven ? 50 : -50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  whileInView={{ opacity: 1, x: 0, rotate: isEven ? 2 : -2 }}
                   viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.6 }}
+                  transition={{ duration: 0.6, type: "spring", bounce: 0.4 }}
                   w={{ base: "calc(100% - 50px)", md: "45%" }}
                   ml={{ base: "50px", md: isEven ? "55%" : 0 }}
                   mr={{ base: 0, md: isEven ? 0 : "55%" }}
                   p={8}
-                  bg="bg.surface"
+                  bg="var(--synced-surface)"
                   borderRadius="3xl"
                   borderWidth="1px"
-                  borderColor="border.default"
-                  _hover={{ borderColor: "brand.500", boxShadow: "xl" }}
+                  borderColor="var(--synced-border)"
+                  _hover={{ borderColor: "brand.500", boxShadow: "2xl", transform: "scale(1.05) rotate(0deg)" }}
                   position="relative"
                 >
                   <Text color="brand.400" fontWeight="900" fontSize="sm" letterSpacing="widest" mb={2}>
                     {item.period}
                   </Text>
-                  <Heading size="xl" fontWeight="800" mb={1}>{item.role}</Heading>
-                  <Text color="whiteAlpha.800" fontSize="lg" fontWeight="bold" mb={4}>{item.company}</Text>
-                  <Text color="fg.muted" lineHeight="relaxed" mb={6}>{item.desc}</Text>
+                  <Heading size="xl" fontWeight="800" mb={1} color="var(--synced-text)">{item.role}</Heading>
+                  <Text color="var(--synced-muted)" fontSize="lg" fontWeight="bold" mb={4}>{item.company}</Text>
+                  <Text color="var(--synced-muted)" lineHeight="relaxed" mb={6}>{item.desc}</Text>
                   <HStack gap={2} flexWrap="wrap">
                     {item.tags.map(tag => (
-                      <Badge key={tag} variant="subtle" colorPalette="gray" borderRadius="full" px={3} py={1}>
+                      <Badge key={tag} variant="outline" color="var(--synced-text)" borderColor="var(--synced-border)" borderRadius="full" px={3} py={1}>
                         {tag}
                       </Badge>
                     ))}
@@ -628,7 +606,7 @@ const About = () => {
       </Box>
 
       <Flex alignItems="center" direction="column" mt={40} mb={20}>
-        <Heading as="h3" size="4xl" fontWeight="900" letterSpacing="tighter" fontFamily="display" fontStyle="italic">
+        <Heading as="h3" fontSize={{ base: "6xl", md: "8xl" }} fontWeight="900" letterSpacing="tighter" fontFamily="display" fontStyle="italic" color="var(--synced-text)">
            Keep Pushing.
         </Heading>
       </Flex>

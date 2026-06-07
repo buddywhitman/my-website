@@ -7,7 +7,8 @@ import {
   Badge,
   useBreakpointValue,
 } from "@chakra-ui/react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
+import { useRef } from "react";
 import { IconType } from "react-icons";
 
 import IconLink from "components/IconLink";
@@ -51,15 +52,24 @@ const FeaturedProject = (props: FeaturedProjectProps) => {
   const isMobile = useBreakpointValue({ base: true, md: false });
   const image = images[1] || images[0];
 
+  const targetRef = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start end", "end start"],
+  });
+
+  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.95, 1, 0.95]);
+  const rotate = useTransform(scrollYProgress, [0, 1], [reversed ? -2 : 2, reversed ? 2 : -2]);
+
   if (isMobile) {
     return (
       <Box mb={10}>
         <ImageBox height={height} width={width} image={image} alt={alt} />
         <Box mt={6}>
-          <Heading size="xl" mb={4} fontWeight="800">
+          <Heading size="xl" mb={4} fontWeight="800" color="var(--synced-text)">
             {name}
           </Heading>
-          <Text color="fg.muted" fontSize="lg" mb={6}>
+          <Text color="var(--synced-muted)" fontSize="lg" mb={6}>
             {description}
           </Text>
           <HStack gap={2} flexWrap="wrap" mb={6}>
@@ -81,6 +91,7 @@ const FeaturedProject = (props: FeaturedProjectProps) => {
 
   return (
     <MotionFlex
+      ref={targetRef}
       direction={reversed ? "row-reverse" : "row"}
       align="center"
       gap={24}
@@ -89,6 +100,7 @@ const FeaturedProject = (props: FeaturedProjectProps) => {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-50px" }}
       transition={{ duration: 0.6 }}
+      style={{ scale, rotate } as any}
     >
       <MotionBox flex="1.5">
         <Box position="relative">
@@ -115,15 +127,15 @@ const FeaturedProject = (props: FeaturedProjectProps) => {
         >
           Project // 2026
         </Text>
-        <Heading size="5xl" mb={10} fontWeight="900" letterSpacing="tight" color="fg.default">
+        <Heading size="5xl" mb={10} fontWeight="900" letterSpacing="tight" color="var(--synced-text)">
           {name}
         </Heading>
         <Box
-          bg="bg.subtle"
+          bg="var(--synced-surface)"
           p={12}
           borderRadius="4xl"
           borderWidth="1px"
-          borderColor="border.subtle"
+          borderColor="var(--synced-border)"
           mb={12}
           position="relative"
           boxShadow="xl"
@@ -139,7 +151,7 @@ const FeaturedProject = (props: FeaturedProjectProps) => {
             borderBottomLeftRadius: "full",
           }}
         >
-          <Text color="fg.default" fontSize="2xl" lineHeight="relaxed" fontWeight="medium">
+          <Text color="var(--synced-text)" fontSize="2xl" lineHeight="relaxed" fontWeight="medium">
             {description}
           </Text>
         </Box>
@@ -155,8 +167,8 @@ const FeaturedProject = (props: FeaturedProjectProps) => {
               fontSize="xs"
               fontWeight="900"
               letterSpacing="widest"
-              borderColor="border.default"
-              color="fg.default"
+              borderColor="var(--synced-border)"
+              color="var(--synced-text)"
             >
               {tag}
             </Badge>
