@@ -86,7 +86,7 @@ const SomeText = () => {
       >
         Architecting production-grade infrastructure from <strong>RTL-level hardware</strong> 
         up to <strong>agentic AI orchestration</strong>. Specializing in low-latency systems 
-        for HFT, hospital networks, and autonomous racing. Q1 Nature Author.
+        for HFT, hospital networks, and autonomous racing. Springer Nature Author.
       </MotionText>
 
       <MotionFlex
@@ -120,7 +120,7 @@ const SomeText = () => {
         </Magnetic>
         <Magnetic>
           <ChakraLink
-            href="https://orcid.org"
+             href="https://orcid.org/0000-0003-4078-1780"
             target="_blank"
             color="fg.muted"
             _hover={{ color: "brand.500" }}
