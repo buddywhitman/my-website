@@ -386,9 +386,16 @@ const About = () => {
             {
               role: "Founder",
               company: "Guaq AI",
-              period: "2024 - Present",
+              period: "Dec 2025 - Present",
               desc: "Building agentic solutions for hospitality, real estate, and finance. Scaled to 6+ clients with ~$8K MRR in 6 months.",
               tags: ["Agentic AI", "LLMs", "Product Strategy"]
+            },
+            {
+              role: "AI Engineer",
+              company: "Teachafy Labs",
+              period: "Aug 2025 - Nov 2025",
+              desc: "Developed Google ADK-based agentic orchestration and WhatsApp business chatbots to inject natural language workflows into ERP platforms, saving 5000+ hrs/week across 17+ clients.",
+              tags: ["Agentic AI", "RAG", "Google Cloud"]
             },
             {
               role: "System Engineer",
@@ -459,6 +466,69 @@ const About = () => {
               period: "Feb 2022 - Aug 2022",
               desc: "Led an international team to build a full-stack Flutter/Firebase application connecting food-abundant establishments with volunteers.",
               tags: ["Flutter", "Firebase", "Leadership"]
+            },
+            {
+              role: "Hardware Lead (Volunteer)",
+              company: "MOSS",
+              period: "2023 - Present",
+              desc: "Led community building around OpenLane and SkyWater130 stack. Hosted 4+ workshops and contributed to Arduino's LiquidCrystal library for unconventional 5x10 displays.",
+              tags: ["Open Source", "Hardware", "Arduino"]
+            },
+            {
+              role: "Core Committee (Volunteer)",
+              company: "Manipal Hackathon",
+              period: "2024",
+              desc: "Developed full-stack developer management portals for Manipal Hackathon's 2024 edition, scaling to 35k+ DAU and optimizing FCP by over 68%.",
+              tags: ["Full Stack", "Performance"]
+            },
+            {
+              role: "Patent Inventor",
+              company: "Intellectual Property",
+              period: "2025",
+              desc: "Filed 3 provisional patents: Adaptive EV Interface, Long-Range Telemetry for Solar EVs, and Automated Robotic Solar Cleaning under MAHE.",
+              tags: ["Patents", "Invention", "R&D"]
+            },
+            {
+              role: "Freelance Web Developer",
+              company: "GigsWall",
+              period: "Jun 2025 - Present",
+              desc: "Web design & UX research for European and US clients, helping scale online presence and customer engagement.",
+              tags: ["Freelance", "UX", "Web"]
+            },
+            {
+              role: "UI/UX & Branding Lead",
+              company: "Kraftr",
+              period: "Jul 2023 - Dec 2023",
+              desc: "Created brand guidelines, visual communication, and social media content using Adobe Creative Suite and Figma. Secured term sheet worth $100k through investor decks.",
+              tags: ["Figma", "Branding", "UI/UX"]
+            },
+            {
+              role: "Social Media Manager",
+              company: "Manipal Updates",
+              period: "Aug 2023 - Oct 2023",
+              desc: "Designed social media marketing content resulting in a 78% increase in footfall and 55% rise in revenue for client restaurants.",
+              tags: ["Marketing", "Design"]
+            },
+            {
+              role: "Certified Professional",
+              company: "AWS & (ISC)²",
+              period: "2023",
+              desc: "Achieved AWS Certified Solutions Architect and (ISC)² SSCP certifications.",
+              tags: ["AWS", "Security", "Certification"]
+            },
+            {
+              role: "Web Developer Intern",
+              company: "MyCaptain",
+              period: "Aug 2021",
+              desc: "Designed and built a responsive webapp using React, Apollo GraphQL, and Next.js. Integrated Amazon S3, Sentry, and Cloudflare Radar.",
+              tags: ["React", "GraphQL", "NextJS"]
+            },
+            {
+              role: "Branding & Audio Editor",
+              company: "The Teen Business Podcast",
+              period: "Aug 2020",
+              desc: "Conceptualized branding guidelines and edited over 30 episodes reaching 30,000+ views using Adobe Premiere Pro, After Effects, and DaVinci Resolve.",
+              tags: ["Audio", "Video", "Branding"]
             },
             {
               role: "Student Trainee",

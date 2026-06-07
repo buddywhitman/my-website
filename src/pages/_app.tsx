@@ -15,6 +15,7 @@ import createEmotionCache from "styles/createEmotionCache";
 import customTheme from "styles/customTheme";
 import { ColorModeProvider } from "components/ui/color-mode";
 import { Box } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 import "styles/globals.css";
 
 const clientSideEmotionCache = createEmotionCache();
@@ -28,6 +29,9 @@ const MyApp = ({
   pageProps,
   emotionCache = clientSideEmotionCache,
 }: MyAppProps) => {
+  const router = useRouter();
+  const isResume = router.pathname === "/resume";
+
   return (
     <CacheProvider value={emotionCache}>
       <ChakraProvider value={customTheme}>
@@ -39,20 +43,24 @@ const MyApp = ({
             />
           </Head>
           <DefaultSeo {...defaultSEOConfig} />
-          <Box
-            position="fixed"
-            top="0"
-            left="0"
-            width="100vw"
-            height="100vh"
-            zIndex="0"
-            opacity="0.75"
-            className="organic-gradient-bg"
-            pointerEvents="none"
-          />
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
+          {!isResume && (
+            <Box
+              position="fixed"
+              top="0"
+              left="0"
+              width="100vw"
+              height="100vh"
+              zIndex="0"
+              opacity="0.75"
+              className="organic-gradient-bg"
+              pointerEvents="none"
+            />
+          )}
+          <Box className={!isResume ? "dynamic-theme-wrapper" : ""}>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </Box>
         </ColorModeProvider>
       </ChakraProvider>
     </CacheProvider>

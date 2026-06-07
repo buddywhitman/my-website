@@ -5,7 +5,7 @@ import { NextSeo } from "next-seo";
 
 const Resume = () => {
   return (
-    <>
+    <Box bg="bg.surface" minH="100vh">
       <NextSeo
         title="Resume - Pulkit Kumar"
         description="Comprehensive overview of internships, projects, research, and skills."
@@ -71,11 +71,22 @@ const Resume = () => {
             <Box mb={8}>
               <Flex justify="space-between" align="baseline" wrap="wrap">
                 <Text fontWeight="bold" fontSize="lg">Founder @ Guaq AI</Text>
-                <Text>2024 - Present</Text>
+                <Text>Dec 2025 - Present</Text>
               </Flex>
               <Box as="ul" pl={6} mt={2}>
                 <Text as="li" mb={2}>Built agentic solutions for hospitality, real estate, and finance, scaling to 6+ clients with ~$8K MRR in 6 months.</Text>
                 <Text as="li">Automated lead generation, content creation, and compliance workflows utilizing large language models.</Text>
+              </Box>
+            </Box>
+
+            <Box mb={8}>
+              <Flex justify="space-between" align="baseline" wrap="wrap">
+                <Text fontWeight="bold" fontSize="lg">AI Engineer @ Teachafy Labs</Text>
+                <Text>Aug 2025 - Nov 2025</Text>
+              </Flex>
+              <Box as="ul" pl={6} mt={2}>
+                <Text as="li" mb={2}>Developed Google ADK-based agentic orchestration and WhatsApp business chatbots to inject natural language workflows into ERP platforms, saving 5000+ hrs/week across 17+ clients.</Text>
+                <Text as="li">Deployed RAG workflows for compliance intelligence using Pinecone + OpenAI Assistant API with semantic Redis caching.</Text>
               </Box>
             </Box>
 
@@ -177,6 +188,95 @@ const Resume = () => {
                 <Text as="li" mb={2}>Designed high-fidelity wireframes for healthcare apps, increasing user satisfaction by 20 points.</Text>
               </Box>
             </Box>
+
+            <Box mb={8}>
+              <Flex justify="space-between" align="baseline" wrap="wrap">
+                <Text fontWeight="bold" fontSize="lg">Freelance Web Developer @ GigsWall</Text>
+                <Text>Jun 2025 - Present</Text>
+              </Flex>
+              <Box as="ul" pl={6} mt={2}>
+                <Text as="li" mb={2}>Provided web design & UX research for European and US clients, helping scale online presence and customer engagement.</Text>
+              </Box>
+            </Box>
+
+            <Box mb={8}>
+              <Flex justify="space-between" align="baseline" wrap="wrap">
+                <Text fontWeight="bold" fontSize="lg">UI/UX & Branding Lead @ Kraftr</Text>
+                <Text>Jul 2023 - Dec 2023</Text>
+              </Flex>
+              <Box as="ul" pl={6} mt={2}>
+                <Text as="li" mb={2}>Created brand guidelines, visual communication, and social media content using Adobe Creative Suite and Figma.</Text>
+                <Text as="li">Secured a term sheet worth $100k by developing investor decks and communicating with VCs.</Text>
+              </Box>
+            </Box>
+
+            <Box mb={8}>
+              <Flex justify="space-between" align="baseline" wrap="wrap">
+                <Text fontWeight="bold" fontSize="lg">Social Media Manager @ Manipal Updates</Text>
+                <Text>Aug 2023 - Oct 2023</Text>
+              </Flex>
+              <Box as="ul" pl={6} mt={2}>
+                <Text as="li" mb={2}>Designed social media marketing content, resulting in a 78% increase in footfall and a 55% rise in revenue for client restaurants.</Text>
+              </Box>
+            </Box>
+
+            <Box mb={8}>
+              <Flex justify="space-between" align="baseline" wrap="wrap">
+                <Text fontWeight="bold" fontSize="lg">Hardware Lead (Volunteer) @ MOSS</Text>
+                <Text>2023 - Present</Text>
+              </Flex>
+              <Box as="ul" pl={6} mt={2}>
+                <Text as="li" mb={2}>Led community building around the OpenLane and SkyWater130 stack, hosting 4+ workshops.</Text>
+                <Text as="li">Contributed to Arduino's LiquidCrystal library for unconventional 5x10 character displays.</Text>
+              </Box>
+            </Box>
+
+            <Box mb={8}>
+              <Flex justify="space-between" align="baseline" wrap="wrap">
+                <Text fontWeight="bold" fontSize="lg">Core Committee (Volunteer) @ Manipal Hackathon</Text>
+                <Text>2024</Text>
+              </Flex>
+              <Box as="ul" pl={6} mt={2}>
+                <Text as="li" mb={2}>Developed full-stack developer management portals scaling to 35k+ DAU.</Text>
+                <Text as="li">Led performance optimization efforts, optimizing FCP by over 68%.</Text>
+              </Box>
+            </Box>
+
+            <Box mb={8}>
+              <Flex justify="space-between" align="baseline" wrap="wrap">
+                <Text fontWeight="bold" fontSize="lg">Web Developer Intern @ MyCaptain</Text>
+                <Text>Aug 2021</Text>
+              </Flex>
+              <Box as="ul" pl={6} mt={2}>
+                <Text as="li" mb={2}>Designed and built a responsive webapp using React, Apollo GraphQL, and Next.js.</Text>
+              </Box>
+            </Box>
+
+            <Box mb={8}>
+              <Flex justify="space-between" align="baseline" wrap="wrap">
+                <Text fontWeight="bold" fontSize="lg">Branding & Audio Editor @ The Teen Business Podcast</Text>
+                <Text>Aug 2020</Text>
+              </Flex>
+              <Box as="ul" pl={6} mt={2}>
+                <Text as="li" mb={2}>Edited over 30 episodes reaching 30,000+ views using Adobe Premiere Pro, After Effects, and DaVinci Resolve.</Text>
+              </Box>
+            </Box>
+          </Box>
+
+          {/* Certifications */}
+          <Box>
+            <Heading as="h2" size="xl" borderBottom="1px solid" borderColor="border.default" pb={2} mb={6} fontWeight="bold">
+              Certifications
+            </Heading>
+            <Box as="ul" pl={6} mt={2}>
+              <Text as="li" mb={2}><strong>AWS Certified Solutions Architect</strong></Text>
+              <Text as="li" mb={2}><strong>IC2 SSCP</strong></Text>
+              <Text as="li" mb={2}>Graphic Design Specialization — <em>California Institute of Arts</em></Text>
+              <Text as="li" mb={2}>Deep Learning Specialization — <em>Stanford / DeepLearning.AI</em></Text>
+              <Text as="li" mb={2}>UI/UX Design Specialization — <em>California Institute of Arts</em></Text>
+              <Text as="li" mb={2}>Frontend Developer Specialization — <em>Meta</em></Text>
+              <Text as="li">IT Automation Using Python — <em>Google</em></Text>
+            </Box>
           </Box>
 
           {/* Research & Publications */}
@@ -214,7 +314,7 @@ const Resume = () => {
           </Box>
         </VStack>
       </Box>
-    </>
+    </Box>
   );
 };
 

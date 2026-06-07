@@ -118,13 +118,13 @@ const Home = () => {
               <Heading size="4xl" fontWeight="900" letterSpacing="tight" color="fg.default">
                 2026 / Performance Architecture
               </Heading>
-              <Text fontSize="2xl" color="fg.muted" lineHeight="relaxed">
+              <Text fontSize="2xl" color="var(--synced-muted)" lineHeight="relaxed">
                 I architect production-grade infrastructure where <strong>determinism meets 
                 intelligence</strong>. My work spans from <strong>RTL-level hardware optimization</strong> 
                 for low-latency controllers to <strong>agentic AI orchestration</strong> for 
                 safety-critical environments.
               </Text>
-              <Text fontSize="2xl" color="fg.muted" lineHeight="relaxed">
+              <Text fontSize="2xl" color="var(--synced-muted)" lineHeight="relaxed">
                 Currently, I&apos;m a founding engineer at <strong>Fettle</strong>, where I lead 
                 software architecture for distributed voice AI. I also lead automotive 
                 electronics for <strong>SolarMobil</strong>, designing stochastic telemetry engines 

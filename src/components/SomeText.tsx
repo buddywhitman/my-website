@@ -97,8 +97,8 @@ const SomeText = () => {
           <ChakraLink
             href="https://www.linkedin.com/in/buddywhitman"
             target="_blank"
-            color="fg.muted"
-            _hover={{ color: "brand.500" }}
+            color="var(--synced-muted)"
+            _hover={{ color: "brand.500", transform: "scale(1.2) rotate(10deg)" }}
             transition="color 0.2s"
           >
             <Icon as={BsLinkedin} boxSize={8} />
@@ -108,8 +108,8 @@ const SomeText = () => {
           <ChakraLink
             href="https://github.com/buddywhitman"
             target="_blank"
-            color="fg.muted"
-            _hover={{ color: "brand.500" }}
+            color="var(--synced-muted)"
+            _hover={{ color: "brand.500", transform: "scale(1.2) rotate(10deg)" }}
             transition="color 0.2s"
           >
             <Icon as={BsGithub} boxSize={8} />
@@ -119,8 +119,8 @@ const SomeText = () => {
           <ChakraLink
              href="https://orcid.org/0000-0003-4078-1780"
             target="_blank"
-            color="fg.muted"
-            _hover={{ color: "brand.500" }}
+            color="var(--synced-muted)"
+            _hover={{ color: "brand.500", transform: "scale(1.2) rotate(10deg)" }}
             transition="color 0.2s"
           >
             <Icon as={FaOrcid} boxSize={8} />

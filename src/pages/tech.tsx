@@ -257,48 +257,7 @@ const Tech = () => {
           </Text>
         </MotionBox>
 
-        {/* Live GitHub Stats */}
-        {data && (
-           <MotionBox
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            mb={20}
-            p={8}
-            bg="bg.subtle"
-            borderRadius="3xl"
-            borderWidth="1px"
-            borderColor="border.subtle"
-           >
-              <Heading size="md" mb={8} color="whiteAlpha.700" textTransform="uppercase" letterSpacing="widest">Live Activity</Heading>
-              <Flex justify="space-between" wrap="wrap" gap={8}>
-                <VStack align="start" gap={1}>
-                  <Text color="whiteAlpha.700" fontWeight="bold" fontSize="sm" textTransform="uppercase">Total Contributions</Text>
-                  <Text fontSize="4xl" fontWeight="900" color="brand.500">
-                    {data?.contributionsCollection?.contributionCalendar?.totalContributions || 0}
-                  </Text>
-                </VStack>
-                <VStack align="start" gap={1}>
-                  <Text color="whiteAlpha.700" fontWeight="bold" fontSize="sm" textTransform="uppercase">Commits</Text>
-                  <Text fontSize="4xl" fontWeight="900">
-                    {data?.contributionsCollection?.totalCommitContributions || 0}
-                  </Text>
-                </VStack>
-                <VStack align="start" gap={1}>
-                  <Text color="whiteAlpha.700" fontWeight="bold" fontSize="sm" textTransform="uppercase">Pull Requests</Text>
-                  <Text fontSize="4xl" fontWeight="900">
-                    {data?.contributionsCollection?.totalPullRequestContributions || 0}
-                  </Text>
-                </VStack>
-                <VStack align="start" gap={1}>
-                  <Text color="whiteAlpha.700" fontWeight="bold" fontSize="sm" textTransform="uppercase">Organizations</Text>
-                  <Text fontSize="4xl" fontWeight="900">
-                    {data?.repositoriesContributedTo?.nodes?.length || 0}+
-                  </Text>
-                </VStack>
-              </Flex>
-           </MotionBox>
-        )}
+        {/* Live GitHub Stats removed */}
 
         <SimpleGrid columns={{ base: 1, lg: 2, xl: 3 }} gap={10} px={{ base: 0, md: 4 }}>
           {skillCategories.map((category) => (
