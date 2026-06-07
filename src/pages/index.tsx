@@ -61,8 +61,9 @@ const Home = () => {
     sameAs: [
       "https://github.com/buddywhitman",
       "https://www.linkedin.com/in/buddywhitman",
+      "https://orcid.org/0000-0003-4078-1780",
     ],
-    description: "Systems Architect specializing in Agentic AI, Efficient Inference, and High-Performance Embedded Computing. Q1 Nature Author & Patent Filer.",
+    description: "Systems Architect specializing in Agentic AI, Efficient Inference, and High-Performance Embedded Computing. Springer Nature Author & 3+ Patent Holder.",
   };
 
   return (
