@@ -68,19 +68,6 @@ const Home = () => {
 
   return (
     <Box position="relative" overflow="hidden">
-      {/* Cinematic Background Ambient Effect */}
-      <Box
-        position="fixed"
-        top="0"
-        left="0"
-        width="100vw"
-        height="100vh"
-        zIndex="-1"
-        opacity="0.6"
-        className="organic-gradient-bg"
-        pointerEvents="none"
-      />
-
       <SchemaMarkup data={personSchema} />
       
       <MotionBox

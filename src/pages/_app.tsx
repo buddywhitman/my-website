@@ -14,6 +14,7 @@ import Layout from "components/layout";
 import createEmotionCache from "styles/createEmotionCache";
 import customTheme from "styles/customTheme";
 import { ColorModeProvider } from "components/ui/color-mode";
+import { Box } from "@chakra-ui/react";
 import "styles/globals.css";
 
 const clientSideEmotionCache = createEmotionCache();
@@ -38,6 +39,17 @@ const MyApp = ({
             />
           </Head>
           <DefaultSeo {...defaultSEOConfig} />
+          <Box
+            position="fixed"
+            top="0"
+            left="0"
+            width="100vw"
+            height="100vh"
+            zIndex="0"
+            opacity="0.75"
+            className="organic-gradient-bg"
+            pointerEvents="none"
+          />
           <Layout>
             <Component {...pageProps} />
           </Layout>

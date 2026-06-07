@@ -399,7 +399,7 @@ const Tech = () => {
                   autoplay
                   autoplaySpeed={3000}
                 >
-                  {data.repositoriesContributedTo.nodes.map((value: any) => (
+                  {data?.repositoriesContributedTo?.nodes?.map((value: any) => (
                     <GithubProject key={value.id} data={value} />
                   ))}
                 </Slider>

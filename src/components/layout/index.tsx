@@ -17,7 +17,7 @@ const Layout = ({ children }: LayoutProps) => {
   const onClose = () => setIsOpen(false);
 
   return (
-    <Box minH="100vh" display="flex" flexDirection="column">
+    <Box minH="100vh" display="flex" flexDirection="column" position="relative" zIndex="1">
       <CustomCursor />
       <ScrollProgress />
       <Container maxW="container.xl" flex="1">
