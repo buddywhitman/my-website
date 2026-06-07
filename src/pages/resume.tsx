@@ -70,6 +70,17 @@ const Resume = () => {
 
             <Box mb={8}>
               <Flex justify="space-between" align="baseline" wrap="wrap">
+                <Text fontWeight="bold" fontSize="lg">Founder @ Guaq AI</Text>
+                <Text>2024 - Present</Text>
+              </Flex>
+              <Box as="ul" pl={6} mt={2}>
+                <Text as="li" mb={2}>Built agentic solutions for hospitality, real estate, and finance, scaling to 6+ clients with ~$8K MRR in 6 months.</Text>
+                <Text as="li">Automated lead generation, content creation, and compliance workflows utilizing large language models.</Text>
+              </Box>
+            </Box>
+
+            <Box mb={8}>
+              <Flex justify="space-between" align="baseline" wrap="wrap">
                 <Text fontWeight="bold" fontSize="lg">System Engineer @ SolarMobil</Text>
                 <Text>2024 - Present</Text>
               </Flex>
@@ -82,12 +93,88 @@ const Resume = () => {
 
             <Box mb={8}>
               <Flex justify="space-between" align="baseline" wrap="wrap">
-                <Text fontWeight="bold" fontSize="lg">Founder @ Guaq AI</Text>
-                <Text>2024 - Present</Text>
+                <Text fontWeight="bold" fontSize="lg">Embedded Software Engineer @ Symbionic</Text>
+                <Text>May 2025 - Jul 2025</Text>
               </Flex>
               <Box as="ul" pl={6} mt={2}>
-                <Text as="li" mb={2}>Built agentic solutions for hospitality, real estate, and finance, scaling to 6+ clients with ~$8K MRR in 6 months.</Text>
-                <Text as="li">Automated lead generation, content creation, and compliance workflows utilizing large language models.</Text>
+                <Text as="li" mb={2}>Developed drivers for ESP32 cores and designed a signal acquisition pipeline for multi-channel EMG/EEG sensing.</Text>
+                <Text as="li">Deployed a multimodal edge AI pipeline using LSTM + transformer encoders on the Jetson platform.</Text>
+              </Box>
+            </Box>
+
+            <Box mb={8}>
+              <Flex justify="space-between" align="baseline" wrap="wrap">
+                <Text fontWeight="bold" fontSize="lg">Co-Founder @ FoodSwipe</Text>
+                <Text>Jan 2025 - Jun 2025</Text>
+              </Flex>
+              <Box as="ul" pl={6} mt={2}>
+                <Text as="li" mb={2}>Outsourced food choices to content-based & collaborative recommender systems.</Text>
+                <Text as="li">A/B testing rated positive customer experience at 85%+.</Text>
+              </Box>
+            </Box>
+
+            <Box mb={8}>
+              <Flex justify="space-between" align="baseline" wrap="wrap">
+                <Text fontWeight="bold" fontSize="lg">Machine Learning Engineer @ DCPR AI</Text>
+                <Text>Jul 2024 - Dec 2024</Text>
+              </Flex>
+              <Box as="ul" pl={6} mt={2}>
+                <Text as="li" mb={2}>Leveraged n8n to build agentic RAG-based LLM workflows around Urban Planning regulation utilizing Redis, Cohere, LiteLLM, OpenAI, Twilio & FireStore.</Text>
+                <Text as="li">Automated data ingestion pipelines, reducing TTM by 81% and leading to 45%+ MoM growth.</Text>
+              </Box>
+            </Box>
+
+            <Box mb={8}>
+              <Flex justify="space-between" align="baseline" wrap="wrap">
+                <Text fontWeight="bold" fontSize="lg">Embedded Engineer @ Krop AI</Text>
+                <Text>Sep 2024 - Nov 2024</Text>
+              </Flex>
+              <Box as="ul" pl={6} mt={2}>
+                <Text as="li" mb={2}>Designed hardware systems, wrote DMA drivers for AtlasScientific precision sensing probes, and automated initialization subroutines for ESP32-based autonomous agritech modules.</Text>
+                <Text as="li">Built the computer vision pipeline for a Jetson Nano, training a crop health monitoring model to 93.47% accuracy.</Text>
+              </Box>
+            </Box>
+
+            <Box mb={8}>
+              <Flex justify="space-between" align="baseline" wrap="wrap">
+                <Text fontWeight="bold" fontSize="lg">Software Engineer @ MTTN</Text>
+                <Text>Sep 2024 - Nov 2024</Text>
+              </Flex>
+              <Box as="ul" pl={6} mt={2}>
+                <Text as="li" mb={2}>Developed web & native applications utilizing AWS ELB, NextJS, Spring Boot, and Kubernetes.</Text>
+                <Text as="li">Supported 260K+ MAU by reducing downtime and streamlining content workflows.</Text>
+              </Box>
+            </Box>
+
+            <Box mb={8}>
+              <Flex justify="space-between" align="baseline" wrap="wrap">
+                <Text fontWeight="bold" fontSize="lg">SoC Design Intern @ CoreEL Technologies</Text>
+                <Text>May 2024 - Jul 2024</Text>
+              </Flex>
+              <Box as="ul" pl={6} mt={2}>
+                <Text as="li" mb={2}>Developed RTL2GDSII design of high-speed CAN bus & I2C controllers using Verilog.</Text>
+                <Text as="li">Simulated on a Virtex 7 FPGA and gained hands-on experience with ASIC design flows (STA, PPA, floorplanning).</Text>
+              </Box>
+            </Box>
+
+            <Box mb={8}>
+              <Flex justify="space-between" align="baseline" wrap="wrap">
+                <Text fontWeight="bold" fontSize="lg">Community Engagement Intern @ Open Horizon Robotics</Text>
+                <Text>Aug 2023 - Jan 2024</Text>
+              </Flex>
+              <Box as="ul" pl={6} mt={2}>
+                <Text as="li" mb={2}>Generated over $35k+ in sponsorships and onboarded 18+ collaborators.</Text>
+                <Text as="li">Drove 52% YoY growth by showcasing the value proposition of the robotics open-source community.</Text>
+              </Box>
+            </Box>
+
+            <Box mb={8}>
+              <Flex justify="space-between" align="baseline" wrap="wrap">
+                <Text fontWeight="bold" fontSize="lg">UI/UX Designer @ GramHealth</Text>
+                <Text>Sep 2023 - Nov 2023</Text>
+              </Flex>
+              <Box as="ul" pl={6} mt={2}>
+                <Text as="li" mb={2}>Designed high-fidelity wireframes for healthcare apps, increasing user satisfaction by 20 points.</Text>
               </Box>
             </Box>
           </Box>

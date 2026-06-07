@@ -70,14 +70,13 @@ const Home = () => {
     <Box position="relative" overflow="hidden">
       {/* Cinematic Background Ambient Effect */}
       <Box
-        position="absolute"
-        top="-10%"
-        left="-10%"
-        width="120%"
-        height="120%"
+        position="fixed"
+        top="0"
+        left="0"
+        width="100vw"
+        height="100vh"
         zIndex="-1"
-        opacity="0.2"
-        filter="blur(100px)"
+        opacity="0.6"
         className="organic-gradient-bg"
         pointerEvents="none"
       />
