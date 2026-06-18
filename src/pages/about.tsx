@@ -345,7 +345,20 @@ const About = () => {
             borderRadius="full"
           />
 
-          {[
+          {[{
+              role: "Founder",
+              company: "Guaq AI",
+              period: "Dec 2025 - Present",
+              desc: "Building agentic solutions for hospitality, real estate, and finance. Scaled to 6+ clients with ~$8K MRR in 6 months.",
+              tags: ["Agentic AI", "LLMs", "Product Strategy"]
+            },
+            {
+              role: "Freelance Web Developer",
+              company: "GigsWall",
+              period: "Jun 2025 - Present",
+              desc: "Web design & UX research for European and US clients, helping scale online presence and customer engagement.",
+              tags: ["Freelance", "UX", "Web"]
+            },
             {
               role: "Founding Engineer",
               company: "Fettle",
@@ -354,11 +367,25 @@ const About = () => {
               tags: ["Voice AI", "PyTorch", "Kubernetes"]
             },
             {
-              role: "Founder",
-              company: "Guaq AI",
-              period: "Dec 2025 - Present",
-              desc: "Building agentic solutions for hospitality, real estate, and finance. Scaled to 6+ clients with ~$8K MRR in 6 months.",
-              tags: ["Agentic AI", "LLMs", "Product Strategy"]
+              role: "Software Developer",
+              company: "Student Council Dev Team",
+              period: "Dec 2024 - Present",
+              desc: "Designed and built cross-platform application interfaces using Flutter and Dart. Deployed Firebase backend services for authentication and caching.",
+              tags: ["Flutter", "Dart", "Firebase"]
+            },
+            {
+              role: "System Engineer",
+              company: "Team SolarMobil",
+              period: "Jan 2024 - Present",
+              desc: "Engineered automotive electronics for a solar racing EV. Developed low-level drivers for Arm Cortex M7-based ECUs and built real-time telemetry dashboards.",
+              tags: ["Embedded C", "FreeRTOS", "STM32"]
+            },
+            {
+              role: "Hardware Lead (Volunteer)",
+              company: "MOSS",
+              period: "2023 - Present",
+              desc: "Led community building around OpenLane and SkyWater130 stack. Hosted 4+ workshops and contributed to Arduino's LiquidCrystal library for unconventional 5x10 displays.",
+              tags: ["Open Source", "Hardware", "Arduino"]
             },
             {
               role: "AI Engineer",
@@ -366,13 +393,6 @@ const About = () => {
               period: "Aug 2025 - Nov 2025",
               desc: "Developed Google ADK-based agentic orchestration and WhatsApp business chatbots to inject natural language workflows into ERP platforms, saving 5000+ hrs/week across 17+ clients.",
               tags: ["Agentic AI", "RAG", "Google Cloud"]
-            },
-            {
-              role: "System Engineer",
-              company: "SolarMobil",
-              period: "2024 - Present",
-              desc: "Engineered automotive electronics for a solar racing EV. Developed low-level drivers for Arm Cortex M7-based ECUs and built real-time telemetry dashboards.",
-              tags: ["Embedded C", "FreeRTOS", "STM32"]
             },
             {
               role: "Embedded Software Engineer",
@@ -387,6 +407,13 @@ const About = () => {
               period: "Jan 2025 - Jun 2025",
               desc: "Outsourced food choices to content-based & collaborative recommender systems achieving 85%+ positive customer experience.",
               tags: ["Recommender Systems", "A/B Testing"]
+            },
+            {
+              role: "Patent Inventor",
+              company: "Intellectual Property",
+              period: "2025",
+              desc: "Filed 3 provisional patents: Adaptive EV Interface, Long-Range Telemetry for Solar EVs, and Automated Robotic Solar Cleaning under MAHE.",
+              tags: ["Patents", "Invention", "R&D"]
             },
             {
               role: "Machine Learning Engineer",
@@ -417,34 +444,6 @@ const About = () => {
               tags: ["Verilog", "ASIC Flow", "FPGA"]
             },
             {
-              role: "Community Engagement Intern",
-              company: "Open Horizon Robotics",
-              period: "Aug 2023 - Jan 2024",
-              desc: "Generated over $35k+ in sponsorships and onboarded 18+ collaborators, driving 52% YoY growth for the open-source community.",
-              tags: ["Open Source", "Leadership"]
-            },
-            {
-              role: "UI/UX Designer",
-              company: "GramHealth",
-              period: "Sep 2023 - Nov 2023",
-              desc: "Designed high-fidelity wireframes for healthcare apps, increasing user satisfaction by 20 points.",
-              tags: ["Figma", "UI/UX"]
-            },
-            {
-              role: "CTO",
-              company: "Project fAte",
-              period: "Feb 2022 - Aug 2022",
-              desc: "Led an international team to build a full-stack Flutter/Firebase application connecting food-abundant establishments with volunteers.",
-              tags: ["Flutter", "Firebase", "Leadership"]
-            },
-            {
-              role: "Hardware Lead (Volunteer)",
-              company: "MOSS",
-              period: "2023 - Present",
-              desc: "Led community building around OpenLane and SkyWater130 stack. Hosted 4+ workshops and contributed to Arduino's LiquidCrystal library for unconventional 5x10 displays.",
-              tags: ["Open Source", "Hardware", "Arduino"]
-            },
-            {
               role: "Core Committee (Volunteer)",
               company: "Manipal Hackathon",
               period: "2024",
@@ -452,18 +451,11 @@ const About = () => {
               tags: ["Full Stack", "Performance"]
             },
             {
-              role: "Patent Inventor",
-              company: "Intellectual Property",
-              period: "2025",
-              desc: "Filed 3 provisional patents: Adaptive EV Interface, Long-Range Telemetry for Solar EVs, and Automated Robotic Solar Cleaning under MAHE.",
-              tags: ["Patents", "Invention", "R&D"]
-            },
-            {
-              role: "Freelance Web Developer",
-              company: "GigsWall",
-              period: "Jun 2025 - Present",
-              desc: "Web design & UX research for European and US clients, helping scale online presence and customer engagement.",
-              tags: ["Freelance", "UX", "Web"]
+              role: "Community Engagement Intern",
+              company: "Open Horizon Robotics",
+              period: "Aug 2023 - Jan 2024",
+              desc: "Generated over $35k+ in sponsorships and onboarded 18+ collaborators, driving 52% YoY growth for the open-source community.",
+              tags: ["Open Source", "Leadership"]
             },
             {
               role: "UI/UX & Branding Lead",
@@ -471,6 +463,13 @@ const About = () => {
               period: "Jul 2023 - Dec 2023",
               desc: "Created brand guidelines, visual communication, and social media content using Adobe Creative Suite and Figma. Secured term sheet worth $100k through investor decks.",
               tags: ["Figma", "Branding", "UI/UX"]
+            },
+            {
+              role: "UI/UX Designer",
+              company: "GramHealth",
+              period: "Sep 2023 - Nov 2023",
+              desc: "Designed high-fidelity wireframes for healthcare apps, increasing user satisfaction by 20 points.",
+              tags: ["Figma", "UI/UX"]
             },
             {
               role: "Social Media Manager",
@@ -487,6 +486,13 @@ const About = () => {
               tags: ["AWS", "Security", "Certification"]
             },
             {
+              role: "CTO",
+              company: "Project fAte",
+              period: "Feb 2022 - Aug 2022",
+              desc: "Led an international team to build a full-stack Flutter/Firebase application connecting food-abundant establishments with volunteers.",
+              tags: ["Flutter", "Firebase", "Leadership"]
+            },
+            {
               role: "Web Developer Intern",
               company: "MyCaptain",
               period: "Aug 2021",
@@ -501,18 +507,18 @@ const About = () => {
               tags: ["Audio", "Video", "Branding"]
             },
             {
-              role: "Student Trainee",
-              company: "SP Robotics Works",
-              period: "Jul 2019 - Dec 2019",
-              desc: "Designed and built biped, rover, and octapod robots using Raspberry Pi and Arduino. Wrote a custom bootloader for Arm Cortex A53.",
-              tags: ["Robotics", "Raspberry Pi", "Arduino"]
-            },
-            {
               role: "Developer",
               company: "Xesbi Cloud",
               period: "2020",
               desc: "Built a custom web server and voice assistant for an ESP32-based development board. Integrated AWS and Google Cloud APIs for NLP and TTS. Built a GRNN for wakeword recognition.",
               tags: ["ESP32", "TensorFlow", "AWS"]
+            },
+            {
+              role: "Student Trainee",
+              company: "SP Robotics Works",
+              period: "Jul 2019 - Dec 2019",
+              desc: "Designed and built biped, rover, and octapod robots using Raspberry Pi and Arduino. Wrote a custom bootloader for Arm Cortex A53.",
+              tags: ["Robotics", "Raspberry Pi", "Arduino"]
             },
             {
               role: "Creator",
