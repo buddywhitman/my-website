@@ -1,221 +1,387 @@
-import {
-  Box,
-  Heading,
-  Flex,
-  Spacer,
-  Text,
-  Stack,
-  VStack,
-} from "@chakra-ui/react";
-import { motion } from "framer-motion";
+import { Box, Flex, Text, VStack, HStack, Link as ChakraLink } from "@chakra-ui/react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import Link from "next/link";
-import { BsArrowRight } from "react-icons/bs";
-
-import FeaturedProject from "components/FeaturedProject";
-import ImageBox from "components/ImageBox";
-import SomeText from "components/SomeText";
-import ThemedButton from "components/ThemedButton";
-import FeaturedProjectList from "data/featured_projects";
+import { useRef, useState } from "react";
+import { BsLinkedin, BsGithub, BsArrowUpRight, BsArrowRight } from "react-icons/bs";
+import { FaOrcid } from "react-icons/fa";
+import { Magnetic } from "components/motion/Magnetic";
 import SchemaMarkup from "components/SchemaMarkup";
 
 const MotionBox = motion(Box) as any;
+const EASE = [0.23, 1, 0.32, 1];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
+/* ─── MARQUEE ─────────────────────────────────── */
+const MARQUEE_TEXT =
+  "FOUNDING ENGINEER · SOLAR RACING · SPRINGER NATURE · THREE PATENTS · VOICE AI · RTL TO LLM · 2WENZY · DESIHIPPE · WHAT MAKES US HUMAN · ";
+
+const Marquee = () => (
+  <Box className="full-bleed tiedye-bg" overflow="hidden" py="3" cursor="default">
+    <Box className="marquee-track">
+      {[0, 1].map((i) => (
+        <Text key={i} as="span" className="mono-label" fontSize={{ base: "10px", md: "11px" }} color="#fff" whiteSpace="nowrap" px="2">
+          {MARQUEE_TEXT.repeat(4)}
+        </Text>
+      ))}
+    </Box>
+  </Box>
+);
+
+/* ─── HERO BLOBS ──────────────────────────────── */
+const HeroBlobs = () => (
+  <Box position="absolute" inset="0" zIndex="0" overflow="hidden" pointerEvents="none">
+    <Box className="blob blob-alt" top="-15%" right="-5%" w={{ base: "55vw", md: "40vw" }} h={{ base: "55vw", md: "40vw" }}
+      bg="radial-gradient(circle, var(--c-violet) 0%, transparent 68%)" opacity="0.22" style={{ animationDelay: "0s" }} />
+    <Box className="blob" bottom="-12%" left="-8%" w={{ base: "45vw", md: "30vw" }} h={{ base: "45vw", md: "30vw" }}
+      bg="radial-gradient(circle, var(--c-coral) 0%, transparent 68%)" opacity="0.18" style={{ animationDelay: "4s" }} />
+    <Box className="blob blob-alt" top="35%" right="22%" w={{ base: "30vw", md: "20vw" }} h={{ base: "30vw", md: "20vw" }}
+      bg="radial-gradient(circle, var(--c-teal) 0%, transparent 68%)" opacity="0.12" style={{ animationDelay: "8s" }} />
+  </Box>
+);
+
+/* ─── WORLD ROW (the new IA centerpiece) ──────── */
+interface WorldRowProps {
+  num: string;
+  label: string;
+  blurb: string;
+  href: string;
+  external?: boolean;
+  last?: boolean;
+}
+const WorldRow = ({ num, label, blurb, href, external, last }: WorldRowProps) => {
+  const [hover, setHover] = useState(false);
+  const inner = (
+    <Flex
+      align="center"
+      justify="space-between"
+      gap="6"
+      py={{ base: 6, md: 8 }}
+      borderBottom={last ? "none" : "1px solid"}
+      borderColor="var(--synced-border)"
+      onMouseEnter={() => setHover(true)}
+      onMouseLeave={() => setHover(false)}
+      style={{
+        paddingLeft: hover ? "20px" : "0px",
+        transition: "padding-left 320ms cubic-bezier(0.23,1,0.32,1)",
+      }}
+    >
+      <HStack gap={{ base: 4, md: 8 }} align="baseline" flex="1" minW="0">
+        <Text className="mono-label" color="var(--synced-muted)" fontSize={{ base: "10px", md: "11px" }} flexShrink={0}>
+          {num}
+        </Text>
+        <Box minW="0">
+          <Text
+            className={hover ? "editorial tiedye-text" : "editorial"}
+            fontSize={{ base: "4xl", md: "6xl", lg: "7xl" }}
+            fontWeight="600"
+            lineHeight="1"
+            letterSpacing="-0.02em"
+            color={hover ? undefined : "var(--synced-text)"}
+            style={{ transition: "color 200ms ease" }}
+          >
+            {label}
+          </Text>
+          <Text
+            color="var(--synced-muted)"
+            fontSize={{ base: "sm", md: "md" }}
+            mt={{ base: 2, md: 3 }}
+            maxW="48ch"
+            opacity={hover ? 1 : 0.72}
+            style={{ transition: "opacity 200ms ease" }}
+          >
+            {blurb}
+          </Text>
+        </Box>
+      </HStack>
+      <Box
+        flexShrink={0}
+        color={hover ? "var(--accent)" : "var(--synced-muted)"}
+        style={{
+          transform: hover ? "translate(6px,-6px) rotate(0deg)" : "translate(0,0)",
+          transition: "transform 280ms cubic-bezier(0.23,1,0.32,1), color 200ms ease",
+        }}
+      >
+        <BsArrowUpRight size={26} />
+      </Box>
+    </Flex>
+  );
+
+  if (external) {
+    return (
+      <a href={href} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none", display: "block" }}>
+        {inner}
+      </a>
+    );
+  }
+  return (
+    <Link href={href} style={{ textDecoration: "none", display: "block" }}>
+      {inner}
+    </Link>
+  );
 };
 
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      type: "spring",
-      duration: 0.5,
-      bounce: 0.2,
-    } as any,
-  },
-};
+/* ─── STAT ────────────────────────────────────── */
+const Stat = ({ value, label, delay }: { value: string; label: string; delay: number }) => (
+  <MotionBox initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.55, ease: EASE, delay }}>
+    <Text className="editorial" fontSize={{ base: "4xl", md: "5xl" }} fontWeight="700" color="var(--accent)" lineHeight="1">
+      {value}
+    </Text>
+    <Text className="mono-label" color="var(--synced-muted)" mt="1" fontSize="9px">{label}</Text>
+  </MotionBox>
+);
 
+/* ─── WORK CARD ───────────────────────────────── */
+const WorkCard = ({ name, kicker, description, tags, link, index, wide = false }: {
+  name: string; kicker: string; description: string; tags: string[]; link?: string; index: number; wide?: boolean;
+}) => (
+  <MotionBox
+    initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-60px" }}
+    transition={{ duration: 0.6, ease: EASE, delay: index * 0.07 }}
+    className="lift-card"
+    position="relative" p={{ base: 7, md: 9 }} borderRadius="2xl" border="1px solid"
+    borderColor="var(--synced-border)" bg="var(--synced-surface)"
+    gridColumn={wide ? { base: "span 1", md: "span 2" } : "span 1"} overflow="hidden"
+    style={{ backdropFilter: "blur(10px)" }}
+    _hover={{ borderColor: "var(--accent)" }}
+  >
+    {link && (
+      <Box position="absolute" top="6" right="6" zIndex="1" color="var(--synced-muted)">
+        <a href={link} target="_blank" rel="noopener noreferrer"><BsArrowUpRight size={16} /></a>
+      </Box>
+    )}
+    <Text className="mono-label" color="var(--accent)" mb="3" fontSize="9px">{kicker}</Text>
+    <Text className="editorial" fontSize={{ base: "2xl", md: "3xl" }} fontWeight="600" color="var(--synced-text)" lineHeight="1.15" mb="4">
+      {name}
+    </Text>
+    <Text fontSize="sm" color="var(--synced-muted)" lineHeight="relaxed" mb="6" maxW="46ch">{description}</Text>
+    <Flex gap="2" flexWrap="wrap">
+      {tags.map((t) => (
+        <Text key={t} className="mono-label" fontSize="9px" px="2.5" py="1" border="1px solid" borderColor="var(--synced-border)" borderRadius="full" color="var(--synced-muted)">
+          {t}
+        </Text>
+      ))}
+    </Flex>
+  </MotionBox>
+);
+
+/* ─── PAGE ────────────────────────────────────── */
 const Home = () => {
+  const heroRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
+  const heroY = useTransform(scrollYProgress, [0, 1], [0, 120]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.75], [1, 0]);
+
   const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
     name: "Pulkit Kumar",
     url: "https://buddywhitman.vercel.app",
-    jobTitle: "Founding Engineer & HPC Researcher",
-    worksFor: {
-      "@type": "Organization",
-      name: "Fettle",
-    },
-    alumniOf: {
-      "@type": "CollegeOrUniversity",
-      name: "Manipal Institute of Technology",
-    },
-    sameAs: [
-      "https://github.com/buddywhitman",
-      "https://www.linkedin.com/in/buddywhitman",
-      "https://orcid.org/0000-0003-4078-1780",
-    ],
-    description: "Systems Architect specializing in Agentic AI, Efficient Inference, and High-Performance Embedded Computing. Springer Nature Author & 3+ Patent Holder.",
+    jobTitle: "Founding Engineer & Systems Researcher",
+    alumniOf: { "@type": "CollegeOrUniversity", name: "Manipal Institute of Technology" },
+    sameAs: ["https://github.com/buddywhitman", "https://www.linkedin.com/in/buddywhitman", "https://orcid.org/0000-0003-4078-1780"],
   };
 
   return (
-    <Box position="relative" overflow="hidden">
+    <Box position="relative">
       <SchemaMarkup data={personSchema} />
-      
-      <MotionBox
-        initial="visible"
-        animate="visible"
-        variants={containerVariants}
-        px={{ base: 6, md: 10, lg: 20 }}
-        py={20}
-      >
-        {/* Hero Section */}
-        <MotionBox mb={32}>
-          <Flex
-            direction={{ base: "column", lg: "row" }}
-            align="center"
-            justify="space-between"
-            gap={20}
-          >
-            <Box flex="1.2">
-              <SomeText />
+
+      {/* ── HERO ─────────────────────────── */}
+      <MotionBox ref={heroRef} style={{ y: heroY, opacity: heroOpacity }}
+        minH={{ base: "90vh", md: "94vh" }} display="flex" flexDirection="column" justifyContent="flex-end"
+        pb={{ base: 12, md: 16 }} position="relative">
+        <HeroBlobs />
+        <Box position="relative" zIndex="1">
+          <Box mb={{ base: 5, md: 8 }} className="hero-line" style={{ animationDelay: "0s" }}>
+            <Text className="mono-label" color="var(--synced-muted)" fontSize="10px">PULKIT KUMAR — PORTFOLIO 2026</Text>
+          </Box>
+
+          <Box overflow="hidden">
+            <Text as="h1" className="editorial hero-line" fontSize={{ base: "15vw", md: "11vw", lg: "9.5vw" }} fontWeight="600"
+              lineHeight={{ base: "0.92", md: "0.88" }} color="var(--synced-text)" letterSpacing="-0.02em" style={{ animationDelay: "0.1s" }}>
+              what makes
+            </Text>
+          </Box>
+          <Box overflow="hidden">
+            <Text className="editorial hero-line" fontSize={{ base: "15vw", md: "11vw", lg: "9.5vw" }} fontWeight="600"
+              lineHeight={{ base: "0.92", md: "0.88" }} letterSpacing="-0.02em" display="block" style={{ animationDelay: "0.22s" }}>
+              <Text as="span" color="var(--synced-text)">us </Text>
+              <Text as="span" className="tiedye-text editorial">human?</Text>
+            </Text>
+          </Box>
+
+          <Box className="hero-line" mt={{ base: 8, md: 10 }} mb={{ base: 6, md: 8 }} h="1px" bg="var(--synced-border)" style={{ animationDelay: "0.5s" }} />
+
+          <Flex direction={{ base: "column", md: "row" }} align={{ base: "flex-start", md: "flex-end" }} justify="space-between"
+            gap="6" className="hero-line" style={{ animationDelay: "0.6s" }}>
+            <Box maxW="560px">
+              <Text fontSize={{ base: "sm", md: "md" }} color="var(--synced-muted)" lineHeight="relaxed">
+                Founding engineer at <Box as="span" color="var(--synced-text)" fontWeight="600">Fettle</Box>, building
+                voice AI for healthcare. Systems &amp; embedded for <Box as="span" color="var(--synced-text)" fontWeight="600">SolarMobil&apos;s</Box> solar
+                race team. Springer Nature author, three patents filed. I also make music as{" "}
+                <a href="https://soundcloud.com/2wenzy" target="_blank" rel="noopener noreferrer" style={{ color: "var(--accent)", textDecoration: "none" }}>2wenzy</a> and
+                write at <a href="https://desihippe.substack.com" target="_blank" rel="noopener noreferrer" style={{ color: "var(--accent)", textDecoration: "none" }}>desihippe</a>.
+              </Text>
             </Box>
-            <Box flex="1" display={{ base: "none", lg: "block" }} position="relative">
-              <Box
-                position="absolute"
-                inset="-20px"
-                bg="brand.500/20"
-                filter="blur(40px)"
-                borderRadius="full"
-                zIndex="-1"
-              />
-              <ImageBox
-                image="/hero_2026.webp"
-                height={800}
-                width={800}
-                alt="Pulkit Kumar - Full-Stack Inference Architect"
-              />
-            </Box>
+            <HStack gap="5" flexShrink={0} pb="1">
+              {[
+                { icon: BsLinkedin, url: "https://www.linkedin.com/in/buddywhitman" },
+                { icon: BsGithub, url: "https://github.com/buddywhitman" },
+                { icon: FaOrcid, url: "https://orcid.org/0000-0003-4078-1780" },
+              ].map(({ icon: Icon, url }, i) => (
+                <Magnetic key={i}>
+                  <ChakraLink href={url} target="_blank" color="var(--synced-muted)" _hover={{ color: "var(--accent)" }} transition="color 200ms ease">
+                    <Icon size={20} />
+                  </ChakraLink>
+                </Magnetic>
+              ))}
+            </HStack>
+          </Flex>
+        </Box>
+      </MotionBox>
+
+      {/* ── MARQUEE ──────────────────────── */}
+      <Marquee />
+
+      {/* ── INDEX OF PRACTICES ───────────── */}
+      <Box py={{ base: 20, md: 28 }}>
+        <MotionBox initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: EASE }} mb={{ base: 8, md: 12 }}>
+          <Flex align="baseline" justify="space-between" flexWrap="wrap" gap="3">
+            <Text className="mono-label" color="var(--synced-muted)" fontSize="10px">THE INDEX — FIVE PRACTICES, ONE PERSON</Text>
+            <Text className="mono-label" color="var(--synced-muted)" fontSize="10px">↓ PICK A THREAD</Text>
           </Flex>
         </MotionBox>
 
-        {/* About Section */}
-        <MotionBox mb={48}>
-          <Flex
-            direction={{ base: "column", md: "row" }}
-            gap={20}
-            align="center"
-          >
-            <VStack align="flex-start" flex="1" gap={8}>
-              <Heading size="4xl" fontWeight="900" letterSpacing="tight" color="fg.default">
-                2026 / Performance Architecture
-              </Heading>
-              <Text fontSize="2xl" color="var(--synced-muted)" lineHeight="relaxed">
-                I architect production-grade infrastructure where <strong>determinism meets 
-                intelligence</strong>. My work spans from <strong>RTL-level hardware optimization</strong> 
-                for low-latency controllers to <strong>agentic AI orchestration</strong> for 
-                safety-critical environments.
+        <Box>
+          <WorldRow num="01" label="Technology" href="/tech"
+            blurb="Embedded systems, HPC, and production AI. RTL-to-GDSII silicon, FreeRTOS on Cortex-M7, agentic inference at scale." />
+          <WorldRow num="02" label="Design" href="/design"
+            blurb="Interaction and brand design. Interfaces that argue a point — and convert. Trained in graphic design, UI/UX, and research." />
+          <WorldRow num="03" label="Sound" href="https://soundcloud.com/2wenzy" external
+            blurb="2wenzy — ambient, electronic, experimental. The other language I think in. 30K+ plays across platforms." />
+          <WorldRow num="04" label="Words" href="https://desihippe.substack.com" external
+            blurb="desihippe — politics, culture, and the ethics of the machine. Award-winning work presented at Christ University." />
+          <WorldRow num="05" label="Research" href="/about#publications" last
+            blurb="Springer Nature Q1, IEEE VTC A*. Biofeedback, stochastic control, thermoelectrics, holographic interfaces." />
+        </Box>
+      </Box>
+
+      {/* ── MANIFESTO + STATS ────────────── */}
+      <Box py={{ base: 16, md: 24 }} position="relative" overflow="hidden">
+        <Box position="absolute" inset="0" zIndex="0" pointerEvents="none"
+          bg="radial-gradient(ellipse at 15% 50%, color-mix(in srgb, var(--c-violet) 14%, transparent) 0%, transparent 55%), radial-gradient(ellipse at 85% 50%, color-mix(in srgb, var(--c-coral) 12%, transparent) 0%, transparent 50%)" />
+        <Flex direction={{ base: "column", lg: "row" }} gap={{ base: 12, lg: 20 }} align={{ base: "flex-start", lg: "center" }} position="relative" zIndex="1">
+          <Box flex="1.4">
+            <MotionBox initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.8, ease: EASE }}>
+              <Text className="mono-label" color="var(--accent)" mb="5" fontSize="10px">✦ ON THE RECORD</Text>
+              <Text className="editorial" fontSize={{ base: "2xl", md: "3xl", lg: "3.5xl" }} fontWeight="500" color="var(--synced-text)" lineHeight="1.3" letterSpacing="-0.01em">
+                I found my first SQL injection at sixteen and didn&apos;t know what to do with the feeling.{" "}
+                <Box as="span" className="tiedye-text">It never quite left.</Box>{" "}
+                I build things that can&apos;t fail — ECUs in a race car, voice agents in a hospital — and I keep asking what
+                they cost the people on the other side of the screen. The engineering is the easy part.
               </Text>
-              <Text fontSize="2xl" color="var(--synced-muted)" lineHeight="relaxed">
-                Currently, I&apos;m a founding engineer at <strong>Fettle</strong>, where I lead 
-                software architecture for distributed voice AI. I also lead automotive 
-                electronics for <strong>SolarMobil</strong>, designing stochastic telemetry engines 
-                that fuse vehicle state with environmental data in real-time.
+            </MotionBox>
+          </Box>
+          <Box flex="1">
+            <MotionBox initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} transition={{ duration: 0.5, ease: EASE, delay: 0.2 }}>
+              <Box display="grid" gridTemplateColumns="1fr 1fr" gap={{ base: 8, md: 10 }} p={{ base: 8, md: 10 }} border="1px solid"
+                borderColor="var(--synced-border)" borderRadius="2xl" bg="var(--synced-surface)" position="relative" overflow="hidden" style={{ backdropFilter: "blur(10px)" }}>
+                <Box position="absolute" top="-50%" right="-30%" w="200px" h="200px" bg="radial-gradient(circle, var(--c-violet) 0%, transparent 70%)" opacity="0.14" filter="blur(40px)" pointerEvents="none" />
+                <Stat value="2" label="Published Papers" delay={0} />
+                <Stat value="3" label="Patents Filed" delay={0.06} />
+                <Stat value="10+" label="Roles & Internships" delay={0.12} />
+                <Stat value="260K+" label="MAU Systems Built" delay={0.18} />
+              </Box>
+            </MotionBox>
+          </Box>
+        </Flex>
+      </Box>
+
+      {/* ── SELECTED WORK ────────────────── */}
+      <Box py={{ base: 16, md: 20 }}>
+        <MotionBox initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: EASE }} mb={{ base: 10, md: 14 }}>
+          <Flex align="baseline" justify="space-between" flexWrap="wrap" gap="4">
+            <Box>
+              <Text className="mono-label" color="var(--synced-muted)" mb="3" fontSize="10px">SELECTED WORK</Text>
+              <Text className="editorial" fontSize={{ base: "4xl", md: "5xl" }} fontWeight="600" color="var(--synced-text)" letterSpacing="-0.02em" lineHeight="1">
+                Things that shipped
               </Text>
-              <Stack direction={{ base: "column", sm: "row" }} gap={6} pt={8} width="full" flexWrap="wrap">
-                <Link href="/tech" passHref>
-                  <ThemedButton size="xl" bg="brand.500" color="fg.default" px={10} width={{ base: "full", sm: "auto" }}>
-                    Full Stack Capability
-                  </ThemedButton>
-                </Link>
-                <Link href="/about#publications" passHref>
-                  <ThemedButton variant="outline" size="xl" px={10} width={{ base: "full", sm: "auto" }}>
-                    Research Journal <BsArrowRight style={{ marginLeft: '12px' }} />
-                  </ThemedButton>
-                </Link>
-              </Stack>
-            </VStack>
+            </Box>
+            <Link href="/tech" className="mono-label press-btn" style={{ fontSize: "10px", color: "var(--synced-muted)", border: "1px solid var(--synced-border)", padding: "10px 16px", borderRadius: "9999px", textDecoration: "none", display: "inline-block" }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--accent)"; (e.currentTarget as HTMLElement).style.borderColor = "var(--accent)"; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--synced-muted)"; (e.currentTarget as HTMLElement).style.borderColor = "var(--synced-border)"; }}>
+              ALL OF IT →
+            </Link>
           </Flex>
         </MotionBox>
 
-        {/* Featured Work Section */}
-        <MotionBox 
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          mb={32}
-        >
-          <Heading size="3xl" fontWeight="800" letterSpacing="tight" color="fg.default" mb={12}>
-            Strategic Engineering
-          </Heading>
-          <VStack gap={20} align="stretch">
-            {FeaturedProjectList.map((value) => (
-              <FeaturedProject
-                name={value.name}
-                description={value.description}
-                textc="whiteAlpha.700"
-                images={[value.images[0], value.images[1]]}
-                key={value.id}
-                tags={value.tags}
-                link_icons={value.icons}
-                height={value.height}
-                width={value.width}
-                alt={value.alt}
-                reversed={value.reversed}
-              />
+        <Box display="grid" gridTemplateColumns={{ base: "1fr", md: "1fr 1fr" }} gap="4">
+          <WorkCard index={0} wide kicker="SOLARMOBIL · IEEE VTC 2026" name="Solar Racing Digital Twin"
+            description="A real-time race-strategy engine for a solar EV. Stochastic receding-horizon control over fused GIS, weather, and vehicle dynamics — running deterministically on FreeRTOS / Cortex-M7. Published at IEEE VTC; two patents filed."
+            tags={["C/C++", "FreeRTOS", "STM32H7", "InfluxDB", "Control Theory"]} link="https://vtc2026spring.trackchair.com/paper/47987" />
+          <WorkCard index={1} kicker="FETTLE · FOUNDING ENGINEER" name="Voice AI for Hospitals"
+            description="Distributed voice agents for hospital workflows — SIP trunking over LiveKit, a cross-modal recommender, sub-second inference on Kubernetes. I own the backend and the DevOps lifecycle."
+            tags={["PyTorch", "LiveKit", "K8s", "FastAPI"]} link="https://letsfettle.com" />
+          <WorkCard index={2} kicker="SPRINGER NATURE · Q1" name="Emotion-Adaptive Biofeedback"
+            description="A multimodal biofeedback system for autonomic regulation through guided breathing. LSTM + transformer encoders on Jetson/ESP32. Technically validated and published in Scientific Reports."
+            tags={["LSTM", "Transformers", "Jetson", "DSP"]} link="https://doi.org/10.1038/s41598-026-46105-9" />
+          <WorkCard index={3} kicker="GUAQ AI · FOUNDER" name="Agentic Platform, 0→$8K MRR"
+            description="Multi-vertical agentic solutions for hospitality, real estate, and finance. From zero to ~$8K MRR and 6+ clients in six months."
+            tags={["Agentic AI", "RAG", "LangChain"]} />
+          <WorkCard index={4} kicker="COREEL · SoC DESIGN" name="RTL2GDSII Controllers"
+            description="High-speed CAN-bus and I²C controllers from RTL to GDSII — UVM verification, STA, and floorplanning, brought up on a Virtex-7 FPGA."
+            tags={["Verilog", "FPGA", "UVM", "Vivado"]} />
+        </Box>
+      </Box>
+
+      {/* ── RECOGNITION ──────────────────── */}
+      <Box py={{ base: 12, md: 16 }}>
+        <Box p={{ base: 8, md: 10 }} border="1px solid" borderColor="var(--synced-border)" borderRadius="2xl" bg="var(--synced-surface)" style={{ backdropFilter: "blur(10px)" }} position="relative" overflow="hidden">
+          <Box position="absolute" bottom="-40%" left="-10%" w="300px" h="300px" bg="radial-gradient(circle, var(--c-teal) 0%, transparent 70%)" opacity="0.08" filter="blur(50px)" pointerEvents="none" />
+          <Text className="mono-label" color="var(--accent)" mb="6" fontSize="10px">RECOGNITION & IP</Text>
+          <VStack align="stretch" gap="0" position="relative" zIndex="1">
+            {[
+              { venue: "Springer Nature · Scientific Reports (Q1)", title: "Technical validation of a multimodal emotion-adaptive biofeedback system for autonomic regulation", year: "2026", url: "https://doi.org/10.1038/s41598-026-46105-9" },
+              { venue: "IEEE Vehicular Technology Conference (A*)", title: "Physics-Informed Stochastic Receding Horizon Control for Autonomous Energy Management in Solar Racing", year: "2026", url: "https://vtc2026spring.trackchair.com/paper/47987" },
+              { venue: "Intellectual Property · Filed under MAHE", title: "Three patents — Adaptive EV Interface · Long-Range Solar Telemetry · Robotic Panel Cleaning", year: "2025", url: "" },
+            ].map((pub, i, arr) => (
+              <MotionBox key={i} initial={{ opacity: 0, x: -16 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, ease: EASE, delay: i * 0.08 }}
+                py="6" borderBottom={i < arr.length - 1 ? "1px solid" : "none"} borderColor="var(--synced-border)">
+                <Flex justify="space-between" align="flex-start" gap="6" flexWrap="wrap">
+                  <Box flex="1">
+                    <Text className="mono-label" color="var(--synced-muted)" mb="2" fontSize="9px">{pub.venue} · {pub.year}</Text>
+                    <Text className="editorial" fontSize={{ base: "lg", md: "xl" }} color="var(--synced-text)" lineHeight="1.3">{pub.title}</Text>
+                  </Box>
+                  {pub.url && (
+                    <a href={pub.url} target="_blank" rel="noopener noreferrer">
+                      <BsArrowUpRight size={16} style={{ color: "var(--accent)", marginTop: "4px" }} />
+                    </a>
+                  )}
+                </Flex>
+              </MotionBox>
             ))}
           </VStack>
-          <Flex justify="center" mt={16}>
-            <Link href="/tech" passHref>
-              <ThemedButton variant="outline" px={12}>
-                Detailed Systems Log
-              </ThemedButton>
+        </Box>
+      </Box>
+
+      {/* ── CTA ──────────────────────────── */}
+      <MotionBox initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.7, ease: EASE }} py={{ base: 16, md: 20 }} mb={{ base: 8, md: 12 }}>
+        <Box className="full-bleed tiedye-bg" position="relative" overflow="hidden">
+          <Box position="absolute" inset="0" bg="rgba(0,0,0,0.12)" pointerEvents="none" />
+          <Flex direction={{ base: "column", md: "row" }} align="center" justify="space-between" gap="8" maxW="1280px" mx="auto" px={{ base: 8, md: 20 }} py={{ base: 14, md: 20 }} position="relative" zIndex="1">
+            <Box>
+              <Text className="mono-label" fontSize="10px" color="#fff" opacity={0.75} mb="3">OPEN TO WORK</Text>
+              <Text className="editorial" fontSize={{ base: "4xl", md: "5xl", lg: "6xl" }} fontWeight="600" color="#fff" lineHeight="1.05" letterSpacing="-0.02em">
+                Let&apos;s build the<br />things that can&apos;t fail.
+              </Text>
+              <Text mt="4" fontSize="sm" color="#fff" opacity={0.85} maxW="440px" lineHeight="relaxed">
+                Open to roles in inference infrastructure, safety-critical embedded systems, and HFT — and to design or sound collaborations that have something to say.
+              </Text>
+            </Box>
+            <Link href="/contact" className="press-btn"
+              style={{ fontFamily: "'Space Grotesk','Inter',sans-serif", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", fontSize: "0.8rem", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "10px", flexShrink: 0, background: "var(--void)", color: "var(--synced-text)", padding: "16px 36px", borderRadius: "9999px", cursor: "pointer" }}>
+              Start a conversation <BsArrowRight />
             </Link>
           </Flex>
-        </MotionBox>
-
-        {/* Contact CTA */}
-        <MotionBox
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          bg="brand.500"
-          color="fg.default"
-          p={{ base: 8, md: 16 }}
-          rounded="3xl"
-          textAlign="center"
-        >
-          <VStack gap={8}>
-            <Heading size="4xl" fontWeight="900" letterSpacing="tight" color="fg.default">
-              Architecting the High-Stakes.
-            </Heading>
-            <Text fontSize="xl" opacity="0.9" maxW="2xl" color="fg.default">
-              Actively seeking roles in <strong>HFT</strong>, <strong>Inference Infrastructure</strong>, and 
-              <strong>Safety-Critical Embedded Systems</strong>. I build the systems that cannot fail.
-            </Text>
-            <Link href="/contact" passHref>
-              <ThemedButton
-                bg="white"
-                color="brand.500"
-                _hover={{ bg: "gray.100" }}
-                size="xl"
-                px={12}
-              >
-                Request Technical Brief <BsArrowRight style={{ marginLeft: '8px' }} />
-              </ThemedButton>
-            </Link>
-          </VStack>
-        </MotionBox>
+        </Box>
       </MotionBox>
     </Box>
   );

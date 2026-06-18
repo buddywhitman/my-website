@@ -1,145 +1,108 @@
+/* eslint-disable react/no-unescaped-entities */
 import {
-  Box,
-  Heading,
-  Text,
-  VisuallyHidden,
-  Icon,
-  Input,
-  Field,
-  Textarea,
-  Flex,
-  VStack,
+  Box, Text, Input, Field, Textarea, Flex, VStack, HStack,
 } from "@chakra-ui/react";
-import Link from "next/link";
-import { FaKeybase } from "react-icons/fa";
-import { IconType } from "react-icons/lib";
+import { motion } from "framer-motion";
+import { useState } from "react";
 import { MdEmail } from "react-icons/md";
 import { SiDiscord } from "react-icons/si";
+import { FaKeybase } from "react-icons/fa";
+import { BsLinkedin, BsGithub, BsArrowUpRight } from "react-icons/bs";
+import SchemaMarkup from "components/SchemaMarkup";
 
-import ThemedButton from "components/ThemedButton";
-import { Tooltip } from "components/ui/tooltip";
+const MotionBox = motion(Box) as any;
+const EASE = [0.23, 1, 0.32, 1];
 
-interface IconWrapProps {
-  icon: IconType;
-  color: string;
-  text: string;
-  url: string;
-}
-
-const IconWrap = ({ icon, color, url, text }: IconWrapProps) => {
+const ChannelRow = ({ icon: Icon, label, handle, url }: { icon: any; label: string; handle: string; url: string }) => {
+  const [h, setH] = useState(false);
   return (
-    <Flex asChild my={3} textAlign="left" alignItems="center" justifyContent="left" _hover={{ color: "brand.400" }}>
-      <Link href={url}>
-        <Tooltip content={url} showArrow>
-          <Box
-            aria-label={text}
-            display="inline-block"
-            marginRight="1em"
-            tabIndex={0}
-          >
-            <VisuallyHidden>{text}</VisuallyHidden>
-            <Icon
-              h={{ base: 8, md: 12 }}
-              w={{ base: 8, md: 12 }}
-              as={icon}
-              color={color}
-            />
+    <a href={url} target="_blank" rel="noopener noreferrer" style={{ textDecoration: "none" }}
+      onMouseEnter={() => setH(true)} onMouseLeave={() => setH(false)}>
+      <Flex align="center" justify="space-between" py="5" borderBottom="1px solid" borderColor="var(--synced-border)"
+        style={{ paddingLeft: h ? "12px" : "0px", transition: "padding-left 280ms cubic-bezier(0.23,1,0.32,1)" }}>
+        <HStack gap="4">
+          <Icon size={20} style={{ color: h ? "var(--accent)" : "var(--synced-muted)", transition: "color 200ms ease" }} />
+          <Box>
+            <Text className="mono-label" fontSize="9px" color="var(--synced-muted)">{label}</Text>
+            <Text className="editorial" fontSize={{ base: "xl", md: "2xl" }} color="var(--synced-text)" lineHeight="1.1">{handle}</Text>
           </Box>
-        </Tooltip>
-        <Heading ml={3} size="sm">
-          {" "}
-          | {text}
-        </Heading>
-      </Link>
-    </Flex>
+        </HStack>
+        <Box color={h ? "var(--accent)" : "var(--synced-muted)"} style={{ transform: h ? "translate(4px,-4px)" : "none", transition: "all 240ms cubic-bezier(0.23,1,0.32,1)" }}>
+          <BsArrowUpRight size={18} />
+        </Box>
+      </Flex>
+    </a>
   );
 };
 
 const Contact = () => {
+  const schema = { "@context": "https://schema.org", "@type": "Person", name: "Pulkit Kumar", email: "pulkit.talks@gmail.com" };
+  const fieldStyle = {
+    background: "var(--synced-surface)",
+    border: "1px solid var(--synced-border)",
+    borderRadius: "12px",
+    color: "var(--synced-text)",
+  } as React.CSSProperties;
+
   return (
-    <Box p={{ base: 1, md: 8 }}>
-      <Heading as="h2" size="2xl">
-        <Text
-          as="span"
-          position="relative"
-          _after={{
-            content: "''",
-            width: "full",
-            height: "25%",
-            position: "absolute",
-            bottom: 1,
-            left: 0,
-            bg: "brand.500",
-            zIndex: -1,
-          }}
-        >
-          Contact
-        </Text>
-      </Heading>
-      <Flex direction={{ base: "column", md: "row" }} p={{ base: 1, md: 8 }} gap={8}>
-        <Flex w={{ base: "100%", md: "50%" }} direction="column">
-          <IconWrap
-            text="Discord"
-            icon={SiDiscord}
-            color="#5865F2"
-            url="https://discord.com/users/732152359882457138"
-          />
-          <IconWrap
-            text="Keybase"
-            icon={FaKeybase}
-            color="#ff6f21"
-            url="https://keybase.io/buddywhitman"
-          />
-          <IconWrap
-            text="Mail"
-            icon={MdEmail}
-            color="fg.default"
-            url="mailto:pulkit.talks@gmail.com"
-          />
-        </Flex>
-        <Flex
-          color="#fff"
-          p={8}
-          paddingY={16}
-          w={{ base: "100%", md: "50%" }}
-          rounded="3xl"
-          bg="brand.500"
-          direction="column"
-        >
-          <form action="https://api.web3forms.com/submit" method="POST">
-            <VStack align="stretch" gap={6}>
-              <Heading size="lg">Contact Form</Heading>
-              <Input
-                type="hidden"
-                name="access_key"
-                value="ffedddbb-9617-479e-9e67-7cdf2d662ad9"
-              />
-              <Field.Root>
-                <Field.Label color="white">Email address</Field.Label>
-                <Input 
-                  type="email" 
-                  name="email" 
-                  bg="whiteAlpha.200" 
-                  border="none" 
-                  _focus={{ bg: "whiteAlpha.300" }}
-                />
-              </Field.Root>
-              <Field.Root>
-                <Field.Label color="white">Message</Field.Label>
-                <Textarea 
-                  name="message" 
-                  bg="whiteAlpha.200" 
-                  border="none" 
-                  _focus={{ bg: "whiteAlpha.300" }}
-                  rows={5}
-                />
-              </Field.Root>
-              <ThemedButton type="submit" bg="#ffffff" color="brand.500" _hover={{ bg: "gray.100" }}>
-                Submit
-              </ThemedButton>
-            </VStack>
-          </form>
-        </Flex>
+    <Box pb={20}>
+      <SchemaMarkup data={schema} />
+
+      {/* HERO */}
+      <Box position="relative" pt={{ base: 8, md: 14 }} pb={{ base: 10, md: 16 }} overflow="hidden">
+        <Box className="blob blob-alt" top="-30%" right="0%" w={{ base: "55vw", md: "32vw" }} h={{ base: "55vw", md: "32vw" }} bg="radial-gradient(circle, var(--c-magenta) 0%, transparent 68%)" opacity="0.16" />
+        <Box position="relative" zIndex="1">
+          <Text className="mono-label" color="var(--synced-muted)" fontSize="10px" mb={{ base: 4, md: 6 }}>SAY HELLO</Text>
+          <Text as="h1" className="editorial" fontSize={{ base: "16vw", md: "12vw", lg: "10vw" }} fontWeight="600" lineHeight="0.85" letterSpacing="-0.03em">
+            <Box as="span" color="var(--synced-text)">Let&apos;s </Box><Box as="span" className="tiedye-text">talk.</Box>
+          </Text>
+          <Text mt={{ base: 6, md: 8 }} maxW="600px" fontSize={{ base: "md", md: "lg" }} color="var(--synced-muted)" lineHeight="relaxed">
+            Hiring, collaborating, arguing about whether AI is going to be good for us — all welcome.
+            I read everything. The fastest way to me is the form, but pick whatever channel you like.
+          </Text>
+        </Box>
+      </Box>
+
+      {/* GRID */}
+      <Flex direction={{ base: "column", lg: "row" }} gap={{ base: 12, lg: 16 }} align="flex-start">
+        {/* Channels */}
+        <MotionBox flex="1" w="full" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: EASE }}>
+          <Text className="mono-label" color="var(--accent)" fontSize="10px" mb="6">DIRECT CHANNELS</Text>
+          <ChannelRow icon={MdEmail} label="EMAIL — FASTEST" handle="pulkit.talks@gmail.com" url="mailto:pulkit.talks@gmail.com" />
+          <ChannelRow icon={BsLinkedin} label="LINKEDIN" handle="in/buddywhitman" url="https://www.linkedin.com/in/buddywhitman" />
+          <ChannelRow icon={BsGithub} label="GITHUB" handle="@buddywhitman" url="https://github.com/buddywhitman" />
+          <ChannelRow icon={SiDiscord} label="DISCORD" handle="buddywhitman" url="https://discord.com/users/732152359882457138" />
+          <ChannelRow icon={FaKeybase} label="KEYBASE — PGP" handle="buddywhitman" url="https://keybase.io/buddywhitman" />
+        </MotionBox>
+
+        {/* Form */}
+        <MotionBox flex="1" w="full" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: EASE, delay: 0.1 }}>
+          <Box position="relative" p={{ base: 7, md: 10 }} borderRadius="3xl" border="1px solid" borderColor="var(--synced-border)" bg="var(--synced-surface)" overflow="hidden" style={{ backdropFilter: "blur(10px)" }}>
+            <Box position="absolute" bottom="-40%" right="-20%" w="280px" h="280px" bg="radial-gradient(circle, var(--c-violet) 0%, transparent 70%)" opacity="0.1" filter="blur(45px)" pointerEvents="none" />
+            <form action="https://api.web3forms.com/submit" method="POST">
+              <VStack align="stretch" gap="6" position="relative" zIndex="1">
+                <Text className="editorial" fontSize="2xl" fontWeight="600" color="var(--synced-text)">Drop a line</Text>
+                <input type="hidden" name="access_key" value="ffedddbb-9617-479e-9e67-7cdf2d662ad9" />
+                <Field.Root>
+                  <Field.Label><Text className="mono-label" fontSize="9px" color="var(--synced-muted)">YOUR NAME</Text></Field.Label>
+                  <Input name="name" placeholder="Who's writing?" style={fieldStyle} _placeholder={{ color: "var(--synced-muted)" }} _focus={{ borderColor: "var(--accent)" }} />
+                </Field.Root>
+                <Field.Root>
+                  <Field.Label><Text className="mono-label" fontSize="9px" color="var(--synced-muted)">EMAIL</Text></Field.Label>
+                  <Input type="email" name="email" placeholder="where I reach you" style={fieldStyle} _placeholder={{ color: "var(--synced-muted)" }} _focus={{ borderColor: "var(--accent)" }} />
+                </Field.Root>
+                <Field.Root>
+                  <Field.Label><Text className="mono-label" fontSize="9px" color="var(--synced-muted)">MESSAGE</Text></Field.Label>
+                  <Textarea name="message" rows={5} placeholder="the pitch, the question, the rant…" style={fieldStyle} _placeholder={{ color: "var(--synced-muted)" }} _focus={{ borderColor: "var(--accent)" }} />
+                </Field.Root>
+                <button type="submit" className="press-btn"
+                  style={{ fontFamily: "'Space Grotesk','Inter',sans-serif", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", fontSize: "0.78rem", border: "none", cursor: "pointer", background: "var(--accent)", color: "#fff", padding: "16px 24px", borderRadius: "9999px", width: "100%" }}>
+                  Send it →
+                </button>
+              </VStack>
+            </form>
+          </Box>
+        </MotionBox>
       </Flex>
     </Box>
   );

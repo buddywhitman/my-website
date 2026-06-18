@@ -1,7 +1,9 @@
 import {
   Drawer,
-  Link as ChakraLink,
   VStack,
+  Box,
+  Text,
+  Separator,
 } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
@@ -13,18 +15,71 @@ interface DrawerWidgetProps {
   isOpen: boolean;
 }
 
-const DrawerLink = ({ text, url, onClick }: { text: string; url: string; onClick: () => void }) => (
-  <ChakraLink
-    asChild
-    fontSize="3xl"
-    fontWeight="bold"
-    letterSpacing="tight"
-    _hover={{ color: "brand.500", textDecoration: "none" }}
-    onClick={onClick}
-  >
-    <Link href={url}>{text}</Link>
-  </ChakraLink>
-);
+const drawerLinkBase: React.CSSProperties = {
+  fontFamily: "'EB Garamond', Georgia, serif",
+  fontStyle: "italic",
+  fontSize: "2.4rem",
+  fontWeight: 500,
+  letterSpacing: "-0.02em",
+  lineHeight: 1.1,
+  textDecoration: "none",
+  display: "block",
+  transition: "color 200ms ease",
+};
+
+const DrawerLink = ({
+  text,
+  url,
+  onClick,
+  external = false,
+  accent = false,
+}: {
+  text: string;
+  url: string;
+  onClick: () => void;
+  external?: boolean;
+  accent?: boolean;
+}) => {
+  const style: React.CSSProperties = {
+    ...drawerLinkBase,
+    color: accent ? "var(--accent)" : "var(--synced-text)",
+  };
+
+  const hoverOn = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.currentTarget.style.color = "var(--accent)";
+  };
+  const hoverOff = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.currentTarget.style.color = accent ? "var(--accent)" : "var(--synced-text)";
+  };
+
+  if (external) {
+    return (
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={style}
+        onClick={onClick}
+        onMouseEnter={hoverOn}
+        onMouseLeave={hoverOff}
+      >
+        {text}
+      </a>
+    );
+  }
+
+  return (
+    <Link
+      href={url}
+      style={style}
+      onClick={onClick}
+      onMouseEnter={hoverOn}
+      onMouseLeave={hoverOff}
+    >
+      {text}
+    </Link>
+  );
+};
 
 const DrawerWidget = ({ onClose, isOpen }: DrawerWidgetProps) => {
   return (
@@ -32,30 +87,60 @@ const DrawerWidget = ({ onClose, isOpen }: DrawerWidgetProps) => {
       <Drawer.Backdrop />
       <Drawer.Positioner>
         <Drawer.Content
-          bg="bg.default"
+          bg="var(--chakra-colors-bg-default)"
           p="8"
           pt="20"
+          maxW="320px"
+          borderLeft="1px solid"
+          borderColor="var(--synced-border)"
         >
-          <Drawer.CloseTrigger 
-            position="absolute" 
-            top="4" 
-            right="4" 
-          />
+          <Drawer.CloseTrigger position="absolute" top="4" right="4" />
           <Drawer.Body>
             <MotionBox
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.3 }}
+              transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
             >
-              <VStack align="flex-start" gap="6">
+              <VStack align="flex-start" gap="4">
                 <DrawerLink text="about" url="/about" onClick={onClose} />
                 <DrawerLink text="tech" url="/tech" onClick={onClose} />
+                <DrawerLink text="blog" url="/blog" onClick={onClose} />
                 <DrawerLink text="contact" url="/contact" onClick={onClose} />
-                <DrawerLink 
-                  text="resume" 
-                  url="https://github.com/buddywhitman/my-website/blob/main/Pulkit_Kumar_Resume.pdf" 
-                  onClick={onClose} 
+
+                <Box w="full" py="2">
+                  <Separator borderColor="var(--synced-border)" />
+                </Box>
+
+                <Text className="mono-label" color="var(--synced-muted)" fontSize="9px">
+                  beyond the terminal
+                </Text>
+
+                <DrawerLink
+                  text="design"
+                  url="/design"
+                  onClick={onClose}
+                  accent
                 />
+                <DrawerLink
+                  text="2wenzy"
+                  url="https://soundcloud.com/2wenzy"
+                  onClick={onClose}
+                  external
+                  accent
+                />
+                <DrawerLink
+                  text="desihippe"
+                  url="https://desihippe.substack.com"
+                  onClick={onClose}
+                  external
+                  accent
+                />
+
+                <Box w="full" py="2">
+                  <Separator borderColor="var(--synced-border)" />
+                </Box>
+
+                <DrawerLink text="resume" url="/resume" onClick={onClose} />
               </VStack>
             </MotionBox>
           </Drawer.Body>

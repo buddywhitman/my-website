@@ -43,20 +43,8 @@ const MyApp = ({
             />
           </Head>
           <DefaultSeo {...defaultSEOConfig} />
-          {!isResume && (
-            <Box
-              position="fixed"
-              top="0"
-              left="0"
-              width="100vw"
-              height="100vh"
-              zIndex="0"
-              opacity="0.75"
-              className="organic-gradient-bg"
-              pointerEvents="none"
-            />
-          )}
-          <Box className={!isResume ? "dynamic-theme-wrapper" : ""}>
+          {!isResume && <Box className="aurora-bg" aria-hidden />}
+          <Box className={!isResume ? "dynamic-theme-wrapper" : ""} position="relative" zIndex="1">
             <Layout>
               <Component {...pageProps} />
             </Layout>

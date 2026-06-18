@@ -1,4 +1,63 @@
-@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&family=Inter:wght@100..900&family=Space+Grotesk:wght@300..700&display=swap');
+
+/* =============================================
+   TIE-DYE SPECTRUM (the fixed counterculture palette)
+   ============================================= */
+:root {
+  --c-magenta: #d6248c;
+  --c-violet:  #7b2ff7;
+  --c-indigo:  #3a36d6;
+  --c-teal:    #0fb5a8;
+  --c-coral:   #ff5e5b;
+  --c-saffron: #ff9a3d;
+
+  --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+  --tiedye: linear-gradient(
+    115deg,
+    var(--c-magenta) 0%,
+    var(--c-coral) 22%,
+    var(--c-saffron) 38%,
+    var(--c-teal) 58%,
+    var(--c-indigo) 78%,
+    var(--c-violet) 100%
+  );
+}
+
+/* Default (dark) synced surface tokens */
+:root,
+html.dark {
+  --void: #0e0b13;
+  --paper: #0e0b13;
+  --synced-text: #f2ece3;
+  --synced-muted: rgba(242, 236, 227, 0.55);
+  --synced-surface: rgba(255, 255, 255, 0.035);
+  --synced-surface-solid: #15111d;
+  --synced-border: rgba(242, 236, 227, 0.12);
+  --accent: #e766ad;
+  --accent-strong: #d6248c;
+  --grain-opacity: 0.16;
+  --grain-blend: screen;
+}
+
+html.light {
+  --void: #f4efe6;
+  --paper: #f4efe6;
+  --synced-text: #1a1320;
+  --synced-muted: rgba(26, 19, 32, 0.62);
+  --synced-surface: rgba(26, 19, 32, 0.035);
+  --synced-surface-solid: #ece5d8;
+  --synced-border: rgba(26, 19, 32, 0.11);
+  --accent: #b51d77;
+  --accent-strong: #8f185f;
+  --grain-opacity: 0.08;
+  --grain-blend: multiply;
+}
+
+/* =============================================
+   BASE
+   ============================================= */
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
@@ -6,94 +65,227 @@ body {
   background-color: var(--chakra-colors-bg-default);
   color: var(--chakra-colors-fg-default);
   overflow-x: hidden;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* 
-  Fine VHS / Film Grain Overlay 
-*/
+/* Film grain — subtle in both modes */
 body::after {
   content: "";
   position: fixed;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100vw;
   height: 100vh;
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.25;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.2' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: var(--grain-opacity);
+  mix-blend-mode: var(--grain-blend);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
 
-/* Playful, organic gradient animations (Psychedelic / Retro Apple vibes) */
+/* =============================================
+   AURORA BACKGROUND (replaces the loud rainbow)
+   ============================================= */
+@keyframes aurora-drift {
+  0%, 100% { transform: translate3d(0, 0, 0) scale(1); }
+  33%  { transform: translate3d(4%, -3%, 0) scale(1.08); }
+  66%  { transform: translate3d(-3%, 4%, 0) scale(0.96); }
+}
+
+.aurora-bg {
+  position: fixed;
+  inset: -20%;
+  z-index: 0;
+  pointer-events: none;
+  filter: blur(90px) saturate(135%);
+  background:
+    radial-gradient(38% 42% at 18% 22%, color-mix(in srgb, var(--c-magenta) 60%, transparent) 0%, transparent 70%),
+    radial-gradient(34% 40% at 82% 18%, color-mix(in srgb, var(--c-violet) 55%, transparent) 0%, transparent 70%),
+    radial-gradient(42% 46% at 72% 78%, color-mix(in srgb, var(--c-teal) 48%, transparent) 0%, transparent 72%),
+    radial-gradient(36% 40% at 28% 82%, color-mix(in srgb, var(--c-coral) 50%, transparent) 0%, transparent 70%);
+  animation: aurora-drift 26s ease-in-out infinite;
+  will-change: transform;
+}
+html.dark .aurora-bg { opacity: 0.30; }
+html.light .aurora-bg { opacity: 0.40; }
+
+/* =============================================
+   TYPOGRAPHY UTILITIES
+   ============================================= */
+.editorial {
+  font-family: 'EB Garamond', Georgia, serif;
+  font-style: italic;
+}
+
+.mono-label {
+  font-family: 'Space Grotesk', 'Inter', sans-serif;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  font-weight: 600;
+}
+
+/* =============================================
+   GRADIENTS
+   ============================================= */
 @keyframes fluid-gradient {
   0% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
   100% { background-position: 0% 50%; }
 }
 
-.organic-gradient-text {
-  background: linear-gradient(120deg, #ff00ff, #ff7a00, #ffff00, #00ff00, #00ffff, #0000ff);
-  background-size: 400% 400%;
-  animation: fluid-gradient 15s ease infinite;
+.tiedye-text {
+  background: var(--tiedye);
+  background-size: 300% 300%;
+  animation: fluid-gradient 14s ease infinite;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
 }
 
-/* Theme syncing animation: pink/purple/blue (dark mode) vs yellow/green (light mode) */
-@keyframes theme-sync {
-  0% { /* Pink */
-    --synced-text: #ffffff;
-    --synced-muted: rgba(255, 255, 255, 0.7);
-    --synced-surface: rgba(0, 0, 0, 0.3);
-    --synced-border: rgba(255, 255, 255, 0.1);
-  }
-  20% { /* Orange/Yellow -> Light mode */
-    --synced-text: #000000;
-    --synced-muted: rgba(0, 0, 0, 0.7);
-    --synced-surface: rgba(255, 255, 255, 0.4);
-    --synced-border: rgba(0, 0, 0, 0.1);
-  }
-  50% { /* Green -> Light mode */
-    --synced-text: #000000;
-    --synced-muted: rgba(0, 0, 0, 0.7);
-    --synced-surface: rgba(255, 255, 255, 0.4);
-    --synced-border: rgba(0, 0, 0, 0.1);
-  }
-  80% { /* Blue/Purple -> Dark mode */
-    --synced-text: #ffffff;
-    --synced-muted: rgba(255, 255, 255, 0.7);
-    --synced-surface: rgba(0, 0, 0, 0.3);
-    --synced-border: rgba(255, 255, 255, 0.1);
-  }
-  100% { /* Pink */
-    --synced-text: #ffffff;
-    --synced-muted: rgba(255, 255, 255, 0.7);
-    --synced-surface: rgba(0, 0, 0, 0.3);
-    --synced-border: rgba(255, 255, 255, 0.1);
-  }
+.tiedye-bg {
+  background: var(--tiedye);
+  background-size: 300% 300%;
+  animation: fluid-gradient 14s ease infinite;
 }
 
-.organic-gradient-bg {
-  background: radial-gradient(circle at 50% 50%, #ff00ff 0%, #ff7a00 20%, #ffff00 40%, #00ff00 60%, #00ffff 80%, #0000ff 100%);
-  background-size: 400% 400%;
-  animation: fluid-gradient 20s ease infinite;
-}
-
-.dynamic-theme-wrapper {
-  animation: theme-sync 20s ease infinite;
-  color: var(--synced-text);
-  transition: color 0.5s ease;
-}
-
-/* Custom selection to match the vibe */
+/* =============================================
+   SELECTION + SCROLLBAR
+   ============================================= */
 ::selection {
-  background: #ff007a; /* Rebellious pink */
-  color: white;
+  background: var(--accent-strong);
+  color: #fff;
 }
 
-.timelinedatestyle {
-  font-size: 3em;
-  font-weight: 800;
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 4px; }
+
+/* =============================================
+   MARQUEE
+   ============================================= */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 38s linear infinite;
+  will-change: transform;
+}
+.marquee-track:hover { animation-play-state: paused; }
+
+/* =============================================
+   NAV LINK UNDERLINE (from center)
+   ============================================= */
+.nav-link-animated { position: relative; text-decoration: none; }
+.nav-link-animated::after {
+  content: '';
+  position: absolute;
+  bottom: 0px;
+  left: 50%;
+  right: 50%;
+  height: 1.5px;
+  background: var(--accent);
+  transition: left 240ms var(--ease-out), right 240ms var(--ease-out);
+}
+.nav-link-animated:hover::after { left: 10px; right: 10px; }
+
+/* =============================================
+   FULL BLEED
+   ============================================= */
+.full-bleed {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* =============================================
+   ENTRANCE ANIMATIONS
+   ============================================= */
+@keyframes reveal-from-bottom {
+  from { clip-path: inset(100% 0 0 0); opacity: 0; }
+  to { clip-path: inset(0% 0 0 0); opacity: 1; }
+}
+@keyframes fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-line {
+  animation: reveal-from-bottom 0.95s var(--ease-out) forwards;
+  opacity: 0;
+}
+.fade-in-up { animation: fade-up 0.7s var(--ease-out) forwards; opacity: 0; }
+
+/* =============================================
+   PSYCHEDELIC BLOBS / LAVA LAMP
+   ============================================= */
+@keyframes blob-drift {
+  0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  25%  { transform: translate(30px, -25px) scale(1.06) rotate(3deg); }
+  50%  { transform: translate(-20px, 20px) scale(0.96) rotate(-2deg); }
+  75%  { transform: translate(15px, 30px) scale(1.03) rotate(4deg); }
+}
+@keyframes blob-drift-alt {
+  0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+  33%  { transform: translate(-35px, 15px) scale(1.08) rotate(-4deg); }
+  66%  { transform: translate(20px, -30px) scale(0.94) rotate(5deg); }
+}
+
+.blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+  animation: blob-drift 16s ease-in-out infinite;
+  will-change: transform;
+}
+.blob-alt { animation: blob-drift-alt 20s ease-in-out infinite; }
+
+/* =============================================
+   CARD + BUTTON INTERACTIONS
+   ============================================= */
+.lift-card {
+  transition: transform 240ms var(--ease-out), border-color 240ms ease, box-shadow 240ms ease;
+}
+.lift-card:hover { transform: translateY(-5px); }
+.lift-card:active { transform: scale(0.98); transition-duration: 120ms; }
+
+.press-btn { transition: transform 160ms var(--ease-out), background 200ms ease, color 200ms ease; }
+.press-btn:active { transform: scale(0.97); }
+
+/* =============================================
+   HORIZONTAL SCROLL
+   ============================================= */
+.h-scroll-container {
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  cursor: grab;
+}
+.h-scroll-container::-webkit-scrollbar { display: none; }
+.h-scroll-container:active { cursor: grabbing; }
+
+/* =============================================
+   LEGACY / MISC
+   ============================================= */
+.timelinedatestyle { font-size: 3em; font-weight: 800; }
+.dynamic-theme-wrapper { color: var(--synced-text); }
+
+/* Slick slider dots/arrows tint */
+.slick-dots li button:before { color: var(--accent) !important; }
+.slick-prev:before, .slick-next:before { color: var(--accent) !important; }
+
+/* =============================================
+   REDUCED MOTION
+   ============================================= */
+@media (prefers-reduced-motion: reduce) {
+  .aurora-bg, .blob, .blob-alt, .marquee-track,
+  .tiedye-text, .tiedye-bg { animation: none !important; }
+  .hero-line { animation: fade-up 0.4s ease forwards; }
 }

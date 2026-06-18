@@ -149,19 +149,11 @@ const About = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <Text
-            fontFamily="display"
-            fontSize="sm"
-            fontWeight="bold"
-            color="brand.500"
-            letterSpacing="widest"
-            mb={4}
-            textTransform="uppercase"
-          >
-            The Architect
+          <Text className="mono-label" fontSize="10px" color="var(--accent)" mb={4}>
+            THE LONG VERSION
           </Text>
-          <Heading as="h2" fontSize={{ base: "6xl", md: "8xl", lg: "9xl" }} fontWeight="900" letterSpacing="tighter" fontFamily="display" fontStyle="italic" mb={16} color="var(--synced-text)">
-            Deeptech Pioneer.
+          <Heading as="h2" fontSize={{ base: "6xl", md: "8xl", lg: "9xl" }} fontWeight="600" letterSpacing="-0.02em" fontFamily="'EB Garamond', serif" fontStyle="italic" mb={16} color="var(--synced-text)">
+            How I got here.
           </Heading>
         </MotionBox>
 
@@ -189,8 +181,8 @@ const About = () => {
 
       {/* Core Expertise Section */}
       <Box px={{ base: 6, md: 10, lg: 20 }} mt={32}>
-        <Heading as="h3" fontSize={{ base: "5xl", md: "7xl" }} mb={16} fontWeight="900" letterSpacing="tight" color="var(--synced-text)">
-          Core Expertise
+        <Heading as="h3" fontSize={{ base: "5xl", md: "7xl" }} mb={16} fontWeight="600" letterSpacing="-0.02em" fontFamily="'EB Garamond', serif" fontStyle="italic" color="var(--synced-text)">
+          What I&apos;m good at
         </Heading>
         <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={12}>
           <ExpertiseCard
@@ -234,8 +226,8 @@ const About = () => {
 
       {/* Publications & IP Section */}
       <Box px={{ base: 6, md: 10, lg: 20 }} mt={40} id="publications">
-        <Heading as="h3" fontSize={{ base: "5xl", md: "7xl" }} mb={16} fontWeight="900" letterSpacing="tight" color="var(--synced-text)">
-          Publications & IP
+        <Heading as="h3" fontSize={{ base: "5xl", md: "7xl" }} mb={16} fontWeight="600" letterSpacing="-0.02em" fontFamily="'EB Garamond', serif" fontStyle="italic" color="var(--synced-text)">
+          Publications &amp; IP
         </Heading>
         <VStack gap={10} align="stretch">
           <MotionBox
@@ -333,8 +325,8 @@ const About = () => {
 
       {/* Comprehensive Career Timeline */}
       <Box px={{ base: 6, md: 10, lg: 20 }} mt={40} position="relative">
-        <Heading as="h3" fontSize={{ base: "5xl", md: "7xl" }} mb={24} fontWeight="900" letterSpacing="tight" textAlign="center" color="var(--synced-text)">
-          The Journey
+        <Heading as="h3" fontSize={{ base: "5xl", md: "7xl" }} mb={24} fontWeight="600" letterSpacing="-0.02em" fontFamily="'EB Garamond', serif" fontStyle="italic" textAlign="center" color="var(--synced-text)">
+          The journey so far
         </Heading>
         
         <Box position="relative" maxW="5xl" mx="auto">
@@ -606,8 +598,8 @@ const About = () => {
       </Box>
 
       <Flex alignItems="center" direction="column" mt={40} mb={20}>
-        <Heading as="h3" fontSize={{ base: "6xl", md: "8xl" }} fontWeight="900" letterSpacing="tighter" fontFamily="display" fontStyle="italic" color="var(--synced-text)">
-           Keep Pushing.
+        <Heading as="h3" fontSize={{ base: "6xl", md: "8xl" }} fontWeight="600" letterSpacing="-0.02em" fontFamily="'EB Garamond', serif" fontStyle="italic" color="var(--synced-text)">
+           Still building.
         </Heading>
       </Flex>
     </Box>

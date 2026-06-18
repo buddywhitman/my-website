@@ -16,7 +16,7 @@ const buttonRecipe = defineRecipe({
         _hover: {
           bg: "brand.600",
           transform: "translateY(-1px)",
-          boxShadow: "0 4px 12px rgba(2, 132, 199, 0.3)",
+          boxShadow: "0 4px 12px rgba(214, 36, 140, 0.3)",
         },
       },
       outline: {
@@ -64,18 +64,18 @@ const config = defineConfig({
     semanticTokens: {
       colors: {
         bg: {
-          default: { value: { base: "#ffffff", _dark: "#000000" } },
-          surface: { value: { base: "#f4f4f5", _dark: "#0a0a0a" } },
-          subtle: { value: { base: "#e5e5e5", _dark: "#171717" } },
+          default: { value: { base: "#f4efe6", _dark: "#0e0b13" } },
+          surface: { value: { base: "#ece5d8", _dark: "#15111d" } },
+          subtle: { value: { base: "#e3dacb", _dark: "#1b1626" } },
         },
         fg: {
-          default: { value: { base: "#171717", _dark: "#ffffff" } },
-          muted: { value: { base: "#525252", _dark: "#a3a3a3" } },
-          subtle: { value: { base: "#737373", _dark: "#737373" } },
+          default: { value: { base: "#1a1320", _dark: "#f2ece3" } },
+          muted: { value: { base: "#5b5260", _dark: "#a59ba8" } },
+          subtle: { value: { base: "#7a7280", _dark: "#7c7488" } },
         },
         border: {
-          default: { value: { base: "#d4d4d8", _dark: "#262626" } },
-          subtle: { value: { base: "#e5e5e5", _dark: "#171717" } },
+          default: { value: { base: "#d8cdbb", _dark: "#2a2438" } },
+          subtle: { value: { base: "#e3dacb", _dark: "#1b1626" } },
         }
       },
     },

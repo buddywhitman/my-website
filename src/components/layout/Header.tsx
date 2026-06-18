@@ -1,43 +1,74 @@
-import { Box, Flex, Heading, Text, Link as ChakraLink, HStack } from "@chakra-ui/react";
+import { Box, Flex, Text, Link as ChakraLink, HStack } from "@chakra-ui/react";
 import Link from "next/link";
 import React from "react";
+import { useRouter } from "next/router";
 
 import MenuButton from "./MenuButton";
 import ThemeToggle from "./ThemeToggle";
 
-interface MenuItemProps {
-  children: React.ReactNode;
+const NAV_LINKS = [
+  { text: "about", url: "/about", external: false },
+  { text: "tech", url: "/tech", external: false },
+  { text: "design", url: "/design", external: false },
+  { text: "2wenzy", url: "https://soundcloud.com/2wenzy", external: true },
+  { text: "desihippe", url: "https://desihippe.substack.com", external: true },
+  { text: "blog", url: "/blog", external: false },
+  { text: "contact", url: "/contact", external: false },
+];
+
+interface NavLinkItemProps {
+  text: string;
+  url: string;
+  isSpecial?: boolean;
+  external?: boolean;
 }
 
-const MenuItem = ({ children }: MenuItemProps) => {
-  return (
-    <Box>
-      {children}
-    </Box>
-  );
-};
+const HeaderLink = ({ text, url, isSpecial = false, external = false }: NavLinkItemProps) => {
+  const router = useRouter();
+  const isActive = !external && router.pathname === url;
 
-const HeaderLink = ({ text, url, isSpecial = false }: { text: string; url: string; isSpecial?: boolean }) => {
-  return (
-    <MenuItem>
-      <ChakraLink
-        asChild
-        px="3"
-        py="2"
-        rounded="md"
-        fontWeight="medium"
-        fontSize="sm"
-        transition="all 0.2s"
-        bg={isSpecial ? "brand.500" : "transparent"}
-        color={isSpecial ? "white" : "fg.default"}
-        _hover={{
-          bg: isSpecial ? "brand.600" : "bg.subtle",
-          textDecoration: "none",
-        }}
+  const sharedStyle: React.CSSProperties = {
+    fontFamily: "'Space Grotesk', 'Inter', sans-serif",
+    fontSize: "0.72rem",
+    fontWeight: 600,
+    letterSpacing: "0.12em",
+    textTransform: "uppercase",
+    textDecoration: "none",
+    padding: "6px 10px",
+    color: isSpecial ? "var(--void)" : isActive ? "var(--accent)" : "var(--synced-text)",
+    background: isSpecial ? "var(--accent)" : "transparent",
+    borderRadius: isSpecial ? "4px" : "0",
+    transition: "color 200ms ease",
+    display: "inline-block",
+    position: "relative",
+  };
+
+  if (external) {
+    return (
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="nav-link-animated"
+        style={sharedStyle}
+        onMouseEnter={(e) => { if (!isSpecial) e.currentTarget.style.color = "var(--accent)"; }}
+        onMouseLeave={(e) => { if (!isSpecial) e.currentTarget.style.color = isActive ? "var(--accent)" : "var(--synced-text)"; }}
       >
-        <Link href={url}>{text}</Link>
-      </ChakraLink>
-    </MenuItem>
+        {text}
+      </a>
+    );
+  }
+
+  return (
+    <Link
+      href={url}
+      className="nav-link-animated"
+      style={sharedStyle}
+      onMouseEnter={(e) => { if (!isSpecial) (e.currentTarget as HTMLElement).style.color = "var(--accent)"; }}
+      onMouseLeave={(e) => { if (!isSpecial) (e.currentTarget as HTMLElement).style.color = isActive ? "var(--accent)" : "var(--synced-text)"; }}
+    >
+      {text}
+    </Link>
   );
 };
 
@@ -52,48 +83,47 @@ const Header = ({ onOpen }: HeaderProps) => {
       width="full"
       align="center"
       justify="space-between"
-      py="4"
+      py="5"
+      borderBottom="1px solid"
+      borderColor="var(--synced-border)"
     >
-      <Heading fontWeight="bold" fontSize="xl" letterSpacing="tight">
-        <Link href="/" passHref>
-          <Text
-            as="span"
-            position="relative"
-            _after={{
-              content: "''",
-              width: "full",
-              height: "30%",
-              position: "absolute",
-              bottom: "0",
-              left: "0",
-              bg: "brand.500/30",
-              zIndex: -1,
-            }}
-          >
-            buddywhitman
-          </Text>
-        </Link>
-      </Heading>
+      {/* Logo */}
+      <Link href="/" style={{ textDecoration: "none", display: "flex", alignItems: "baseline", gap: "6px" }}>
+        <Text
+          as="span"
+          fontFamily="'EB Garamond', Georgia, serif"
+          fontStyle="italic"
+          fontWeight="500"
+          fontSize="xl"
+          color="var(--synced-text)"
+          transition="color 200ms ease"
+          _hover={{ color: "var(--accent)" }}
+        >
+          buddywhitman
+        </Text>
+        <Text as="span" className="mono-label" fontSize="9px" color="var(--synced-muted)">
+          ©2026
+        </Text>
+      </Link>
 
-      <Box>
-        <HStack gap="1" display={{ base: "none", md: "flex" }}>
-          <HeaderLink text="about" url="/about" />
-          <HeaderLink text="tech" url="/tech" />
-          <HeaderLink text="blog" url="/blog" />
-          <HeaderLink text="contact" url="/contact" />
-          <HeaderLink 
-            text="resume" 
-            url="/resume" 
-            isSpecial 
-          />
+      {/* Desktop nav */}
+      <HStack gap="0" display={{ base: "none", lg: "flex" }} align="center">
+        {NAV_LINKS.map((link) => (
+          <HeaderLink key={link.url} text={link.text} url={link.url} external={link.external} />
+        ))}
+        <Box ml="3">
+          <HeaderLink text="resume" url="/resume" isSpecial />
+        </Box>
+        <Box ml="2">
           <ThemeToggle />
-        </HStack>
-        
-        <HStack gap="1" display={{ base: "flex", md: "none" }}>
-          <ThemeToggle />
-          <MenuButton onClick={onOpen} />
-        </HStack>
-      </Box>
+        </Box>
+      </HStack>
+
+      {/* Mobile controls */}
+      <HStack gap="2" display={{ base: "flex", lg: "none" }}>
+        <ThemeToggle />
+        <MenuButton onClick={onOpen} />
+      </HStack>
     </Flex>
   );
 };
