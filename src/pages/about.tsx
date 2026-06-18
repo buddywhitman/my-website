@@ -323,6 +323,77 @@ const About = () => {
         </VStack>
       </Box>
 
+            {/* Education & Certifications Section */}
+      <Box px={{ base: 6, md: 10, lg: 20 }} mt={40}>
+        <Heading as="h3" fontSize={{ base: "5xl", md: "7xl" }} mb={16} fontWeight="600" letterSpacing="-0.02em" fontFamily="'EB Garamond', serif" fontStyle="italic" color="var(--synced-text)">
+          Education &amp; Credentials
+        </Heading>
+        
+        <Flex direction={{ base: "column", lg: "row" }} gap={16}>
+          {/* Education */}
+          <Box flex={1}>
+            <Heading size="lg" mb={8} color="brand.400" fontWeight="800">Academic Background</Heading>
+            <VStack align="stretch" gap={8}>
+              <Box p={6} bg="var(--synced-surface)" borderRadius="2xl" borderWidth="1px" borderColor="var(--synced-border)">
+                <Heading size="md" mb={2} color="var(--synced-text)">Manipal Institute of Technology</Heading>
+                <Text color="brand.500" fontWeight="bold" mb={2}>B.Tech in Electrical &amp; Electronics Engineering</Text>
+                <Text color="var(--synced-muted)" fontSize="sm" mb={4}>Aug 2023 - May 2027 (Expected)</Text>
+                <Text color="var(--synced-muted)" fontSize="sm">Selected Coursework: DSP, Microcontrollers, VLSI, RTOS, Control/Embedded Systems, AI/ML/DL, Consumer Electronics.</Text>
+              </Box>
+              <Box p={6} bg="var(--synced-surface)" borderRadius="2xl" borderWidth="1px" borderColor="var(--synced-border)">
+                <Heading size="md" mb={2} color="var(--synced-text)">St. Francis De Sales Public School</Heading>
+                <Text color="brand.500" fontWeight="bold" mb={2}>High School Diploma, Computer Science</Text>
+                <Text color="var(--synced-muted)" fontSize="sm" mb={4}>Jun 2017 - May 2023</Text>
+                <Text color="var(--synced-muted)" fontSize="sm">Grades: 97% (ICSE) &amp; 94% (ISC). Winner of multiple intercollegiate science fairs.</Text>
+              </Box>
+            </VStack>
+          </Box>
+
+          {/* Certifications & Awards */}
+          <Box flex={1}>
+            <Heading size="lg" mb={8} color="brand.400" fontWeight="800">Certifications &amp; Awards</Heading>
+            <SimpleGrid columns={1} gap={6}>
+              <Box p={6} bg="var(--synced-surface)" borderRadius="2xl" borderWidth="1px" borderColor="var(--synced-border)" _hover={{ borderColor: "yellow.400", transform: "scale(1.02)" }} transition="all 0.2s">
+                <Flex align="center" gap={4}>
+                  <Icon as={FaLightbulb} color="yellow.400" boxSize={6} />
+                  <Box>
+                    <Heading size="sm" color="var(--synced-text)">Best Engineering Design &amp; Fastest Acceleration</Heading>
+                    <Text fontSize="sm" color="var(--synced-muted)">ESVC 2025 (Team SolarMobil)</Text>
+                  </Box>
+                </Flex>
+              </Box>
+              <Box p={6} bg="var(--synced-surface)" borderRadius="2xl" borderWidth="1px" borderColor="var(--synced-border)" _hover={{ borderColor: "brand.400", transform: "scale(1.02)" }} transition="all 0.2s">
+                <Flex align="center" gap={4}>
+                  <Icon as={FaFileAlt} color="brand.400" boxSize={6} />
+                  <Box>
+                    <Heading size="sm" color="var(--synced-text)">Outstanding Student Presentation Award</Heading>
+                    <Text fontSize="sm" color="var(--synced-muted)">Junior Social Scientist Conference</Text>
+                  </Box>
+                </Flex>
+              </Box>
+              <Box p={6} bg="var(--synced-surface)" borderRadius="2xl" borderWidth="1px" borderColor="var(--synced-border)" _hover={{ borderColor: "purple.400", transform: "scale(1.02)" }} transition="all 0.2s">
+                <Flex align="center" gap={4}>
+                  <Icon as={BiCodeAlt} color="purple.400" boxSize={6} />
+                  <Box>
+                    <Heading size="sm" color="var(--synced-text)">AWS Certified Solutions Architect</Heading>
+                    <Text fontSize="sm" color="var(--synced-muted)">Amazon Web Services (2023)</Text>
+                  </Box>
+                </Flex>
+              </Box>
+              <Box p={6} bg="var(--synced-surface)" borderRadius="2xl" borderWidth="1px" borderColor="var(--synced-border)" _hover={{ borderColor: "purple.400", transform: "scale(1.02)" }} transition="all 0.2s">
+                <Flex align="center" gap={4}>
+                  <Icon as={BiCodeAlt} color="purple.400" boxSize={6} />
+                  <Box>
+                    <Heading size="sm" color="var(--synced-text)">ISC2 SSCP</Heading>
+                    <Text fontSize="sm" color="var(--synced-muted)">Systems Security Certified Practitioner (2023)</Text>
+                  </Box>
+                </Flex>
+              </Box>
+            </SimpleGrid>
+          </Box>
+        </Flex>
+      </Box>
+
       {/* Comprehensive Career Timeline */}
       <Box px={{ base: 6, md: 10, lg: 20 }} mt={40} position="relative">
         <Heading as="h3" fontSize={{ base: "5xl", md: "7xl" }} mb={24} fontWeight="600" letterSpacing="-0.02em" fontFamily="'EB Garamond', serif" fontStyle="italic" textAlign="center" color="var(--synced-text)">
