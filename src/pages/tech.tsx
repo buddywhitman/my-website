@@ -31,7 +31,7 @@ import MoreProjectList from "data/more_projects";
 import MotionBox from "components/motion/Box";
 import { Tooltip } from "components/ui/tooltip";
 
-const EASE = [0.23, 1, 0.32, 1];
+const EASE = [0.23, 1, 0.32, 1] as const;
 
 const SectionHead = ({ kicker, title }: { kicker: string; title: string }) => (
   <MotionBox initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: EASE }} mb={{ base: 8, md: 12 }}>

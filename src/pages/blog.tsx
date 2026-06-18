@@ -8,7 +8,7 @@ import { getAllPosts } from "lib/mdx";
 import type { PostFrontmatter } from "types/blog";
 
 const MotionBox = motion(Box) as any;
-const EASE = [0.23, 1, 0.32, 1];
+const EASE = [0.23, 1, 0.32, 1] as const;
 
 interface BlogProps {
   posts: (PostFrontmatter & { slug: string })[];

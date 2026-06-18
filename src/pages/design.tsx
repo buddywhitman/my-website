@@ -11,7 +11,7 @@ import {
 import SchemaMarkup from "components/SchemaMarkup";
 
 const MotionBox = motion(Box) as any;
-const EASE = [0.23, 1, 0.32, 1];
+const EASE = [0.23, 1, 0.32, 1] as const;
 
 interface DesignCaseProps {
   kicker: string;

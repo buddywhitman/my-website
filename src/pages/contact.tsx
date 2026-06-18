@@ -11,7 +11,7 @@ import { BsLinkedin, BsGithub, BsArrowUpRight } from "react-icons/bs";
 import SchemaMarkup from "components/SchemaMarkup";
 
 const MotionBox = motion(Box) as any;
-const EASE = [0.23, 1, 0.32, 1];
+const EASE = [0.23, 1, 0.32, 1] as const;
 
 const ChannelRow = ({ icon: Icon, label, handle, url }: { icon: any; label: string; handle: string; url: string }) => {
   const [h, setH] = useState(false);
