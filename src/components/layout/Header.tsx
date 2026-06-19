@@ -10,8 +10,8 @@ const NAV_LINKS = [
   { text: "about", url: "/about", external: false },
   { text: "tech", url: "/tech", external: false },
   { text: "design", url: "/design", external: false },
-  { text: "2wenzy", url: "https://soundcloud.com/2wenzy", external: true },
-  { text: "desihippe", url: "https://desihippe.substack.com", external: true },
+  { text: "2wenzy", url: "https://2wenzy.vercel.app", external: true },
+  { text: "desihippe", url: "https://desihippe.vercel.app", external: true },
   { text: "blog", url: "/blog", external: false },
   { text: "contact", url: "/contact", external: false },
 ];

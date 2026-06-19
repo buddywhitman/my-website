@@ -215,7 +215,7 @@ const Home = () => {
             <Box maxW="560px">
               <Text fontSize={{ base: "sm", md: "md" }} color="var(--synced-muted)" lineHeight="relaxed">
                 Founding engineer at <Box as="span" color="var(--synced-text)" fontWeight="600">Fettle</Box>, building
-                voice AI for healthcare. Systems &amp; embedded for <Box as="span" color="var(--synced-text)" fontWeight="600">SolarMobil&apos;s</Box> solar
+                voice AI for healthcare. Systems &amp; embedded for <Box as="span" color="var(--synced-text)" fontWeight="600">SolarMobil's</Box> solar
                 race team. Springer Nature author, three patents filed. I also make music as{" "}
                 <a href="https://2wenzy.vercel.app" target="_blank" rel="noopener noreferrer" style={{ color: "var(--accent)", textDecoration: "none" }}>2wenzy</a> and
                 write at <a href="https://desihippe.vercel.app" target="_blank" rel="noopener noreferrer" style={{ color: "var(--accent)", textDecoration: "none" }}>desihippe</a>.
@@ -274,9 +274,9 @@ const Home = () => {
             <MotionBox initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.8, ease: EASE }}>
               <Text className="mono-label" color="var(--accent)" mb="5" fontSize="10px">✦ ON THE RECORD</Text>
               <Text className="editorial" fontSize={{ base: "2xl", md: "3xl", lg: "3.5xl" }} fontWeight="500" color="var(--synced-text)" lineHeight="1.3" letterSpacing="-0.01em">
-                I found my first SQL injection at sixteen and didn&apos;t know what to do with the feeling.{" "}
+                I found my first SQL injection at sixteen and didn't know what to do with the feeling.{" "}
                 <Box as="span" className="tiedye-text">It never quite left.</Box>{" "}
-                I build things that can&apos;t fail — ECUs in a race car, voice agents in a hospital — and I keep asking what
+                I build things that can't fail — ECUs in a race car, voice agents in a hospital — and I keep asking what
                 they cost the people on the other side of the screen. The engineering is the easy part.
               </Text>
             </MotionBox>
@@ -371,7 +371,7 @@ const Home = () => {
             <Box>
               <Text className="mono-label" fontSize="10px" color="#fff" opacity={0.75} mb="3">OPEN TO WORK</Text>
               <Text className="editorial" fontSize={{ base: "4xl", md: "5xl", lg: "6xl" }} fontWeight="600" color="#fff" lineHeight="1.05" letterSpacing="-0.02em">
-                Let&apos;s build the<br />things that can&apos;t fail.
+                Let's build the<br />things that can't fail.
               </Text>
               <Text mt="4" fontSize="sm" color="#fff" opacity={0.85} maxW="440px" lineHeight="relaxed">
                 Open to roles in inference infrastructure, safety-critical embedded systems, and HFT — and to design or sound collaborations that have something to say.

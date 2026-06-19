@@ -31,8 +31,8 @@ const Footer = () => {
         <HStack gap="5">
           {[
             { label: "design", href: "https://dribbble.com/buddywhitman" },
-            { label: "music", href: "https://soundcloud.com/2wenzy" },
-            { label: "writing", href: "https://desihippe.substack.com" },
+            { label: "music", href: "https://2wenzy.vercel.app" },
+            { label: "writing", href: "https://desihippe.vercel.app" },
             { label: "github", href: "https://github.com/buddywhitman" },
           ].map(({ label, href }) => (
             <Link

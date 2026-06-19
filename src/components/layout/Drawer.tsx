@@ -123,14 +123,14 @@ const DrawerWidget = ({ onClose, isOpen }: DrawerWidgetProps) => {
                 />
                 <DrawerLink
                   text="2wenzy"
-                  url="https://soundcloud.com/2wenzy"
+                  url="https://2wenzy.vercel.app"
                   onClick={onClose}
                   external
                   accent
                 />
                 <DrawerLink
                   text="desihippe"
-                  url="https://desihippe.substack.com"
+                  url="https://desihippe.vercel.app"
                   onClick={onClose}
                   external
                   accent
