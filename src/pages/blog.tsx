@@ -28,7 +28,7 @@ const Blog = ({ posts }: BlogProps) => {
           <Text mt={{ base: 6, md: 8 }} maxW="600px" fontSize={{ base: "md", md: "lg" }} color="var(--synced-muted)" lineHeight="relaxed">
             Half-formed thoughts on software, hardware, and what the machines are doing to us. For the
             sharper political stuff, that lives at{" "}
-            <a href="https://desihippe.substack.com" target="_blank" rel="noopener noreferrer" style={{ color: "var(--accent)", textDecoration: "none" }}>desihippe</a>.
+            <a href="https://desihippe.vercel.app" target="_blank" rel="noopener noreferrer" style={{ color: "var(--accent)", textDecoration: "none" }}>desihippe</a>.
           </Text>
         </Box>
       </Box>
