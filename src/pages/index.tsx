@@ -217,8 +217,8 @@ const Home = () => {
                 Founding engineer at <Box as="span" color="var(--synced-text)" fontWeight="600">Fettle</Box>, building
                 voice AI for healthcare. Systems &amp; embedded for <Box as="span" color="var(--synced-text)" fontWeight="600">SolarMobil&apos;s</Box> solar
                 race team. Springer Nature author, three patents filed. I also make music as{" "}
-                <a href="https://soundcloud.com/2wenzy" target="_blank" rel="noopener noreferrer" style={{ color: "var(--accent)", textDecoration: "none" }}>2wenzy</a> and
-                write at <a href="https://desihippe.substack.com" target="_blank" rel="noopener noreferrer" style={{ color: "var(--accent)", textDecoration: "none" }}>desihippe</a>.
+                <a href="https://2wenzy.vercel.app" target="_blank" rel="noopener noreferrer" style={{ color: "var(--accent)", textDecoration: "none" }}>2wenzy</a> and
+                write at <a href="https://desihippe.vercel.app" target="_blank" rel="noopener noreferrer" style={{ color: "var(--accent)", textDecoration: "none" }}>desihippe</a>.
               </Text>
             </Box>
             <HStack gap="5" flexShrink={0} pb="1">
@@ -255,9 +255,9 @@ const Home = () => {
             blurb="Embedded systems, HPC, and production AI. RTL-to-GDSII silicon, FreeRTOS on Cortex-M7, agentic inference at scale." />
           <WorldRow num="02" label="Design" href="/design"
             blurb="Interaction and brand design. Interfaces that argue a point — and convert. Trained in graphic design, UI/UX, and research." />
-          <WorldRow num="03" label="Sound" href="https://soundcloud.com/2wenzy" external
+          <WorldRow num="03" label="Sound" href="https://2wenzy.vercel.app" external
             blurb="2wenzy — ambient, electronic, experimental. The other language I think in. 30K+ plays across platforms." />
-          <WorldRow num="04" label="Words" href="https://desihippe.substack.com" external
+          <WorldRow num="04" label="Words" href="https://desihippe.vercel.app" external
             blurb="desihippe — politics, culture, and the ethics of the machine. Award-winning work presented at Christ University." />
           <WorldRow num="05" label="Research" href="/about#publications" last
             blurb="Springer Nature Q1, IEEE VTC A*. Biofeedback, stochastic control, thermoelectrics, holographic interfaces." />
@@ -267,7 +267,8 @@ const Home = () => {
       {/* ── MANIFESTO + STATS ────────────── */}
       <Box py={{ base: 16, md: 24 }} position="relative" overflow="hidden">
         <Box position="absolute" inset="0" zIndex="0" pointerEvents="none"
-          bg="radial-gradient(ellipse at 15% 50%, color-mix(in srgb, var(--c-violet) 14%, transparent) 0%, transparent 55%), radial-gradient(ellipse at 85% 50%, color-mix(in srgb, var(--c-coral) 12%, transparent) 0%, transparent 50%)" />
+          bg="radial-gradient(ellipse at 15% 50%, color-mix(in srgb, var(--c-violet) 14%, transparent) 0%, transparent 55%), radial-gradient(ellipse at 85% 50%, color-mix(in srgb, var(--c-coral) 12%, transparent) 0%, transparent 60%)"
+        />
         <Flex direction={{ base: "column", lg: "row" }} gap={{ base: 12, lg: 20 }} align={{ base: "flex-start", lg: "center" }} position="relative" zIndex="1">
           <Box flex="1.4">
             <MotionBox initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.8, ease: EASE }}>
@@ -305,7 +306,7 @@ const Home = () => {
                 Things that shipped
               </Text>
             </Box>
-            <Link href="/tech" className="mono-label press-btn" style={{ fontSize: "10px", color: "var(--synced-muted)", border: "1px solid var(--synced-border)", padding: "10px 16px", borderRadius: "9999px", textDecoration: "none", display: "inline-block" }}
+            <Link href="/tech" className="mono-label press-btn" style={{ fontSize: "10px", color: "var(--synced-muted)", border: "1px solid var(--synced-border)", padding: "10px 16px", borderRadius: "6px", textDecoration: "none", transition: "all 200ms ease" }}
               onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--accent)"; (e.currentTarget as HTMLElement).style.borderColor = "var(--accent)"; }}
               onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--synced-muted)"; (e.currentTarget as HTMLElement).style.borderColor = "var(--synced-border)"; }}>
               ALL OF IT →
@@ -315,10 +316,10 @@ const Home = () => {
 
         <Box display="grid" gridTemplateColumns={{ base: "1fr", md: "1fr 1fr" }} gap="4">
           <WorkCard index={0} wide kicker="SOLARMOBIL · IEEE VTC 2026" name="Solar Racing Digital Twin"
-            description="A real-time race-strategy engine for a solar EV. Stochastic receding-horizon control over fused GIS, weather, and vehicle dynamics — running deterministically on FreeRTOS / Cortex-M7. Published at IEEE VTC; two patents filed."
+            description="A real-time race-strategy engine for a solar EV. Stochastic receding-horizon control over fused GIS, weather, and vehicle dynamics — running deterministically on FreeRTOS."
             tags={["C/C++", "FreeRTOS", "STM32H7", "InfluxDB", "Control Theory"]} link="https://vtc2026spring.trackchair.com/paper/47987" />
           <WorkCard index={1} kicker="FETTLE · FOUNDING ENGINEER" name="Voice AI for Hospitals"
-            description="Distributed voice agents for hospital workflows — SIP trunking over LiveKit, a cross-modal recommender, sub-second inference on Kubernetes. I own the backend and the DevOps lifecycle."
+            description="Distributed voice agents for hospital workflows — SIP trunking over LiveKit, a cross-modal recommender, sub-second inference on Kubernetes. I own the backend and the DevOps."
             tags={["PyTorch", "LiveKit", "K8s", "FastAPI"]} link="https://letsfettle.com" />
           <WorkCard index={2} kicker="SPRINGER NATURE · Q1" name="Emotion-Adaptive Biofeedback"
             description="A multimodal biofeedback system for autonomic regulation through guided breathing. LSTM + transformer encoders on Jetson/ESP32. Technically validated and published in Scientific Reports."
@@ -377,7 +378,9 @@ const Home = () => {
               </Text>
             </Box>
             <Link href="/contact" className="press-btn"
-              style={{ fontFamily: "'Space Grotesk','Inter',sans-serif", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", fontSize: "0.8rem", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "10px", flexShrink: 0, background: "var(--void)", color: "var(--synced-text)", padding: "16px 36px", borderRadius: "9999px", cursor: "pointer" }}>
+              style={{ fontFamily: "'Space Grotesk','Inter',sans-serif", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", fontSize: "0.8rem", textDecoration: "none", display: "flex", alignItems: "center", gap: "8px", padding: "12px 20px", border: "1.5px solid #fff", borderRadius: "6px", color: "#fff", transition: "all 200ms ease" }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.background = "#fff"; (e.currentTarget as HTMLElement).style.color = "var(--void)"; }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.background = "transparent"; (e.currentTarget as HTMLElement).style.color = "#fff"; }}>
               Start a conversation <BsArrowRight />
             </Link>
           </Flex>
