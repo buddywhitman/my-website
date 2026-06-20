@@ -1,6 +1,6 @@
 /* eslint-disable react/no-unescaped-entities */
 import {
-  Box, Text, Input, Field, Textarea, Flex, VStack, HStack,
+  Box, Text, Input, Field, Textarea, Flex, VStack, HStack, Icon,
 } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import { useState } from "react";
@@ -8,6 +8,9 @@ import { MdEmail } from "react-icons/md";
 import { SiDiscord } from "react-icons/si";
 import { FaKeybase } from "react-icons/fa";
 import { BsLinkedin, BsGithub, BsArrowUpRight } from "react-icons/bs";
+import { BiCheckCircle } from "react-icons/bi";
+import { FiAlertCircle } from "react-icons/fi";
+import { useForm } from "react-hook-form";
 import SchemaMarkup from "components/SchemaMarkup";
 
 const MotionBox = motion(Box) as any;
@@ -35,6 +38,13 @@ const ChannelRow = ({ icon: Icon, label, handle, url }: { icon: any; label: stri
   );
 };
 
+interface FormValues {
+  name: string;
+  email: string;
+  message: string;
+  _honey?: string;
+}
+
 const Contact = () => {
   const schema = { "@context": "https://schema.org", "@type": "Person", name: "Pulkit Kumar", email: "pulkit.talks@gmail.com" };
   const fieldStyle = {
@@ -43,6 +53,57 @@ const Contact = () => {
     borderRadius: "12px",
     color: "var(--synced-text)",
   } as React.CSSProperties;
+
+  const { register, handleSubmit, reset } = useForm<FormValues>();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const onSubmit = async (data: FormValues) => {
+    setIsSubmitting(true);
+    setSubmitStatus("idle");
+    setErrorMessage("");
+
+    // Honeypot check
+    if (data._honey) {
+      setSubmitStatus("success");
+      reset();
+      setIsSubmitting(false);
+      return;
+    }
+
+    try {
+      const formData = new FormData();
+      Object.entries(data).forEach(([key, value]) => {
+        if (value) formData.append(key, value);
+      });
+
+      formData.append("_captcha", "false");
+      formData.append("_template", "table");
+      formData.append("_subject", `New Contact Request: ${data.name}`);
+
+      const response = await fetch("https://formsubmit.co/ajax/pulkit.talks@gmail.com", {
+        method: "POST",
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        setSubmitStatus("success");
+        reset();
+      } else {
+        setSubmitStatus("error");
+        setErrorMessage("Failed to send request. Please try again or contact us directly.");
+      }
+    } catch {
+      setSubmitStatus("error");
+      setErrorMessage("An unexpected error occurred. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <Box pb={20}>
@@ -79,28 +140,101 @@ const Contact = () => {
         <MotionBox flex="1" w="full" initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: EASE, delay: 0.1 }}>
           <Box position="relative" p={{ base: 7, md: 10 }} borderRadius="3xl" border="1px solid" borderColor="var(--synced-border)" bg="var(--synced-surface)" overflow="hidden" style={{ backdropFilter: "blur(10px)" }}>
             <Box position="absolute" bottom="-40%" right="-20%" w="280px" h="280px" bg="radial-gradient(circle, var(--c-violet) 0%, transparent 70%)" opacity="0.1" filter="blur(45px)" pointerEvents="none" />
-            <form action="https://api.web3forms.com/submit" method="POST">
-              <VStack align="stretch" gap="6" position="relative" zIndex="1">
-                <Text className="editorial" fontSize="2xl" fontWeight="600" color="var(--synced-text)">Drop a line</Text>
-                <input type="hidden" name="access_key" value="ffedddbb-9617-479e-9e67-7cdf2d662ad9" />
-                <Field.Root>
-                  <Field.Label><Text className="mono-label" fontSize="9px" color="var(--synced-muted)">YOUR NAME</Text></Field.Label>
-                  <Input name="name" placeholder="Who's writing?" style={fieldStyle} _placeholder={{ color: "var(--synced-muted)" }} _focus={{ borderColor: "var(--accent)" }} />
-                </Field.Root>
-                <Field.Root>
-                  <Field.Label><Text className="mono-label" fontSize="9px" color="var(--synced-muted)">EMAIL</Text></Field.Label>
-                  <Input type="email" name="email" placeholder="where I reach you" style={fieldStyle} _placeholder={{ color: "var(--synced-muted)" }} _focus={{ borderColor: "var(--accent)" }} />
-                </Field.Root>
-                <Field.Root>
-                  <Field.Label><Text className="mono-label" fontSize="9px" color="var(--synced-muted)">MESSAGE</Text></Field.Label>
-                  <Textarea name="message" rows={5} placeholder="the pitch, the question, the rant…" style={fieldStyle} _placeholder={{ color: "var(--synced-muted)" }} _focus={{ borderColor: "var(--accent)" }} />
-                </Field.Root>
-                <button type="submit" className="press-btn"
-                  style={{ fontFamily: "'Space Grotesk','Inter',sans-serif", fontWeight: 600, letterSpacing: "0.1em", textTransform: "uppercase", fontSize: "0.78rem", border: "none", cursor: "pointer", background: "var(--accent)", color: "#fff", padding: "16px 24px", borderRadius: "9999px", width: "100%" }}>
-                  Send it →
+            {submitStatus === "success" ? (
+              <VStack gap="6" py={8} textAlign="center" position="relative" zIndex="1" align="center">
+                <Icon as={BiCheckCircle} h={16} w={16} color="var(--accent)" />
+                <Text className="editorial" fontSize="2xl" fontWeight="600" color="var(--synced-text)">
+                  Message Sent!
+                </Text>
+                <Text fontSize="sm" color="var(--synced-muted)" maxW="320px" lineHeight="relaxed">
+                  Thank you for reaching out. I will read your message and get back to you as soon as possible.
+                </Text>
+                <button
+                  onClick={() => setSubmitStatus("idle")}
+                  className="press-btn"
+                  style={{
+                    fontFamily: "'Space Grotesk','Inter',sans-serif",
+                    fontWeight: 600,
+                    letterSpacing: "0.1em",
+                    textTransform: "uppercase",
+                    fontSize: "0.78rem",
+                    border: "1px solid var(--synced-border)",
+                    cursor: "pointer",
+                    background: "transparent",
+                    color: "var(--synced-text)",
+                    padding: "12px 24px",
+                    borderRadius: "9999px",
+                    marginTop: "16px",
+                  }}
+                >
+                  Send another message
                 </button>
               </VStack>
-            </form>
+            ) : (
+              <form onSubmit={handleSubmit(onSubmit)}>
+                <VStack align="stretch" gap="6" position="relative" zIndex="1">
+                  <Text className="editorial" fontSize="2xl" fontWeight="600" color="var(--synced-text)">Drop a line</Text>
+                  
+                  {submitStatus === "error" && (
+                    <Box
+                      p="4"
+                      borderRadius="xl"
+                      border="1px solid"
+                      borderColor="var(--c-magenta)"
+                      bg="rgba(219, 39, 119, 0.1)"
+                      color="var(--synced-text)"
+                      fontSize="sm"
+                    >
+                      <HStack gap="3" align="flex-start">
+                        <Icon as={FiAlertCircle} color="var(--c-magenta)" w={5} h={5} mt="0.5" />
+                        <Text>{errorMessage || "Failed to send request. Please try again."}</Text>
+                      </HStack>
+                    </Box>
+                  )}
+
+                  {/* Honeypot field */}
+                  <input
+                    {...register("_honey")}
+                    type="text"
+                    style={{ display: "none" }}
+                    tabIndex={-1}
+                    autoComplete="off"
+                  />
+
+                  <Field.Root>
+                    <Field.Label><Text className="mono-label" fontSize="9px" color="var(--synced-muted)">YOUR NAME</Text></Field.Label>
+                    <Input {...register("name", { required: true })} placeholder="Who's writing?" style={fieldStyle} _placeholder={{ color: "var(--synced-muted)" }} _focus={{ borderColor: "var(--accent)" }} />
+                  </Field.Root>
+                  <Field.Root>
+                    <Field.Label><Text className="mono-label" fontSize="9px" color="var(--synced-muted)">EMAIL</Text></Field.Label>
+                    <Input type="email" {...register("email", { required: true })} placeholder="where I reach you" style={fieldStyle} _placeholder={{ color: "var(--synced-muted)" }} _focus={{ borderColor: "var(--accent)" }} />
+                  </Field.Root>
+                  <Field.Root>
+                    <Field.Label><Text className="mono-label" fontSize="9px" color="var(--synced-muted)">MESSAGE</Text></Field.Label>
+                    <Textarea {...register("message", { required: true })} rows={5} placeholder="the pitch, the question, the rant…" style={fieldStyle} _placeholder={{ color: "var(--synced-muted)" }} _focus={{ borderColor: "var(--accent)" }} />
+                  </Field.Root>
+                  <button type="submit" className="press-btn" disabled={isSubmitting}
+                    style={{
+                      fontFamily: "'Space Grotesk','Inter',sans-serif",
+                      fontWeight: 600,
+                      letterSpacing: "0.1em",
+                      textTransform: "uppercase",
+                      fontSize: "0.78rem",
+                      border: "none",
+                      cursor: isSubmitting ? "not-allowed" : "pointer",
+                      background: "var(--accent)",
+                      color: "#fff",
+                      padding: "16px 24px",
+                      borderRadius: "9999px",
+                      width: "100%",
+                      opacity: isSubmitting ? 0.6 : 1,
+                      transition: "opacity 200ms ease",
+                    }}>
+                    {isSubmitting ? "Sending..." : "Send it →"}
+                  </button>
+                </VStack>
+              </form>
+            )}
           </Box>
         </MotionBox>
       </Flex>
@@ -109,3 +243,4 @@ const Contact = () => {
 };
 
 export default Contact;
+
