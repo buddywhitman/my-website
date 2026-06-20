@@ -64,14 +64,6 @@ const Contact = () => {
     setSubmitStatus("idle");
     setErrorMessage("");
 
-    // Honeypot check
-    if (data._honey) {
-      setSubmitStatus("success");
-      reset();
-      setIsSubmitting(false);
-      return;
-    }
-
     try {
       const formData = new FormData();
       Object.entries(data).forEach(([key, value]) => {
