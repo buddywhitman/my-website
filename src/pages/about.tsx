@@ -149,11 +149,12 @@ const About = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <Text className="mono-label" fontSize="10px" color="var(--accent)" mb={4}>
+          <Text className="mono-label" fontSize="10px" color="var(--accent)" mb={{ base: 4, lg: 8 }}>
             THE LONG VERSION
           </Text>
-          <Heading as="h2" fontSize={{ base: "6xl", md: "8xl", lg: "9xl" }} fontWeight="600" letterSpacing="-0.02em" fontFamily="'EB Garamond', serif" fontStyle="italic" mb={16} color="var(--synced-text)">
-            How I got<Text className="tiedye-text">here.</Text>
+          <Heading as="h2" fontSize={{ base: "6xl", md: "8xl", lg: "9xl" }} fontWeight="600" letterSpacing="-0.02em" fontFamily="'EB Garamond', serif" fontStyle="italic" mb={16} color="var(--synced-text)" lineHeight={{ base: "1.2", lg: "1.25" }}>
+            How I got
+            <Text as="span" display="block" className="tiedye-text" mt={{ base: 2, lg: 4 }} lineHeight="inherit">here.</Text>
           </Heading>
         </MotionBox>
 
