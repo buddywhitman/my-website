@@ -1,4 +1,4 @@
-import { Box, Heading, Text, VStack, HStack, Flex, Separator, Button } from "@chakra-ui/react";
+import { Box, Heading, Text, VStack, HStack, Flex, Separator, Button, Link as ChakraLink } from "@chakra-ui/react";
 import Link from "next/link";
 import { BsArrowRight } from "react-icons/bs";
 import { NextSeo } from "next-seo";
@@ -43,7 +43,9 @@ const Resume = () => {
             </Heading>
             <Box mb={4}>
               <Flex justify="space-between" align="baseline" wrap="wrap">
-                <Text fontWeight="bold" fontSize="lg">Manipal Institute of Technology</Text>
+                <Text fontWeight="bold" fontSize="lg">
+                  <ChakraLink href="https://www.manipal.edu/mit.html" target="_blank" color="var(--accent)">Manipal Institute of Technology</ChakraLink>
+                </Text>
                 <Text>2023 - 2027</Text>
               </Flex>
               <Text fontStyle="italic">B.Tech in Electrical and Electronics Engineering</Text>
@@ -58,7 +60,9 @@ const Resume = () => {
             
             <Box mb={8}>
               <Flex justify="space-between" align="baseline" wrap="wrap">
-                <Text fontWeight="bold" fontSize="lg">Founding Engineer @ Fettle</Text>
+                <Text fontWeight="bold" fontSize="lg">
+                  Founding Engineer @ <ChakraLink href="https://www.letsfettle.com" target="_blank" color="var(--accent)">Fettle</ChakraLink>
+                </Text>
                 <Text>2025 - Present</Text>
               </Flex>
               <Box as="ul" pl={6} mt={2}>
@@ -70,7 +74,9 @@ const Resume = () => {
 
             <Box mb={8}>
               <Flex justify="space-between" align="baseline" wrap="wrap">
-                <Text fontWeight="bold" fontSize="lg">Founder @ Guaq AI</Text>
+                <Text fontWeight="bold" fontSize="lg">
+                  Founder @ <ChakraLink href="https://guaqai.me" target="_blank" color="var(--accent)">Guaq AI</ChakraLink>
+                </Text>
                 <Text>Dec 2025 - Present</Text>
               </Flex>
               <Box as="ul" pl={6} mt={2}>
@@ -81,7 +87,9 @@ const Resume = () => {
 
             <Box mb={8}>
               <Flex justify="space-between" align="baseline" wrap="wrap">
-                <Text fontWeight="bold" fontSize="lg">AI Engineer @ Teachafy Labs</Text>
+                <Text fontWeight="bold" fontSize="lg">
+                  AI Engineer @ <ChakraLink href="https://teachafy.com" target="_blank" color="var(--accent)">Teachafy Labs</ChakraLink>
+                </Text>
                 <Text>Aug 2025 - Nov 2025</Text>
               </Flex>
               <Box as="ul" pl={6} mt={2}>
@@ -92,7 +100,9 @@ const Resume = () => {
 
             <Box mb={8}>
               <Flex justify="space-between" align="baseline" wrap="wrap">
-                <Text fontWeight="bold" fontSize="lg">System Engineer @ SolarMobil</Text>
+                <Text fontWeight="bold" fontSize="lg">
+                  System Engineer @ <ChakraLink href="https://www.solarmobilmanipal.org" target="_blank" color="var(--accent)">SolarMobil</ChakraLink>
+                </Text>
                 <Text>2024 - Present</Text>
               </Flex>
               <Box as="ul" pl={6} mt={2}>
@@ -104,7 +114,9 @@ const Resume = () => {
 
             <Box mb={8}>
               <Flex justify="space-between" align="baseline" wrap="wrap">
-                <Text fontWeight="bold" fontSize="lg">Embedded Software Engineer @ Symbionic</Text>
+                <Text fontWeight="bold" fontSize="lg">
+                  Embedded Software Engineer @ <ChakraLink href="https://www.symbionic.co" target="_blank" color="var(--accent)">Symbionic</ChakraLink>
+                </Text>
                 <Text>May 2025 - Jul 2025</Text>
               </Flex>
               <Box as="ul" pl={6} mt={2}>
@@ -126,7 +138,9 @@ const Resume = () => {
 
             <Box mb={8}>
               <Flex justify="space-between" align="baseline" wrap="wrap">
-                <Text fontWeight="bold" fontSize="lg">Machine Learning Engineer @ DCPR AI</Text>
+                <Text fontWeight="bold" fontSize="lg">
+                  Machine Learning Engineer @ <ChakraLink href="https://dcprai.com" target="_blank" color="var(--accent)">DCPR AI</ChakraLink>
+                </Text>
                 <Text>Jul 2024 - Dec 2024</Text>
               </Flex>
               <Box as="ul" pl={6} mt={2}>
@@ -137,7 +151,9 @@ const Resume = () => {
 
             <Box mb={8}>
               <Flex justify="space-between" align="baseline" wrap="wrap">
-                <Text fontWeight="bold" fontSize="lg">Embedded Engineer @ Krop AI</Text>
+                <Text fontWeight="bold" fontSize="lg">
+                  Embedded Engineer @ <ChakraLink href="https://kropai.com" target="_blank" color="var(--accent)">Krop AI</ChakraLink>
+                </Text>
                 <Text>Sep 2024 - Nov 2024</Text>
               </Flex>
               <Box as="ul" pl={6} mt={2}>
@@ -212,7 +228,9 @@ const Resume = () => {
 
             <Box mb={8}>
               <Flex justify="space-between" align="baseline" wrap="wrap">
-                <Text fontWeight="bold" fontSize="lg">Social Media Manager @ Manipal Updates</Text>
+                <Text fontWeight="bold" fontSize="lg">
+                  Social Media Manager @ <ChakraLink href="https://www.manipal.edu/mit.html" target="_blank" color="var(--accent)">Manipal Updates</ChakraLink>
+                </Text>
                 <Text>Aug 2023 - Oct 2023</Text>
               </Flex>
               <Box as="ul" pl={6} mt={2}>
@@ -233,7 +251,9 @@ const Resume = () => {
 
             <Box mb={8}>
               <Flex justify="space-between" align="baseline" wrap="wrap">
-                <Text fontWeight="bold" fontSize="lg">Core Committee (Volunteer) @ Manipal Hackathon</Text>
+                <Text fontWeight="bold" fontSize="lg">
+                  Core Committee (Volunteer) @ <ChakraLink href="https://www.manipal.edu/mit.html" target="_blank" color="var(--accent)">Manipal Hackathon</ChakraLink>
+                </Text>
                 <Text>2024</Text>
               </Flex>
               <Box as="ul" pl={6} mt={2}>

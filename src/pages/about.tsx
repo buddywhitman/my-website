@@ -22,7 +22,7 @@ import MotionBox from "components/motion/Box";
 import SchemaMarkup from "components/SchemaMarkup";
 
 interface TextImageProps {
-  text: string;
+  text: React.ReactNode;
   reverse: boolean;
   image: string;
   alt: string;
@@ -159,7 +159,15 @@ const About = () => {
 
         <Box w="full">
           <TextImage
-            text="I am a Systems Engineer and Founding Engineer at Fettle, currently pursuing my undergraduate degree at Manipal Institute of Technology (Expected 2027). My journey in technology began in the fifth grade with a simple 'Hello World' in HTML, which sparked a decade-long obsession with understanding what truly happens 'under the hood'. This curiosity led me from high-level software development into the intricate world of hardware, embedded systems, and silicon design."
+            text={
+              <>
+                I am a Systems Engineer and Founding Engineer at{" "}
+                <Link href="https://www.letsfettle.com" target="_blank" color="var(--accent)">Fettle</Link>
+                , currently pursuing my undergraduate degree at{" "}
+                <Link href="https://www.manipal.edu/mit.html" target="_blank" color="var(--accent)">Manipal Institute of Technology</Link>{" "}
+                (Expected 2027). My journey in technology began in the fifth grade with a simple 'Hello World' in HTML, which sparked a decade-long obsession with understanding what truly happens 'under the hood'. This curiosity led me from high-level software development into the intricate world of hardware, embedded systems, and silicon design.
+              </>
+            }
             image="/staring.webp"
             height={600}
             cw="50%"
@@ -168,7 +176,15 @@ const About = () => {
             reverse={false}
           />
           <TextImage
-            text="At SolarMobil, I lead the automotive electronics for a high-performance solar racing EV, architecting low-level drivers for Arm Cortex M7-based ECUs and developing real-time telemetry systems. My work at Fettle involves building voice AI agents and scalable backend architectures for healthcare. I thrive at the intersection of hardware and software, where I can apply my expertise in HPC, Embedded Systems, and Agentic AI to solve complex, real-world problems."
+            text={
+              <>
+                At{" "}
+                <Link href="https://www.solarmobilmanipal.org" target="_blank" color="var(--accent)">SolarMobil</Link>
+                , I lead the automotive electronics for a high-performance solar racing EV, architecting low-level drivers for Arm Cortex M7-based ECUs and developing real-time telemetry systems. My work at{" "}
+                <Link href="https://www.letsfettle.com" target="_blank" color="var(--accent)">Fettle</Link>{" "}
+                involves building voice AI agents and scalable backend architectures for healthcare. I thrive at the intersection of hardware and software, where I can apply my expertise in HPC, Embedded Systems, and Agentic AI to solve complex, real-world problems.
+              </>
+            }
             image="/working_bb.webp"
             alt="working"
             reverse
@@ -335,7 +351,9 @@ const About = () => {
             <Heading size="lg" mb={8} color="brand.400" fontWeight="800">Academic Background</Heading>
             <VStack align="stretch" gap={8}>
               <Box p={6} bg="var(--synced-surface)" borderRadius="2xl" borderWidth="1px" borderColor="var(--synced-border)">
-                <Heading size="md" mb={2} color="var(--synced-text)">Manipal Institute of Technology</Heading>
+                <Heading size="md" mb={2} color="var(--synced-text)">
+                  <Link href="https://www.manipal.edu/mit.html" target="_blank" color="var(--accent)">Manipal Institute of Technology</Link>
+                </Heading>
                 <Text color="brand.500" fontWeight="bold" mb={2}>B.Tech in Electrical &amp; Electronics Engineering</Text>
                 <Text color="var(--synced-muted)" fontSize="sm" mb={4}>Aug 2023 - May 2027 (Expected)</Text>
                 <Text color="var(--synced-muted)" fontSize="sm">Selected Coursework: DSP, Microcontrollers, VLSI, RTOS, Control/Embedded Systems, AI/ML/DL, Consumer Electronics.</Text>
@@ -358,7 +376,9 @@ const About = () => {
                   <Icon as={FaLightbulb} color="yellow.400" boxSize={6} />
                   <Box>
                     <Heading size="sm" color="var(--synced-text)">Best Engineering Design &amp; Fastest Acceleration</Heading>
-                    <Text fontSize="sm" color="var(--synced-muted)">ESVC 2025 (Team SolarMobil)</Text>
+                    <Text fontSize="sm" color="var(--synced-muted)">
+                      ESVC 2025 (Team <Link href="https://www.solarmobilmanipal.org" target="_blank" color="var(--accent)">SolarMobil</Link>)
+                    </Text>
                   </Box>
                 </Flex>
               </Box>
@@ -418,7 +438,7 @@ const About = () => {
 
           {[{
               role: "Founder",
-              company: "Guaq AI",
+              company: <Link href="https://guaqai.me" target="_blank" color="var(--accent)">Guaq AI</Link>,
               period: "Dec 2025 - Present",
               desc: "Building agentic solutions for hospitality, real estate, and finance. Scaled to 6+ clients with ~$8K MRR in 6 months.",
               tags: ["Agentic AI", "LLMs", "Product Strategy"]
@@ -432,7 +452,7 @@ const About = () => {
             },
             {
               role: "Founding Engineer",
-              company: "Fettle",
+              company: <Link href="https://www.letsfettle.com" target="_blank" color="var(--accent)">Fettle</Link>,
               period: "2025 - Present",
               desc: "Architecting distributed health ecosystems using FastAPI and Kubernetes. Optimizing real-time voice AI latency with LiveKit and OpenAI.",
               tags: ["Voice AI", "PyTorch", "Kubernetes"]
@@ -446,7 +466,7 @@ const About = () => {
             },
             {
               role: "System Engineer",
-              company: "Team SolarMobil",
+              company: <>Team <Link href="https://www.solarmobilmanipal.org" target="_blank" color="var(--accent)">SolarMobil</Link></>,
               period: "Jan 2024 - Present",
               desc: "Engineered automotive electronics for a solar racing EV. Developed low-level drivers for Arm Cortex M7-based ECUs and built real-time telemetry dashboards.",
               tags: ["Embedded C", "FreeRTOS", "STM32"]
@@ -460,14 +480,14 @@ const About = () => {
             },
             {
               role: "AI Engineer",
-              company: "Teachafy Labs",
+              company: <Link href="https://teachafy.com" target="_blank" color="var(--accent)">Teachafy Labs</Link>,
               period: "Aug 2025 - Nov 2025",
               desc: "Developed Google ADK-based agentic orchestration and WhatsApp business chatbots to inject natural language workflows into ERP platforms, saving 5000+ hrs/week across 17+ clients.",
               tags: ["Agentic AI", "RAG", "Google Cloud"]
             },
             {
               role: "Embedded Software Engineer",
-              company: "Symbionic",
+              company: <Link href="https://www.symbionic.co" target="_blank" color="var(--accent)">Symbionic</Link>,
               period: "May 2025 - Jul 2025",
               desc: "Developed drivers for ESP32 cores and designed a signal acquisition pipeline for multi-channel EMG/EEG sensing.",
               tags: ["Edge AI", "DSP", "ESP32"]
@@ -488,14 +508,14 @@ const About = () => {
             },
             {
               role: "Machine Learning Engineer",
-              company: "DCPR AI",
+              company: <Link href="https://dcprai.com" target="_blank" color="var(--accent)">DCPR AI</Link>,
               period: "Jul 2024 - Dec 2024",
               desc: "Leveraged n8n to build agentic RAG-based LLM workflows around Urban Planning regulation utilizing Redis, Cohere, and FastAPI.",
               tags: ["RAG", "FastAPI", "n8n"]
             },
             {
               role: "Embedded Engineer",
-              company: "Krop AI",
+              company: <Link href="https://kropai.com" target="_blank" color="var(--accent)">Krop AI</Link>,
               period: "Sep 2024 - Nov 2024",
               desc: "Designed hardware systems and wrote DMA drivers for AtlasScientific precision sensing probes on ESP32-based agritech modules.",
               tags: ["Hardware Design", "ESP32", "Computer Vision"]
@@ -516,7 +536,7 @@ const About = () => {
             },
             {
               role: "Core Committee (Volunteer)",
-              company: "Manipal Hackathon",
+              company: <Link href="https://www.manipal.edu/mit.html" target="_blank" color="var(--accent)">Manipal Hackathon</Link>,
               period: "2024",
               desc: "Developed full-stack developer management portals for Manipal Hackathon's 2024 edition, scaling to 35k+ DAU and optimizing FCP by over 68%.",
               tags: ["Full Stack", "Performance"]
@@ -544,7 +564,7 @@ const About = () => {
             },
             {
               role: "Social Media Manager",
-              company: "Manipal Updates",
+              company: <Link href="https://www.manipal.edu/mit.html" target="_blank" color="var(--accent)">Manipal Updates</Link>,
               period: "Aug 2023 - Oct 2023",
               desc: "Designed social media marketing content resulting in a 78% increase in footfall and 55% rise in revenue for client restaurants.",
               tags: ["Marketing", "Design"]

@@ -214,9 +214,8 @@ const Home = () => {
             gap="6" className="hero-line" style={{ animationDelay: "0.6s" }}>
             <Box maxW="560px">
               <Text fontSize={{ base: "sm", md: "md" }} color="var(--synced-muted)" lineHeight="relaxed">
-                Software Engineering Intern at <Box as="span" color="var(--synced-text)" fontWeight="600">Fettle</Box>, building
-                voice AI & infrastructure for healthcare. Electronics Head at <Box as="span" color="var(--synced-text)" fontWeight="600">
-                SolarMobil,</Box> delivering safety-critical embedded systems. Springer Nature author, three patents filed. I also make music as{" "}
+                Software Engineering Intern at <ChakraLink href="https://www.letsfettle.com" target="_blank" color="var(--accent)" fontWeight="600">Fettle</ChakraLink>, building
+                voice AI & infrastructure for healthcare. Electronics Head at <ChakraLink href="https://www.solarmobilmanipal.org" target="_blank" color="var(--accent)" fontWeight="600">SolarMobil</ChakraLink>, delivering safety-critical embedded systems. Springer Nature author, three patents filed. I also make music as{" "}
                 <a href="https://2wenzy.vercel.app" target="_blank" rel="noopener noreferrer" style={{ color: "var(--accent)", textDecoration: "none" }}>2wenzy</a> and
                 write at <a href="https://desihippe.vercel.app" target="_blank" rel="noopener noreferrer" style={{ color: "var(--accent)", textDecoration: "none" }}>desihippe</a>.
               </Text>
@@ -303,7 +302,7 @@ const Home = () => {
             tags={["LSTM", "Transformers", "Jetson", "DSP"]} link="https://doi.org/10.1038/s41598-026-46105-9" />
           <WorkCard index={3} kicker="GUAQ AI · FOUNDER" name="Agentic Platform, 0→$8K MRR"
             description="Multi-vertical agentic solutions for hospitality, real estate, and finance. From zero to ~$8K MRR and 6+ clients in six months."
-            tags={["Agentic AI", "RAG", "LangChain"]} />
+            tags={["Agentic AI", "RAG", "LangChain"]} link="https://guaqai.me" />
           <WorkCard index={4} kicker="COREEL · SoC DESIGN" name="RTL2GDSII Controllers"
             description="High-speed CAN-bus and I²C controllers from RTL to GDSII — UVM verification, STA, and floorplanning, brought up on a Virtex-7 FPGA."
             tags={["Verilog", "FPGA", "UVM", "Vivado"]} />

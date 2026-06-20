@@ -53,7 +53,7 @@ const Footer = () => {
         </HStack>
 
         <Text className="mono-label" fontSize="9px" color="var(--synced-muted)">
-          Built with ♥ in Manipal
+          Built with ♥ in <Link href="https://www.manipal.edu/mit.html" target="_blank" color="var(--accent)">Manipal</Link>
         </Text>
       </Flex>
     </Container>
