@@ -153,7 +153,7 @@ const About = () => {
             THE LONG VERSION
           </Text>
           <Heading as="h2" fontSize={{ base: "6xl", md: "8xl", lg: "9xl" }} fontWeight="600" letterSpacing="-0.02em" fontFamily="'EB Garamond', serif" fontStyle="italic" mb={16} color="var(--synced-text)">
-            <Box overflow="hidden"><Text as="span">How I got</Text></Box> <Box overflow="hidden"><Text as="span" className="tiedye-text editorial">here.</Text></Box>
+            How I got<Text className="tiedye-text editorial">here.</Text>
           </Heading>
         </MotionBox>
 
