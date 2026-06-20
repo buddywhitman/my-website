@@ -153,7 +153,7 @@ const About = () => {
             THE LONG VERSION
           </Text>
           <Heading as="h2" fontSize={{ base: "6xl", md: "8xl", lg: "9xl" }} fontWeight="600" letterSpacing="-0.02em" fontFamily="'EB Garamond', serif" fontStyle="italic" mb={16} color="var(--synced-text)">
-            How I got here.
+            How I got <Text className="tiedye-text editorial">here.</Text>
           </Heading>
         </MotionBox>
 
@@ -161,11 +161,11 @@ const About = () => {
           <TextImage
             text={
               <>
-                I am a Systems Engineer and Founding Engineer at{" "}
+                I am a Systems Engineer, currently owning the healthcare platform at {" "}
                 <Link href="https://www.letsfettle.com" target="_blank" color="var(--accent)">Fettle</Link>
-                , currently pursuing my undergraduate degree at{" "}
+                . I'll soon be an alumnus of {" "}
                 <Link href="https://www.manipal.edu/mit.html" target="_blank" color="var(--accent)">Manipal Institute of Technology</Link>{" "}
-                (Expected 2027). My journey in technology began in the fifth grade with a simple 'Hello World' in HTML, which sparked a decade-long obsession with understanding what truly happens 'under the hood'. This curiosity led me from high-level software development into the intricate world of hardware, embedded systems, and silicon design.
+                (Expected 2027). My tryst with technology began in the fifth grade with a simple 'Hello World' in HTML, which sparked a decade-long obsession with understanding what truly happens under the hood. This curiosity led me from high-level software development into the intricate world of hardware, embedded systems, and silicon design.
               </>
             }
             image="/staring.webp"
@@ -182,7 +182,7 @@ const About = () => {
                 <Link href="https://www.solarmobilmanipal.org" target="_blank" color="var(--accent)">SolarMobil</Link>
                 , I lead the automotive electronics for a high-performance solar racing EV, architecting low-level drivers for Arm Cortex M7-based ECUs and developing real-time telemetry systems. My work at{" "}
                 <Link href="https://www.letsfettle.com" target="_blank" color="var(--accent)">Fettle</Link>{" "}
-                involves building voice AI agents and scalable backend architectures for healthcare. I thrive at the intersection of hardware and software, where I can apply my expertise in HPC, Embedded Systems, and Agentic AI to solve complex, real-world problems.
+                involves building voice AI agents and scalable backend architectures for healthcare operations. I thrive at the intersection of hardware and software, where I can apply my expertise in Distributed Systems, HPC, Embedded Systems, HFT, and Agentic AI to solve complex, real-world problems.
               </>
             }
             image="/working_bb.webp"
@@ -203,7 +203,7 @@ const About = () => {
         <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={12}>
           <ExpertiseCard
             title="HPC & Low-Latency"
-            description="Architecting high-frequency, safety-critical systems using FreeRTOS, STM32, and Arm Cortex architectures for HFT and racing."
+            description="Architecting high-frequency, real-time systems using FreeRTOS, STM32, and Arm Cortex architectures for HFT and racing."
             icon={BiChip}
             delay={0.1}
           />
@@ -220,13 +220,13 @@ const About = () => {
             delay={0.3}
           />
           <ExpertiseCard
-            title="Digital Signal Processing"
+            title="Data Engineering"
             description="Implementing real-time signal acquisition and processing pipelines for bio-signals and telemetry."
             icon={BiStats}
             delay={0.4}
           />
           <ExpertiseCard
-            title="Real-Time Systems"
+            title="Safety-Critical Systems"
             description="Designing deterministic task scheduling and high-performance sensor fusion for automotive applications."
             icon={BiTimeFive}
             delay={0.5}
