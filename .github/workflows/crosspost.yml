@@ -82,5 +82,6 @@ jobs:
           SUBSTACK_COOKIES: ${{ secrets.SUBSTACK_COOKIES }}
           HN_USERNAME: ${{ secrets.HN_USERNAME }}
           HN_PASSWORD: ${{ secrets.HN_PASSWORD }}
+          GIST_TOKEN: ${{ secrets.GIST_TOKEN }}
         run: |
           node scripts/crosspost.js ${{ steps.get_added_files.outputs.files }}

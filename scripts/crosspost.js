@@ -73,6 +73,17 @@ async function run() {
     } else {
       log('HN_USERNAME or HN_PASSWORD not set. Skipping Hacker News.', 'WARNING');
     }
+
+    // 4. Create GitHub Gist
+    if (process.env.GIST_TOKEN) {
+      try {
+        await postToGist(title, description, content, slug);
+      } catch (err) {
+        log(`GitHub Gist creation failed: ${err.message}`, 'ERROR');
+      }
+    } else {
+      log('GIST_TOKEN environment variable not set. Skipping GitHub Gist.', 'WARNING');
+    }
   }
 }
 
@@ -253,6 +264,41 @@ async function postToHackerNews(title, url) {
   log(`Hacker News submission completed. Redirected URL: ${currentUrl}`);
 
   await browser.close();
+}
+
+async function postToGist(title, description, content, slug) {
+  log('Starting GitHub Gist creation...');
+
+  const fileName = `${slug}.md`;
+  const body = {
+    description: description || `Blog post: ${title}`,
+    public: true,
+    files: {
+      [fileName]: {
+        content: `# ${title}\n\n${content}`
+      }
+    }
+  };
+
+  const response = await fetch('https://api.github.com/gists', {
+    method: 'POST',
+    headers: {
+      'Authorization': `Bearer ${process.env.GIST_TOKEN}`,
+      'Accept': 'application/vnd.github+json',
+      'X-GitHub-Api-Version': '2022-11-28',
+      'Content-Type': 'application/json',
+      'User-Agent': 'Node.js-Fetch'
+    },
+    body: JSON.stringify(body)
+  });
+
+  if (!response.ok) {
+    const errText = await response.text();
+    throw new Error(`Failed to create GitHub Gist: Status ${response.status} - ${errText}`);
+  }
+
+  const gistData = await response.json();
+  log(`GitHub Gist created successfully! URL: ${gistData.html_url}`);
 }
 
 run().catch((err) => {
