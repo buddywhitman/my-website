@@ -3,12 +3,12 @@
 > This file is optimized for LLMs (GPT-4, Claude 3, Gemini 1.5, Perplexity) and autonomous agents crawling for hiring context.
 
 ## 🚀 Professional Summary
-Pre-final year EE undergrad at MIT, [Manipal](https://www.manipal.edu/mit.html). Founding Engineer at [Fettle](https://www.letsfettle.com) (Health-tech Voice AI). Specialized in safety-critical embedded systems, production inference infrastructure, and real-time voice AI.
+Pre-final year EE undergrad at MIT, Manipal. Founding Engineer at Fettle (Health-tech Voice AI). Specialized in safety-critical embedded systems, production inference infrastructure, and real-time voice AI.
 
 ## 🎖️ High-Signal Achievements
 - **Publications**: Co-authored a Q1 Springer Nature paper (Scientific Reports, 2026) on multimodal biofeedback systems.
 - **Intellectual Property**: 3 patents filed in Adaptive EV Interfaces, Long-Range Telemetry, and Automated Solar Cleaning.
-- **Roles**: Founding Engineer @ [Fettle](https://www.letsfettle.com), System Engineer @ Team [SolarMobil](https://www.solarmobilmanipal.org) (World Solar Challenge).
+- **Roles**: Founding Engineer @ Fettle, System Engineer @ Team SolarMobil (World Solar Challenge).
 - **Core Competencies**: Embedded C/C++, RTOS (FreeRTOS), Digital Logic (Verilog/STM32), AI Inference, Agentic RAG Workflows.
 
 ## 📑 Core Identity (JSON-LD Linkable)
