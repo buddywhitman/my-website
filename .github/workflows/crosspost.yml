@@ -1,0 +1,86 @@
+name: Blog Cross-Poster
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'content/blog/**/*.mdx'
+
+jobs:
+  crosspost:
+    name: Cross-post New Blogs
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 2 # Fetch previous commits to detect changed files
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Dependencies
+        run: |
+          npm install playwright-core playwright gray-matter
+
+      - name: Install Playwright Chromium
+        run: |
+          npx playwright install chromium --with-deps
+
+      - name: Get List of Added Posts
+        id: get_added_files
+        run: |
+          # Find new mdx files introduced in this push
+          ADDED_FILES=$(git diff --name-only --diff-filter=A HEAD~1 HEAD | grep '^content/blog/.*\.mdx$' || true)
+          if [ -z "$ADDED_FILES" ]; then
+            echo "No new blog posts added in this commit."
+            echo "has_changes=false" >> $GITHUB_OUTPUT
+          else
+            echo "Added files detected:"
+            echo "$ADDED_FILES"
+            # Format list of files as a single-line string to pass to next steps
+            FILES_STRING=$(echo "$ADDED_FILES" | tr '\n' ' ')
+            echo "files=$FILES_STRING" >> $GITHUB_OUTPUT
+            echo "has_changes=true" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Wait for Vercel Deployment
+        if: steps.get_added_files.outputs.has_changes == 'true'
+        run: |
+          if [ -n "${{ secrets.VERCEL_TOKEN }}" ] && [ -n "${{ secrets.VERCEL_PROJECT_ID }}" ]; then
+            echo "Polling Vercel Deployments API for READY state..."
+            STATUS="BUILDING"
+            for i in {1..30}; do
+              RESPONSE=$(curl -s -H "Authorization: Bearer ${{ secrets.VERCEL_TOKEN }}" "https://api.vercel.com/v6/deployments?projectId=${{ secrets.VERCEL_PROJECT_ID }}&limit=1")
+              STATUS=$(echo $RESPONSE | jq -r '.deployments[0].state')
+              echo "Deployment status: $STATUS"
+              if [ "$STATUS" = "READY" ]; then
+                echo "Vercel deployment is READY!"
+                break
+              fi
+              if [ "$STATUS" = "ERROR" ] || [ "$STATUS" = "CANCELED" ]; then
+                echo "Vercel deployment failed or was canceled."
+                exit 1
+              fi
+              sleep 10
+            done
+          else
+            echo "VERCEL_TOKEN or VERCEL_PROJECT_ID not set. Sleeping 90 seconds to allow deployment to complete..."
+            sleep 90
+          fi
+
+      - name: Run Cross-Posting Script
+        if: steps.get_added_files.outputs.has_changes == 'true'
+        env:
+          MEDIUM_TOKEN: ${{ secrets.MEDIUM_TOKEN }}
+          SUBSTACK_SUBDOMAIN: ${{ secrets.SUBSTACK_SUBDOMAIN }}
+          SUBSTACK_COOKIES: ${{ secrets.SUBSTACK_COOKIES }}
+          HN_USERNAME: ${{ secrets.HN_USERNAME }}
+          HN_PASSWORD: ${{ secrets.HN_PASSWORD }}
+        run: |
+          node scripts/crosspost.js ${{ steps.get_added_files.outputs.files }}
