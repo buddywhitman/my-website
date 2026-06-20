@@ -12,7 +12,7 @@ const EASE = [0.23, 1, 0.32, 1] as const;
 
 /* ─── MARQUEE ─────────────────────────────────── */
 const MARQUEE_TEXT =
-  "FOUNDING ENGINEER · SOLAR RACING · SPRINGER NATURE · THREE PATENTS · VOICE AI · RTL TO LLM · 2WENZY · DESIHIPPE · WHAT MAKES US HUMAN · ";
+  "AI INFRASTRUCTURE · SOLAR RACING · SPRINGER NATURE · OBSERVABILITY · 3 PATENTS · DISTRIBUTED SYSTEMS · VOICE AI · RTL TO LLM · INFERENCE OPTIMIZATION · EMBEDDED SYSTEMS · EDGE AI · DATA ENGINEERING · IEEE · ACM · SAFETY-CRITICAL · DETERMINISIC";
 
 const Marquee = () => (
   <Box className="full-bleed tiedye-bg" overflow="hidden" py="3" cursor="default">
@@ -175,7 +175,7 @@ const Home = () => {
     "@type": "Person",
     name: "Pulkit Kumar",
     url: "https://buddywhitman.vercel.app",
-    jobTitle: "Founding Engineer & Systems Researcher",
+    jobTitle: "Systems Engineer & Student Researcher",
     alumniOf: { "@type": "CollegeOrUniversity", name: "Manipal Institute of Technology" },
     sameAs: ["https://github.com/buddywhitman", "https://www.linkedin.com/in/buddywhitman", "https://orcid.org/0000-0003-4078-1780"],
   };
@@ -214,9 +214,9 @@ const Home = () => {
             gap="6" className="hero-line" style={{ animationDelay: "0.6s" }}>
             <Box maxW="560px">
               <Text fontSize={{ base: "sm", md: "md" }} color="var(--synced-muted)" lineHeight="relaxed">
-                Founding engineer at <Box as="span" color="var(--synced-text)" fontWeight="600">Fettle</Box>, building
-                voice AI for healthcare. Systems &amp; embedded for <Box as="span" color="var(--synced-text)" fontWeight="600">SolarMobil's</Box> solar
-                race team. Springer Nature author, three patents filed. I also make music as{" "}
+                Software Engineering Intern at <Box as="span" color="var(--synced-text)" fontWeight="600">Fettle</Box>, building
+                voice AI & infrastructure for healthcare. Electronics Head at <Box as="span" color="var(--synced-text)" fontWeight="600">
+                SolarMobil,</Box> delivering safety-critical embedded systems. Springer Nature author, three patents filed. I also make music as{" "}
                 <a href="https://2wenzy.vercel.app" target="_blank" rel="noopener noreferrer" style={{ color: "var(--accent)", textDecoration: "none" }}>2wenzy</a> and
                 write at <a href="https://desihippe.vercel.app" target="_blank" rel="noopener noreferrer" style={{ color: "var(--accent)", textDecoration: "none" }}>desihippe</a>.
               </Text>
@@ -240,29 +240,6 @@ const Home = () => {
 
       {/* ── MARQUEE ──────────────────────── */}
       <Marquee />
-
-      {/* ── INDEX OF PRACTICES ───────────── */}
-      <Box py={{ base: 20, md: 28 }}>
-        <MotionBox initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: EASE }} mb={{ base: 8, md: 12 }}>
-          <Flex align="baseline" justify="space-between" flexWrap="wrap" gap="3">
-            <Text className="mono-label" color="var(--synced-muted)" fontSize="10px">THE INDEX — FIVE PRACTICES, ONE PERSON</Text>
-            <Text className="mono-label" color="var(--synced-muted)" fontSize="10px">↓ PICK A THREAD</Text>
-          </Flex>
-        </MotionBox>
-
-        <Box>
-          <WorldRow num="01" label="Technology" href="/tech"
-            blurb="Embedded systems, HPC, and production AI. RTL-to-GDSII silicon, FreeRTOS on Cortex-M7, agentic inference at scale." />
-          <WorldRow num="02" label="Design" href="/design"
-            blurb="Interaction and brand design. Interfaces that argue a point — and convert. Trained in graphic design, UI/UX, and research." />
-          <WorldRow num="03" label="Sound" href="https://2wenzy.vercel.app" external
-            blurb="2wenzy — ambient, electronic, experimental. The other language I think in. 30K+ plays across platforms." />
-          <WorldRow num="04" label="Words" href="https://desihippe.vercel.app" external
-            blurb="desihippe — politics, culture, and the ethics of the machine. Award-winning work presented at Christ University." />
-          <WorldRow num="05" label="Research" href="/about#publications" last
-            blurb="Springer Nature Q1, IEEE VTC A*. Biofeedback, stochastic control, thermoelectrics, holographic interfaces." />
-        </Box>
-      </Box>
 
       {/* ── MANIFESTO + STATS ────────────── */}
       <Box py={{ base: 16, md: 24 }} position="relative" overflow="hidden">
@@ -360,6 +337,29 @@ const Home = () => {
               </MotionBox>
             ))}
           </VStack>
+        </Box>
+      </Box>
+
+       {/* ── INDEX OF PRACTICES ───────────── */}
+      <Box py={{ base: 20, md: 28 }}>
+        <MotionBox initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6, ease: EASE }} mb={{ base: 8, md: 12 }}>
+          <Flex align="baseline" justify="space-between" flexWrap="wrap" gap="3">
+            <Text className="mono-label" color="var(--synced-muted)" fontSize="10px">THE INDEX — FIVE PRACTICES, ONE PERSON</Text>
+            <Text className="mono-label" color="var(--synced-muted)" fontSize="10px">↓ PICK A THREAD</Text>
+          </Flex>
+        </MotionBox>
+
+        <Box>
+          <WorldRow num="01" label="Technology" href="/tech"
+            blurb="Embedded systems, HPC, and production AI. RTL-to-GDSII silicon, FreeRTOS on Cortex-M7, agentic inference at scale." />
+          <WorldRow num="02" label="Design" href="/design"
+            blurb="Interaction and brand design. Interfaces that argue a point — and convert. Trained in graphic design, UI/UX, and research." />
+          <WorldRow num="03" label="Sound" href="https://2wenzy.vercel.app" external
+            blurb="2wenzy — ambient, electronic, experimental. The other language I think in. 30K+ plays across platforms." />
+          <WorldRow num="04" label="Words" href="https://desihippe.vercel.app" external
+            blurb="desihippe — politics, culture, and the ethics of the machine. Award-winning work presented at Christ University." />
+          <WorldRow num="05" label="Research" href="/about#publications" last
+            blurb="Springer Nature Q1, IEEE VTC A*. Biofeedback, stochastic control, thermoelectrics, holographic interfaces." />
         </Box>
       </Box>
 
