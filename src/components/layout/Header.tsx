@@ -8,10 +8,11 @@ import ThemeToggle from "./ThemeToggle";
 
 const NAV_LINKS = [
   { text: "about", url: "/about", external: false },
-  { text: "tech", url: "/tech", external: false },
+  { text: "software", url: "/software", external: false },
+  { text: "hardware", url: "/hardware", external: false },
+  { text: "research", url: "/research", external: false },
+  { text: "open-source", url: "/open-source", external: false },
   { text: "design", url: "/design", external: false },
-  { text: "2wenzy", url: "https://2wenzy.vercel.app", external: true },
-  { text: "desihippe", url: "https://desihippe.vercel.app", external: true },
   { text: "blog", url: "/blog", external: false },
   { text: "contact", url: "/contact", external: false },
 ];

@@ -1,6 +1,6 @@
 /** @type {import('next-seo').DefaultSeoProps} */
 const defaultSEOConfig = {
-  title: "Pulkit Kumar | Inference Architect & HPC Engineer",
+  title: "Pulkit Kumar | Reliable AI Infrastructure & Safety-Critical Embedded Systems",
   titleTemplate: "%s | Pulkit Kumar",
   defaultTitle: "Pulkit Kumar",
   description: "Founding Engineer at Fettle. Q1 Nature Author & Patent Filer. Specialized in Efficient Inference, Agentic AI, and High-Performance Embedded Systems for 2026.",
@@ -9,8 +9,8 @@ const defaultSEOConfig = {
     type: "website",
     locale: "en_IE",
     url: "https://buddywhitman.vercel.app",
-    title: "Pulkit Kumar | Inference Architect & HPC Engineer",
-    description: "Systems Architect specializing in Agentic AI, Efficient Inference, and High-Performance Embedded Computing. Engineering lead for low-latency clinical voice AI.",
+    title: "Pulkit Kumar | Reliable AI Infrastructure & Safety-Critical Embedded Systems",
+    description: "Systems Architect specializing in Reliable AI Infrastructure and Safety-Critical Embedded Systems. Lead engineer for clinical voice AI at scale.",
     images: [
       {
         url: "https://buddywhitman.vercel.app/home_b.webp",

@@ -1,4 +1,5 @@
-import { Box, Flex, Link, Text, Container, HStack } from "@chakra-ui/react";
+import { Box, Flex, Link as ChakraLink, Text, Container, HStack } from "@chakra-ui/react";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -30,30 +31,48 @@ const Footer = () => {
 
         <HStack gap="5">
           {[
-            { label: "design", href: "https://dribbble.com/buddywhitman" },
-            { label: "music", href: "https://2wenzy.vercel.app" },
-            { label: "writing", href: "https://desihippe.vercel.app" },
-            { label: "github", href: "https://github.com/buddywhitman" },
-          ].map(({ label, href }) => (
-            <Link
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mono-label"
-              fontSize="9px"
-              color="var(--synced-muted)"
-              _hover={{ color: "var(--accent)" }}
-              transition="color 200ms ease"
-              textDecoration="none"
-            >
-              {label}
-            </Link>
-          ))}
+            { label: "software", href: "/software", external: false },
+            { label: "hardware", href: "/hardware", external: false },
+            { label: "research", href: "/research", external: false },
+            { label: "open-source", href: "/open-source", external: false },
+            { label: "design", href: "/design", external: false },
+            { label: "github", href: "https://github.com/buddywhitman", external: true },
+          ].map(({ label, href, external }) => {
+            const sharedProps = {
+              className: "mono-label",
+              fontSize: "9px",
+              color: "var(--synced-muted)",
+              _hover: { color: "var(--accent)" },
+              transition: "color 200ms ease",
+              textDecoration: "none",
+            };
+
+            if (external) {
+              return (
+                <ChakraLink
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  {...sharedProps}
+                >
+                  {label}
+                </ChakraLink>
+              );
+            }
+
+            return (
+              <Link key={label} href={href} passHref legacyBehavior>
+                <ChakraLink {...sharedProps}>
+                  {label}
+                </ChakraLink>
+              </Link>
+            );
+          })}
         </HStack>
 
         <Text className="mono-label" fontSize="9px" color="var(--synced-muted)">
-          Built with ♥ in <Link href="https://www.manipal.edu/mit.html" target="_blank" color="var(--accent)">Manipal</Link>
+          Built with ♥ in <Link href="https://www.manipal.edu/mit.html" passHref legacyBehavior><ChakraLink color="var(--accent)">Manipal</ChakraLink></Link>
         </Text>
       </Flex>
     </Container>

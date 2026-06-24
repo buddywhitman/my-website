@@ -103,7 +103,10 @@ const DrawerWidget = ({ onClose, isOpen }: DrawerWidgetProps) => {
             >
               <VStack align="flex-start" gap="4">
                 <DrawerLink text="about" url="/about" onClick={onClose} />
-                <DrawerLink text="tech" url="/tech" onClick={onClose} />
+                <DrawerLink text="software" url="/software" onClick={onClose} />
+                <DrawerLink text="hardware" url="/hardware" onClick={onClose} />
+                <DrawerLink text="research" url="/research" onClick={onClose} />
+                <DrawerLink text="open-source" url="/open-source" onClick={onClose} />
                 <DrawerLink text="blog" url="/blog" onClick={onClose} />
                 <DrawerLink text="contact" url="/contact" onClick={onClose} />
 
@@ -119,20 +122,6 @@ const DrawerWidget = ({ onClose, isOpen }: DrawerWidgetProps) => {
                   text="design"
                   url="/design"
                   onClick={onClose}
-                  accent
-                />
-                <DrawerLink
-                  text="2wenzy"
-                  url="https://2wenzy.vercel.app"
-                  onClick={onClose}
-                  external
-                  accent
-                />
-                <DrawerLink
-                  text="desihippe"
-                  url="https://desihippe.vercel.app"
-                  onClick={onClose}
-                  external
                   accent
                 />
 

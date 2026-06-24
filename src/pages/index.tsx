@@ -152,7 +152,7 @@ const WorkCard = ({ name, kicker, description, tags, link, index, wide = false }
     <Text className="editorial" fontSize={{ base: "2xl", md: "3xl" }} fontWeight="600" color="var(--synced-text)" lineHeight="1.15" mb="4">
       {name}
     </Text>
-    <Text fontSize="sm" color="var(--synced-muted)" lineHeight="relaxed" mb="6" maxW="46ch">{description}</Text>
+    <Text fontSize="sm" color="var(--synced-muted)" lineHeight="relaxed" mb="6" maxW={wide ? "100%" : "46ch"}>{description}</Text>
     <Flex gap="2" flexWrap="wrap">
       {tags.map((t) => (
         <Text key={t} className="mono-label" fontSize="9px" px="2.5" py="1" border="1px solid" borderColor="var(--synced-border)" borderRadius="full" color="var(--synced-muted)">
@@ -175,7 +175,7 @@ const Home = () => {
     "@type": "Person",
     name: "Pulkit Kumar",
     url: "https://buddywhitman.vercel.app",
-    jobTitle: "Systems Engineer & Student Researcher",
+    jobTitle: "Reliable AI Infrastructure & Safety-Critical Embedded Systems Engineer",
     alumniOf: { "@type": "CollegeOrUniversity", name: "Manipal Institute of Technology" },
     sameAs: ["https://github.com/buddywhitman", "https://www.linkedin.com/in/buddywhitman", "https://orcid.org/0000-0003-4078-1780"],
   };
@@ -250,16 +250,16 @@ const Home = () => {
         </MotionBox>
 
         <Box>
-          <WorldRow num="01" label="Technology" href="/tech"
-            blurb="Embedded systems, HPC, and production AI. RTL-to-GDSII silicon, FreeRTOS on Cortex-M7, agentic inference at scale." />
+          <WorldRow num="01" label="Software" href="/software"
+            blurb="Agentic voice AI, distributed systems, data engineering, and inference at scale. High-throughput serving and production-grade software." />
           <WorldRow num="02" label="Design" href="/design"
             blurb="Interaction and brand design. Interfaces that argue a point — and convert. Trained in graphic design, UI/UX, and research." />
-          <WorldRow num="03" label="Sound" href="https://2wenzy.vercel.app" external
-            blurb="2wenzy — ambient, electronic, experimental. The other language I think in. 30K+ plays across platforms." />
-          <WorldRow num="04" label="Words" href="https://desihippe.vercel.app" external
-            blurb="desihippe — politics, culture, and the ethics of the machine. Award-winning work presented at Christ University." />
-          <WorldRow num="05" label="Research" href="/about#publications" last
-            blurb="Springer Nature Q1, IEEE VTC A*. Biofeedback, stochastic control, thermoelectrics, holographic interfaces." />
+          <WorldRow num="03" label="Hardware" href="/hardware"
+            blurb="Deterministic control systems, SoC design, and embedded architectures. FreeRTOS on Cortex-M7, Verilog/UVM, and edge AI hardware bring-up." />
+          <WorldRow num="04" label="Research" href="/research"
+            blurb="Physics-informed control, biofeedback telemetry, and quantitative finance. Multi-agent HFT, published papers, and automotive electronics patents." />
+          <WorldRow num="05" label="Open Source" href="/open-source" last
+            blurb="LLM serving frameworks, developer tools, and kernel-level experimentation. Community building, self-hosting systems, and upstream contributions." />
         </Box>
       </Box>
 
@@ -305,7 +305,7 @@ const Home = () => {
                 Things that shipped
               </Text>
             </Box>
-            <Link href="/tech" className="mono-label press-btn" style={{ fontSize: "10px", color: "var(--synced-muted)", border: "1px solid var(--synced-border)", padding: "10px 16px", borderRadius: "6px", textDecoration: "none", transition: "all 200ms ease" }}
+            <Link href="/open-source" className="mono-label press-btn" style={{ fontSize: "10px", color: "var(--synced-muted)", border: "1px solid var(--synced-border)", padding: "10px 16px", borderRadius: "6px", textDecoration: "none", transition: "all 200ms ease" }}
               onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--accent)"; (e.currentTarget as HTMLElement).style.borderColor = "var(--accent)"; }}
               onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--synced-muted)"; (e.currentTarget as HTMLElement).style.borderColor = "var(--synced-border)"; }}>
               ALL OF IT →
@@ -314,15 +314,15 @@ const Home = () => {
         </MotionBox>
 
         <Box display="grid" gridTemplateColumns={{ base: "1fr", md: "1fr 1fr" }} gap="4">
-          <WorkCard index={0} wide kicker="SOLARMOBIL · IEEE VTC 2026" name="Solar Racing Digital Twin"
-            description="A real-time race-strategy engine for a solar EV. Stochastic receding-horizon control over fused GIS, weather, and vehicle dynamics — running deterministically on FreeRTOS."
+          <WorkCard index={0} wide kicker="SOLARMOBIL · IEEE VTC 2026" name="Solar Racing EV"
+            description="A real-time race-strategy engine for a solar EV. Stochastic receding-horizon control over fused GIS, weather, and vehicle dynamics — running deterministically on FreeRTOS. Handled the deterministic FreeRTOS, STM32H7-based ECU and automotive electronics architecture, procurement, driver development, and TouchGFX HMI GUI interface, and wireless 1Hz telemetry engine with big data processing etc."
             tags={["C/C++", "FreeRTOS", "STM32H7", "InfluxDB", "Control Theory"]} link="https://vtc2026spring.trackchair.com/paper/47987" />
           <WorkCard index={1} kicker="FETTLE · FOUNDING ENGINEER" name="Voice AI for Hospitals"
             description="Distributed voice agents for hospital workflows — SIP trunking over LiveKit, a cross-modal recommender, sub-second inference on Kubernetes. I own the backend and the DevOps."
             tags={["PyTorch", "LiveKit", "K8s", "FastAPI"]} link="https://letsfettle.com" />
-          <WorkCard index={2} kicker="SPRINGER NATURE · Q1" name="Emotion-Adaptive Biofeedback"
-            description="A multimodal biofeedback system for autonomic regulation through guided breathing. LSTM + transformer encoders on Jetson/ESP32. Technically validated and published in Scientific Reports."
-            tags={["LSTM", "Transformers", "Jetson", "DSP"]} link="https://doi.org/10.1038/s41598-026-46105-9" />
+          <WorkCard index={2} kicker="DCPR AI · PIP PACKAGE" name="dist-gcs-pdf-processing"
+            description="Built to automate multi-TB document ingestion workflows at DCPR AI. Built a highly concurrent, resilient distributed OCR parsing package utilizing GCS, Redis distributed locks, and Gemini API. Successfully cut processing times by 92% (reducing a 14-day manual queue to just 26 hours) and reduced data storage costs by 74%."
+            tags={["Python", "Gemini API", "GCS", "Redis", "Distributed System"]} link="https://github.com/buddywhitman/dist-gcs-pdf-processing" />
           <WorkCard index={3} kicker="GUAQ AI · FOUNDER" name="Agentic Platform, 0→$8K MRR"
             description="Multi-vertical agentic solutions for hospitality, real estate, and finance. From zero to ~$8K MRR and 6+ clients in six months."
             tags={["Agentic AI", "RAG", "LangChain"]} link="https://guaqai.me" />
@@ -373,7 +373,7 @@ const Home = () => {
                 Let's build the<br />things that can't fail.
               </Text>
               <Text mt="4" fontSize="sm" color="#fff" opacity={0.85} maxW="440px" lineHeight="relaxed">
-                Open to roles in inference infrastructure, safety-critical embedded systems, and HFT — and to design or sound collaborations that have something to say.
+                Open to roles involving serving inference at scale and safety-critical embedded systems
               </Text>
             </Box>
             <Link href="/contact" className="press-btn"

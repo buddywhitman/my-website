@@ -5,19 +5,8 @@ const GITHUB_TOKEN = process.env.GITHUB_PA;
 
 const ExceptionRules = [
   "buddywhitman/my-website",
-  "buddywhitman/isa-achievements",
-  "buddywhitman/crud-app-frontend",
-  "buddywhitman/crud-app-backend",
   "buddywhitman/buddywhitman",
-  "buddywhitman/grocery-ecommerce",
-  "buddywhitman/schedul.io",
-  "buddywhitman/flatcalc",
-  "buddywhitman/cryptonite-tp",
-  "buddywhitman/electronica",
   "buddywhitman/resume-cv",
-  "buddywhitman/VaxBot",
-  "buddywhitman/buddywhitman.github.io",
-  "buddywhitman/soil.io",
 ];
 
 const query = `

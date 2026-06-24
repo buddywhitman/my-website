@@ -65,7 +65,7 @@ class MyDocument extends Document {
           <meta name="mobile-web-app-capable" content="yes" />
           <meta
             name="description"
-            content="Pulkit Kumar - Inference Architect & HPC Researcher. Founding Engineer at Fettle. Specialized in safety-critical systems, AI inference, and production hardware."
+            content="Pulkit Kumar - Reliable AI Infrastructure & Safety-Critical Embedded Systems. Founding Engineer at Fettle. Specialized in safety-critical systems, AI inference, and production hardware."
           />
           <meta name="theme-color" content="#FFFFFF" />
           <meta
