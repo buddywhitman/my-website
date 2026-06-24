@@ -142,7 +142,7 @@ const Hardware = () => {
       kicker: "SOLARMOBIL · ELECTRONICS HEAD",
       description: "Engineered safety-critical automotive electronics and deterministic FreeRTOS firmware on STM32H7 for a high-performance solar racing EV. Developed TouchGFX HMI driver interfaces, a sub-1GHz 1Hz RF telemetry engine, and cloud-based predictive telemetry databases with GIS and Solcast weather data fusion.",
       tags: ["FreeRTOS", "STM32H7", "TouchGFX", "Control Systems", "C++", "Telemetry"],
-      link: "https://www.solarmobilmanipal.org",
+      link: "https://github.com/solarmobil/stm32h750b-dk",
       wide: true
     },
     {
@@ -192,26 +192,8 @@ const Hardware = () => {
         </Box>
       </Box>
 
-      {/* SELECTED SYSTEMS */}
-      <Box pt={{ base: 16, md: 24 }}>
-        <SectionHead kicker="THE PHYSICAL SYSTEMS" title="Featured hardware work" />
-        <Box display="grid" gridTemplateColumns={{ base: "1fr", md: "1fr 1fr" }} gap="4">
-          {projects.map((p, idx) => (
-            <WorkCard key={p.name} index={idx} name={p.name} kicker={p.kicker} description={p.description} tags={p.tags} link={p.link} wide={p.wide} />
-          ))}
-        </Box>
-      </Box>
-
-      {/* CAPABILITIES */}
-      <Box pt={{ base: 24, md: 36 }}>
-        <SectionHead kicker="THE HARDWARE TOOLKIT" title="What I build with" />
-        <SimpleGrid columns={{ base: 1, lg: 2, xl: 3 }} gap={6}>
-          {skillCategories.map((c) => <SkillCategory key={c.title} {...c} />)}
-        </SimpleGrid>
-      </Box>
-
       {/* WHAT I'M GOOD AT */}
-      <Box pt={{ base: 24, md: 36 }}>
+      <Box pt={{ base: 16, md: 24 }}>
         <SectionHead kicker="THE CORE FOCUS" title="What I'm good at" />
         <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={6}>
           <ExpertiseCard
@@ -232,6 +214,24 @@ const Hardware = () => {
             icon={BiTimeFive}
             delay={0.3}
           />
+        </SimpleGrid>
+      </Box>
+
+      {/* SELECTED SYSTEMS */}
+      <Box pt={{ base: 24, md: 36 }}>
+        <SectionHead kicker="THE PHYSICAL SYSTEMS" title="Featured hardware work" />
+        <Box display="grid" gridTemplateColumns={{ base: "1fr", md: "1fr 1fr" }} gap="4">
+          {projects.map((p, idx) => (
+            <WorkCard key={p.name} index={idx} name={p.name} kicker={p.kicker} description={p.description} tags={p.tags} link={p.link} wide={p.wide} />
+          ))}
+        </Box>
+      </Box>
+
+      {/* CAPABILITIES */}
+      <Box pt={{ base: 24, md: 36 }}>
+        <SectionHead kicker="THE HARDWARE TOOLKIT" title="What I build with" />
+        <SimpleGrid columns={{ base: 1, lg: 2, xl: 3 }} gap={6}>
+          {skillCategories.map((c) => <SkillCategory key={c.title} {...c} />)}
         </SimpleGrid>
       </Box>
     </Box>

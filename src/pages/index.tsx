@@ -270,7 +270,7 @@ const Home = () => {
             <MotionBox initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-80px" }} transition={{ duration: 0.8, ease: EASE }}>
               <Text className="mono-label" color="var(--accent)" mb="5" fontSize="10px">✦ ON THE RECORD</Text>
               <Text className="editorial" fontSize={{ base: "2xl", md: "3xl", lg: "3.5xl" }} fontWeight="500" color="var(--synced-text)" lineHeight="1.3" letterSpacing="-0.01em">
-                I found my first SQL injection at sixteen and didn't know what to do with the feeling.{" "}
+                I found my first SQL injection at thirteen and didn't know what to do with the feeling.{" "}
                 <Box as="span" className="tiedye-text">It never quite left.</Box>{" "}
                 I build things that can't fail — ECUs in a race car, voice agents in a hospital — and I keep asking what
                 they cost the people on the other side of the screen. The engineering is the easy part.
@@ -325,11 +325,11 @@ const Home = () => {
         <Box display="grid" gridTemplateColumns={{ base: "1fr", md: "1fr 1fr" }} gap="4">
           <WorkCard index={0} wide kicker="SOLARMOBIL · IEEE VTC 2026" name="Solar Racing EV"
             description="Engineered safety-critical automotive electronics and deterministic FreeRTOS firmware on STM32H7 for a high-performance solar racing EV. Developed TouchGFX HMI driver interfaces, a sub-1GHz 1Hz RF telemetry engine, and cloud-based predictive telemetry databases with GIS and Solcast weather data fusion. Two provisional patents filed."
-            tags={["C/C++", "FreeRTOS", "STM32H7", "InfluxDB", "Control Theory"]} link="https://vtc2026spring.trackchair.com/paper/47987" />
+            tags={["C/C++", "FreeRTOS", "STM32H7", "InfluxDB", "Control Theory"]} link="https://github.com/buddywhitman#pinned-items" />
           <WorkCard index={1} kicker="FETTLE · FOUNDING ENGINEER" name="Voice AI for Hospitals"
             description="Distributed voice agents for hospital workflows — SIP trunking over LiveKit, a cross-modal recommender, sub-second inference on Kubernetes. I own the backend and the DevOps."
             tags={["PyTorch", "LiveKit", "K8s", "FastAPI"]} link="https://letsfettle.com" />
-          <WorkCard index={2} kicker="DCPR AI · PIP PACKAGE" name="XX-TB Scale Document Processing"
+          <WorkCard index={2} kicker="DCPR AI · PIP PACKAGE" name="multi-TB Document Processing at DCPR AI"
             description="Distributed multi-TB document ingestion pipeline using GCS and Gemini. Cut manual processing queues by 92% and storage costs by 74%."
             tags={["Kubernetes", "GCS", "Redis", "Distributed System"]} link="https://pypi.org/project/dist-gcs-pdf-processing/" />
           <WorkCard index={3} kicker="GUAQ AI · FOUNDER" name="Agentic Platform, 0→$8K MRR"
@@ -382,7 +382,7 @@ const Home = () => {
                 Let's build the<br />things that can't fail.
               </Text>
               <Text mt="4" fontSize="sm" color="#fff" opacity={0.85} maxW="440px" lineHeight="relaxed">
-                Open to roles involving serving inference at scale and safety-critical embedded systems
+                Open to roles involving serving inference at scale and developing safety-critical embedded systems
               </Text>
             </Box>
             <Link href="/contact" className="press-btn"

@@ -162,10 +162,10 @@ const Software = () => {
       kicker: "GUAQ AI · FOUNDING WORK",
       description: "Enterprise generative AI solutions. Built complex multi-agent workflows and high-performance retrieval-augmented generation (RAG) pipelines. Developed custom integrations linking vector databases directly to corporate ERP/CRM systems, enabling sub-second factual query answering.",
       tags: ["RAG", "Agentic AI", "LangChain", "Vector DB", "ERP"],
-      link: "https://guaqai.me"
+      link: "https://teachafy.com"
     },
     {
-      name: "XX-TB Scale Document Processing",
+      name: "multi-TB Document Processing at DCPR AI",
       kicker: "DCPR AI · PIP PACKAGE",
       description: "Distributed multi-TB document ingestion pipeline using GCS and Gemini. Cut manual processing queues by 92% and storage costs by 74%.",
       tags: ["Kubernetes", "GCS", "Redis", "Distributed System"],
@@ -197,26 +197,8 @@ const Software = () => {
         </Box>
       </Box>
 
-      {/* SELECTED SYSTEMS */}
-      <Box pt={{ base: 16, md: 24 }}>
-        <SectionHead kicker="THE SHIPPED CODEBASE" title="Featured software work" />
-        <Box display="grid" gridTemplateColumns={{ base: "1fr", md: "1fr 1fr" }} gap="4">
-          {projects.map((p, idx) => (
-            <WorkCard key={p.name} index={idx} name={p.name} kicker={p.kicker} description={p.description} tags={p.tags} link={p.link} wide={p.wide} />
-          ))}
-        </Box>
-      </Box>
-
-      {/* CAPABILITIES */}
-      <Box pt={{ base: 24, md: 36 }}>
-        <SectionHead kicker="THE TECHNICAL STACK" title="What I write & deploy" />
-        <SimpleGrid columns={{ base: 1, lg: 2 }} gap={6}>
-          {skillCategories.map((c) => <SkillCategory key={c.title} {...c} />)}
-        </SimpleGrid>
-      </Box>
-
       {/* What I'm good at Section */}
-      <Box pt={{ base: 24, md: 36 }}>
+      <Box pt={{ base: 16, md: 24 }}>
         <SectionHead kicker="THE CORE FOCUS" title="What I'm good at" />
         <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={6}>
           <ExpertiseCard
@@ -237,6 +219,24 @@ const Software = () => {
             icon={BiCodeAlt}
             delay={0.3}
           />
+        </SimpleGrid>
+      </Box>
+
+      {/* SELECTED SYSTEMS */}
+      <Box pt={{ base: 24, md: 36 }}>
+        <SectionHead kicker="THE SHIPPED CODEBASE" title="Featured software work" />
+        <Box display="grid" gridTemplateColumns={{ base: "1fr", md: "1fr 1fr" }} gap="4">
+          {projects.map((p, idx) => (
+            <WorkCard key={p.name} index={idx} name={p.name} kicker={p.kicker} description={p.description} tags={p.tags} link={p.link} wide={p.wide} />
+          ))}
+        </Box>
+      </Box>
+
+      {/* CAPABILITIES */}
+      <Box pt={{ base: 24, md: 36 }}>
+        <SectionHead kicker="THE TECHNICAL STACK" title="What I write & deploy" />
+        <SimpleGrid columns={{ base: 1, lg: 2 }} gap={6}>
+          {skillCategories.map((c) => <SkillCategory key={c.title} {...c} />)}
         </SimpleGrid>
       </Box>
     </Box>

@@ -3,7 +3,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { BsArrowUpRight } from "react-icons/bs";
 import { FaFlask, FaUniversity, FaFileAlt, FaLightbulb, FaExternalLinkAlt } from "react-icons/fa";
-import { BiCodeAlt } from "react-icons/bi";
+import { BiCodeAlt, BiBrain, BiStats, BiChip } from "react-icons/bi";
 import { IconType } from "react-icons/lib";
 import {
   SiCplusplus, SiPytorch, SiTensorflow, SiNumpy, SiUbuntu
@@ -92,6 +92,37 @@ const WorkCard = ({ name, kicker, description, tags, link, index, wide = false }
   </MotionBox>
 );
 
+const ExpertiseCard = ({ title, description, icon, delay }: { title: string; description: string; icon: any; delay: number }) => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  
+  const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
+
+  return (
+    <MotionBox
+      ref={ref}
+      style={{ y } as any}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.8, delay }}
+      p={10}
+      bg="var(--synced-surface)"
+      borderRadius="3xl"
+      borderWidth="1px"
+      borderColor="var(--synced-border)"
+      _hover={{ borderColor: "var(--accent)", transform: "scale(1.05) rotate(2deg)", boxShadow: "xl" }}
+    >
+      <Icon as={icon} w={12} h={12} color="var(--accent)" mb={6} aria-label={title} />
+      <Heading size="lg" mb={4} fontWeight="800" color="var(--synced-text)">{title}</Heading>
+      <Text color="var(--synced-muted)" fontSize="lg">{description}</Text>
+    </MotionBox>
+  );
+};
+
 const Research = () => {
   const skillCategories = [
     { title: "Quantitative & Math Tools", icon: BiCodeAlt, delay: 0.05, skills: [
@@ -154,8 +185,33 @@ const Research = () => {
         </Box>
       </Box>
 
-      {/* SELECTED SYSTEMS */}
+      {/* WHAT I'M GOOD AT */}
       <Box pt={{ base: 16, md: 24 }}>
+        <SectionHead kicker="THE CORE FOCUS" title="What I'm good at" />
+        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={6}>
+          <ExpertiseCard
+            title="Stochastic Optimization"
+            description="Modeling system dynamics under uncertainty using REC, physics-informed receding-horizon control, and predictive strategy solvers."
+            icon={BiChip}
+            delay={0.1}
+          />
+          <ExpertiseCard
+            title="Signal & Biofeedback DSP"
+            description="Real-time acquisition, preprocessing (STFT, filter design), and ML classification (LSTM, transformers) of high-frequency biological signals."
+            icon={BiBrain}
+            delay={0.2}
+          />
+          <ExpertiseCard
+            title="Multi-Agent Simulation"
+            description="Designing concurrent agentic architectures for quantitative modeling, risk validation, and predictive scenario simulation."
+            icon={BiStats}
+            delay={0.3}
+          />
+        </SimpleGrid>
+      </Box>
+
+      {/* SELECTED SYSTEMS */}
+      <Box pt={{ base: 24, md: 36 }}>
         <SectionHead kicker="THE KNOWLEDGE BASE" title="Featured academic & quant research" />
         <Box display="grid" gridTemplateColumns={{ base: "1fr", md: "1fr 1fr" }} gap="4">
           {projects.map((p, idx) => (
