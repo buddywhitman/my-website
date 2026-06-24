@@ -3,10 +3,12 @@ import { Box, Flex, Text, VStack, HStack, SimpleGrid } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
-import { BsArrowUpRight, BsArrowRight, BsFilm } from "react-icons/bs";
+import { BsArrowUpRight, BsArrowRight, BsFilm, BsSoundwave } from "react-icons/bs";
+import { FaMusic, FaWaveSquare, FaSlidersH, FaBrain, FaVideo, FaDrum } from "react-icons/fa";
 import {
   SiFigma, SiAdobephotoshop, SiAdobeillustrator, SiAdobexd,
   SiAdobeaftereffects, SiAdobepremierepro, SiSketch, SiFramer,
+  SiAbletonlive
 } from "react-icons/si";
 import SchemaMarkup from "components/SchemaMarkup";
 
@@ -95,7 +97,7 @@ const Design = () => {
 
       {/* PHILOSOPHY */}
       <Box py={{ base: 16, md: 24 }}>
-        <Text className="editorial" fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }} fontWeight="500" color="var(--synced-text)" lineHeight="1.25" letterSpacing="-0.01em" maxW="22ch">
+        <Text className="editorial" fontSize={{ base: "3xl", md: "4xl", lg: "5xl" }} fontWeight="500" color="var(--synced-text)" lineHeight="1.25" letterSpacing="-0.01em" maxW="100%">
           Good design isn&apos;t decoration. It&apos;s the <Box as="span" className="tiedye-text">shortest distance</Box> between a person and what they came for.
         </Text>
       </Box>
@@ -138,6 +140,14 @@ const Design = () => {
           <ToolPill icon={SiAdobepremierepro} name="Premiere Pro" />
           <ToolPill icon={BsFilm} name="DaVinci Resolve" />
           <ToolPill icon={SiFramer} name="Framer / Motion" />
+          <ToolPill icon={SiAbletonlive} name="Ableton Live" />
+          <ToolPill icon={FaMusic} name="FL Studio" />
+          <ToolPill icon={FaWaveSquare} name="Serum" />
+          <ToolPill icon={BsSoundwave} name="Sylenth" />
+          <ToolPill icon={FaSlidersH} name="Ozone" />
+          <ToolPill icon={FaBrain} name="Higgsfield" />
+          <ToolPill icon={FaVideo} name="RunwayML" />
+          <ToolPill icon={FaDrum} name="Rekordbox" />
         </Flex>
       </Box>
 
