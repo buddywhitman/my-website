@@ -27,6 +27,8 @@ const SectionHead = ({ kicker, title }: { kicker: string; title: string }) => (
 
 const OpenSource = () => {
   const [repos, setRepos] = useState<any[]>([]);
+  const [stats, setStats] = useState<any>(null);
+  const [orgCount, setOrgCount] = useState<number>(0);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -47,6 +49,13 @@ const OpenSource = () => {
             }
           });
           setRepos(Array.from(uniqueMap.values()));
+
+          if (toks.data.contributionsCollection) {
+            setStats(toks.data.contributionsCollection);
+          }
+          if (toks.data.organizations) {
+            setOrgCount(toks.data.organizations.totalCount);
+          }
         }
       } catch (e) {
         console.error("GitHub fetch failed", e);
@@ -117,6 +126,60 @@ const OpenSource = () => {
           </Text>
         </Box>
       </Box>
+
+      {/* GITHUB STATS PANEL */}
+      {stats && (
+        <MotionBox
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: EASE }}
+          mb={12}
+          p={{ base: 6, md: 8 }}
+          border="1px solid"
+          borderColor="var(--synced-border)"
+          borderRadius="2xl"
+          bg="var(--synced-surface)"
+          style={{ backdropFilter: "blur(10px)" }}
+          position="relative"
+          overflow="hidden"
+        >
+          <Box position="absolute" top="-40%" right="-10%" w="300px" h="300px" bg="radial-gradient(circle, var(--c-violet) 0%, transparent 70%)" opacity="0.08" filter="blur(50px)" pointerEvents="none" />
+          <Text className="mono-label" color="var(--accent)" mb={6} fontSize="10px">GITHUB CONTRIBUTIONS & ACTIVITY</Text>
+          <SimpleGrid columns={{ base: 2, md: 3, lg: 5 }} gap={6}>
+            <Box>
+              <Text className="editorial" fontSize={{ base: "3xl", md: "4xl" }} fontWeight="700" color="var(--synced-text)" lineHeight="1">
+                {stats.contributionCalendar?.totalContributions || 0}
+              </Text>
+              <Text className="mono-label" color="var(--synced-muted)" mt="1" fontSize="9px">Total Contributions</Text>
+            </Box>
+            <Box>
+              <Text className="editorial" fontSize={{ base: "3xl", md: "4xl" }} fontWeight="700" color="var(--synced-text)" lineHeight="1">
+                {stats.totalCommitContributions || 0}
+              </Text>
+              <Text className="mono-label" color="var(--synced-muted)" mt="1" fontSize="9px">Commits Pushed</Text>
+            </Box>
+            <Box>
+              <Text className="editorial" fontSize={{ base: "3xl", md: "4xl" }} fontWeight="700" color="var(--synced-text)" lineHeight="1">
+                {stats.totalPullRequestContributions || 0}
+              </Text>
+              <Text className="mono-label" color="var(--synced-muted)" mt="1" fontSize="9px">Pull Requests Merged</Text>
+            </Box>
+            <Box>
+              <Text className="editorial" fontSize={{ base: "3xl", md: "4xl" }} fontWeight="700" color="var(--synced-text)" lineHeight="1">
+                {stats.totalIssueContributions || 0}
+              </Text>
+              <Text className="mono-label" color="var(--synced-muted)" mt="1" fontSize="9px">Issues Resolved</Text>
+            </Box>
+            <Box>
+              <Text className="editorial" fontSize={{ base: "3xl", md: "4xl" }} fontWeight="700" color="var(--synced-text)" lineHeight="1">
+                {orgCount || 0}
+              </Text>
+              <Text className="mono-label" color="var(--synced-muted)" mt="1" fontSize="9px">Organizations</Text>
+            </Box>
+          </SimpleGrid>
+        </MotionBox>
+      )}
 
       {loading && (
         <Flex justify="center" align="center" py={12}>

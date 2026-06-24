@@ -1,15 +1,14 @@
-import { Box, Flex, Text, SimpleGrid, Icon, VStack, HStack, Link as ChakraLink } from "@chakra-ui/react";
+import { Box, Flex, Text, SimpleGrid, Icon, VStack, HStack, Link as ChakraLink, Heading } from "@chakra-ui/react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { BsArrowUpRight } from "react-icons/bs";
-import { FaMicrochip } from "react-icons/fa";
-import { BiCodeAlt } from "react-icons/bi";
+import { FaMicrochip, FaTools } from "react-icons/fa";
+import { BiCodeAlt, BiChip, BiTimeFive } from "react-icons/bi";
 import { IconType } from "react-icons/lib";
 import {
-  SiC, SiCplusplus, SiArduino, SiArm, SiRaspberrypi, SiUbuntu, SiFigma,
-  SiAdobecreativecloud, SiGooglechrome
+  SiC, SiCplusplus, SiArduino, SiArm, SiRaspberrypi, SiUbuntu,
+  SiAltiumdesigner, SiKicad, SiXilinx
 } from "react-icons/si";
-import { FaPalette, FaTools } from "react-icons/fa";
 import { Tooltip } from "components/ui/tooltip";
 
 const MotionBox = motion(Box) as any;
@@ -94,6 +93,37 @@ const WorkCard = ({ name, kicker, description, tags, link, index, wide = false }
   </MotionBox>
 );
 
+const ExpertiseCard = ({ title, description, icon, delay }: { title: string; description: string; icon: any; delay: number }) => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  
+  const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
+
+  return (
+    <MotionBox
+      ref={ref}
+      style={{ y } as any}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.8, delay }}
+      p={10}
+      bg="var(--synced-surface)"
+      borderRadius="3xl"
+      borderWidth="1px"
+      borderColor="var(--synced-border)"
+      _hover={{ borderColor: "var(--accent)", transform: "scale(1.05) rotate(2deg)", boxShadow: "xl" }}
+    >
+      <Icon as={icon} w={12} h={12} color="var(--accent)" mb={6} aria-label={title} />
+      <Heading size="lg" mb={4} fontWeight="800" color="var(--synced-text)">{title}</Heading>
+      <Text color="var(--synced-muted)" fontSize="lg">{description}</Text>
+    </MotionBox>
+  );
+};
+
 const Hardware = () => {
   const skillCategories = [
     { title: "Languages & Hardware Description", icon: BiCodeAlt, delay: 0.05, skills: [
@@ -101,16 +131,16 @@ const Hardware = () => {
     { title: "Systems & Embedded", icon: FaMicrochip, delay: 0.1, skills: [
       { icon: FaMicrochip, name: "STM32" }, { icon: SiArm, name: "Arm Cortex" },
       { icon: SiArduino, name: "Arduino" }, { icon: SiRaspberrypi, name: "Raspberry Pi" }, { icon: SiUbuntu, name: "Linux" }] },
-    { title: "Design & UX", icon: FaPalette, delay: 0.15, skills: [
-      { icon: SiFigma, name: "Figma" }, { icon: SiAdobecreativecloud, name: "Adobe CC" },
-      { icon: SiGooglechrome, name: "UX Research" }, { icon: FaPalette, name: "Branding" }] },
+    { title: "EDA & PCB Design", icon: FaTools, delay: 0.15, skills: [
+      { icon: SiAltiumdesigner, name: "Altium Designer" }, { icon: SiKicad, name: "KiCAD" },
+      { icon: SiXilinx, name: "Xilinx Vivado" }, { icon: FaTools, name: "UVM / SystemVerilog" }] },
   ];
 
   const projects = [
     {
       name: "SolarMobil EV Electronics Architecture",
       kicker: "SOLARMOBIL · ELECTRONICS HEAD",
-      description: "Designed and implemented the complete safety-critical automotive electronics architecture for a solar-powered electric vehicle. Wrote deterministic firmware on STM32H7 boards running FreeRTOS. Developed custom device drivers for peripherals, integrated a TouchGFX GUI human-machine interface (HMI), and created a wireless 1Hz telemetry engine with big data processing pipelines.",
+      description: "Engineered safety-critical automotive electronics and deterministic FreeRTOS firmware on STM32H7 for a high-performance solar racing EV. Developed TouchGFX HMI driver interfaces, a sub-1GHz 1Hz RF telemetry engine, and cloud-based predictive telemetry databases with GIS and Solcast weather data fusion.",
       tags: ["FreeRTOS", "STM32H7", "TouchGFX", "Control Systems", "C++", "Telemetry"],
       link: "https://www.solarmobilmanipal.org",
       wide: true
@@ -119,25 +149,29 @@ const Hardware = () => {
       name: "CoreEL RTL2GDSII Silicon Flow",
       kicker: "COREEL · ASIC & FPGA DESIGN",
       description: "Implemented high-speed CAN-bus and I2C controllers from RTL to GDSII. Designed logic in Verilog, built testbenches and ran verification using UVM (Universal Verification Methodology), performed Static Timing Analysis (STA), and completed timing closure and floorplanning on Xilinx Virtex-7 FPGAs using Vivado.",
-      tags: ["Verilog", "UVM", "Vivado", "FPGA", "ASIC Flow", "STA"]
+      tags: ["Verilog", "UVM", "Vivado", "FPGA", "ASIC Flow", "STA"],
+      link: "https://coreel.com/"
     },
     {
       name: "Krop AI Carrier Board & CV",
       kicker: "KROP AI · HARDWARE DESIGN",
       description: "Designed custom multi-layer carrier boards utilizing Nvidia Jetson Nano and ESP32 microcontrollers. Developed custom device drivers for camera sensors and sensory peripherals, implementing real-time low-latency computer vision classification models directly on edge hardware.",
-      tags: ["PCB Design", "ESP32", "Jetson", "Peripherals", "Computer Vision", "Hardware"]
+      tags: ["PCB Design", "ESP32", "Jetson", "Peripherals", "Computer Vision", "Hardware"],
+      link: "https://kropai.com"
     },
     {
       name: "Symbionic Physiological DAQ",
       kicker: "SYMBIONIC · BIOMEDICAL INSTRUMENTATION",
       description: "Created a high-fidelity data acquisition system (DAQ) for capturing and pre-processing analog EMG and EEG physiological signals. Designed analog front-ends (AFEs), filters, and ADC interfaces, combining them with lightweight on-device machine learning classifiers for gesture control.",
-      tags: ["DAQ", "EEG/EMG", "Signal Processing", "Edge AI", "Schematic Design"]
+      tags: ["DAQ", "EEG/EMG", "Signal Processing", "Edge AI", "Schematic Design"],
+      link: "https://www.symbionic.co"
     },
     {
       name: "SP Robotics Works Autonomous Logistics",
       kicker: "SP ROBOTICS · LOGISTICS & IOT",
       description: "Developed hardware configurations, motor drivers, and deterministic control code for autonomous warehouse logistics robots and search-and-rescue utility vehicles. Formulated low-power wireless sensor networks for smart residential and industrial IoT frameworks.",
-      tags: ["Robotics", "IoT", "Motor Drivers", "Wireless Networks", "Firmware"]
+      tags: ["Robotics", "IoT", "Motor Drivers", "Wireless Networks", "Firmware"],
+      link: "https://sprw.in/"
     }
   ];
 
@@ -170,9 +204,34 @@ const Hardware = () => {
 
       {/* CAPABILITIES */}
       <Box pt={{ base: 24, md: 36 }}>
-        <SectionHead kicker="THE HARDWARE TOOLKIT" title="What I design with" />
+        <SectionHead kicker="THE HARDWARE TOOLKIT" title="What I build with" />
         <SimpleGrid columns={{ base: 1, lg: 2, xl: 3 }} gap={6}>
           {skillCategories.map((c) => <SkillCategory key={c.title} {...c} />)}
+        </SimpleGrid>
+      </Box>
+
+      {/* WHAT I'M GOOD AT */}
+      <Box pt={{ base: 24, md: 36 }}>
+        <SectionHead kicker="THE CORE FOCUS" title="What I'm good at" />
+        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={6}>
+          <ExpertiseCard
+            title="HPC & Low-Latency"
+            description="Architecting high-frequency, real-time systems using FreeRTOS, STM32, and Arm Cortex architectures for HFT and racing."
+            icon={BiChip}
+            delay={0.1}
+          />
+          <ExpertiseCard
+            title="SoC Design"
+            description="Experience with RTL design (Verilog), UVM verification, and ASIC design flows (STA, PPA, floorplanning)."
+            icon={BiCodeAlt}
+            delay={0.2}
+          />
+          <ExpertiseCard
+            title="Safety-Critical Systems"
+            description="Designing deterministic task scheduling and high-performance sensor fusion for automotive applications."
+            icon={BiTimeFive}
+            delay={0.3}
+          />
         </SimpleGrid>
       </Box>
     </Box>

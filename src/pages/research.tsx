@@ -1,8 +1,8 @@
-import { Box, Flex, Text, SimpleGrid, Icon, VStack, HStack, Link as ChakraLink } from "@chakra-ui/react";
+import { Box, Flex, Text, SimpleGrid, Icon, VStack, HStack, Link as ChakraLink, Heading, Badge } from "@chakra-ui/react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { BsArrowUpRight } from "react-icons/bs";
-import { FaFlask, FaUniversity } from "react-icons/fa";
+import { FaFlask, FaUniversity, FaFileAlt, FaLightbulb, FaExternalLinkAlt } from "react-icons/fa";
 import { BiCodeAlt } from "react-icons/bi";
 import { IconType } from "react-icons/lib";
 import {
@@ -162,6 +162,103 @@ const Research = () => {
             <WorkCard key={p.name} index={idx} name={p.name} kicker={p.kicker} description={p.description} tags={p.tags} link={p.link} wide={p.wide} />
           ))}
         </Box>
+      </Box>
+
+      {/* Publications & IP Section */}
+      <Box mt={32}>
+        <SectionHead kicker="THE ACADEMIC RECORD" title="Publications & IP" />
+        <VStack gap={10} align="stretch">
+          <MotionBox
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            p={10}
+            bg="var(--synced-surface)"
+            borderRadius="3xl"
+            borderWidth="1px"
+            borderColor="var(--synced-border)"
+            position="relative"
+            overflow="hidden"
+            _hover={{ transform: "rotate(-1deg) scale(1.02)", borderColor: "var(--accent)" }}
+            transition={{ duration: 0.4 }}
+          >
+            <Box position="absolute" top={0} left={0} w="full" h="4px" bg="green.400" />
+            <Flex alignItems="center" mb={6} gap={4}>
+              <Icon as={FaFileAlt} color="brand.500" boxSize={8} />
+              <Badge colorPalette="green" fontSize="sm" px={3} py={1}>Scientific Reports (Springer Nature, Q1)</Badge>
+            </Flex>
+            <Heading size="xl" mb={4} fontWeight="800" lineHeight="shorter" color="var(--synced-text)">Technical validation of a multimodal emotion-adaptive biofeedback system for autonomic regulation using guided breathing</Heading>
+            <Text color="var(--synced-muted)" mb={8} fontSize="lg">Published in Sci Rep (2026). DOI: 10.1038/s41598-026-46105-9</Text>
+            <ChakraLink 
+                href="https://doi.org/10.1038/s41598-026-46105-9" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                color="var(--accent)" 
+                fontWeight="900" 
+                fontSize="xl"
+                _hover={{ color: "brand.600", textDecoration: "underline" }}
+            >
+              View Publication <Icon as={FaExternalLinkAlt} mx="2px" boxSize={4} />
+            </ChakraLink>
+          </MotionBox>
+
+          <MotionBox
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            p={10}
+            bg="var(--synced-surface)"
+            borderRadius="3xl"
+            borderWidth="1px"
+            borderColor="var(--synced-border)"
+            position="relative"
+            overflow="hidden"
+            _hover={{ transform: "rotate(1deg) scale(1.02)", borderColor: "var(--accent)" }}
+            transition={{ duration: 0.4 }}
+          >
+            <Box position="absolute" top={0} left={0} w="full" h="4px" bg="blue.400" />
+            <Flex alignItems="center" mb={6} gap={4}>
+              <Icon as={FaFileAlt} color="brand.500" boxSize={8} />
+              <Badge colorPalette="blue" fontSize="sm" px={3} py={1}>IEEE VTC (A*)</Badge>
+            </Flex>
+            <Heading size="xl" mb={4} fontWeight="800" lineHeight="shorter" color="var(--synced-text)">Physics-Informed Stochastic Receding Horizon Control for Autonomous Energy Management in Solar Racing</Heading>
+            <Text color="var(--synced-muted)" mb={8} fontSize="lg">Accepted for IEEE VTC (2026).</Text>
+            <ChakraLink 
+                href="https://vtc2026spring.trackchair.com/paper/47987" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                color="var(--accent)" 
+                fontWeight="900" 
+                fontSize="xl"
+                _hover={{ color: "brand.600", textDecoration: "underline" }}
+            >
+              View Paper <Icon as={FaExternalLinkAlt} mx="2px" boxSize={4} />
+            </ChakraLink>
+          </MotionBox>
+
+          <SimpleGrid columns={{ base: 1, md: 3 }} gap={8}>
+            {[
+                { title: "Adaptive EV Interface", desc: "System and method for adaptive interface in EV control and monitoring. Filed 2025." },
+                { title: "Long-Range Telemetry", desc: "System and method for long-range telemetry and observability for Solar EVs. Filed 2025." },
+                { title: "Robotic Solar Cleaning", desc: "Automated robotic solar panel cleaning with obstacle detection. Filed 2025." }
+            ].map((patent, i) => (
+                <MotionBox
+                    key={i}
+                    p={8}
+                    bg="var(--synced-surface)"
+                    borderRadius="3xl"
+                    borderWidth="1px"
+                    borderColor="var(--synced-border)"
+                    _hover={{ borderColor: "yellow.400", transform: "scale(1.05)", boxShadow: "lg" }}
+                    transition={{ duration: 0.3 }}
+                >
+                    <Icon as={FaLightbulb} color="yellow.400" boxSize={8} mb={4} />
+                    <Heading size="md" mb={4} fontWeight="800" color="var(--synced-text)">Patent: {patent.title}</Heading>
+                    <Text fontSize="md" color="var(--synced-muted)" lineHeight="relaxed">{patent.desc}</Text>
+                </MotionBox>
+            ))}
+          </SimpleGrid>
+        </VStack>
       </Box>
 
       {/* CAPABILITIES */}

@@ -3,7 +3,7 @@ import { Box, Flex, Text, VStack, HStack, SimpleGrid } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { useState } from "react";
-import { BsArrowUpRight, BsArrowRight } from "react-icons/bs";
+import { BsArrowUpRight, BsArrowRight, BsFilm } from "react-icons/bs";
 import {
   SiFigma, SiAdobephotoshop, SiAdobeillustrator, SiAdobexd,
   SiAdobeaftereffects, SiAdobepremierepro, SiSketch, SiFramer,
@@ -136,6 +136,7 @@ const Design = () => {
           <ToolPill icon={SiAdobeillustrator} name="Illustrator" />
           <ToolPill icon={SiAdobeaftereffects} name="After Effects" />
           <ToolPill icon={SiAdobepremierepro} name="Premiere Pro" />
+          <ToolPill icon={BsFilm} name="DaVinci Resolve" />
           <ToolPill icon={SiFramer} name="Framer / Motion" />
         </Flex>
       </Box>

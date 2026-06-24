@@ -1,9 +1,9 @@
-import { Box, Flex, Text, SimpleGrid, Icon, VStack, HStack, Link as ChakraLink } from "@chakra-ui/react";
+import { Box, Flex, Text, SimpleGrid, Icon, VStack, HStack, Link as ChakraLink, Heading } from "@chakra-ui/react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
 import { BsArrowUpRight, BsCodeSquare } from "react-icons/bs";
 import { FaPython, FaJava, FaRobot, FaServer, FaCloud } from "react-icons/fa";
-import { BiCodeAlt } from "react-icons/bi";
+import { BiCodeAlt, BiBrain, BiStats } from "react-icons/bi";
 import { IconType } from "react-icons/lib";
 import {
   SiJavascript, SiTypescript, SiDocker, SiKubernetes, SiVercel, SiGooglecloud,
@@ -57,6 +57,37 @@ const SkillCategory = ({ title, icon, skills, delay }: { title: string; icon: Ic
       <Flex gap={3} wrap="wrap">
         {skills.map((skill) => <SkillPill key={skill.name} icon={skill.icon} name={skill.name} />)}
       </Flex>
+    </MotionBox>
+  );
+};
+
+const ExpertiseCard = ({ title, description, icon, delay }: { title: string; description: string; icon: any; delay: number }) => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"],
+  });
+  
+  const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
+
+  return (
+    <MotionBox
+      ref={ref}
+      style={{ y } as any}
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ duration: 0.8, delay }}
+      p={10}
+      bg="var(--synced-surface)"
+      borderRadius="3xl"
+      borderWidth="1px"
+      borderColor="var(--synced-border)"
+      _hover={{ borderColor: "var(--accent)", transform: "scale(1.05) rotate(2deg)", boxShadow: "xl" }}
+    >
+      <Icon as={icon} w={12} h={12} color="var(--accent)" mb={6} aria-label={title} />
+      <Heading size="lg" mb={4} fontWeight="800" color="var(--synced-text)">{title}</Heading>
+      <Text color="var(--synced-muted)" fontSize="lg">{description}</Text>
     </MotionBox>
   );
 };
@@ -134,17 +165,18 @@ const Software = () => {
       link: "https://guaqai.me"
     },
     {
-      name: "DCPR AI Document Pipelines",
-      kicker: "DCPR AI · BIG DATA PIPELINE",
-      description: "Architected a distributed multilingual document ingestion and OCR pipeline processing multi-TB files. Engineered the backend using FastAPI and custom python wrappers, integrating Google Cloud Storage (GCS) and Gemini API to automate regulatory compliance workflows.",
-      tags: ["Big Data", "FastAPI", "GCS", "Gemini API", "OCR"],
-      link: "https://github.com/buddywhitman/dist-gcs-pdf-processing"
+      name: "XX-TB Scale Document Processing",
+      kicker: "DCPR AI · PIP PACKAGE",
+      description: "Distributed multi-TB document ingestion pipeline using GCS and Gemini. Cut manual processing queues by 92% and storage costs by 74%.",
+      tags: ["Kubernetes", "GCS", "Redis", "Distributed System"],
+      link: "https://pypi.org/project/dist-gcs-pdf-processing/"
     },
     {
       name: "Dev Team Lead",
       kicker: "MIT, MANIPAL · TICKETING & SCALE",
       description: "Led the developer division for national-level college fests. Designed and deployed highly concurrent ticketing, registration, and payment gateway platforms. Maintained 99.9% uptime and handled tens of thousands of simultaneous requests under heavy peak loads.",
-      tags: ["System Design", "Ticketing", "Node.js", "Chakra UI", "Scale"]
+      tags: ["System Design", "Ticketing", "Node.js", "Chakra UI", "Scale"],
+      link: "https://manipal.edu/mit.html"
     }
   ];
 
@@ -180,6 +212,31 @@ const Software = () => {
         <SectionHead kicker="THE TECHNICAL STACK" title="What I write & deploy" />
         <SimpleGrid columns={{ base: 1, lg: 2 }} gap={6}>
           {skillCategories.map((c) => <SkillCategory key={c.title} {...c} />)}
+        </SimpleGrid>
+      </Box>
+
+      {/* What I'm good at Section */}
+      <Box pt={{ base: 24, md: 36 }}>
+        <SectionHead kicker="THE CORE FOCUS" title="What I'm good at" />
+        <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} gap={6}>
+          <ExpertiseCard
+            title="Agentic AI & Inference"
+            description="Building autonomous LLM workflows and optimized inference pipelines using LiveKit, PyTorch, and distributed K8s clusters."
+            icon={BiBrain}
+            delay={0.1}
+          />
+          <ExpertiseCard
+            title="Data Engineering"
+            description="Implementing real-time signal acquisition and processing pipelines for bio-signals and telemetry."
+            icon={BiStats}
+            delay={0.2}
+          />
+          <ExpertiseCard
+            title="Distributed Systems"
+            description="Developing scalable backends with FastAPI, Kubernetes, and cloud-native observability stacks."
+            icon={BiCodeAlt}
+            delay={0.3}
+          />
         </SimpleGrid>
       </Box>
     </Box>

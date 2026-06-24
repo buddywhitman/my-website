@@ -50,10 +50,7 @@ interface WorldRowProps {
 const WorldRow = ({ num, label, blurb, href, external, last }: WorldRowProps) => {
   const [hover, setHover] = useState(false);
   const inner = (
-    <Flex
-      align="center"
-      justify="space-between"
-      gap="6"
+    <Box
       py={{ base: 6, md: 8 }}
       borderBottom={last ? "none" : "1px solid"}
       borderColor="var(--synced-border)"
@@ -64,11 +61,11 @@ const WorldRow = ({ num, label, blurb, href, external, last }: WorldRowProps) =>
         transition: "padding-left 320ms cubic-bezier(0.23,1,0.32,1)",
       }}
     >
-      <HStack gap={{ base: 4, md: 8 }} align="baseline" flex="1" minW="0">
-        <Text className="mono-label" color="var(--synced-muted)" fontSize={{ base: "10px", md: "11px" }} flexShrink={0}>
-          {num}
-        </Text>
-        <Box minW="0">
+      <Flex align="center" justify="space-between" gap="6">
+        <HStack gap={{ base: 4, md: 8 }} align="baseline" minW="0">
+          <Text className="mono-label" color="var(--synced-muted)" fontSize={{ base: "10px", md: "11px" }} flexShrink={0}>
+            {num}
+          </Text>
           <Text
             className={hover ? "editorial tiedye-text" : "editorial"}
             fontSize={{ base: "4xl", md: "6xl", lg: "7xl" }}
@@ -80,29 +77,29 @@ const WorldRow = ({ num, label, blurb, href, external, last }: WorldRowProps) =>
           >
             {label}
           </Text>
-          <Text
-            color="var(--synced-muted)"
-            fontSize={{ base: "sm", md: "md" }}
-            mt={{ base: 2, md: 3 }}
-            maxW="48ch"
-            opacity={hover ? 1 : 0.72}
-            style={{ transition: "opacity 200ms ease" }}
-          >
-            {blurb}
-          </Text>
+        </HStack>
+        <Box
+          flexShrink={0}
+          color={hover ? "var(--accent)" : "var(--synced-muted)"}
+          style={{
+            transform: hover ? "translate(6px,-6px) rotate(0deg)" : "translate(0,0)",
+            transition: "transform 280ms cubic-bezier(0.23,1,0.32,1), color 200ms ease",
+          }}
+        >
+          <BsArrowUpRight size={26} />
         </Box>
-      </HStack>
-      <Box
-        flexShrink={0}
-        color={hover ? "var(--accent)" : "var(--synced-muted)"}
-        style={{
-          transform: hover ? "translate(6px,-6px) rotate(0deg)" : "translate(0,0)",
-          transition: "transform 280ms cubic-bezier(0.23,1,0.32,1), color 200ms ease",
-        }}
+      </Flex>
+      <Text
+        color="var(--synced-muted)"
+        fontSize={{ base: "sm", md: "md" }}
+        mt={{ base: 3, md: 4 }}
+        maxW="100%"
+        opacity={hover ? 1 : 0.72}
+        style={{ transition: "opacity 200ms ease" }}
       >
-        <BsArrowUpRight size={26} />
-      </Box>
-    </Flex>
+        {blurb}
+      </Text>
+    </Box>
   );
 
   if (external) {
@@ -252,14 +249,14 @@ const Home = () => {
         <Box>
           <WorldRow num="01" label="Software" href="/software"
             blurb="Agentic voice AI, distributed systems, data engineering, and inference at scale. High-throughput serving and production-grade software." />
-          <WorldRow num="02" label="Design" href="/design"
-            blurb="Interaction and brand design. Interfaces that argue a point — and convert. Trained in graphic design, UI/UX, and research." />
-          <WorldRow num="03" label="Hardware" href="/hardware"
+          <WorldRow num="02" label="Hardware" href="/hardware"
             blurb="Deterministic control systems, SoC design, and embedded architectures. FreeRTOS on Cortex-M7, Verilog/UVM, and edge AI hardware bring-up." />
-          <WorldRow num="04" label="Research" href="/research"
+          <WorldRow num="03" label="Research" href="/research"
             blurb="Physics-informed control, biofeedback telemetry, and quantitative finance. Multi-agent HFT, published papers, and automotive electronics patents." />
-          <WorldRow num="05" label="Open Source" href="/open-source" last
+          <WorldRow num="04" label="Open Source" href="/open-source"
             blurb="LLM serving frameworks, developer tools, and kernel-level experimentation. Community building, self-hosting systems, and upstream contributions." />
+          <WorldRow num="05" label="Design" href="/design" last
+            blurb="Interaction and brand design. Interfaces that argue a point — and convert. Trained in graphic design, UI/UX, and research." />
         </Box>
       </Box>
 
@@ -305,30 +302,42 @@ const Home = () => {
                 Things that shipped
               </Text>
             </Box>
-            <Link href="/open-source" className="mono-label press-btn" style={{ fontSize: "10px", color: "var(--synced-muted)", border: "1px solid var(--synced-border)", padding: "10px 16px", borderRadius: "6px", textDecoration: "none", transition: "all 200ms ease" }}
-              onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--accent)"; (e.currentTarget as HTMLElement).style.borderColor = "var(--accent)"; }}
-              onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--synced-muted)"; (e.currentTarget as HTMLElement).style.borderColor = "var(--synced-border)"; }}>
-              ALL OF IT →
-            </Link>
+            <HStack gap="2">
+              <Link href="/software" className="mono-label press-btn" style={{ fontSize: "10px", color: "var(--synced-muted)", border: "1px solid var(--synced-border)", padding: "10px 16px", borderRadius: "6px", textDecoration: "none", transition: "all 200ms ease" }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--accent)"; (e.currentTarget as HTMLElement).style.borderColor = "var(--accent)"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--synced-muted)"; (e.currentTarget as HTMLElement).style.borderColor = "var(--synced-border)"; }}>
+                SOFTWARE →
+              </Link>
+              <Link href="/hardware" className="mono-label press-btn" style={{ fontSize: "10px", color: "var(--synced-muted)", border: "1px solid var(--synced-border)", padding: "10px 16px", borderRadius: "6px", textDecoration: "none", transition: "all 200ms ease" }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--accent)"; (e.currentTarget as HTMLElement).style.borderColor = "var(--accent)"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--synced-muted)"; (e.currentTarget as HTMLElement).style.borderColor = "var(--synced-border)"; }}>
+                HARDWARE →
+              </Link>
+              <Link href="/research" className="mono-label press-btn" style={{ fontSize: "10px", color: "var(--synced-muted)", border: "1px solid var(--synced-border)", padding: "10px 16px", borderRadius: "6px", textDecoration: "none", transition: "all 200ms ease" }}
+                onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--accent)"; (e.currentTarget as HTMLElement).style.borderColor = "var(--accent)"; }}
+                onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "var(--synced-muted)"; (e.currentTarget as HTMLElement).style.borderColor = "var(--synced-border)"; }}>
+                RESEARCH →
+              </Link>
+            </HStack>
           </Flex>
         </MotionBox>
 
         <Box display="grid" gridTemplateColumns={{ base: "1fr", md: "1fr 1fr" }} gap="4">
           <WorkCard index={0} wide kicker="SOLARMOBIL · IEEE VTC 2026" name="Solar Racing EV"
-            description="A real-time race-strategy engine for a solar EV. Stochastic receding-horizon control over fused GIS, weather, and vehicle dynamics — running deterministically on FreeRTOS. Handled the deterministic FreeRTOS, STM32H7-based ECU and automotive electronics architecture, procurement, driver development, and TouchGFX HMI GUI interface, and wireless 1Hz telemetry engine with big data processing etc."
+            description="Engineered safety-critical automotive electronics and deterministic FreeRTOS firmware on STM32H7 for a high-performance solar racing EV. Developed TouchGFX HMI driver interfaces, a sub-1GHz 1Hz RF telemetry engine, and cloud-based predictive telemetry databases with GIS and Solcast weather data fusion. Two provisional patents filed."
             tags={["C/C++", "FreeRTOS", "STM32H7", "InfluxDB", "Control Theory"]} link="https://vtc2026spring.trackchair.com/paper/47987" />
           <WorkCard index={1} kicker="FETTLE · FOUNDING ENGINEER" name="Voice AI for Hospitals"
             description="Distributed voice agents for hospital workflows — SIP trunking over LiveKit, a cross-modal recommender, sub-second inference on Kubernetes. I own the backend and the DevOps."
             tags={["PyTorch", "LiveKit", "K8s", "FastAPI"]} link="https://letsfettle.com" />
-          <WorkCard index={2} kicker="DCPR AI · PIP PACKAGE" name="dist-gcs-pdf-processing"
-            description="Built to automate multi-TB document ingestion workflows at DCPR AI. Built a highly concurrent, resilient distributed OCR parsing package utilizing GCS, Redis distributed locks, and Gemini API. Successfully cut processing times by 92% (reducing a 14-day manual queue to just 26 hours) and reduced data storage costs by 74%."
-            tags={["Python", "Gemini API", "GCS", "Redis", "Distributed System"]} link="https://github.com/buddywhitman/dist-gcs-pdf-processing" />
+          <WorkCard index={2} kicker="DCPR AI · PIP PACKAGE" name="XX-TB Scale Document Processing"
+            description="Distributed multi-TB document ingestion pipeline using GCS and Gemini. Cut manual processing queues by 92% and storage costs by 74%."
+            tags={["Kubernetes", "GCS", "Redis", "Distributed System"]} link="https://pypi.org/project/dist-gcs-pdf-processing/" />
           <WorkCard index={3} kicker="GUAQ AI · FOUNDER" name="Agentic Platform, 0→$8K MRR"
             description="Multi-vertical agentic solutions for hospitality, real estate, and finance. From zero to ~$8K MRR and 6+ clients in six months."
             tags={["Agentic AI", "RAG", "LangChain"]} link="https://guaqai.me" />
           <WorkCard index={4} kicker="COREEL · SoC DESIGN" name="RTL2GDSII Controllers"
             description="High-speed CAN-bus and I²C controllers from RTL to GDSII — UVM verification, STA, and floorplanning, brought up on a Virtex-7 FPGA."
-            tags={["Verilog", "FPGA", "UVM", "Vivado"]} />
+            tags={["Verilog", "FPGA", "UVM", "Vivado"]} link="https://coreel.com/" />
         </Box>
       </Box>
 

@@ -29,8 +29,8 @@ Pre-final year EE undergrad at MIT, [Manipal](https://www.manipal.edu/mit.html).
 - [Building Real-time Voice AI Agents](/blog/hello-world) - Deep dive into SIP trunking, LiveKit, and low-latency inference.
 
 ## 📁 Sitemap for Agents
-- `/` - Hero, Summary, and Selected Shipped Work (Solar Racing EV, dist-gcs-pdf-processing).
-- `/about` - Detailed experience, Publications & IP, and full education history.
+- `/` - Hero, Summary, and Selected Shipped Work (Solar Racing EV, XX-TB Scale Document Processing).
+- `/about` - Detailed experience and full education history.
 - `/software` - High-concurrency backend architectures, low-latency AI inference (Fettle), and real-time telemetry databases.
 - `/hardware` - Deterministic control firmware (FreeRTOS on STM32H7), SoC/ASIC design (Verilog/UVM), and edge computer vision.
 - `/research` - Systematic trading (Market OS), biomedical engineering (Springer Nature Q1), and stochastic control (IEEE VTC).
