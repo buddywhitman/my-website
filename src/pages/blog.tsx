@@ -1,4 +1,4 @@
-/* eslint-disable react/no-unescaped-entities */
+ 
 import { Box, Text, SimpleGrid, VStack, HStack, Link as ChakraLink } from "@chakra-ui/react";
 import type { GetStaticProps } from "next";
 import NextLink from "next/link";

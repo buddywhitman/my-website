@@ -1,4 +1,4 @@
-/* eslint-disable react/no-unescaped-entities */
+ 
 import { Box, Flex, Text, VStack, HStack, SimpleGrid, Icon, Link as ChakraLink, Badge } from "@chakra-ui/react";
 import { motion } from "framer-motion";
 import Link from "next/link";

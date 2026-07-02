@@ -1,4 +1,4 @@
-/* eslint-disable react/no-unescaped-entities */
+ 
 import {
   Box, Text, Input, Field, Textarea, Flex, VStack, HStack, Icon,
 } from "@chakra-ui/react";

@@ -1,5 +1,5 @@
 import createEmotionServer from "@emotion/server/create-instance";
-// eslint-disable-next-line @next/next/no-document-import-in-page
+ 
 import Document, {
   Html,
   Head,
@@ -22,7 +22,7 @@ class MyDocument extends Document {
 
     ctx.renderPage = () =>
       originalRenderPage({
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+         
         enhanceApp: (App: any) => (props) => (
           <App emotionCache={cache} {...props} />
         ),
@@ -35,7 +35,7 @@ class MyDocument extends Document {
       <style
         data-emotion={`${style.key} ${style.ids.join(" ")}`}
         key={style.key}
-        // eslint-disable-next-line react/no-danger
+         
         dangerouslySetInnerHTML={{ __html: style.css }}
       />
     ));

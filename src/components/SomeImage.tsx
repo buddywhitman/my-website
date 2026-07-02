@@ -1,4 +1,4 @@
-/* eslint-disable prettier/prettier */
+ 
 import { Flex, Link, Text } from "@chakra-ui/react";
 import Image from "next/image";
 
