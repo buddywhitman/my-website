@@ -147,16 +147,16 @@ const Research = () => {
       link: "https://doi.org/10.1038/s41598-026-46105-9"
     },
     {
-      name: "Intellectual Property - 3 Patents",
-      kicker: "MAHE · PROVISIONAL PATENTS",
-      description: "Filer and owner of three patents: Adaptive EV Interface, Long-Range Solar Telemetry, and Robotic Solar Panel Cleaning. Designed electrical and control schemas, communication protocols, and mechanical control systems under academic supervision.",
-      tags: ["Patents", "EV Telemetry", "Robotics", "Automotive Electronics"]
+      name: "Geospatial Intelligence: Naval Base Satellite Analysis",
+      kicker: "DR. AMRITA JASH · MARITIME SECURITY",
+      description: "Processing large-scale satellite imagery datasets and applying big data analytics to study military infrastructure development in the Indian Ocean Region (IOR). Under academic mentorship of Dr. Amrita Jash, the research maps coastal radar installations and overseas mixed-use bases to support evidence-based maritime policymaking.",
+      tags: ["Geospatial Intelligence", "Satellite Imagery", "Image Processing", "Indo-Pacific", "Public Policy"]
     },
     {
-      name: "Stochastic Control Receding Horizon",
+      name: "Stochastic Receding Horizon & Solar Racing Systems",
       kicker: "IEEE VTC 2026 · PEER-REVIEWED PAPER",
-      description: "Authored research paper on Physics-Informed Stochastic Receding Horizon Control (PI-SRHC) for electric vehicle energy management. Modeled solar EV dynamics under uncertainty using receding-horizon optimization, achieving optimal power routing and state-of-charge trajectory preservation.",
-      tags: ["Stochastic Control", "IEEE VTC", "Optimization", "Model Predictive Control"],
+      description: "An end-to-end solar racing systems architecture. Integrated a Physics-Informed Stochastic Receding Horizon Control (PI-SRHC) model for autonomous energy management (accepted at IEEE VTC 2026), developed a TouchGFX-based capacitive HMI driver interface reducing cognitive load (patented), and built a high-performance long-range telemetry system combining sub-1GHz RF, Solcast weather APIs, GIS, and InfluxDB/Prometheus timeseries databases for real-time race strategy (patented).",
+      tags: ["Stochastic Control", "IEEE VTC", "TouchGFX HMI", "Telemetry", "STM32H7", "Prometheus/InfluxDB"],
       link: "https://vtc2026spring.trackchair.com/paper/47987"
     },
     {
@@ -294,9 +294,9 @@ const Research = () => {
 
           <SimpleGrid columns={{ base: 1, md: 3 }} gap={8}>
             {[
-                { title: "Adaptive EV Interface", desc: "System and method for adaptive interface in EV control and monitoring. Filed 2025." },
-                { title: "Long-Range Telemetry", desc: "System and method for long-range telemetry and observability for Solar EVs. Filed 2025." },
-                { title: "Robotic Solar Cleaning", desc: "Automated robotic solar panel cleaning with obstacle detection. Filed 2025." }
+                { title: "Adaptive EV Interface", number: "202541050036", desc: "System and method for adaptive interface in EV control and monitoring. Filed 2025." },
+                { title: "Long-Range Telemetry", number: "202541064383", desc: "System and method for long-range telemetry and observability for Solar EVs. Filed 2025." },
+                { title: "Robotic Solar Cleaning", number: "202541079610", desc: "Automated robotic solar panel cleaning with obstacle detection. Filed 2025." }
             ].map((patent, i) => (
                 <MotionBox
                     key={i}
@@ -309,7 +309,22 @@ const Research = () => {
                     transition={{ duration: 0.3 }}
                 >
                     <Icon as={FaLightbulb} color="yellow.400" boxSize={8} mb={4} />
-                    <Heading size="md" mb={4} fontWeight="800" color="var(--synced-text)">Patent: {patent.title}</Heading>
+                    <Heading size="md" mb={4} fontWeight="800" color="var(--synced-text)">
+                      Patent: {patent.title}{" "}
+                      <ChakraLink
+                        href={`https://iprsearch.ipindia.gov.in/PublicSearch/PublicationSearch/ApplicationStatus?appNumber=${patent.number}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        color="var(--accent)"
+                        fontSize="xs"
+                        fontWeight="600"
+                        ml={1}
+                        display="inline-block"
+                        _hover={{ textDecoration: "underline" }}
+                      >
+                        ({patent.number})
+                      </ChakraLink>
+                    </Heading>
                     <Text fontSize="md" color="var(--synced-muted)" lineHeight="relaxed">{patent.desc}</Text>
                 </MotionBox>
             ))}

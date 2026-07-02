@@ -12,7 +12,7 @@ const EASE = [0.23, 1, 0.32, 1] as const;
 
 /* ─── MARQUEE ─────────────────────────────────── */
 const MARQUEE_TEXT =
-  "AI INFRASTRUCTURE · SOLAR RACING · SPRINGER NATURE · OBSERVABILITY · 3 PATENTS · DISTRIBUTED SYSTEMS · VOICE AI · RTL TO LLM · INFERENCE OPTIMIZATION · EMBEDDED SYSTEMS · EDGE AI · DATA ENGINEERING · IEEE · ACM · SAFETY-CRITICAL · DETERMINISIC";
+  "AI INFRASTRUCTURE · SOLAR RACING · SPRINGER NATURE · OBSERVABILITY · 3 PATENTS · DISTRIBUTED SYSTEMS · VOICE AI · RTL TO LLM · INFERENCE OPTIMIZATION · EMBEDDED SYSTEMS · EDGE AI · DATA ENGINEERING · IEEE · DETERMINISIC · ACM · SAFETY-CRITICAL · ";
 
 const Marquee = () => (
   <Box className="full-bleed tiedye-bg" overflow="hidden" py="3" cursor="default">
@@ -255,8 +255,8 @@ const Home = () => {
             blurb="Physics-informed control, biofeedback telemetry, and quantitative finance. Multi-agent HFT, published papers, and automotive electronics patents." />
           <WorldRow num="04" label="Open Source" href="/open-source"
             blurb="LLM serving frameworks, developer tools, and kernel-level experimentation. Community building, self-hosting systems, and upstream contributions." />
-          <WorldRow num="05" label="Design" href="/design" last
-            blurb="Interaction and brand design. Interfaces that argue a point — and convert. Trained in graphic design, UI/UX, and research." />
+          <WorldRow num="05" label="Talks" href="/talks" last
+            blurb="Speaking engagements on open-source hardware, Skywalker, OpenLANE, ArduPilot, and embedded systems design at university and community events." />
         </Box>
       </Box>
 

@@ -119,8 +119,8 @@ const DrawerWidget = ({ onClose, isOpen }: DrawerWidgetProps) => {
                 </Text>
 
                 <DrawerLink
-                  text="design"
-                  url="/design"
+                  text="talks"
+                  url="/talks"
                   onClick={onClose}
                   accent
                 />

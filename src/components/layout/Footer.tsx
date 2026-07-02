@@ -35,7 +35,7 @@ const Footer = () => {
             { label: "hardware", href: "/hardware", external: false },
             { label: "research", href: "/research", external: false },
             { label: "open-source", href: "/open-source", external: false },
-            { label: "design", href: "/design", external: false },
+            { label: "talks", href: "/talks", external: false },
             { label: "github", href: "https://github.com/buddywhitman", external: true },
           ].map(({ label, href, external }) => {
             const sharedProps = {

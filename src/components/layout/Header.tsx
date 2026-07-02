@@ -12,7 +12,7 @@ const NAV_LINKS = [
   { text: "hardware", url: "/hardware", external: false },
   { text: "research", url: "/research", external: false },
   { text: "open-source", url: "/open-source", external: false },
-  { text: "design", url: "/design", external: false },
+  { text: "talks", url: "/talks", external: false },
   { text: "blog", url: "/blog", external: false },
   { text: "contact", url: "/contact", external: false },
 ];
