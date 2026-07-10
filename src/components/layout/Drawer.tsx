@@ -108,8 +108,8 @@ const DrawerWidget = ({ onClose, isOpen }: DrawerWidgetProps) => {
                 <DrawerLink text="research" url="/research" onClick={onClose} />
                 <DrawerLink text="open-source" url="/open-source" onClick={onClose} />
                 <DrawerLink text="blog" url="/blog" onClick={onClose} />
-                <DrawerLink text="contact" url="/contact" onClick={onClose} />
-
+                <DrawerLink text="talks" url="/talks" onClick={onClose} />
+                
                 <Box w="full" py="2">
                   <Separator borderColor="var(--synced-border)" />
                 </Box>
@@ -119,17 +119,14 @@ const DrawerWidget = ({ onClose, isOpen }: DrawerWidgetProps) => {
                 </Text>
 
                 <DrawerLink
-                  text="talks"
-                  url="/talks"
+                  text="resume"
+                  url="/resume"
                   onClick={onClose}
                   accent
                 />
+                
+                <DrawerLink text="contact" url="/contact" onClick={onClose} />
 
-                <Box w="full" py="2">
-                  <Separator borderColor="var(--synced-border)" />
-                </Box>
-
-                <DrawerLink text="resume" url="/resume" onClick={onClose} />
               </VStack>
             </MotionBox>
           </Drawer.Body>
