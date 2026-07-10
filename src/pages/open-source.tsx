@@ -66,9 +66,9 @@ const OpenSource = () => {
     fetchGitHub();
   }, []);
 
-  const LLM_REPOS = ["vidur", "vllm", "sglang", "sglang-jax", "aiter", "hr_agent"];
-  const DEV_REPOS = ["dist-gcs-pdf-processing", "listmonk", "nextarter-chakra", "vscode-go", "schedul.io", "WakeWord_Recognition", "text-to-handwriting", "VaxBot"];
-  const LINUX_REPOS = ["raspberry-pi-os", "risc-v-core", "sparrow-wifi", "earth-reverse-engineering", "github-dorks", "CloudAttack", "smartphone-bci-hardware"];
+  const LLM_REPOS = ["vidur", "vllm", "sglang", "sglang-jax", "aiter"];
+  const DEV_REPOS = ["dist-gcs-pdf-processing", "hr_agent", "WakeWord_Recognition", "VaxBot"];
+  const _REPOS = ["risc-v-core", "solarmobil/stm32h750b-dk"];
 
   const matchesCategory = (repo: any, list: string[]) => {
     if (!repo || !repo.name) return false;
@@ -88,22 +88,17 @@ const OpenSource = () => {
   const fallbackLLM = [
     { name: "sglang", nameWithOwner: "buddywhitman/sglang", description: "SGLang is a high-performance serving framework for large language models and multimodal models.", url: "https://github.com/buddywhitman/sglang", stargazerCount: 0, forkCount: 0, primaryLanguage: { name: "Python", color: "#3572A5" } },
     { name: "vllm", nameWithOwner: "buddywhitman/vllm", description: "A high-throughput and memory-efficient inference and serving engine for LLMs", url: "https://github.com/buddywhitman/vllm", stargazerCount: 0, forkCount: 0, primaryLanguage: { name: "Python", color: "#3572A5" } },
-    { name: "vidur", nameWithOwner: "buddywhitman/vidur", description: "Accurate, large-scale, and extensible simulator for LLM inference Systems", url: "https://github.com/buddywhitman/vidur", stargazerCount: 0, forkCount: 0, primaryLanguage: { name: "Python", color: "#3572A5" } },
     { name: "sglang-jax", nameWithOwner: "buddywhitman/sglang-jax", description: "JAX backend for SGL serving stack.", url: "https://github.com/buddywhitman/sglang-jax", stargazerCount: 0, forkCount: 0, primaryLanguage: { name: "Python", color: "#3572A5" } },
     { name: "aiter", nameWithOwner: "buddywhitman/aiter", description: "AI Tensor Engine for ROCm AMD GPUs.", url: "https://github.com/buddywhitman/aiter", stargazerCount: 0, forkCount: 0, primaryLanguage: { name: "Python", color: "#3572A5" } }
   ];
 
   const fallbackDev = [
     { name: "dist-gcs-pdf-processing", nameWithOwner: "buddywhitman/dist-gcs-pdf-processing", description: "Distributed Multilingual Document Processing System Built for XX-TB Scale with persistent error logging and resume capabilities.", url: "https://github.com/buddywhitman/dist-gcs-pdf-processing", stargazerCount: 1, forkCount: 1, primaryLanguage: { name: "Python", color: "#3572A5" } },
-    { name: "listmonk", nameWithOwner: "buddywhitman/listmonk", description: "High performance, self-hosted, newsletter and mailing list manager with a modern dashboard.", url: "https://github.com/buddywhitman/listmonk", stargazerCount: 0, forkCount: 0, primaryLanguage: { name: "Go", color: "#00ADD8" } },
-    { name: "nextarter-chakra", nameWithOwner: "buddywhitman/nextarter-chakra", description: "Battery packed template to initialize Next.js app with Chakra UI & TypeScript.", url: "https://github.com/buddywhitman/nextarter-chakra", stargazerCount: 0, forkCount: 0, primaryLanguage: { name: "TypeScript", color: "#3178c6" } },
     { name: "schedul.io", nameWithOwner: "buddywhitman/schedul.io", description: "An automatic task and event scheduler utilizing LLMs and message parsing.", url: "https://github.com/buddywhitman/schedul.io", stargazerCount: 0, forkCount: 0, primaryLanguage: { name: "Python", color: "#3572A5" } }
   ];
 
   const fallbackLinux = [
-    { name: "raspberry-pi-os", nameWithOwner: "buddywhitman/raspberry-pi-os", description: "Learning operating system development using Linux kernel and Raspberry Pi.", url: "https://github.com/buddywhitman/raspberry-pi-os", stargazerCount: 0, forkCount: 0, primaryLanguage: { name: "C", color: "#555555" } },
     { name: "risc-v-core", nameWithOwner: "buddywhitman/risc-v-core", description: "A RISC-V RV32I core implemented using Verilog & SystemVerilog.", url: "https://github.com/buddywhitman/risc-v-core", stargazerCount: 0, forkCount: 0, primaryLanguage: { name: "Verilog", color: "#b2b7f8" } },
-    { name: "sparrow-wifi", nameWithOwner: "buddywhitman/sparrow-wifi", description: "Next-Gen GUI-based WiFi and Bluetooth Analyzer for Linux.", url: "https://github.com/buddywhitman/sparrow-wifi", stargazerCount: 0, forkCount: 0, primaryLanguage: { name: "Python", color: "#3572A5" } }
   ];
 
   const finalLLM = loading || llmCategoryRepos.length === 0 ? fallbackLLM : llmCategoryRepos;
@@ -218,7 +213,7 @@ const OpenSource = () => {
         {/* Linux Kernel & Ecosystem */}
         <Box>
           <Flex justify="space-between" align="baseline" borderBottom="1px solid var(--synced-border)" pb={4} mb={6}>
-            <SectionHead kicker="DOWN TO METAL" title="Linux Kernel & Ecosystem" />
+            <SectionHead kicker="DOWN TO METAL" title="Embedded & VLSI" />
             <Icon as={FaTerminal} color="var(--accent)" boxSize={5} />
           </Flex>
           <SimpleGrid columns={{ base: 1, md: 2 }} gap={4}>
