@@ -114,10 +114,6 @@ const DrawerWidget = ({ onClose, isOpen }: DrawerWidgetProps) => {
                   <Separator borderColor="var(--synced-border)" />
                 </Box>
 
-                <Text className="mono-label" color="var(--synced-muted)" fontSize="9px">
-                  beyond the terminal
-                </Text>
-
                 <DrawerLink
                   text="resume"
                   url="/resume"
@@ -127,6 +123,17 @@ const DrawerWidget = ({ onClose, isOpen }: DrawerWidgetProps) => {
                 
                 <DrawerLink text="contact" url="/contact" onClick={onClose} />
 
+                <Box w="full" py="2">
+                  <Separator borderColor="var(--synced-border)" />
+                </Box>
+                
+                <Text className="mono-label" color="var(--synced-muted)" fontSize="9px">
+                  beyond the terminal
+                </Text>
+
+                <DrawerLink text="2wenzy" url="2wenzy.vercel.app" onClick={onClose} />
+                <DrawerLink text="desihippe" url="desihippe.vercel.app" onClick={onClose} />
+                
               </VStack>
             </MotionBox>
           </Drawer.Body>
