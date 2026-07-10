@@ -102,9 +102,6 @@ const Header = ({ onOpen }: HeaderProps) => {
         >
           buddywhitman
         </Text>
-        <Text as="span" className="mono-label" fontSize="9px" color="var(--synced-muted)">
-          ©2026
-        </Text>
       </Link>
 
       {/* Desktop nav */}
