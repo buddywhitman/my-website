@@ -68,7 +68,7 @@ const OpenSource = () => {
 
   const LLM_REPOS = ["vidur", "vllm", "sglang", "sglang-jax", "aiter"];
   const DEV_REPOS = ["dist-gcs-pdf-processing", "hr_agent", "WakeWord_Recognition", "VaxBot"];
-  const _REPOS = ["risc-v-core", "solarmobil/stm32h750b-dk"];
+  const LINUX_REPOS = ["risc-v-core", "solarmobil/stm32h750b-dk"];
 
   const matchesCategory = (repo: any, list: string[]) => {
     if (!repo || !repo.name) return false;
