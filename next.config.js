@@ -13,6 +13,19 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: ["@chakra-ui/react", "lucide-react", "framer-motion"],
   },
+  async headers() {
+    return [
+      {
+        source: "/.well-known/discord",
+        headers: [
+          {
+            key: "Content-Type",
+            value: "text/plain; charset=utf-8",
+          },
+        ],
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
